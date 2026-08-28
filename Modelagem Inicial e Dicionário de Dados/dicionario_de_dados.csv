@@ -1,0 +1,45 @@
+entidade,nome_coluna,tipo_primitivo,tipo_estatistico,papel_ml,descricao,dominio_exemplo,permite_nulo
+TALHAO,talhao_id,VARCHAR(64),Identificador,Metadado / ID,Identificador unico do talhao ou gleba agricola,TAL-2026-N04,Nao
+TALHAO,fazenda_nome,VARCHAR(128),Categorica Nominal,Metadado,Nome da propriedade rural ou usina,Usina Santa Adelia,Nao
+TALHAO,latitude,FLOAT,Numerica Continua,Contexto Espacial,Coordenada geografica de latitude do talhao,-21.1767,Sim
+TALHAO,longitude,FLOAT,Numerica Continua,Contexto Espacial,Coordenada geografica de longitude do talhao,-47.8208,Sim
+TALHAO,variedade_cultivar,VARCHAR(64),Categorica Nominal,Feature Contextual,Codigo da variedade genetica da cana-de-acucar,RB867515,Sim
+TALHAO,tipo_solo,VARCHAR(64),Categorica Nominal,Feature Contextual,Classificacao do solo predominante,Latossolo Vermelho,Sim
+PLANTA,planta_id,VARCHAR(64),Identificador,Metadado / ID,Identificador da planta ou touceira dentro do talhao,PLT-00482,Nao
+PLANTA,talhao_id,VARCHAR(64),Identificador / FK,Chave Estrangeira,Talhao ao qual a planta pertence,TAL-2026-N04,Nao
+PLANTA,posicao_linha,INTEGER,Numerica Discreta,Metadado Espacial,Numero da linha de plantio no talhao,12,Sim
+PLANTA,estadio_fenologico,VARCHAR(32),Categorica Ordinal,Feature Contextual,Estagio de maturacao fenologica da cana,Crescimento Intenso,Sim
+PLANTA,idade_dias,INTEGER,Numerica Discreta,Feature Contextual,Idade da planta em dias desde corte ou plantio,120,Sim
+COLETA_DATA,coleta_id,VARCHAR(64),Identificador,Metadado / ID,Identificador unico da sessao de amostragem,COL-2026-08-28-01,Nao
+COLETA_DATA,data_hora_captura,DATETIME,Temporal,Metadado Temporal,Data e horario exatos do registro em campo,2026-08-28T09:30:00Z,Nao
+COLETA_DATA,temperatura_celsius,FLOAT,Numerica Continua,Feature Contextual,Temperatura ambiente no momento da coleta em graus C,28.5,Sim
+COLETA_DATA,umidade_relativa_pct,FLOAT,Numerica Continua,Feature Contextual,Umidade relativa do ar no momento da coleta em %,65.2,Sim
+COLETA_DATA,responsavel_coleta,VARCHAR(128),Categorica Nominal,Metadado,Nome do agronomo ou tecnico coletor,Joao Silva,Sim
+IMAGEM,imagem_id,VARCHAR(64),Identificador,Metadado / Chave,Identificador exclusivo do arquivo de imagem,IMG_ROBOFLOW_00291,Nao
+IMAGEM,coleta_id,VARCHAR(64),Identificador / FK,Chave Estrangeira,Coleta a qual a imagem pertence,COL-2026-08-28-01,Sim
+IMAGEM,planta_id,VARCHAR(64),Identificador / FK,Chave Estrangeira,Planta referenciada no registro fotografico,PLT-00482,Sim
+IMAGEM,file_path_relativo,VARCHAR(255),Texto / URI,Metadado,Caminho relativo a raiz do repositorio (data/raw/ ou data/processed/),data/raw/roboflow/train/img01.jpg,Nao
+IMAGEM,data_source,VARCHAR(64),Categorica Nominal,Metadado / Origem,Fonte de origem do dataset,Roboflow | Mendeley_Data | Campo,Nao
+IMAGEM,split_dataset,VARCHAR(16),Categorica Nominal,Controle de Treino,Particao para treino validacao e teste,train | valid | test,Nao
+IMAGEM,image_width_px,INTEGER,Numerica Discreta,Metadado Tecnico,Largura da imagem em pixels,640,Nao
+IMAGEM,image_height_px,INTEGER,Numerica Discreta,Metadado Tecnico,Altura da imagem em pixels,640,Nao
+IMAGEM,num_channels,INTEGER,Numerica Discreta,Metadado Tecnico,Numero de canais de cores,3,Nao
+IMAGEM,file_extension,VARCHAR(8),Categorica Nominal,Metadado Tecnico,Formato do arquivo de imagem,jpg | png,Nao
+IMAGEM,condicao_iluminacao,VARCHAR(32),Categorica Nominal,Feature de Qualidade,Condicao de iluminacao na captura,Luz Natural Direta | Sombra | Nublado,Sim
+IMAGEM,angulo_captura,VARCHAR(32),Categorica Nominal,Feature de Qualidade,Perspectiva do registro fotografico foliar,Face Adaxial | Folha Superior,Sim
+DIAGNOSTICO,diagnostico_id,VARCHAR(64),Identificador,Metadado / ID,Identificador unico do diagnostico emitido,DIAG-00291,Nao
+DIAGNOSTICO,imagem_id,VARCHAR(64),Identificador / FK,Chave Estrangeira,Imagem associada ao diagnostico,IMG_ROBOFLOW_00291,Nao
+DIAGNOSTICO,target_doenca_classe,VARCHAR(64),Categorica Nominal,Variavel Alvo Principal,Nome da patologia identificada na folha,Saudavel | Podridao_Vermelha | Mosaico | Ferrugem | Mancha_Amarela | Carvao | Escaldadura,Nao
+DIAGNOSTICO,target_doenca_cod,INTEGER,Categorica Discreta (ID),Target Codificado,Identificador numerico da classe para Loss function,0 a 5,Nao
+DIAGNOSTICO,target_is_doente,BOOLEAN,Binaria / Booleana,Variavel Alvo Binaria,Indicador booleano de presenca de doenca,True | False,Nao
+DIAGNOSTICO,target_grau_severidade_pct,FLOAT,Numerica Continua,Target Secundario (Regressao),Percentual estimado de area foliar lesionada,0.0 a 100.0,Sim
+DIAGNOSTICO,confianca_anotacao,FLOAT,Numerica Continua,Peso de Amostra,Confiabilidade da anotacao feita por especialista,0.0 a 1.0,Sim
+DIAGNOSTICO,tem_sintoma_visivel,BOOLEAN,Binaria,Validacao de Rotulo,Flag de presenca evidente de lesao visual,True | False,Nao
+FEATURES_EXTRACTED,feature_id,VARCHAR(64),Identificador,Metadado / ID,Identificador unico do vetor de caracteristicas,FEAT-00291,Nao
+FEATURES_EXTRACTED,imagem_id,VARCHAR(64),Identificador / FK,Chave Estrangeira,Imagem da qual foram extraidas as features,IMG_ROBOFLOW_00291,Nao
+FEATURES_EXTRACTED,exg_mean,FLOAT,Numerica Continua,Feature Candidata,Media do indice Excess Green 2G - R - B,24.3,Sim
+FEATURES_EXTRACTED,hsv_hue_mean,FLOAT,Numerica Continua,Feature Candidata,Matiz medio de cor na folha,78.5,Sim
+FEATURES_EXTRACTED,glcm_contrast,FLOAT,Numerica Continua,Feature Candidata,Contraste de textura via GLCM,0.85,Sim
+FEATURES_EXTRACTED,glcm_homogeneity,FLOAT,Numerica Continua,Feature Candidata,Homogeneidade de textura foliar via GLCM,0.64,Sim
+FEATURES_EXTRACTED,lesion_bbox_count,INTEGER,Numerica Discreta,Feature Candidata,Numero de focos ou bounding boxes de lesao,3,Sim
+FEATURES_EXTRACTED,embedding_vector,ARRAY[FLOAT],Vetor / Tensor,Feature de Deep Learning,Vetor denso gerado por backbone de visao,[-0.12, 0.44, ...],Sim
