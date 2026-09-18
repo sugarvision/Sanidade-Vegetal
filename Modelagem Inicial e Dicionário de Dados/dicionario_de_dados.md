@@ -152,6 +152,13 @@ A tabela a seguir consolida o catálogo completo de variáveis da Tabela Analít
 | **ABT** | `glcm_homogeneity` | `FLOAT` | Numérica Contínua | **Feature Preditiva Contínua** | $\sum_{i,j} \frac{p(i,j)}{1 + \|i-j\|^2}$ | Adimensional | $[0.0, 1.0]$ | Homogeneidade de Haralick; avalia a lisura contínua da cutícula vegetal. | Não |
 | **ABT** | `glcm_energy` | `FLOAT` | Numérica Contínua | **Feature Preditiva Contínua** | $\sqrt{\sum_{i,j} p(i,j)^2}$ | Adimensional | $[0.0, 1.0]$ | Energia de Haralick / Segundo Momento Angular ASM (repetição de padrão). | Não |
 | **ABT** | `indice_rugosidade_pustula`| `FLOAT`| Numérica Contínua | **Feature Preditiva Contínua** | $\frac{\text{contrast} \times \text{dissimilarity}}{\text{homogeneity} + \epsilon}$ | Adimensional | $[0.0, +\infty[$ | Índice IRFP amplificando relevo microestrutural rugoso provocado por pústulas. | Não |
+| **ABT** | `total_pixels` | `INTEGER` | Numérica Discreta | **Feature Preditiva Discreta** | $\text{width} \times \text{height}$ | Pixels (px) | $[409600, 24160256]$ | Quantidade total de elementos de imagem da matriz da fotografia original. | Não |
+| **ABT** | `resolution_mp` | `FLOAT` | Numérica Contínua | **Feature Preditiva Contínua** | $\text{total\_pixels} / 10^6$ | Megapixels (MP) | $[0.41, 24.16]$ | Resolução espacial contínua expressa em milhões de pixels. | Não |
+| **ABT** | `aspect_ratio` | `FLOAT` | Numérica Contínua | **Feature Preditiva Contínua** | $\text{width} / \text{height}$ | Razão adimensional | $[0.49, 2.76]$ | Razão de aspecto entre largura e altura da imagem. | Não |
+| **ABT** | `size_kb_bin` | `INTEGER` | Categórica Ordinal | **Feature Preditiva Discreta** | $\text{KBinsDiscretizer}(\text{quantile}, k=4)$ | Faixa ordinal $[0, 3]$ | $\{0, 1, 2, 3\}$ | Discretização em 4 quartis de volume de arquivo (Muito Leve a Pesado). | Não |
+| **ABT** | `laplacian_var_bin` | `INTEGER` | Categórica Ordinal | **Feature Preditiva Discreta** | $\text{KBinsDiscretizer}(\text{quantile}, k=4)$ | Faixa ordinal $[0, 3]$ | $\{0, 1, 2, 3\}$ | Discretização em 4 quartis de nitidez/foco fotográfico (Blur Leve a Ultra Foco). | Não |
+| **ABT** | `resolution_bin` | `INTEGER` | Categórica Ordinal | **Feature Preditiva Discreta** | $\text{KBinsDiscretizer}(\text{kmeans}, k=3)$ | Faixa ordinal $[0, 2]$ | $\{0, 1, 2\}$ | Discretização em 3 tiers físicos de resolução (Baixa 640px, Média, Alta DSLR). | Não |
+| **ABT** | `aspect_ratio_bin` | `INTEGER` | Categórica Ordinal | **Feature Preditiva Discreta** | $\text{KBinsDiscretizer}(\text{kmeans}, k=3)$ | Faixa ordinal $[0, 2]$ | $\{0, 1, 2\}$ | Discretização em 3 orientações geométricas (Retrato, Quadrado, Paisagem). | Não |
 | **CONTEXTO** | `talhao_id` | `VARCHAR(64)` | Identificador | **Identificador** | Atribuição cadastral | Adimensional (Código) | String alfanumérica única | Identificador único do talhão ou gleba agrícola no sistema da usina. | Não |
 | **CONTEXTO** | `fazenda_nome` | `VARCHAR(128)` | Categórica Nominal | **Metadado Técnico** | Cadastro da propriedade | Texto | Nomes cadastrados | Nome da usina sucroalcooleira ou propriedade rural onde está o plantio. | Não |
 | **CONTEXTO** | `latitude` | `FLOAT` | Numérica Contínua | **Feature Preditiva Contínua** | Receptor GNSS / WGS84 | Graus decimais ($^\circ$) | $[-90.0^\circ, +90.0^\circ]$ | Coordenada geográfica de latitude do talhão agrícola. | Sim |
@@ -336,6 +343,14 @@ $$\text{Padrão Regex: } \wedge[a\_z][a\_z0-9\_]*\$$$
 | `responsavel_coleta` | Sim | Sim | Sim | Sim | Aprovado |
 | `lesion_bbox_count` | Sim | Sim | Sim | Sim | Aprovado |
 | `embedding_vector` | Sim | Sim | Sim | Sim | Aprovado |
+| `total_pixels` | Sim | Sim | Sim | Sim | Aprovado |
+| `resolution_mp` | Sim | Sim | Sim | Sim | Aprovado |
+| `aspect_ratio` | Sim | Sim | Sim | Sim | Aprovado |
+| `size_kb_bin` | Sim | Sim | Sim | Sim | Aprovado |
+| `laplacian_var_bin` | Sim | Sim | Sim | Sim | Aprovado |
+| `resolution_bin` | Sim | Sim | Sim | Sim | Aprovado |
+| `aspect_ratio_bin` | Sim | Sim | Sim | Sim | Aprovado |
 
 > [!NOTE]
-> **Resultado da Auditoria:** 100% das 48 variáveis catalogadas atendem integralmente ao padrão `snake_case`, sem ocorrência de caracteres especiais acentuados, maiúsculas ou espaços em branco.
+> **Resultado da Auditoria:** 100% das 56 variáveis catalogadas atendem integralmente ao padrão `snake_case`, sem ocorrência de caracteres especiais acentuados, maiúsculas ou espaços em branco.
+
