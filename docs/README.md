@@ -45,3 +45,12 @@
 - **[`./figures/sprint2_analise_cromaticas_hsv_exg.png`](./figures/sprint2_analise_cromaticas_hsv_exg.png)**: Diagnóstico visual dos índices cromáticos e espectrais.
 - **[`./figures/sprint2_analise_texturas_glcm_haralick.png`](./figures/sprint2_analise_texturas_glcm_haralick.png)**: Diagnóstico visual dos descritores texturais de Haralick.
 
+### 7. Construção do Pipeline Atômico com ColumnTransformer e Anti-Leakage (Elisa)
+- **[`../Pipeline Atômico de Pré-processamento e Anti-Leakage/README.md`](../Pipeline%20At%C3%B4mico%20de%20Pr%C3%A9-processamento%20e%20Anti-Leakage/README.md)**: Resumo executivo da entrega e cobertura de 100% do checklist da Sprint 2.
+- **[`../Pipeline Atômico de Pré-processamento e Anti-Leakage/pipeline_atomico_columntransformer.md`](../Pipeline%20At%C3%B4mico%20de%20Pr%C3%A9-processamento%20e%20Anti-Leakage/pipeline_atomico_columntransformer.md)**: Documentação técnica completa da arquitetura atômica, sub-pipelines numérico/categórico, auditoria matemática anti-leakage e governança MLOps.
+- **[`../src/atomic_pipeline_preprocessing.py`](../src/atomic_pipeline_preprocessing.py)**: Módulo Python executável de pré-processamento atômico, testes de conformidade e serialização.
+- **[`../notebooks/06_pipeline_atomico_columntransformer.ipynb`](../notebooks/06_pipeline_atomico_columntransformer.ipynb)**: Notebook executável auditável de ponta a ponta com diagrama interativo e testes.
+- **[`../models/preprocessor_pipeline.joblib`](../models/preprocessor_pipeline.joblib)**: Pipeline de pré-processamento serializado e comprimido (2,58 KB) pronto para a Sprint 3.
+- **[`../models/preprocessor_metadata.json`](../models/preprocessor_metadata.json)**: Manifesto de governança MLOps com hash SHA-256 e schema das 35 features resultantes.
+- **[`../data/processed/abt_features_modelagem.parquet`](../data/processed/abt_features_modelagem.parquet)**: Tabela Analítica Base consolidada com 6.571 registros e zero valores ausentes.
+

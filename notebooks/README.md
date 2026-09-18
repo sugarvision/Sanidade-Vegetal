@@ -10,6 +10,7 @@
 | :--- | :--- | :--- | :---: |
 | **[`01_ingestao_dados_brutos.ipynb`](./01_ingestao_dados_brutos.ipynb)** | Notebook de ingestão inicial dos arquivos de imagem brutos, validação física de integridade e catálogo de metadados. | Elisa (Engenharia) / Guilherme | `Sample` |
 | **[`02_sprint1_master_pipeline_reprodutivel.ipynb`](./02_sprint1_master_pipeline_reprodutivel.ipynb)** | **Master Pipeline Reprodutível da Sprint 1:** Execução unificada de ponta a ponta (Ingestão $\rightarrow$ Amostragem Estratificada $\rightarrow$ Auditoria de Qualidade $\rightarrow$ EDA Univariada/Multivariada $\rightarrow$ Consolidação da ABT). | Cesar / Equipe | `Sample` & `Explore` |
+| **[`06_pipeline_atomico_columntransformer.ipynb`](./06_pipeline_atomico_columntransformer.ipynb)** | **Pipeline Atômico de Pré-processamento e Anti-Leakage (Sprint 2):** Fluxo unificado no Scikit-Learn com `ColumnTransformer`, imputação por mediana, normalização z-score, codificação One-Hot, validação estrita anti-leakage e serialização MLOps com `joblib`. | Elisa (`EA`) | `Modify` |
 
 ---
 
