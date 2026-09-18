@@ -54,3 +54,12 @@
 - **[`../models/preprocessor_metadata.json`](../models/preprocessor_metadata.json)**: Manifesto de governança MLOps com hash SHA-256 e schema das 35 features resultantes.
 - **[`../data/processed/abt_features_modelagem.parquet`](../data/processed/abt_features_modelagem.parquet)**: Tabela Analítica Base consolidada com 6.571 registros e zero valores ausentes.
 
+### 8. Consolidação e Exportação da ABT Final (Elisa)
+- **[`../Consolidação e Exportação da ABT Final/README.md`](../Consolida%C3%A7%C3%A3o%20e%20Exporta%C3%A7%C3%A3o%20da%20ABT%20Final/README.md)**: Resumo executivo da entrega e cobertura de 100% do checklist da Sprint 2.
+- **[`../Consolidação e Exportação da ABT Final/consolidacao_exportacao_abt_final.md`](../Consolida%C3%A7%C3%A3o%20e%20Exporta%C3%A7%C3%A3o%20da%20ABT%20Final/consolidacao_exportacao_abt_final.md)**: Documentação técnica detalhada, auditoria estrita de 0 NaNs, benchmark de I/O (Parquet vs CSV) e contrato de integração com GridSearchCV.
+- **[`../src/export_final_modeling_abt.py`](../src/export_final_modeling_abt.py)**: Script executável de consolidação, auditoria automatizada, hashes SHA-256 e smoke test com GridSearchCV.
+- **[`../notebooks/07_consolidacao_exportacao_abt_final.ipynb`](../notebooks/07_consolidacao_exportacao_abt_final.ipynb)**: Notebook executável demonstrando benchmark de leitura, integridade dos alvos e prontidão para a Sprint 3.
+- **[`../data/processed/abt_features_modelagem.parquet`](../data/processed/abt_features_modelagem.parquet)**: Tabela Analítica Base final em Apache Parquet (916,92 KB, Snappy, 6.571 x 40).
+- **[`../data/processed/abt_features_modelagem.csv`](../data/processed/abt_features_modelagem.csv)**: Espelho em texto plano CSV para interoperabilidade e auditoria (2.989,66 KB).
+- **[`../data/processed/abt_features_modelagem_manifest.json`](../data/processed/abt_features_modelagem_manifest.json)**: Manifesto de integridade com hashes criptográficos SHA-256 e estatísticas.
+

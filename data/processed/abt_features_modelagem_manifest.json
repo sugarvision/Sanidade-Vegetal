@@ -1,0 +1,112 @@
+{
+  "artifact_name": "abt_features_modelagem",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "sprint": "Sprint 2 (Fase Modify)",
+  "responsible": "Elisa",
+  "generated_at": "2026-09-18 09:55:23",
+  "files": {
+    "parquet": {
+      "filename": "abt_features_modelagem.parquet",
+      "path": "C:\\Users\\ELISAALMEIDAALCANTAR\\Documents\\Sanidade-Vegetal\\data\\processed\\abt_features_modelagem.parquet",
+      "size_bytes": 938926,
+      "size_kb": 916.92,
+      "size_mb": 0.895,
+      "sha256": "e6bd41ebff356e2c2e6be8985f0026dfb0a11364c4c4f729657223cf103c4340"
+    },
+    "csv": {
+      "filename": "abt_features_modelagem.csv",
+      "path": "C:\\Users\\ELISAALMEIDAALCANTAR\\Documents\\Sanidade-Vegetal\\data\\processed\\abt_features_modelagem.csv",
+      "size_bytes": 3061407,
+      "size_kb": 2989.66,
+      "size_mb": 2.92,
+      "sha256": "b37d65c2bd7928eb2e76948b3540542a17ecdc28b000cffa2e990731e4128edc"
+    }
+  },
+  "shape": {
+    "rows": 6571,
+    "columns": 40
+  },
+  "column_groups": {
+    "metadata_and_targets": [
+      "sample_id",
+      "split_partition",
+      "class_label",
+      "target_binary",
+      "target_multiclass"
+    ],
+    "predictive_features": [
+      "mean_hue",
+      "std_saturation",
+      "exg_index",
+      "exr_index",
+      "rg_ratio",
+      "indice_clorose_necrose",
+      "hue_dispersion",
+      "glcm_contrast",
+      "glcm_homogeneity",
+      "glcm_dissimilarity",
+      "glcm_energy",
+      "indice_rugosidade_pustula",
+      "laplacian_var",
+      "size_kb",
+      "total_pixels",
+      "resolution_mp",
+      "aspect_ratio",
+      "dataset_source_mendeley_data",
+      "dataset_source_roboflow_sugarcane",
+      "extension_.jpeg",
+      "extension_.jpg",
+      "size_kb_bin_0",
+      "size_kb_bin_1",
+      "size_kb_bin_2",
+      "size_kb_bin_3",
+      "laplacian_var_bin_0",
+      "laplacian_var_bin_1",
+      "laplacian_var_bin_2",
+      "laplacian_var_bin_3",
+      "resolution_bin_0",
+      "resolution_bin_1",
+      "resolution_bin_2",
+      "aspect_ratio_bin_0",
+      "aspect_ratio_bin_1",
+      "aspect_ratio_bin_2"
+    ]
+  },
+  "audit": {
+    "status": "APPROVED",
+    "rows": 6571,
+    "columns": 40,
+    "total_nulls": 0,
+    "partitions": {
+      "train": 5574,
+      "valid": 617,
+      "test": 380
+    },
+    "classes": {
+      "RED ROT": 1268,
+      "MOSAIC": 1257,
+      "YELLOW LEAF": 1198,
+      "HEALTHY": 1146,
+      "RUST": 1057,
+      "LEAF SCALD": 439,
+      "GRASSY SHOOT": 206
+    },
+    "binary_distribution": {
+      "1": 5425,
+      "0": 1146
+    }
+  },
+  "io_benchmark": {
+    "parquet": {
+      "size_kb": 916.92,
+      "read_ms": 36.19
+    },
+    "csv": {
+      "size_kb": 2989.66,
+      "read_ms": 51.01
+    },
+    "compression_gain": 3.26,
+    "speedup_factor": 1.41
+  },
+  "readiness_sprint_3": "APPROVED"
+}
