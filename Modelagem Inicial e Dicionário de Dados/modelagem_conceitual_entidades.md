@@ -77,13 +77,22 @@ erDiagram
     }
 
     FEATURES_EXTRACTED {
-        string feature_id PK
+        string sample_id PK "UUID da Amostra"
         string imagem_id FK
-        float exg_mean
-        float hsv_hue_mean
-        float glcm_contrast
-        float glcm_homogeneity
-        int lesion_bbox_count
+        float mean_hue "Matiz Médio HSV"
+        float std_saturation "Desvio Saturação HSV"
+        float exg_index "Excesso de Verde (2G-R-B)"
+        float exr_index "Excesso de Vermelho (1.4R-G)"
+        float rg_ratio "Razão Espectral R/G"
+        float indice_clorose_necrose "Índice ICN"
+        float hue_dispersion "Dispersão Matiz"
+        float glcm_contrast "Contraste Haralick"
+        float glcm_dissimilarity "Dissimilaridade Haralick"
+        float glcm_homogeneity "Homogeneidade Haralick"
+        float glcm_energy "Energia/ASM Haralick"
+        float indice_rugosidade_pustula "Índice IRFP"
+        float laplacian_var "Variância do Laplaciano"
+        int lesion_bbox_count "Contagem de BBoxes"
         array embedding_vector "TENSOR EMBEDDING"
     }
 ```
@@ -127,8 +136,12 @@ erDiagram
   * Indicador binário (`target_is_doente`).
   * Percentual de severidade da área foliar lesionada.
 
-### 6. `FEATURES_EXTRACTED` (Espaço de Características para ML)
-* **Conceito:** Vetor numérico derivado para treinamento de modelos híbridos (Visão + Tabular) ou modelos leves (*LightGBM / XGBoost / SVM* sobre embeddings e métricas GLCM/HSV).
+### 6. `FEATURES_EXTRACTED` (Espaço de Características da Sprint 2)
+* **Conceito:** Vetor numérico tabular multivariado extraído de cada imagem foliar, incorporando:
+  * **Descritores Cromáticos:** Matiz Médio (`mean_hue`), Desvio de Saturação (`std_saturation`), Excesso de Verde (`exg_index`), Excesso de Vermelho (`exr_index`), Razão Espectral (`rg_ratio`), Índice de Clorose e Necrose (`indice_clorose_necrose`) e Dispersão de Matiz (`hue_dispersion`).
+  * **Descritores Texturais Haralick (GLCM):** Contraste (`glcm_contrast`), Dissimilaridade (`glcm_dissimilarity`), Homogeneidade (`glcm_homogeneity`), Energia/ASM (`glcm_energy`) e Índice Composto de Rugosidade Foliar de Pústula (`indice_rugosidade_pustula`).
+  * **Qualidade de Imagem:** Variância do Laplaciano (`laplacian_var`), dimensões e peso em disco.
+* **Consolidação na ABT:** Todas essas variáveis unem-se aos targets (`class_label`, `target_binary`, `target_multiclass`) e metadados de particionamento (`split_partition`) no arquivo final `data/processed/abt_sanidade_vegetal.csv` (28 colunas), servindo como entrada direta para treinamento de Support Vector Machines (SVM) e modelos tabulares.
 
 ---
 
