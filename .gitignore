@@ -1,0 +1,53 @@
+# ==========================================
+# Datasets & Large Data
+# ==========================================
+# Ignora todos os arquivos dentro da pasta datasets e suas subpastas (imagens, zips, etc.)
+datasets/**
+# Permite navegar pelas subpastas para encontrar arquivos não ignorados
+!datasets/**/
+# Preserva a estrutura de diretórios rastreando os marcadores .gitkeep
+!datasets/**/.gitkeep
+
+# Extensões comuns de dados brutos e modelos
+*.zip
+*.tar.gz
+*.rar
+*.7z
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.onnx
+*.pkl
+*.parquet
+
+# ==========================================
+# Python & Ambientes Virtuais
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+dist/
+*.egg-info/
+
+# ==========================================
+# Jupyter Notebooks & Checkpoints
+# ==========================================
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# ==========================================
+# IDEs e Sistema
+# ==========================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+datasets/mendeley_data/.gitkeep
+datasets/roboflow_sugarcane/.gitkeep
