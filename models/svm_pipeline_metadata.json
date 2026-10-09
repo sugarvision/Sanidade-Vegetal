@@ -1,0 +1,95 @@
+{
+  "pipeline_name": "atomic_svm_pipeline_anti_leakage",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "sprint": "Sprint 3 — Modelagem e Otimização",
+  "sprint_task": "Integração Atômica do Estimador SVM ao Pipeline Anti-Leakage",
+  "responsible": "Elisa (Engenharia de Machine Learning & MLOps)",
+  "timestamp": "2026-10-09 11:14:43",
+  "framework": {
+    "scikit_learn_version": "1.6.1",
+    "joblib_version": "1.4.2",
+    "python_version": "3.13.5"
+  },
+  "artifact": {
+    "filename": "svm_pipeline_baseline.joblib",
+    "path": "C:\\Users\\elisa\\OneDrive\\Documentos\\Sanidade-Vegetal\\models\\svm_pipeline_baseline.joblib",
+    "size_kb": 410.1,
+    "sha256": "7acfd46fc35d889797377d826feb4fbd6a4e70c6a80fddc9c4fe4bb789035f89"
+  },
+  "pipeline_architecture": {
+    "steps": [
+      {
+        "step_name": "preprocessor",
+        "class": "ColumnTransformer"
+      },
+      {
+        "step_name": "svm",
+        "class": "SVC"
+      }
+    ],
+    "preprocessor_details": {
+      "numeric_features_count": 17,
+      "categorical_features_count": 6,
+      "total_output_features": 35,
+      "scaling": "StandardScaler()",
+      "imputation_numeric": "SimpleImputer(strategy='median')",
+      "imputation_categorical": "SimpleImputer(strategy='most_frequent')",
+      "encoding": "OneHotEncoder(sparse_output=False, handle_unknown='ignore')"
+    },
+    "svm_hyperparameters_baseline": {
+      "kernel": "rbf",
+      "C": 1.0,
+      "gamma": "scale",
+      "probability": true,
+      "class_weight": "balanced",
+      "random_state": 42,
+      "n_support_vectors": 3518
+    }
+  },
+  "anti_leakage_audit": {
+    "status": "APPROVED",
+    "k_fold_stratified_splits": 5,
+    "mean_cv_accuracy": 0.6441,
+    "std_cv_accuracy": 0.0087,
+    "mean_cv_f1_macro": 0.5759,
+    "std_cv_f1_macro": 0.006,
+    "isolation_verified": true,
+    "adversarial_perturbation_test": "PASSED"
+  },
+  "validation_metrics_multiclass": {
+    "accuracy": 0.6159,
+    "f1_macro": 0.5707,
+    "f1_weighted": 0.5583,
+    "log_loss": 0.7114,
+    "fit_time_seconds": 2.302,
+    "inference_time_ms": 120.74
+  },
+  "readiness_for_gridsearch": {
+    "status": "READY",
+    "recommended_param_grid": {
+      "svm__C": [
+        0.1,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "svm__kernel": [
+        "linear",
+        "rbf",
+        "poly"
+      ],
+      "svm__gamma": [
+        "scale",
+        "auto",
+        0.01,
+        0.1
+      ],
+      "svm__degree": [
+        2,
+        3
+      ]
+    },
+    "cv_strategy": "StratifiedKFold(n_splits=5, shuffle=True, random_state=42)",
+    "primary_scoring": "f1_macro"
+  }
+}
