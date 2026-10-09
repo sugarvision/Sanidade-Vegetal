@@ -45,17 +45,30 @@ from sklearn.calibration import calibration_curve
 import joblib
 
 # Importar construtor e taxonomia da Sprint 2
-from atomic_pipeline_preprocessing import (
-    build_atomic_column_transformer,
-    get_column_taxonomy,
-    NUMERICAL_FEATURES,
-    DISCRETIZED_FEATURES,
-    CATEGORICAL_NOMINAL_FEATURES,
-    ALL_CATEGORICAL_FEATURES,
-    METADATA_DROPPED_COLUMNS,
-    TARGET_COLUMNS,
-    SPLIT_COLUMN
-)
+try:
+    from atomic_pipeline_preprocessing import (
+        build_atomic_column_transformer,
+        get_column_taxonomy,
+        NUMERICAL_FEATURES,
+        DISCRETIZED_FEATURES,
+        CATEGORICAL_NOMINAL_FEATURES,
+        ALL_CATEGORICAL_FEATURES,
+        METADATA_DROPPED_COLUMNS,
+        TARGET_COLUMNS,
+        SPLIT_COLUMN
+    )
+except ImportError:
+    from src.atomic_pipeline_preprocessing import (
+        build_atomic_column_transformer,
+        get_column_taxonomy,
+        NUMERICAL_FEATURES,
+        DISCRETIZED_FEATURES,
+        CATEGORICAL_NOMINAL_FEATURES,
+        ALL_CATEGORICAL_FEATURES,
+        METADATA_DROPPED_COLUMNS,
+        TARGET_COLUMNS,
+        SPLIT_COLUMN
+    )
 
 
 # ==============================================================================

@@ -1,0 +1,103 @@
+{
+  "pipeline_name": "svm_pipeline_optimal_gridsearch",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "sprint": "Sprint 3 — Modelagem e Otimização",
+  "sprint_task": "Configuração e Execução do Grid Search Exaustivo (GridSearchCV)",
+  "responsible": "Elisa (Engenharia de Machine Learning & MLOps)",
+  "timestamp": "2026-10-09 11:50:26",
+  "framework": {
+    "scikit_learn_version": "1.6.1",
+    "joblib_version": "1.4.2",
+    "python_version": "3.13.5"
+  },
+  "artifact": {
+    "filename": "svm_pipeline_optimal.joblib",
+    "path": "C:\\Users\\elisa\\OneDrive\\Documentos\\Sanidade-Vegetal\\models\\svm_pipeline_optimal.joblib",
+    "size_kb": 393.75,
+    "sha256": "09ef37ca5a0cb839f876fc779f6a0a6c711a6fdc54fef3ef6bbe7150ec6fc208"
+  },
+  "search_configuration": {
+    "search_strategy": "GridSearchCV",
+    "cv": "StratifiedKFold(n_splits=5, shuffle=True, random_state=42)",
+    "primary_scoring": "f1_macro",
+    "refit_metric": "f1_macro",
+    "total_candidates": 31,
+    "total_fits": 155,
+    "execution_time_seconds": 52.92
+  },
+  "best_hyperparameters": {
+    "svm__C": 10.0,
+    "svm__gamma": 0.01,
+    "svm__kernel": "rbf"
+  },
+  "best_cv_score_f1_macro": 0.5773540612256906,
+  "independent_validation_metrics": {
+    "accuracy": 0.6207,
+    "f1_macro": 0.5757,
+    "f1_weighted": 0.5624,
+    "log_loss": 0.7085,
+    "report": {
+      "GRASSY SHOOT": {
+        "precision": 0.10526315789473684,
+        "recall": 0.3,
+        "f1-score": 0.15584415584415584,
+        "support": 20.0
+      },
+      "HEALTHY": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 95.0
+      },
+      "LEAF SCALD": {
+        "precision": 0.5729166666666666,
+        "recall": 0.873015873015873,
+        "f1-score": 0.6918238993710691,
+        "support": 63.0
+      },
+      "MOSAIC": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 154.0
+      },
+      "RED ROT": {
+        "precision": 0.6595744680851063,
+        "recall": 0.6595744680851063,
+        "f1-score": 0.6595744680851063,
+        "support": 94.0
+      },
+      "RUST": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 91.0
+      },
+      "YELLOW LEAF": {
+        "precision": 0.40437158469945356,
+        "recall": 0.74,
+        "f1-score": 0.5229681978798587,
+        "support": 100.0
+      },
+      "accuracy": 0.6207455429497569,
+      "macro avg": {
+        "precision": 0.5345894110494233,
+        "recall": 0.6532271915858542,
+        "f1-score": 0.5757443887400271,
+        "support": 617.0
+      },
+      "weighted avg": {
+        "precision": 0.5293941193319937,
+        "recall": 0.6207455429497569,
+        "f1-score": 0.5623964482418904,
+        "support": 617.0
+      }
+    }
+  },
+  "independent_test_metrics": {
+    "accuracy": 0.6079,
+    "f1_macro": 0.6054,
+    "f1_weighted": 0.5475
+  },
+  "production_status": "HOMOLOGATED_OPTIMAL"
+}
