@@ -29,3 +29,7 @@ Esta entrega consolida o **Diagnóstico Visual e Morfométrico das Amostras**, a
 | **Registrar dificuldade de classificação visual** | Concluído | Seção 3 de [`analise_padroes_visuais_e_desafios.md`](./analise_padroes_visuais_e_desafios.md) |
 | **Observar iluminação, fundo, resolução e ruído** | Concluído | Seção 4 de [`analise_padroes_visuais_e_desafios.md`](./analise_padroes_visuais_e_desafios.md) |
 | **Documentar desafios visuais** | Concluído | Seção 5 de [`analise_padroes_visuais_e_desafios.md`](./analise_padroes_visuais_e_desafios.md) |
+| **Detectar outliers por IQR e Z-score robusto** | Implementado; execução pendente das imagens | Seção 6 e [`notebook de outliers`](../notebooks/05_tratamento_outliers_sprint1.ipynb) |
+| **Inspecionar imagens dos valores extremos** | Implementado; execução pendente das imagens | Seção 6 do notebook de outliers |
+| **Justificar tratamento e comparar distribuições** | Regra definida; gráficos pendentes da execução | Seção 6 de [`analise_padroes_visuais_e_desafios.md`](./analise_padroes_visuais_e_desafios.md) |
+| **Relatório estatístico com boxplots** | Geração implementada; resultados pendentes das imagens | Saídas automáticas em `docs/` e `data/processed/` ao executar o [`notebook`](../notebooks/05_tratamento_outliers_sprint1.ipynb) |

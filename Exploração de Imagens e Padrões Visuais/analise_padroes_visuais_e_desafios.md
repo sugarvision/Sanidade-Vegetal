@@ -120,3 +120,28 @@ flowchart TD
 1. **Segmentação Foliar via Máscara de Excesso de Verde ($ExG > 0$):** Isola a lâmina da folha, removendo solo e interferências de fundo antes do cálculo estatístico.
 2. **Equalização de Contraste Adaptativo (CLAHE):** Mitiga sombras e homogeneíza a iluminação entre amostras de dias ensolarados e nublados.
 3. **Ponderação Direcional no GLCM:** Calcular a média dos ângulos $\theta \in \{0^\circ, 45^\circ, 90^\circ, 135^\circ\}$ para garantir invariância à rotação da folha na captura.
+
+---
+
+## 6. Diagnóstico, Detecção e Tratamento de Outliers Fotométricos
+
+### 6.1 Método implementado
+
+O notebook [`05_tratamento_outliers_sprint1.ipynb`](../notebooks/05_tratamento_outliers_sprint1.ipynb) extrai métricas diretamente dos pixels RGB, sem utilizar features simuladas: matiz médio, dispersão da saturação, índices ExG/ExR, contraste e homogeneidade de pares de pixels vizinhos, variância do Laplaciano e frações de pixels superexpostos e sombreados. As imagens são redimensionadas para $256 \times 256$ para padronizar o cálculo. Como não há segmentação da folha nesta etapa, fundo e objetos no enquadramento também influenciam as métricas e devem ser considerados durante a inspeção.
+
+São aplicados dois critérios complementares por feature:
+
+- **IQR:** valores abaixo de $Q1 - 1{,}5 \times IQR$ ou acima de $Q3 + 1{,}5 \times IQR$.
+- **Z-score robusto:** $0{,}6745 \times (x - mediana) / MAD$, sinalizando $|z| > 3{,}5$. Quando $MAD = 0$, valores diferentes da mediana são sinalizados, evitando divisão por zero.
+
+Se `split_partition` contiver a partição `train`, estatísticas de referência e limites de tratamento são ajustados nela e aplicados sem reajuste às demais partições. Na ausência de uma partição identificável, o notebook informa que usou todas as imagens disponíveis; esse resultado exploratório não deve ser usado como avaliação sem vazamento.
+
+### 6.2 Regra de tratamento e justificativa
+
+A regra padrão é a **winsorização entre os percentis 1 e 99**, sem exclusão automática de instâncias. Ela reduz a influência de leituras extremas sobre a escala das features e preserva amostras potencialmente válidas de doenças severas. Um valor extremo só deve ser removido após inspeção visual confirmar falha de captura ou corrupção do arquivo; um extremo estatístico, isoladamente, não prova erro fotográfico.
+
+O notebook apresenta imagens sinalizadas pelos dois métodos e compara as distribuições originais e tratadas em boxplots interativos. Gera também a tabela-resumo por feature, a auditoria por amostra e um relatório Markdown em `docs/relatorio_outliers_fotometricos.md`.
+
+### 6.3 Status dos resultados nesta cópia do projeto
+
+A ABT disponível tem **6.571 registros e 13 colunas de metadados**, sem features fotométricas. Neste ambiente, os caminhos absolutos registrados apontam para Windows e nenhum arquivo de imagem foi localizado por `relative_path`; portanto, **0/6.571 imagens foram analisadas**. Não há contagens observadas de outliers, inspeção visual concluída ou comparação estatística antes/depois a reportar ainda. O notebook interrompe a geração de artefatos nesse cenário e não sobrescreve uma ABT tratada incompleta. Os valores numéricos desta seção devem ser preenchidos a partir da execução com as imagens acessíveis, não inferidos dos dados simulados de outros notebooks.
