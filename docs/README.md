@@ -63,3 +63,15 @@
 - **[`../data/processed/abt_features_modelagem.csv`](../data/processed/abt_features_modelagem.csv)**: Espelho em texto plano CSV para interoperabilidade e auditoria (2.989,66 KB).
 - **[`../data/processed/abt_features_modelagem_manifest.json`](../data/processed/abt_features_modelagem_manifest.json)**: Manifesto de integridade com hashes criptográficos SHA-256 e estatísticas.
 
+### 🏆 Relatórios Executivos e Apresentação do Demoday 2 (Fase Modify)
+- **[`./Relato_da_Solucao_Volume_2_Engenharia_de_Features.docx`](./Relato_da_Solucao_Volume_2_Engenharia_de_Features.docx)**: Relatório executivo e técnico oficial do **Volume 2** em formato Microsoft Word (`.docx`), com banner institucional, tabelas estilizadas, caixas de destaque e imagens diagnósticas incorporadas.
+- **[`./relato_da_solucao_volume_2.md`](./relato_da_solucao_volume_2.md)**: Versão completa em Markdown do Relato da Solução — Volume 2 para leitura e versionamento Git.
+- **[`./Apresentacao_Demoday_2_Executiva_Resumida.pptx`](./Apresentacao_Demoday_2_Executiva_Resumida.pptx)**: **Apresentação Executiva Ultra-Resumida (.pptx)**: Slide deck direto de 6 slides sintetizando os 4 blocos centrais para pitch rápido.
+- **[`./Apresentacao_Demoday_2_Engenharia_de_Features.pptx`](./Apresentacao_Demoday_2_Engenharia_de_Features.pptx)**: Apresentação de slides oficial widescreen 16:9 (`.pptx`) completa com 9 slides, design premium, cards, métricas e figuras diagnósticas.
+- **[`./apresentacao_demoday_2_engenharia_de_features.md`](./apresentacao_demoday_2_engenharia_de_features.md)**: Roteiro completo de apresentação com minutagem cravada (10 minutos) e Speaker Notes (scripts de fala detalhados) para cada slide.
+- **[`./inventario_fase_modify_semma.md`](./inventario_fase_modify_semma.md)**: **Inventário Geral e Dossiê da Fase Modify**: Catálogo completo com mapeamento de todos os notebooks, scripts em `src/`, documentações técnicas, bases persistidas e guia de execução.
+- **[`./guia_didatico_termos_demoday2.md`](./guia_didatico_termos_demoday2.md)**: **Guia Didático para Leigos**: Explicação descomplicada com analogias cotidianas de todos os termos técnicos (Features, GLCM, ExG, Data Leakage, ABT, Parquet e SVM).
+
+
+
+

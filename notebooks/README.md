@@ -12,6 +12,7 @@
 | **[`02_sprint1_master_pipeline_reprodutivel.ipynb`](./02_sprint1_master_pipeline_reprodutivel.ipynb)** | **Master Pipeline Reprodutível da Sprint 1:** Execução unificada de ponta a ponta (Ingestão $\rightarrow$ Amostragem Estratificada $\rightarrow$ Auditoria de Qualidade $\rightarrow$ EDA Univariada/Multivariada $\rightarrow$ Consolidação da ABT). | Cesar / Equipe | `Sample` & `Explore` |
 | **[`06_pipeline_atomico_columntransformer.ipynb`](./06_pipeline_atomico_columntransformer.ipynb)** | **Pipeline Atômico de Pré-processamento e Anti-Leakage (Sprint 2):** Fluxo unificado no Scikit-Learn com `ColumnTransformer`, imputação por mediana, normalização z-score, codificação One-Hot, validação estrita anti-leakage e serialização MLOps com `joblib`. | Elisa (`EA`) | `Modify` |
 | **[`07_consolidacao_exportacao_abt_final.ipynb`](./07_consolidacao_exportacao_abt_final.ipynb)** | **Consolidação e Exportação da ABT Final (Sprint 2):** Validação de 0 NaNs, persistência em Apache Parquet colunar e CSV, benchmark de desempenho I/O, hashes SHA-256 e teste de prontidão com `GridSearchCV`. | Elisa (`EA`) | `Modify` |
+| **[`dossie_fase_modify_semma.ipynb`](./dossie_fase_modify_semma.ipynb)** | **Dossiê e Inventário Interativo da Fase Modify:** Notebook executável com todo o catálogo, documentação, inventário de scripts e smoke tests pronto para abrir no Google Colab. | Squad 2 | `Modify` |
 
 ---
 
