@@ -1,0 +1,14 @@
+rank,feature,importance
+1,exr_index,0.9999999999999283
+2,glcm_contrast,7.167666802284928e-14
+3,mean_hue,0.0
+4,exg_index,0.0
+5,std_saturation,0.0
+6,rg_ratio,0.0
+7,indice_clorose_necrose,0.0
+8,hue_dispersion,0.0
+9,glcm_dissimilarity,0.0
+10,glcm_homogeneity,0.0
+11,glcm_energy,0.0
+12,indice_rugosidade_pustula,0.0
+13,laplacian_var,0.0
