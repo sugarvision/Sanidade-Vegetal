@@ -1,0 +1,448 @@
+{
+  "checkpoint_version": "1.0",
+  "last_updated": "2026-10-22 09:20:37",
+  "total_completed": 27,
+  "completed_candidates": {
+    "f9ede02c1a6b": {
+      "candidate_key": "f9ede02c1a6b",
+      "params": {
+        "kernel": "linear",
+        "C": 0.1
+      },
+      "timestamp": "2026-10-22 09:19:32",
+      "mean_f1_macro": 0.5706,
+      "std_f1_macro": 0.0062,
+      "mean_balanced_accuracy": 0.6388,
+      "std_balanced_accuracy": 0.0093,
+      "mean_accuracy": 0.6444,
+      "fit_time_seconds": 3.91,
+      "throughput_fits_per_sec": 1.28
+    },
+    "1cc0dc8bd7c3": {
+      "candidate_key": "1cc0dc8bd7c3",
+      "params": {
+        "kernel": "linear",
+        "C": 1.0
+      },
+      "timestamp": "2026-10-22 09:19:40",
+      "mean_f1_macro": 0.5709,
+      "std_f1_macro": 0.0084,
+      "mean_balanced_accuracy": 0.6391,
+      "std_balanced_accuracy": 0.011,
+      "mean_accuracy": 0.6439,
+      "fit_time_seconds": 8.53,
+      "throughput_fits_per_sec": 0.59
+    },
+    "59c767e16f3f": {
+      "candidate_key": "59c767e16f3f",
+      "params": {
+        "kernel": "linear",
+        "C": 10.0
+      },
+      "timestamp": "2026-10-22 09:19:56",
+      "mean_f1_macro": 0.5703,
+      "std_f1_macro": 0.0081,
+      "mean_balanced_accuracy": 0.6382,
+      "std_balanced_accuracy": 0.0102,
+      "mean_accuracy": 0.6432,
+      "fit_time_seconds": 15.09,
+      "throughput_fits_per_sec": 0.33
+    },
+    "756ab630d7bd": {
+      "candidate_key": "756ab630d7bd",
+      "params": {
+        "kernel": "rbf",
+        "C": 0.1,
+        "gamma": "scale"
+      },
+      "timestamp": "2026-10-22 09:19:58",
+      "mean_f1_macro": 0.5706,
+      "std_f1_macro": 0.0076,
+      "mean_balanced_accuracy": 0.6393,
+      "std_balanced_accuracy": 0.0118,
+      "mean_accuracy": 0.6362,
+      "fit_time_seconds": 2.37,
+      "throughput_fits_per_sec": 2.11
+    },
+    "c4370d2ef310": {
+      "candidate_key": "c4370d2ef310",
+      "params": {
+        "kernel": "rbf",
+        "C": 0.1,
+        "gamma": 0.01
+      },
+      "timestamp": "2026-10-22 09:20:01",
+      "mean_f1_macro": 0.4986,
+      "std_f1_macro": 0.0068,
+      "mean_balanced_accuracy": 0.6042,
+      "std_balanced_accuracy": 0.0081,
+      "mean_accuracy": 0.5893,
+      "fit_time_seconds": 2.24,
+      "throughput_fits_per_sec": 2.24
+    },
+    "9bd63f9a5ff6": {
+      "candidate_key": "9bd63f9a5ff6",
+      "params": {
+        "kernel": "rbf",
+        "C": 0.1,
+        "gamma": 0.1
+      },
+      "timestamp": "2026-10-22 09:20:02",
+      "mean_f1_macro": 0.5716,
+      "std_f1_macro": 0.0064,
+      "mean_balanced_accuracy": 0.6401,
+      "std_balanced_accuracy": 0.0102,
+      "mean_accuracy": 0.6364,
+      "fit_time_seconds": 1.78,
+      "throughput_fits_per_sec": 2.81
+    },
+    "66fc4aaa313d": {
+      "candidate_key": "66fc4aaa313d",
+      "params": {
+        "kernel": "rbf",
+        "C": 1.0,
+        "gamma": "scale"
+      },
+      "timestamp": "2026-10-22 09:20:05",
+      "mean_f1_macro": 0.5759,
+      "std_f1_macro": 0.006,
+      "mean_balanced_accuracy": 0.6429,
+      "std_balanced_accuracy": 0.0097,
+      "mean_accuracy": 0.6441,
+      "fit_time_seconds": 2.01,
+      "throughput_fits_per_sec": 2.49
+    },
+    "e9dcc8228c59": {
+      "candidate_key": "e9dcc8228c59",
+      "params": {
+        "kernel": "rbf",
+        "C": 1.0,
+        "gamma": 0.01
+      },
+      "timestamp": "2026-10-22 09:20:06",
+      "mean_f1_macro": 0.5716,
+      "std_f1_macro": 0.0059,
+      "mean_balanced_accuracy": 0.6406,
+      "std_balanced_accuracy": 0.0098,
+      "mean_accuracy": 0.6441,
+      "fit_time_seconds": 1.6,
+      "throughput_fits_per_sec": 3.13
+    },
+    "6a9a1d67bd8a": {
+      "candidate_key": "6a9a1d67bd8a",
+      "params": {
+        "kernel": "rbf",
+        "C": 1.0,
+        "gamma": 0.1
+      },
+      "timestamp": "2026-10-22 09:20:08",
+      "mean_f1_macro": 0.5693,
+      "std_f1_macro": 0.0083,
+      "mean_balanced_accuracy": 0.629,
+      "std_balanced_accuracy": 0.0091,
+      "mean_accuracy": 0.6372,
+      "fit_time_seconds": 1.61,
+      "throughput_fits_per_sec": 3.11
+    },
+    "152129a1584f": {
+      "candidate_key": "152129a1584f",
+      "params": {
+        "kernel": "rbf",
+        "C": 10.0,
+        "gamma": "scale"
+      },
+      "timestamp": "2026-10-22 09:20:10",
+      "mean_f1_macro": 0.5701,
+      "std_f1_macro": 0.005,
+      "mean_balanced_accuracy": 0.6147,
+      "std_balanced_accuracy": 0.0058,
+      "mean_accuracy": 0.6322,
+      "fit_time_seconds": 2.07,
+      "throughput_fits_per_sec": 2.42
+    },
+    "91f84be70fcf": {
+      "candidate_key": "91f84be70fcf",
+      "params": {
+        "kernel": "rbf",
+        "C": 10.0,
+        "gamma": 0.01
+      },
+      "timestamp": "2026-10-22 09:20:12",
+      "mean_f1_macro": 0.5774,
+      "std_f1_macro": 0.0077,
+      "mean_balanced_accuracy": 0.646,
+      "std_balanced_accuracy": 0.0127,
+      "mean_accuracy": 0.6453,
+      "fit_time_seconds": 1.56,
+      "throughput_fits_per_sec": 3.21
+    },
+    "22e9a126435d": {
+      "candidate_key": "22e9a126435d",
+      "params": {
+        "kernel": "rbf",
+        "C": 10.0,
+        "gamma": 0.1
+      },
+      "timestamp": "2026-10-22 09:20:14",
+      "mean_f1_macro": 0.5647,
+      "std_f1_macro": 0.0076,
+      "mean_balanced_accuracy": 0.5842,
+      "std_balanced_accuracy": 0.0123,
+      "mean_accuracy": 0.6141,
+      "fit_time_seconds": 1.76,
+      "throughput_fits_per_sec": 2.85
+    },
+    "11f9cf8298e5": {
+      "candidate_key": "11f9cf8298e5",
+      "params": {
+        "kernel": "rbf",
+        "C": 100.0,
+        "gamma": "scale"
+      },
+      "timestamp": "2026-10-22 09:20:17",
+      "mean_f1_macro": 0.5614,
+      "std_f1_macro": 0.0066,
+      "mean_balanced_accuracy": 0.5775,
+      "std_balanced_accuracy": 0.0107,
+      "mean_accuracy": 0.6082,
+      "fit_time_seconds": 2.93,
+      "throughput_fits_per_sec": 1.71
+    },
+    "a5d39a6e24bd": {
+      "candidate_key": "a5d39a6e24bd",
+      "params": {
+        "kernel": "rbf",
+        "C": 100.0,
+        "gamma": 0.01
+      },
+      "timestamp": "2026-10-22 09:20:19",
+      "mean_f1_macro": 0.5714,
+      "std_f1_macro": 0.0056,
+      "mean_balanced_accuracy": 0.6266,
+      "std_balanced_accuracy": 0.0067,
+      "mean_accuracy": 0.6383,
+      "fit_time_seconds": 2.06,
+      "throughput_fits_per_sec": 2.43
+    },
+    "4f0224953ffc": {
+      "candidate_key": "4f0224953ffc",
+      "params": {
+        "kernel": "rbf",
+        "C": 100.0,
+        "gamma": 0.1
+      },
+      "timestamp": "2026-10-22 09:20:22",
+      "mean_f1_macro": 0.5473,
+      "std_f1_macro": 0.007,
+      "mean_balanced_accuracy": 0.5514,
+      "std_balanced_accuracy": 0.0076,
+      "mean_accuracy": 0.5865,
+      "fit_time_seconds": 2.97,
+      "throughput_fits_per_sec": 1.69
+    },
+    "c5012ce5310f": {
+      "candidate_key": "c5012ce5310f",
+      "params": {
+        "kernel": "poly",
+        "C": 0.1,
+        "gamma": "scale",
+        "degree": 2
+      },
+      "timestamp": "2026-10-22 09:20:23",
+      "mean_f1_macro": 0.5421,
+      "std_f1_macro": 0.0257,
+      "mean_balanced_accuracy": 0.6226,
+      "std_balanced_accuracy": 0.0165,
+      "mean_accuracy": 0.6154,
+      "fit_time_seconds": 1.15,
+      "throughput_fits_per_sec": 4.33
+    },
+    "3e2e8089c529": {
+      "candidate_key": "3e2e8089c529",
+      "params": {
+        "kernel": "poly",
+        "C": 0.1,
+        "gamma": "scale",
+        "degree": 3
+      },
+      "timestamp": "2026-10-22 09:20:24",
+      "mean_f1_macro": 0.508,
+      "std_f1_macro": 0.0048,
+      "mean_balanced_accuracy": 0.61,
+      "std_balanced_accuracy": 0.0054,
+      "mean_accuracy": 0.5924,
+      "fit_time_seconds": 1.13,
+      "throughput_fits_per_sec": 4.44
+    },
+    "85178a0ef51c": {
+      "candidate_key": "85178a0ef51c",
+      "params": {
+        "kernel": "poly",
+        "C": 0.1,
+        "gamma": "auto",
+        "degree": 2
+      },
+      "timestamp": "2026-10-22 09:20:26",
+      "mean_f1_macro": 0.5105,
+      "std_f1_macro": 0.0151,
+      "mean_balanced_accuracy": 0.6061,
+      "std_balanced_accuracy": 0.0072,
+      "mean_accuracy": 0.596,
+      "fit_time_seconds": 1.19,
+      "throughput_fits_per_sec": 4.21
+    },
+    "c6f543b1ac0b": {
+      "candidate_key": "c6f543b1ac0b",
+      "params": {
+        "kernel": "poly",
+        "C": 0.1,
+        "gamma": "auto",
+        "degree": 3
+      },
+      "timestamp": "2026-10-22 09:20:27",
+      "mean_f1_macro": 0.4659,
+      "std_f1_macro": 0.0074,
+      "mean_balanced_accuracy": 0.5522,
+      "std_balanced_accuracy": 0.0054,
+      "mean_accuracy": 0.5867,
+      "fit_time_seconds": 1.21,
+      "throughput_fits_per_sec": 4.14
+    },
+    "8a3601dd21e3": {
+      "candidate_key": "8a3601dd21e3",
+      "params": {
+        "kernel": "poly",
+        "C": 1.0,
+        "gamma": "scale",
+        "degree": 2
+      },
+      "timestamp": "2026-10-22 09:20:28",
+      "mean_f1_macro": 0.5771,
+      "std_f1_macro": 0.0067,
+      "mean_balanced_accuracy": 0.6467,
+      "std_balanced_accuracy": 0.0113,
+      "mean_accuracy": 0.6451,
+      "fit_time_seconds": 1.13,
+      "throughput_fits_per_sec": 4.44
+    },
+    "d3e5a47c4539": {
+      "candidate_key": "d3e5a47c4539",
+      "params": {
+        "kernel": "poly",
+        "C": 1.0,
+        "gamma": "scale",
+        "degree": 3
+      },
+      "timestamp": "2026-10-22 09:20:29",
+      "mean_f1_macro": 0.5693,
+      "std_f1_macro": 0.0053,
+      "mean_balanced_accuracy": 0.6343,
+      "std_balanced_accuracy": 0.0074,
+      "mean_accuracy": 0.6394,
+      "fit_time_seconds": 1.09,
+      "throughput_fits_per_sec": 4.58
+    },
+    "8b04ed5594e7": {
+      "candidate_key": "8b04ed5594e7",
+      "params": {
+        "kernel": "poly",
+        "C": 1.0,
+        "gamma": "auto",
+        "degree": 2
+      },
+      "timestamp": "2026-10-22 09:20:30",
+      "mean_f1_macro": 0.5729,
+      "std_f1_macro": 0.0066,
+      "mean_balanced_accuracy": 0.6419,
+      "std_balanced_accuracy": 0.01,
+      "mean_accuracy": 0.6437,
+      "fit_time_seconds": 1.05,
+      "throughput_fits_per_sec": 4.78
+    },
+    "6d3ff139fee6": {
+      "candidate_key": "6d3ff139fee6",
+      "params": {
+        "kernel": "poly",
+        "C": 1.0,
+        "gamma": "auto",
+        "degree": 3
+      },
+      "timestamp": "2026-10-22 09:20:32",
+      "mean_f1_macro": 0.554,
+      "std_f1_macro": 0.0241,
+      "mean_balanced_accuracy": 0.6268,
+      "std_balanced_accuracy": 0.0197,
+      "mean_accuracy": 0.6173,
+      "fit_time_seconds": 1.04,
+      "throughput_fits_per_sec": 4.82
+    },
+    "84fe82beefa5": {
+      "candidate_key": "84fe82beefa5",
+      "params": {
+        "kernel": "poly",
+        "C": 10.0,
+        "gamma": "scale",
+        "degree": 2
+      },
+      "timestamp": "2026-10-22 09:20:33",
+      "mean_f1_macro": 0.5651,
+      "std_f1_macro": 0.0102,
+      "mean_balanced_accuracy": 0.6239,
+      "std_balanced_accuracy": 0.0091,
+      "mean_accuracy": 0.6369,
+      "fit_time_seconds": 1.49,
+      "throughput_fits_per_sec": 3.35
+    },
+    "88779d3853bb": {
+      "candidate_key": "88779d3853bb",
+      "params": {
+        "kernel": "poly",
+        "C": 10.0,
+        "gamma": "scale",
+        "degree": 3
+      },
+      "timestamp": "2026-10-22 09:20:35",
+      "mean_f1_macro": 0.5702,
+      "std_f1_macro": 0.005,
+      "mean_balanced_accuracy": 0.6144,
+      "std_balanced_accuracy": 0.0079,
+      "mean_accuracy": 0.6324,
+      "fit_time_seconds": 1.38,
+      "throughput_fits_per_sec": 3.63
+    },
+    "dcc90d4b5b45": {
+      "candidate_key": "dcc90d4b5b45",
+      "params": {
+        "kernel": "poly",
+        "C": 10.0,
+        "gamma": "auto",
+        "degree": 2
+      },
+      "timestamp": "2026-10-22 09:20:36",
+      "mean_f1_macro": 0.5727,
+      "std_f1_macro": 0.0067,
+      "mean_balanced_accuracy": 0.6395,
+      "std_balanced_accuracy": 0.0101,
+      "mean_accuracy": 0.6419,
+      "fit_time_seconds": 1.3,
+      "throughput_fits_per_sec": 3.84
+    },
+    "366d95d34af9": {
+      "candidate_key": "366d95d34af9",
+      "params": {
+        "kernel": "poly",
+        "C": 10.0,
+        "gamma": "auto",
+        "degree": 3
+      },
+      "timestamp": "2026-10-22 09:20:37",
+      "mean_f1_macro": 0.5657,
+      "std_f1_macro": 0.0046,
+      "mean_balanced_accuracy": 0.6295,
+      "std_balanced_accuracy": 0.0061,
+      "mean_accuracy": 0.6374,
+      "fit_time_seconds": 1.13,
+      "throughput_fits_per_sec": 4.41
+    }
+  }
+}

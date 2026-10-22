@@ -1,0 +1,77 @@
+{
+  "task_name": "Otimizar a execução computacional da malha de validação cruzada, implementando paralelização eficiente e monitoramento de memória e CPU",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "sprint": "Sprint 4",
+  "responsible": "Gabriel Ramos / Heitor Partezani (Engenharia de Machine Learning & IA SVM)",
+  "timestamp": "2026-10-22 09:21:06",
+  "hardware_environment": {
+    "logical_cpus": 12,
+    "physical_cpus": 6,
+    "total_ram_gb": 15.11,
+    "os_platform": "win32"
+  },
+  "parallelization_profile": {
+    "n_jobs": -1,
+    "backend": "loky",
+    "memory_safety_threshold_percent": 85.0,
+    "max_nbytes": "10M",
+    "total_candidates": 27,
+    "total_fits": 135,
+    "total_execution_time_seconds": 66.78,
+    "overall_throughput_fits_per_sec": 2.02
+  },
+  "telemetry_metrics": {
+    "peak_cpu_percent": 100.0,
+    "mean_cpu_percent": 78.4,
+    "initial_process_ram_mb": 204.9,
+    "peak_process_ram_mb": 2346.3,
+    "ram_delta_mb": 2141.4,
+    "peak_system_ram_percent": 62.4,
+    "telemetry_records_count": 694
+  },
+  "kernel_comparative_profiling": {
+    "linear": {
+      "total_candidates": 3,
+      "total_fits": 15,
+      "mean_fit_time_seconds": 9.18,
+      "total_time_seconds": 27.53,
+      "best_f1_macro": 0.5709,
+      "mean_balanced_accuracy": 0.6387
+    },
+    "poly": {
+      "total_candidates": 12,
+      "total_fits": 60,
+      "mean_fit_time_seconds": 1.19,
+      "total_time_seconds": 14.29,
+      "best_f1_macro": 0.5771,
+      "mean_balanced_accuracy": 0.6207
+    },
+    "rbf": {
+      "total_candidates": 12,
+      "total_fits": 60,
+      "mean_fit_time_seconds": 2.08,
+      "total_time_seconds": 24.96,
+      "best_f1_macro": 0.5774,
+      "mean_balanced_accuracy": 0.6164
+    }
+  },
+  "best_hyperparameter_configuration": {
+    "kernel": "rbf",
+    "C": 10.0,
+    "gamma": "0.01",
+    "degree": 3,
+    "best_f1_macro": 0.5774,
+    "best_balanced_accuracy": 0.646
+  },
+  "checkpoint_governance": {
+    "checkpoint_strategy": "Incremental Atomic JSON + CSV",
+    "fault_tolerance_verified": true,
+    "total_checkpoints_saved": 27
+  },
+  "checklist_verification": {
+    "item_1_parallel_execution_n_jobs_configured": true,
+    "item_2_cpu_peak_and_ram_monitored": true,
+    "item_3_checkpoint_routine_implemented": true,
+    "item_4_efficiency_report_generated": true
+  }
+}
