@@ -1,0 +1,7 @@
+Baseline,Ganho_Abs_F1_Macro,Ganho_Rel_F1_Macro_Pct,t_stat_F1,p_value_F1,Significancia_F1,Ganho_Abs_Acuracia,Ganho_Rel_Acuracia_Pct,t_stat_Acuracia,p_value_Acuracia,Significancia_Acuracia
+Dummy Classifier (Stratified),0.4452,336.84,99.65,0.0,Sim (p < 0.01),0.4813,293.55,98.923,0.0,Sim (p < 0.01)
+Regressão Logística L2 (Sem Ponderação),0.0178,3.19,5.377,0.005781,Sim (p < 0.01),-0.0047,-0.72,-2.846,0.046607,Sim (p < 0.05)
+Regressão Logística L2 (class_weight='balanced'),0.0083,1.46,5.94,0.004029,Sim (p < 0.01),0.0095,1.5,3.292,0.030168,Sim (p < 0.05)
+Árvore Decisão rasa (Sem Ponderação),0.0462,8.7,16.846,7.3e-05,Sim (p < 0.01),0.0163,2.6,7.349,0.001825,Sim (p < 0.01)
+Árvore Decisão rasa (class_weight='balanced'),0.0439,8.24,3.559,0.023604,Sim (p < 0.05),0.0396,6.55,5.015,0.007413,Sim (p < 0.01)
+SVM RBF Baseline (balanced),0.0015,0.26,0.849,0.443926,Não (p >= 0.05),0.0013,0.2,1.087,0.338211,Não (p >= 0.05)

@@ -1,0 +1,42 @@
+=== REGRAS DE DECISÃO DA ÁRVORE RASA (max_depth=4) ===
+
+|--- glcm_dissimilarity <= -1.20
+|   |--- rg_ratio <= -0.52
+|   |   |--- laplacian_var_bin_2 <= 0.50
+|   |   |   |--- class: 1
+|   |   |--- laplacian_var_bin_2 >  0.50
+|   |   |   |--- class: 1
+|   |--- rg_ratio >  -0.52
+|   |   |--- std_saturation <= -0.35
+|   |   |   |--- size_kb <= -0.31
+|   |   |   |   |--- class: 6
+|   |   |   |--- size_kb >  -0.31
+|   |   |   |   |--- class: 3
+|   |   |--- std_saturation >  -0.35
+|   |   |   |--- glcm_energy <= 1.39
+|   |   |   |   |--- class: 6
+|   |   |   |--- glcm_energy >  1.39
+|   |   |   |   |--- class: 4
+|--- glcm_dissimilarity >  -1.20
+|   |--- resolution_mp <= -0.13
+|   |   |--- rg_ratio <= 1.03
+|   |   |   |--- glcm_dissimilarity <= 1.19
+|   |   |   |   |--- class: 4
+|   |   |   |--- glcm_dissimilarity >  1.19
+|   |   |   |   |--- class: 5
+|   |   |--- rg_ratio >  1.03
+|   |   |   |--- mean_hue <= -0.50
+|   |   |   |   |--- class: 5
+|   |   |   |--- mean_hue >  -0.50
+|   |   |   |   |--- class: 6
+|   |--- resolution_mp >  -0.13
+|   |   |--- size_kb <= 1.66
+|   |   |   |--- size_kb <= 1.52
+|   |   |   |   |--- class: 0
+|   |   |   |--- size_kb >  1.52
+|   |   |   |   |--- class: 0
+|   |   |--- size_kb >  1.66
+|   |   |   |--- size_kb <= 4.13
+|   |   |   |   |--- class: 2
+|   |   |   |--- size_kb >  4.13
+|   |   |   |   |--- class: 0

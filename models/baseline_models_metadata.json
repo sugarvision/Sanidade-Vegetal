@@ -1,0 +1,334 @@
+{
+  "task_name": "Concepção, Treinamento e Benchmark de Modelos Baseline",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "sprint": "Sprint 3 — Framework SEMMA (Fase: Model)",
+  "responsible": "Elisa (Engenharia de Machine Learning & MLOps)",
+  "timestamp": "2026-10-22 10:55:02",
+  "framework_versions": {
+    "scikit_learn": "1.9.1",
+    "pandas": "3.1.0",
+    "numpy": "2.5.4",
+    "joblib": "1.6.0",
+    "python": "3.14.3"
+  },
+  "datasets": {
+    "source_abt": "C:\\Users\\LUISOTAVIOROUTHDASIL\\Documents\\GitHub\\Sanidade-Vegetal\\data\\processed\\abt_features_modelagem.csv",
+    "total_instances": 6571,
+    "train_instances": 5574,
+    "valid_instances": 617,
+    "test_instances": 380,
+    "feature_count": 35
+  },
+  "artifacts_persisted": {
+    "baseline_dummy_model.joblib": {
+      "path": "C:\\Users\\LUISOTAVIOROUTHDASIL\\Documents\\GitHub\\Sanidade-Vegetal\\models\\baseline_dummy_model.joblib",
+      "size_kb": 1.53,
+      "sha256": "fcc734e25d107d151087382c69576a35809a9eaf65a3bb2f5c721f332352909a"
+    },
+    "baseline_logistic_regression.joblib": {
+      "path": "C:\\Users\\LUISOTAVIOROUTHDASIL\\Documents\\GitHub\\Sanidade-Vegetal\\models\\baseline_logistic_regression.joblib",
+      "size_kb": 3.73,
+      "sha256": "af27c3e306ea2cba671e7c11cbbb2c0b848d490dd24d2883cf05e7d243ac5c92"
+    },
+    "baseline_decision_tree.joblib": {
+      "path": "C:\\Users\\LUISOTAVIOROUTHDASIL\\Documents\\GitHub\\Sanidade-Vegetal\\models\\baseline_decision_tree.joblib",
+      "size_kb": 5.34,
+      "sha256": "00e58307c9af06cab9043013c649040f9c85a1ea71e6f1764047427cf86034d1"
+    }
+  },
+  "benchmark_summary_cv_train": [
+    {
+      "Modelo": "Dummy Classifier (Stratified)",
+      "CV_Acuracia_Media": 0.16397533229746158,
+      "CV_Acuracia_Std": 0.0016161524541750234,
+      "CV_Precisao_Macro_Media": 0.13217733422298183,
+      "CV_Precisao_Macro_Std": 0.0017459556563381112,
+      "CV_Recall_Macro_Media": 0.13245093980534192,
+      "CV_Recall_Macro_Std": 0.0019924173238807024,
+      "CV_F1_Macro_Media": 0.13216556598406848,
+      "CV_F1_Macro_Std": 0.0018631073819899216,
+      "CV_F1_Weighted_Media": 0.16353317276142287,
+      "Tempo_CV_Segundos": 0.11
+    },
+    {
+      "Modelo": "Regressão Logística L2 (Sem Ponderação)",
+      "CV_Acuracia_Media": 0.6499849449726675,
+      "CV_Acuracia_Std": 0.011033461409316225,
+      "CV_Precisao_Macro_Media": 0.6237696829386776,
+      "CV_Precisao_Macro_Std": 0.039855343800304865,
+      "CV_Recall_Macro_Media": 0.6001036657803661,
+      "CV_Recall_Macro_Std": 0.009306759301087044,
+      "CV_F1_Macro_Media": 0.5595133886742624,
+      "CV_F1_Macro_Std": 0.01277697166216287,
+      "CV_F1_Weighted_Media": 0.6117388066742064,
+      "Tempo_CV_Segundos": 1.59
+    },
+    {
+      "Modelo": "Regressão Logística L2 (class_weight='balanced')",
+      "CV_Acuracia_Media": 0.6358101939441756,
+      "CV_Acuracia_Std": 0.009085235129196805,
+      "CV_Precisao_Macro_Media": 0.5708697149816707,
+      "CV_Precisao_Macro_Std": 0.025086538532842796,
+      "CV_Recall_Macro_Media": 0.6317083385547813,
+      "CV_Recall_Macro_Std": 0.007979466131456604,
+      "CV_F1_Macro_Media": 0.569025735510315,
+      "CV_F1_Macro_Std": 0.0058812851542393,
+      "CV_F1_Weighted_Media": 0.588786860249601,
+      "Tempo_CV_Segundos": 1.74
+    },
+    {
+      "Modelo": "Árvore Decisão rasa (Sem Ponderação)",
+      "CV_Acuracia_Media": 0.6289951775607635,
+      "CV_Acuracia_Std": 0.012543860974442699,
+      "CV_Precisao_Macro_Media": 0.557183349661666,
+      "CV_Precisao_Macro_Std": 0.011941226515423706,
+      "CV_Recall_Macro_Media": 0.5758904103709338,
+      "CV_Recall_Macro_Std": 0.007605594474605238,
+      "CV_F1_Macro_Media": 0.5311403582539092,
+      "CV_F1_Macro_Std": 0.011827701656840306,
+      "CV_F1_Weighted_Media": 0.5903153537672311,
+      "Tempo_CV_Segundos": 0.19
+    },
+    {
+      "Modelo": "Árvore Decisão rasa (class_weight='balanced')",
+      "CV_Acuracia_Media": 0.6056734105675019,
+      "CV_Acuracia_Std": 0.01588019857738155,
+      "CV_Precisao_Macro_Media": 0.5369292911680713,
+      "CV_Precisao_Macro_Std": 0.038455237838201435,
+      "CV_Recall_Macro_Media": 0.6109388733482382,
+      "CV_Recall_Macro_Std": 0.012251071851142494,
+      "CV_F1_Macro_Media": 0.5334159097064275,
+      "CV_F1_Macro_Std": 0.022554270371101564,
+      "CV_F1_Weighted_Media": 0.5370375846854937,
+      "Tempo_CV_Segundos": 0.19
+    },
+    {
+      "Modelo": "SVM RBF Baseline (balanced)",
+      "CV_Acuracia_Media": 0.6440642133144407,
+      "CV_Acuracia_Std": 0.00869618571751028,
+      "CV_Precisao_Macro_Media": 0.6022454259510412,
+      "CV_Precisao_Macro_Std": 0.05263617760872894,
+      "CV_Recall_Macro_Media": 0.6429138784847371,
+      "CV_Recall_Macro_Std": 0.00973485358868196,
+      "CV_F1_Macro_Media": 0.5758802350341151,
+      "CV_F1_Macro_Std": 0.006019201512358409,
+      "CV_F1_Weighted_Media": 0.5906510498670979,
+      "Tempo_CV_Segundos": 12.36
+    },
+    {
+      "Modelo": "SVM RBF Ótimo (C=10, γ=0.01, balanced)",
+      "CV_Acuracia_Media": 0.6453201407282769,
+      "CV_Acuracia_Std": 0.008640952201422811,
+      "CV_Precisao_Macro_Media": 0.5903924575981774,
+      "CV_Precisao_Macro_Std": 0.05476539830757784,
+      "CV_Recall_Macro_Media": 0.6459806791597611,
+      "CV_Recall_Macro_Std": 0.012667710937317242,
+      "CV_F1_Macro_Media": 0.5773540612256906,
+      "CV_F1_Macro_Std": 0.0076853917205272826,
+      "CV_F1_Weighted_Media": 0.590483522659951,
+      "Tempo_CV_Segundos": 12.92
+    }
+  ],
+  "benchmark_summary_holdout": [
+    {
+      "Modelo": "Dummy Classifier (Stratified)",
+      "Valid_Acuracia": 0.1620745542949757,
+      "Valid_Precisao_Macro": 0.13211926337654414,
+      "Valid_Recall_Macro": 0.13454254006005725,
+      "Valid_F1_Macro": 0.13136677098029165,
+      "Valid_F1_Weighted": 0.16045989058332938,
+      "Valid_Inferencia_ms": 0.67,
+      "Test_Acuracia": 0.1394736842105263,
+      "Test_Precisao_Macro": 0.1724549213131175,
+      "Test_Recall_Macro": 0.13636485783787902,
+      "Test_F1_Macro": 0.13610395962081343,
+      "Test_F1_Weighted": 0.14241614861439225
+    },
+    {
+      "Modelo": "Regressão Logística L2 (Sem Ponderação)",
+      "Valid_Acuracia": 0.6807131280388979,
+      "Valid_Precisao_Macro": 0.6961000696648593,
+      "Valid_Recall_Macro": 0.6557189787584924,
+      "Valid_F1_Macro": 0.6239813799196673,
+      "Valid_F1_Weighted": 0.6624470561241776,
+      "Valid_Inferencia_ms": 1.06,
+      "Test_Acuracia": 0.6684210526315789,
+      "Test_Precisao_Macro": 0.6719097866419296,
+      "Test_Recall_Macro": 0.6779131007241607,
+      "Test_F1_Macro": 0.6468189673597274,
+      "Test_F1_Weighted": 0.6449639161954944
+    },
+    {
+      "Modelo": "Regressão Logística L2 (class_weight='balanced')",
+      "Valid_Acuracia": 0.6175040518638574,
+      "Valid_Precisao_Macro": 0.5926080232805787,
+      "Valid_Recall_Macro": 0.6528052123492853,
+      "Valid_F1_Macro": 0.5837383534695854,
+      "Valid_F1_Weighted": 0.5745297776961427,
+      "Valid_Inferencia_ms": 1.06,
+      "Test_Acuracia": 0.6236842105263158,
+      "Test_Precisao_Macro": 0.6537420111907887,
+      "Test_Recall_Macro": 0.6907060827403158,
+      "Test_F1_Macro": 0.6285358774099141,
+      "Test_F1_Weighted": 0.5786248191903596
+    },
+    {
+      "Modelo": "Árvore Decisão rasa (Sem Ponderação)",
+      "Valid_Acuracia": 0.6385737439222042,
+      "Valid_Precisao_Macro": 0.5980812459162944,
+      "Valid_Recall_Macro": 0.614718934880509,
+      "Valid_F1_Macro": 0.5734703862596083,
+      "Valid_F1_Weighted": 0.6147336566568724,
+      "Valid_Inferencia_ms": 1.24,
+      "Test_Acuracia": 0.6421052631578947,
+      "Test_Precisao_Macro": 0.5895442016366665,
+      "Test_Recall_Macro": 0.653402895920941,
+      "Test_F1_Macro": 0.602050656066174,
+      "Test_F1_Weighted": 0.6033611271322197
+    },
+    {
+      "Modelo": "Árvore Decisão rasa (class_weight='balanced')",
+      "Valid_Acuracia": 0.5283630470016207,
+      "Valid_Precisao_Macro": 0.4360265910567862,
+      "Valid_Recall_Macro": 0.5702461027481024,
+      "Valid_F1_Macro": 0.46231341967211476,
+      "Valid_F1_Weighted": 0.43919223043460376,
+      "Valid_Inferencia_ms": 0.9,
+      "Test_Acuracia": 0.5473684210526316,
+      "Test_Precisao_Macro": 0.4722423170147825,
+      "Test_Recall_Macro": 0.5948629969586178,
+      "Test_F1_Macro": 0.49843271747976675,
+      "Test_F1_Weighted": 0.45917461949461236
+    },
+    {
+      "Modelo": "SVM RBF Baseline (balanced)",
+      "Valid_Acuracia": 0.6158833063209076,
+      "Valid_Precisao_Macro": 0.5301084300972657,
+      "Valid_Recall_Macro": 0.6471722873546583,
+      "Valid_F1_Macro": 0.570663194844766,
+      "Valid_F1_Weighted": 0.5582957878423216,
+      "Valid_Inferencia_ms": 148.95,
+      "Test_Acuracia": 0.6078947368421053,
+      "Test_Precisao_Macro": 0.633241608227703,
+      "Test_Recall_Macro": 0.6744385926413576,
+      "Test_F1_Macro": 0.6060369637198073,
+      "Test_F1_Weighted": 0.5507912021244935
+    },
+    {
+      "Modelo": "SVM RBF Ótimo (C=10, γ=0.01, balanced)",
+      "Valid_Acuracia": 0.6207455429497569,
+      "Valid_Precisao_Macro": 0.5345894110494233,
+      "Valid_Recall_Macro": 0.6532271915858542,
+      "Valid_F1_Macro": 0.5757443887400271,
+      "Valid_F1_Weighted": 0.5623964482418904,
+      "Valid_Inferencia_ms": 141.19,
+      "Test_Acuracia": 0.6078947368421053,
+      "Test_Precisao_Macro": 0.5636791779648923,
+      "Test_Recall_Macro": 0.6768707482993197,
+      "Test_F1_Macro": 0.6054316178971881,
+      "Test_F1_Weighted": 0.5474834533262193
+    }
+  ],
+  "statistical_hypothesis_test": [
+    {
+      "Baseline": "Dummy Classifier (Stratified)",
+      "Ganho_Abs_F1_Macro": 0.4452,
+      "Ganho_Rel_F1_Macro_Pct": 336.84,
+      "t_stat_F1": 99.65,
+      "p_value_F1": 0.0,
+      "Significancia_F1": "Sim (p < 0.01)",
+      "Ganho_Abs_Acuracia": 0.4813,
+      "Ganho_Rel_Acuracia_Pct": 293.55,
+      "t_stat_Acuracia": 98.923,
+      "p_value_Acuracia": 0.0,
+      "Significancia_Acuracia": "Sim (p < 0.01)"
+    },
+    {
+      "Baseline": "Regressão Logística L2 (Sem Ponderação)",
+      "Ganho_Abs_F1_Macro": 0.0178,
+      "Ganho_Rel_F1_Macro_Pct": 3.19,
+      "t_stat_F1": 5.377,
+      "p_value_F1": 0.005781,
+      "Significancia_F1": "Sim (p < 0.01)",
+      "Ganho_Abs_Acuracia": -0.0047,
+      "Ganho_Rel_Acuracia_Pct": -0.72,
+      "t_stat_Acuracia": -2.846,
+      "p_value_Acuracia": 0.046607,
+      "Significancia_Acuracia": "Sim (p < 0.05)"
+    },
+    {
+      "Baseline": "Regressão Logística L2 (class_weight='balanced')",
+      "Ganho_Abs_F1_Macro": 0.0083,
+      "Ganho_Rel_F1_Macro_Pct": 1.46,
+      "t_stat_F1": 5.94,
+      "p_value_F1": 0.004029,
+      "Significancia_F1": "Sim (p < 0.01)",
+      "Ganho_Abs_Acuracia": 0.0095,
+      "Ganho_Rel_Acuracia_Pct": 1.5,
+      "t_stat_Acuracia": 3.292,
+      "p_value_Acuracia": 0.030168,
+      "Significancia_Acuracia": "Sim (p < 0.05)"
+    },
+    {
+      "Baseline": "Árvore Decisão rasa (Sem Ponderação)",
+      "Ganho_Abs_F1_Macro": 0.0462,
+      "Ganho_Rel_F1_Macro_Pct": 8.7,
+      "t_stat_F1": 16.846,
+      "p_value_F1": 7.3e-05,
+      "Significancia_F1": "Sim (p < 0.01)",
+      "Ganho_Abs_Acuracia": 0.0163,
+      "Ganho_Rel_Acuracia_Pct": 2.6,
+      "t_stat_Acuracia": 7.349,
+      "p_value_Acuracia": 0.001825,
+      "Significancia_Acuracia": "Sim (p < 0.01)"
+    },
+    {
+      "Baseline": "Árvore Decisão rasa (class_weight='balanced')",
+      "Ganho_Abs_F1_Macro": 0.0439,
+      "Ganho_Rel_F1_Macro_Pct": 8.24,
+      "t_stat_F1": 3.559,
+      "p_value_F1": 0.023604,
+      "Significancia_F1": "Sim (p < 0.05)",
+      "Ganho_Abs_Acuracia": 0.0396,
+      "Ganho_Rel_Acuracia_Pct": 6.55,
+      "t_stat_Acuracia": 5.015,
+      "p_value_Acuracia": 0.007413,
+      "Significancia_Acuracia": "Sim (p < 0.01)"
+    },
+    {
+      "Baseline": "SVM RBF Baseline (balanced)",
+      "Ganho_Abs_F1_Macro": 0.0015,
+      "Ganho_Rel_F1_Macro_Pct": 0.26,
+      "t_stat_F1": 0.849,
+      "p_value_F1": 0.443926,
+      "Significancia_F1": "Não (p >= 0.05)",
+      "Ganho_Abs_Acuracia": 0.0013,
+      "Ganho_Rel_Acuracia_Pct": 0.2,
+      "t_stat_Acuracia": 1.087,
+      "p_value_Acuracia": 0.338211,
+      "Significancia_Acuracia": "Não (p >= 0.05)"
+    }
+  ],
+  "decision_tree_top_features": [
+    [
+      "glcm_dissimilarity",
+      0.35986023685027024
+    ],
+    [
+      "resolution_mp",
+      0.30244463450889947
+    ],
+    [
+      "rg_ratio",
+      0.2669456935038704
+    ],
+    [
+      "size_kb",
+      0.04802391612824402
+    ],
+    [
+      "mean_hue",
+      0.021357886756704858
+    ]
+  ]
+}
