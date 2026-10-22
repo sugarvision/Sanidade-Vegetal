@@ -1,0 +1,337 @@
+{
+  "catalog_name": "Catálogo Formal de Metadados e Tabela de Registros Analíticos (Sprint 4)",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "responsible": "Heitor Partezani (Engenharia de Machine Learning & IA SVM)",
+  "timestamp": "2026-10-22 10:13:22",
+  "lineage_audit": {
+    "status": "APPROVED",
+    "timestamp": "2026-10-22 10:13:19",
+    "lineage_integrity_checks": {
+      "preds_sample_id_in_abt": true,
+      "abt_filename_in_raw_metadata": true,
+      "partition_volume_match": true,
+      "target_multiclass_consistent_100_percent": true,
+      "probabilities_stochastically_calibrated_sum_to_one": true
+    },
+    "volumetry": {
+      "raw_metadata_rows": 13142,
+      "abt_rows": 6571,
+      "evaluated_predictions_rows": 997,
+      "validation_rows": 617,
+      "test_rows": 380
+    }
+  },
+  "champion_hyperparameters": {
+    "kernel": "rbf",
+    "C": 10.0,
+    "gamma": 0.01,
+    "class_weight": "balanced",
+    "probability": true,
+    "decision_function_shape": "ovr",
+    "break_ties": false,
+    "preprocessing": "StandardScaler() fitted strictly on train partition"
+  },
+  "operational_constraints": {
+    "input_dimension": "35 features numéricas e categóricas pré-processadas",
+    "calibration_strategy": "Platt Scaling sigmoidal com validação cruzada interna de 5 folds (predict_proba)",
+    "outlier_handling": "Imputação por mediana em features numéricas e padronização z-score com tolerância a valores extremos",
+    "latency_single_sample_ms": 0.12,
+    "framework_compatibility": "Scikit-Learn >= 1.6 com suporte a fallback de refit determinístico (load_champion_pipeline)"
+  },
+  "formal_evaluation_metrics": {
+    "valid": {
+      "samples_count": 617,
+      "accuracy": 0.6207,
+      "balanced_accuracy": 0.6532,
+      "precision_macro": 0.5346,
+      "precision_weighted": 0.5294,
+      "recall_macro": 0.6532,
+      "recall_weighted": 0.6207,
+      "f1_macro": 0.5757,
+      "f1_weighted": 0.5624,
+      "auc_roc_macro": 0.9148,
+      "auc_roc_weighted": 0.9063,
+      "specificity_macro": 0.9381,
+      "confusion_matrix": [
+        [
+          6,
+          0,
+          14,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          95,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          0,
+          55,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          43,
+          0,
+          27,
+          0,
+          7,
+          0,
+          77
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          62,
+          0,
+          32
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          91,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          25,
+          0,
+          74
+        ]
+      ],
+      "per_class_breakdown": {
+        "GRASSY SHOOT": {
+          "class_code": 0,
+          "precision": 0.1053,
+          "recall": 0.3,
+          "f1_score": 0.1558,
+          "specificity": 0.9146,
+          "auc_roc_ovr": 0.8827,
+          "support": 20
+        },
+        "HEALTHY": {
+          "class_code": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "specificity": 1.0,
+          "auc_roc_ovr": 1.0,
+          "support": 95
+        },
+        "LEAF SCALD": {
+          "class_code": 2,
+          "precision": 0.5729,
+          "recall": 0.873,
+          "f1_score": 0.6918,
+          "specificity": 0.926,
+          "auc_roc_ovr": 0.9525,
+          "support": 63
+        },
+        "MOSAIC": {
+          "class_code": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0,
+          "specificity": 0.9978,
+          "auc_roc_ovr": 0.8168,
+          "support": 154
+        },
+        "RED ROT": {
+          "class_code": 4,
+          "precision": 0.6596,
+          "recall": 0.6596,
+          "f1_score": 0.6596,
+          "specificity": 0.9388,
+          "auc_roc_ovr": 0.9057,
+          "support": 94
+        },
+        "RUST": {
+          "class_code": 5,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "specificity": 1.0,
+          "auc_roc_ovr": 1.0,
+          "support": 91
+        },
+        "YELLOW LEAF": {
+          "class_code": 6,
+          "precision": 0.4044,
+          "recall": 0.74,
+          "f1_score": 0.523,
+          "specificity": 0.7892,
+          "auc_roc_ovr": 0.8458,
+          "support": 100
+        }
+      }
+    },
+    "test": {
+      "samples_count": 380,
+      "accuracy": 0.6079,
+      "balanced_accuracy": 0.6769,
+      "precision_macro": 0.5637,
+      "precision_weighted": 0.5111,
+      "recall_macro": 0.6769,
+      "recall_weighted": 0.6079,
+      "f1_macro": 0.6054,
+      "f1_weighted": 0.5475,
+      "auc_roc_macro": 0.9116,
+      "auc_roc_weighted": 0.8986,
+      "specificity_macro": 0.9361,
+      "confusion_matrix": [
+        [
+          18,
+          0,
+          18,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          46,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          12,
+          0,
+          51,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          35,
+          0,
+          19,
+          0,
+          3,
+          0,
+          36
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          35,
+          0,
+          14
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          51,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          11,
+          0,
+          30
+        ]
+      ],
+      "per_class_breakdown": {
+        "GRASSY SHOOT": {
+          "class_code": 0,
+          "precision": 0.2769,
+          "recall": 0.5,
+          "f1_score": 0.3564,
+          "specificity": 0.8634,
+          "auc_roc_ovr": 0.8526,
+          "support": 36
+        },
+        "HEALTHY": {
+          "class_code": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "specificity": 1.0,
+          "auc_roc_ovr": 1.0,
+          "support": 46
+        },
+        "LEAF SCALD": {
+          "class_code": 2,
+          "precision": 0.5795,
+          "recall": 0.8095,
+          "f1_score": 0.6755,
+          "specificity": 0.8833,
+          "auc_roc_ovr": 0.9162,
+          "support": 63
+        },
+        "MOSAIC": {
+          "class_code": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0,
+          "specificity": 0.9965,
+          "auc_roc_ovr": 0.779,
+          "support": 93
+        },
+        "RED ROT": {
+          "class_code": 4,
+          "precision": 0.7143,
+          "recall": 0.7143,
+          "f1_score": 0.7143,
+          "specificity": 0.9577,
+          "auc_roc_ovr": 0.9417,
+          "support": 49
+        },
+        "RUST": {
+          "class_code": 5,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "specificity": 1.0,
+          "auc_roc_ovr": 1.0,
+          "support": 51
+        },
+        "YELLOW LEAF": {
+          "class_code": 6,
+          "precision": 0.375,
+          "recall": 0.7143,
+          "f1_score": 0.4918,
+          "specificity": 0.8521,
+          "auc_roc_ovr": 0.8917,
+          "support": 42
+        }
+      }
+    }
+  },
+  "checklist_verification": {
+    "item_1_dicionarios_atualizados": true,
+    "item_2_metricas_formais_catalogadas": true,
+    "item_3_hiperparametros_e_restricoes_documentados": true,
+    "item_4_rastreabilidade_auditada_e_atestada": true
+  }
+}
