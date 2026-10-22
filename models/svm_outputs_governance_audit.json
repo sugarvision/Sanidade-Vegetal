@@ -1,0 +1,57 @@
+{
+  "partition_sizes": {
+    "train": 5574,
+    "valid": 617,
+    "test": 380
+  },
+  "checks": {
+    "only_known_partitions": true,
+    "sample_id_disjoint_train_valid": true,
+    "sample_id_disjoint_train_test": true,
+    "sample_id_disjoint_valid_test": true,
+    "filepath_disjoint_train_valid": true,
+    "filepath_disjoint_train_test": true,
+    "filepath_disjoint_valid_test": true,
+    "filename_disjoint_train_valid": true,
+    "filename_disjoint_train_test": true,
+    "filename_disjoint_valid_test": true,
+    "feature_duplicates_train_valid": 0,
+    "feature_content_disjoint_train_valid": true,
+    "feature_duplicates_train_test": 0,
+    "feature_content_disjoint_train_test": true,
+    "feature_duplicates_valid_test": 0,
+    "feature_content_disjoint_valid_test": true,
+    "scaler_fitted_on_train_only": true,
+    "scaler_differs_from_global": true
+  },
+  "status": "APPROVED",
+  "model_origin": "refit_train_only",
+  "outputs": {
+    "rows": 997,
+    "columns": [
+      "sample_id",
+      "split_partition",
+      "target_multiclass",
+      "y_pred",
+      "y_pred_label",
+      "y_proba_grassy_shoot",
+      "y_proba_healthy",
+      "y_proba_leaf_scald",
+      "y_proba_mosaic",
+      "y_proba_red_rot",
+      "y_proba_rust",
+      "y_proba_yellow_leaf",
+      "decision_function_grassy_shoot",
+      "decision_function_healthy",
+      "decision_function_leaf_scald",
+      "decision_function_mosaic",
+      "decision_function_red_rot",
+      "decision_function_rust",
+      "decision_function_yellow_leaf",
+      "y_proba_max",
+      "pred_correct"
+    ],
+    "accuracy_valid": 0.6207455429497569,
+    "accuracy_test": 0.6078947368421053
+  }
+}

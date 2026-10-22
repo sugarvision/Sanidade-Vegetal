@@ -1,8 +1,8 @@
 # 📖 Dicionário de Dados — Sanidade Vegetal (SugarVision)
 
 **Projeto:** Classificação e Diagnóstico Inteligente de Patologias em Cana-de-Açúcar (*Saccharum officinarum*)  
-**Fase:** Framework SEMMA — Fase Modify & Engenharia de Atributos (Sprint 2)  
-**Versão:** 2.0.0  
+**Fase:** Framework SEMMA — Fase Modify & Engenharia de Atributos (Sprint 2) e Model (Sprint 3 — saídas do SVM)  
+**Versão:** 2.1.0  
 **Data:** Setembro de 2026  
 **Responsáveis:** Cesar (Lead Técnico & Visão Computacional) e Equipe de Ciência de Dados  
 
@@ -176,6 +176,15 @@ A tabela a seguir consolida o catálogo completo de variáveis da Tabela Analít
 | **CONTEXTO** | `responsavel_coleta`| `VARCHAR(128)` | Categórica Nominal | **Metadado Técnico** | Cadastro de operadores | Texto | Operadores autorizados | Nome do agrônomo ou técnico que executou o protocolo de coleta. | Sim |
 | **CONTEXTO** | `lesion_bbox_count` | `INTEGER` | Numérica Discreta | **Feature Preditiva Discreta** | Contagem de detecções | Focos de lesão | $[0, 500]$ | Contagem de focos pontuais de infecção detectados na folha. | Sim |
 | **CONTEXTO** | `embedding_vector` | `ARRAY[FLOAT]` | Vetor / Tensor | **Feature Preditiva Contínua** | Backbone CNN / ViT | Espaço latente denso | $[-\infty, +\infty]^{512}$ | Vetor denso de features profundas extraído por redes neurais pré-treinadas. | Sim |
+| **SAIDA_SVM** | `sample_id` | `VARCHAR(64)` | Identificador / FK | **Identificador** | FK N:1 para `ABT.sample_id` | Adimensional (Código) | Chave existente na ABT | Chave de junção da predição com a ABT. | Não |
+| **SAIDA_SVM** | `split_partition` | `VARCHAR(16)` | Categórica Nominal | **Metadado Técnico** | Herdado de `ABT.split_partition` | Categoria | `{'valid', 'test'}` | Partição avaliada; predições nunca são geradas sobre `train`. | Não |
+| **SAIDA_SVM** | `target_multiclass` | `INTEGER` | Categórica Discreta | **Target** | Herdado da ABT | Discreto (ID) | $\{0, \dots, 6\}$ | Rótulo real mantido ao lado da predição. | Não |
+| **SAIDA_SVM** | `y_pred` | `INTEGER` | Categórica Discreta | **Saída do Modelo (Predição)** | `pipeline.predict(X)` | Discreto (ID) | $\{0, \dots, 6\}$ | Classe prevista pelo SVM. | Não |
+| **SAIDA_SVM** | `y_pred_label` | `VARCHAR(32)` | Categórica Nominal | **Saída do Modelo (Predição)** | `CLASS_NAMES_MAP[y_pred]` | Categoria | 7 classes canônicas | Nome textual da classe prevista. | Não |
+| **SAIDA_SVM** | `y_proba_<classe>` (×7) | `FLOAT` | Numérica Contínua | **Saída do Modelo (Probabilidade)** | `pipeline.predict_proba(X)[:, k]` (Platt scaling) | Probabilidade | $[0.0, 1.0]$, $\sum_k = 1$ | Probabilidade da classe $k$; sufixos em §8. | Não |
+| **SAIDA_SVM** | `decision_function_<classe>` (×7) | `FLOAT` | Numérica Contínua | **Saída do Modelo (Distância à Margem)** | `pipeline.decision_function(X)[:, k]` (`ovr`) | Distância funcional sinalizada | $]-\infty, +\infty[$ | Distância funcional ao hiperplano da classe $k$; sufixos em §8. | Não |
+| **SAIDA_SVM** | `y_proba_max` | `FLOAT` | Numérica Contínua | **Saída do Modelo (Probabilidade)** | $\max_k$ `y_proba_k` | Probabilidade | $[1/7, 1.0]$ | Confiança da predição. | Não |
+| **SAIDA_SVM** | `pred_correct` | `INTEGER` | Binária / Discreta | **Saída do Modelo (Diagnóstico)** | $\mathbb{I}(y\_pred = target\_multiclass)$ | Binário $\{0, 1\}$ | $\{0, 1\}$ | Acerto por amostra. | Não |
 
 ---
 
@@ -350,7 +359,61 @@ $$\text{Padrão Regex: } \wedge[a\_z][a\_z0-9\_]*\$$$
 | `laplacian_var_bin` | Sim | Sim | Sim | Sim | Aprovado |
 | `resolution_bin` | Sim | Sim | Sim | Sim | Aprovado |
 | `aspect_ratio_bin` | Sim | Sim | Sim | Sim | Aprovado |
+| `y_pred` | Sim | Sim | Sim | Sim | Aprovado |
+| `y_pred_label` | Sim | Sim | Sim | Sim | Aprovado |
+| `y_proba_grassy_shoot` … `y_proba_yellow_leaf` (7) | Sim | Sim | Sim | Sim | Aprovado |
+| `decision_function_grassy_shoot` … `decision_function_yellow_leaf` (7) | Sim | Sim | Sim | Sim | Aprovado |
+| `y_proba_max` | Sim | Sim | Sim | Sim | Aprovado |
+| `pred_correct` | Sim | Sim | Sim | Sim | Aprovado |
 
 > [!NOTE]
-> **Resultado da Auditoria:** 100% das 56 variáveis catalogadas atendem integralmente ao padrão `snake_case`, sem ocorrência de caracteres especiais acentuados, maiúsculas ou espaços em branco.
+> **Resultado da Auditoria:** 100% das 74 variáveis catalogadas (56 da ABT/contexto + 18 de `SAIDA_SVM`) atendem integralmente ao padrão `snake_case`, sem ocorrência de caracteres especiais acentuados, maiúsculas ou espaços em branco.
 
+---
+
+## 8. Saídas do Modelo SVM (Sprint 3) e Governança de Partições
+
+Entidade **`SAIDA_SVM`**: tabela de predições do SVM campeão (RBF, `C=10`, `gamma=0.01`) sobre as partições `valid` (617) e `test` (380), gerada por [`src/svm_outputs_governance.py`](../src/svm_outputs_governance.py) em `data/processed/svm_predicoes_valid_test.csv` (997 linhas × 21 colunas). Granularidade: 1 linha por amostra avaliada; chave `sample_id`.
+
+### 8.1 Mapeamento classe ↔ código ↔ sufixo
+
+| Código `y_pred` | Classe | Sufixo das colunas `y_proba_*` / `decision_function_*` |
+| :---: | :--- | :--- |
+| 0 | GRASSY SHOOT | `grassy_shoot` |
+| 1 | HEALTHY | `healthy` |
+| 2 | LEAF SCALD | `leaf_scald` |
+| 3 | MOSAIC | `mosaic` |
+| 4 | RED ROT | `red_rot` |
+| 5 | RUST | `rust` |
+| 6 | YELLOW LEAF | `yellow_leaf` |
+
+> [!WARNING]
+> Este mapeamento é o utilizado pelo modelo (`CLASS_NAMES_MAP` em `grid_search_svm_optimization.py`): **HEALTHY = 1**. A regra 6.1 acima cita `target_multiclass == 0` para HEALTHY, o que diverge do código vigente (GRASSY SHOOT = 0) e deve ser revisada pelo responsável da ABT.
+
+### 8.2 Colunas de saída
+
+| Coluna | Origem scikit-learn | Interpretação |
+| :--- | :--- | :--- |
+| `y_pred` / `y_pred_label` | `pipeline.predict(X)` | Classe prevista (código / nome). |
+| `y_proba_<classe>` | `pipeline.predict_proba(X)` | Probabilidade por classe via Platt scaling (`probability=True`); cada linha soma 1.0. Requer reajuste final com `probability=True` (já feito no estimador campeão). |
+| `decision_function_<classe>` | `pipeline.decision_function(X)` com `decision_function_shape='ovr'` | Distância funcional sinalizada ao hiperplano (score de margem). **Não** é probabilidade nem distância euclidiana (só proporcional à geométrica no kernel linear); no RBF depende de `gamma`. |
+| `y_proba_max` | $\max_k$ `y_proba_k` | Confiança; mínimo teórico $1/7$. |
+| `pred_correct` | $\mathbb{I}(y\_pred = y)$ | Facilita análise de erro e calibração. |
+
+> [!NOTE]
+> `predict` (voto one-vs-one) e `argmax(predict_proba)` podem divergir em amostras próximas à fronteira, pois o Platt scaling usa validação cruzada interna do SVC. Por isso `y_pred` é catalogado separadamente de `y_proba_*`.
+
+### 8.3 Auditoria de isolamento estrito das partições
+
+Executada por `audit_partition_isolation()` e persistida em `models/svm_outputs_governance_audit.json` (status **APPROVED**):
+
+| Verificação | Resultado |
+| :--- | :---: |
+| `sample_id`, `filepath` e `filename` disjuntos entre train × valid × test | Aprovado |
+| Nenhuma linha de features numéricas idêntica entre partições (hash, 6 casas) | Aprovado (0 duplicatas) |
+| `StandardScaler.mean_` igual à média de `train` e diferente da média global | Aprovado |
+| Grid Search (`GridSearchCV`/`StratifiedKFold`) ajustado só em `train`; `valid`/`test` só para avaliação | Aprovado (revisão de código) |
+| Predições geradas apenas para `valid` e `test` | Aprovado |
+
+> [!IMPORTANT]
+> O `svm_pipeline_optimal.joblib` versionado foi serializado com scikit-learn 1.6.1 e não carrega no 1.8.0. O script reajusta o mesmo estimador (hiperparâmetros de `svm_gridsearch_metadata.json`) **somente com `train`** quando isso ocorre, registrando `model_origin` no JSON de auditoria. Recomenda-se fixar a versão do scikit-learn em `requirements`.
