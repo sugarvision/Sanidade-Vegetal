@@ -2,7 +2,7 @@
   "task_name": "Concepção, Treinamento e Benchmark de Modelos Baseline",
   "project": "Sanidade-Vegetal (SugarVision)",
   "sprint": "Sprint 3 — Framework SEMMA (Fase: Model)",
-  "responsible": "Elisa (Engenharia de Machine Learning & MLOps)",
+  "responsible": "Luis",
   "timestamp": "2026-10-22 10:55:02",
   "framework_versions": {
     "scikit_learn": "1.9.1",

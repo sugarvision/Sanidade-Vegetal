@@ -2,7 +2,7 @@
 Script utilitário para gerar e persistir o notebook 10_concepcao_treinamento_benchmark_baselines.ipynb
 Projeto: Sanidade-Vegetal (SugarVision)
 Sprint: 3 — Framework SEMMA (Fase: Model)
-Responsável: Elisa (Engenharia de Machine Learning & MLOps)
+Responsável: Luis
 """
 
 import os
@@ -399,6 +399,7 @@ A execução formal do benchmark de baselines atingiu **100% de conformidade** c
 4. **Artefatos e Metadados Persistidos:** Todos os estimadores ajustados (`.joblib`), tabelas de benchmark (`.csv`) e manifestos de governança (`.json`) foram versionados no diretório `models/`."""))
 
     # Escrever arquivo do notebook
+    nb['cells'] = cells
     nb_path.parent.mkdir(parents=True, exist_ok=True)
     with open(nb_path, 'w', encoding='utf-8') as f:
         nbf.write(nb, f)

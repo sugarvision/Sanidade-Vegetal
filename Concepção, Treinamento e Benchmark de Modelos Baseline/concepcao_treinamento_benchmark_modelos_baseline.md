@@ -2,7 +2,7 @@
 
 **Projeto:** Classificação e Diagnóstico Inteligente de Patologias em Cana-de-Açúcar (*Saccharum officinarum*) — SugarVision  
 **Fase:** Framework SEMMA — Fase Model (Sprint 3)  
-**Responsável:** Elisa (`EA`) — Engenharia de Machine Learning & MLOps  
+**Responsável:** Luis
 **Versão:** 1.0.0  
 **Data:** 22 de Outubro de 2026  
 

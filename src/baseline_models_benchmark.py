@@ -2,7 +2,7 @@
 Módulo de Concepção, Treinamento e Benchmark de Modelos Baseline
 Projeto: Sanidade-Vegetal (SugarVision)
 Sprint: 3 — Framework SEMMA (Fase: Model)
-Responsável: Elisa (Engenharia de Machine Learning & MLOps)
+Responsável: Luis
 
 Checklist Coberto:
 1. Instanciar e treinar um classificador ingênuo (DummyClassifier(strategy='stratified')) para fixar o piso de desempenho.
@@ -725,7 +725,7 @@ def execute_baseline_models_benchmark():
         "task_name": "Concepção, Treinamento e Benchmark de Modelos Baseline",
         "project": "Sanidade-Vegetal (SugarVision)",
         "sprint": "Sprint 3 — Framework SEMMA (Fase: Model)",
-        "responsible": "Elisa (Engenharia de Machine Learning & MLOps)",
+        "responsible": "Luis",
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "framework_versions": {
             "scikit_learn": sklearn.__version__,
