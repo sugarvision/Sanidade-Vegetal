@@ -57,17 +57,17 @@ flowchart TD
 ## 📓 2. Catálogo de Notebooks Jupyter (`notebooks/`)
 
 | Notebook | Descrição e Finalidade | Responsável | Entradas / Saídas |
-| :--- | :--- | :---: | :--- |
-| **[`06_pipeline_atomico_columntransformer.ipynb`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/notebooks/06_pipeline_atomico_columntransformer.ipynb)** | **Pipeline Atômico de Pré-processamento:** Fluxo unificado no Scikit-Learn com `ColumnTransformer`. Executa imputação por mediana, normalização $z$-score, One-Hot Encoding, validação empírica anti-leakage e persistência MLOps. | Elisa (`EA`) | **In:** `abt_sanidade_vegetal.csv`<br>**Out:** `preprocessor_pipeline.joblib`, `preprocessor_metadata.json` |
-| **[`07_consolidacao_exportacao_abt_final.ipynb`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/notebooks/07_consolidacao_exportacao_abt_final.ipynb)** | **Consolidação e Exportação da ABT Final:** Aplicação integral do pipeline nas 6.571 instâncias. Auditoria de integridade (0 NaNs em 100% das 40 colunas), benchmark de desempenho I/O (Parquet vs CSV) e teste contratual de prontidão com `GridSearchCV`. | Elisa (`EA`) | **In:** `abt_sanidade_vegetal.csv`, `preprocessor_pipeline.joblib`<br>**Out:** `abt_features_modelagem.parquet`, `manifest.json` |
-| **[`03_sprint2_modify_pipeline.ipynb`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/notebooks/03_sprint2_modify_pipeline.ipynb)** | **Notebook de Disparo Integrado:** Interface rápida para execução dos scripts de extração e rotinas de validação de ponta a ponta. | Squad 2 | **Ação:** Chama scripts de `src/` e exibe logs diagnósticos. |
+| :--- | :--- | :--- | :--- |
+| **[`06_pipeline_atomico_columntransformer.ipynb`](../notebooks/06_pipeline_atomico_columntransformer.ipynb)** | **Pipeline Atômico de Pré-processamento:** Fluxo unificado no Scikit-Learn com `ColumnTransformer`. Executa imputação por mediana, normalização $z$-score, One-Hot Encoding, validação empírica anti-leakage e persistência MLOps. | Elisa (`EA`) | **In:** `abt_sanidade_vegetal.csv`<br>**Out:** `preprocessor_pipeline.joblib`, `preprocessor_metadata.json` |
+| **[`07_consolidacao_exportacao_abt_final.ipynb`](../notebooks/07_consolidacao_exportacao_abt_final.ipynb)** | **Consolidação e Exportação da ABT Final:** Aplicação integral do pipeline nas 6.571 instâncias. Auditoria de integridade (0 NaNs em 100% das 40 colunas), benchmark de desempenho I/O (Parquet vs CSV) e teste contratual de prontidão com `GridSearchCV`. | Elisa (`EA`) | **In:** `abt_sanidade_vegetal.csv`, `preprocessor_pipeline.joblib`<br>**Out:** `abt_features_modelagem.parquet`, `manifest.json` |
+| **[`03_sprint2_modify_pipeline.ipynb`](../notebooks/03_sprint2_modify_pipeline.ipynb)** | **Notebook de Disparo Integrado:** Interface rápida para execução dos scripts de extração e rotinas de validação de ponta a ponta. | Squad 2 | **Ação:** Chama scripts de `src/` e exibe logs diagnósticos. |
 
 ---
 
 ## ⚙️ 3. Módulos e Scripts Executáveis em Python (`src/`)
 
 ### 3.1. Engenharia de Features Visuais e Índices Espectrais
-* **Arquivo:** [`src/feature_engineering_visual.py`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/src/feature_engineering_visual.py)
+* **Arquivo:** [`src/feature_engineering_visual.py`](../src/feature_engineering_visual.py)
 * **Responsável:** Cesar (Lead Técnico & Visão Computacional)
 * **Funcionalidades:**
   * `rgb_to_hsv_metrics(img_rgb)`: Converte para HSV e calcula média/desvio-padrão de Matiz (*Hue*) e Saturação.
@@ -76,7 +76,7 @@ flowchart TD
   * `extract_haralick_glcm_features(img_gray)`: Calcula a GLCM em 4 ângulos ($0^\circ, 45^\circ, 90^\circ, 135^\circ$) e extrai Contraste, Dissimilaridade, Homogeneidade e Energia, gerando a média invariante à rotação.
 
 ### 3.2. Discretização Estatística de Variáveis Contínuas (Binning)
-* **Arquivo:** [`src/discretizacao_binning.py`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/src/discretizacao_binning.py)
+* **Arquivo:** [`src/discretizacao_binning.py`](../src/discretizacao_binning.py)
 * **Responsável:** Cesar
 * **Funcionalidades:**
   * Diagnóstico de assimetria (*skewness*) e curtose para `size_kb`, `laplacian_var`, `aspect_ratio` e `resolution_mp`.
@@ -84,7 +84,7 @@ flowchart TD
   * Isolamento estrito de *bins*: cálculo de percentis unicamente sobre o *Train Split* com projeção direta em Validação e Teste.
 
 ### 3.3. Pipeline Atômico de Pré-processamento (Anti-Leakage)
-* **Arquivo:** [`src/atomic_pipeline_preprocessing.py`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/src/atomic_pipeline_preprocessing.py)
+* **Arquivo:** [`src/atomic_pipeline_preprocessing.py`](../src/atomic_pipeline_preprocessing.py)
 * **Responsável:** Elisa (`EA`)
 * **Funcionalidades:**
   * Construção do `ColumnTransformer` integrando sub-pipeline numérico (`SimpleImputer(strategy='median')` + `StandardScaler`) e categórico (`SimpleImputer(strategy='most_frequent')` + `OneHotEncoder(handle_unknown='ignore')`).
@@ -92,7 +92,7 @@ flowchart TD
   * Serialização atômica MLOps com `joblib.dump(..., compress=3)` e exportação de metadados em JSON.
 
 ### 3.4. Consolidação e Exportação da ABT Final
-* **Arquivo:** [`src/export_final_modeling_abt.py`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/src/export_final_modeling_abt.py)
+* **Arquivo:** [`src/export_final_modeling_abt.py`](../src/export_final_modeling_abt.py)
 * **Responsável:** Elisa (`EA`)
 * **Funcionalidades:**
   * Processamento em lote das 6.571 linhas da base preliminar.
@@ -108,18 +108,18 @@ flowchart TD
 Cada frente da Fase Modify possui uma pasta de documentação aprofundada com relatórios técnicos, fórmulas e checklists:
 
 1. **Engenharia de Atributos e Descritores Visuais:**
-   * [`Engenharia de Atributos e Descritores Visuais/README.md`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/README.md)
-   * [`engenharia_descritores_cromaticos_e_indices.md`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/engenharia_descritores_cromaticos_e_indices.md): Fundamentação biológica e ótica do $ExG$, HSV e CIELAB.
-   * [`extracao_textura_glcm_e_rugosidade.md`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/extracao_textura_glcm_e_rugosidade.md): Equações da matriz GLCM e propriedades de Haralick.
-   * [`discretizacao_variaveis_continuas_binning.md`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/discretizacao_variaveis_continuas_binning.md): Análise de assimetria e intervalos ótimos de corte.
+   * [`Engenharia de Atributos e Descritores Visuais/README.md`](../Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/README.md)
+   * [`engenharia_descritores_cromaticos_e_indices.md`](../Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/engenharia_descritores_cromaticos_e_indices.md): Fundamentação biológica e ótica do $ExG$, HSV e CIELAB.
+   * [`extracao_textura_glcm_e_rugosidade.md`](../Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/extracao_textura_glcm_e_rugosidade.md): Equações da matriz GLCM e propriedades de Haralick.
+   * [`discretizacao_variaveis_continuas_binning.md`](../Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/discretizacao_variaveis_continuas_binning.md): Análise de assimetria e intervalos ótimos de corte.
 
 2. **Pipeline Atômico e Anti-Leakage:**
-   * [`Pipeline Atômico de Pré-processamento e Anti-Leakage/README.md`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/Pipeline%20At%C3%B4mico%20de%20Pr%C3%A9-processamento%20e%20Anti-Leakage/README.md)
-   * [`pipeline_atomico_columntransformer.md`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/Pipeline%20At%C3%B4mico%20de%20Pr%C3%A9-processamento%20e%20Anti-Leakage/pipeline_atomico_columntransformer.md): Arquitetura dos transformadores, prova matemática anti-leakage e governança.
+   * [`Pipeline Atômico de Pré-processamento e Anti-Leakage/README.md`](../Pipeline%20At%C3%B4mico%20de%20Pr%C3%A9-processamento%20e%20Anti-Leakage/README.md)
+   * [`pipeline_atomico_columntransformer.md`](../Pipeline%20At%C3%B4mico%20de%20Pr%C3%A9-processamento%20e%20Anti-Leakage/pipeline_atomico_columntransformer.md): Arquitetura dos transformadores, prova matemática anti-leakage e governança.
 
 3. **Consolidação e Exportação da ABT Final:**
-   * [`Consolidação e Exportação da ABT Final/README.md`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/Consolida%C3%A7%C3%A3o%20e%20Exporta%C3%A7%C3%A3o%20da%20ABT%20Final/README.md)
-   * [`consolidacao_exportacao_abt_final.md`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/Consolida%C3%A7%C3%A3o%20e%20Exporta%C3%A7%C3%A3o%20da%20ABT%20Final/consolidacao_exportacao_abt_final.md): Dicionário das 40 variáveis consolidadas, benchmarks e contrato de integração com SVM.
+   * [`Consolidação e Exportação da ABT Final/README.md`](../Consolida%C3%A7%C3%A3o%20e%20Exporta%C3%A7%C3%A3o%20da%20ABT%20Final/README.md)
+   * [`consolidacao_exportacao_abt_final.md`](../Consolida%C3%A7%C3%A3o%20e%20Exporta%C3%A7%C3%A3o%20da%20ABT%20Final/consolidacao_exportacao_abt_final.md): Dicionário das 40 variáveis consolidadas, benchmarks e contrato de integração com SVM.
 
 ---
 
@@ -135,10 +135,10 @@ Cada frente da Fase Modify possui uma pasta de documentação aprofundada com re
 * **`models/preprocessor_metadata.json`**: Manifesto formal contendo o schema de entrada, nomes exatos de features geradas por `get_feature_names_out()`, versões de bibliotecas (`scikit-learn 1.4+`) e hash do arquivo binário.
 
 ### 5.3. Gráficos Diagnósticos (`docs/figures/`)
-* [`docs/figures/sprint2_analise_cromaticas_hsv_exg.png`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/docs/figures/sprint2_analise_cromaticas_hsv_exg.png): Dispersão e densidade dos índices $ExG$ e canais HSV.
-* [`docs/figures/sprint2_analise_texturas_glcm_haralick.png`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/docs/figures/sprint2_analise_texturas_glcm_haralick.png): Padrões de textura e contraste foliar entre folhas sadias e enferrujadas.
-* [`docs/figures/sprint2_distribuicao_assimetria_metadados.png`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/docs/figures/sprint2_distribuicao_assimetria_metadados.png): Histograma de assimetria das variáveis antes do binning.
-* [`docs/figures/sprint2_comparacao_binning_uniform_vs_quantile.png`](file:///c:/Users/fmsar/OneDrive/Documentos/GitHub/jogo_damas/Sanidade-Vegetal/docs/figures/sprint2_comparacao_binning_uniform_vs_quantile.png): Comparação dos métodos de discretização.
+* [`docs/figures/sprint2_analise_cromaticas_hsv_exg.png`](./figures/sprint2_analise_cromaticas_hsv_exg.png): Dispersão e densidade dos índices $ExG$ e canais HSV.
+* [`docs/figures/sprint2_analise_texturas_glcm_haralick.png`](./figures/sprint2_analise_texturas_glcm_haralick.png): Padrões de textura e contraste foliar entre folhas sadias e enferrujadas.
+* [`docs/figures/sprint2_distribuicao_assimetria_metadados.png`](./figures/sprint2_distribuicao_assimetria_metadados.png): Histograma de assimetria das variáveis antes do binning.
+* [`docs/figures/sprint2_comparacao_binning_uniform_vs_quantile.png`](./figures/sprint2_comparacao_binning_uniform_vs_quantile.png): Comparação dos métodos de discretização.
 
 ---
 

@@ -1,0 +1,24 @@
+# ==============================================================================
+# SugarVision - Sanidade Vegetal (Classificação Fitopatológica em Cana-de-Açúcar)
+# Arquivo de Dependências Estritas para Reprodutibilidade Total (Sprint 5)
+# Ambiente de Referência Homologado: Python >= 3.10, <= 3.14 (x86_64 / amd64)
+# ==============================================================================
+
+# --- Framework de Machine Learning e Modelagem Estatística ---
+scikit-learn==1.8.0
+scipy==1.17.1
+joblib==1.5.3
+
+# --- Manipulação de Dados Estruturados e Álgebra Computacional ---
+numpy==2.4.4
+pandas==3.0.3
+
+# --- Visão Computacional, Processamento de Imagens e Extração de Features ---
+Pillow==12.2.0
+opencv-python==5.0.0
+
+# --- Visualização de Dados e Diagnósticos Estatísticos ---
+matplotlib==3.10.9
+
+# --- Telemetria de Hardware, MLOps e Governança de Recursos ---
+psutil==7.2.2

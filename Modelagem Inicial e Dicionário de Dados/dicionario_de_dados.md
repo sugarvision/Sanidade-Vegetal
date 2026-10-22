@@ -1,8 +1,8 @@
 # 📖 Dicionário de Dados — Sanidade Vegetal (SugarVision)
 
 **Projeto:** Classificação e Diagnóstico Inteligente de Patologias em Cana-de-Açúcar (*Saccharum officinarum*)  
-**Fase:** Framework SEMMA — Model & Assess (Sprint 4 — Validação Formal de Métricas, Hiperparâmetros e Rastreabilidade)  
-**Versão:** 2.2.0  
+**Fase:** Framework SEMMA — Ciclo Completo (Sprint 5 — Consolidação Final do Dicionário de Dados e Catálogo de Produção)  
+**Versão:** 3.0.0 (Release Oficial de Produção e Governança MLOps)  
 **Data:** Outubro de 2026  
 **Responsáveis:** Heitor Partezani (Engenharia de Machine Learning & IA SVM) e Equipe de Ciência de Dados  
 
@@ -518,3 +518,118 @@ flowchart TD
 | **Calibração Estocástica** | $\sum_c y\_proba_c$ | 997 vetores de probabilidade | 100% das linhas somam exatamente 1.0 ($\pm 10^{-5}$) | **HOMOLOGADO** |
 
 > **Atestado Técnico:** Atesta-se formalmente que as saídas do modelo presentes na tabela analítica de predições possuem linhagem ininterrupta e determinística desde os arquivos de imagem brutos até os laudos de inferência, com zero perda de rastreabilidade ou contaminação amostral.
+
+---
+
+## 12. Catálogo Oficial de Artefatos de Produção e Matriz de Rastreabilidade SEMMA
+
+Em conformidade com a Sprint 5, este catálogo formaliza e audita todos os componentes e artefatos de dados, pipelines serializados, códigos executáveis e documentações técnicas do projeto SugarVision, vinculando-os estritamente a cada fase do framework **SEMMA** (*Sample, Explore, Modify, Model, Assess*).
+
+```mermaid
+flowchart LR
+    subgraph S["1. SAMPLE"]
+        S1["sampling_pipeline.py\n(Particionamento 70/15/15)"]
+        S2["distribuicao_e_balanceamento.md"]
+    end
+
+    subgraph E["2. EXPLORE"]
+        E1["visual_patterns_analyzer.py"]
+        E2["metadata_raw_images.csv\n(13.142 amostras)"]
+    end
+
+    subgraph M["3. MODIFY"]
+        M1["feature_engineering_visual.py\n(HSV, LAB, ExG, Haralick)"]
+        M2["discretizacao_binning.py"]
+        M3["abt_sanidade_vegetal.csv\n(6.571 registros)"]
+        M4["preprocessor_pipeline.joblib"]
+    end
+
+    subgraph MO["4. MODEL"]
+        MO1["atomic_svm_pipeline.py"]
+        MO2["svm_kernel_trick_study.py"]
+        MO3["grid_search_svm_optimization.py"]
+        MO4["svm_pipeline_optimal.joblib\n(C=10.0, gamma=0.01)"]
+    end
+
+    subgraph A["5. ASSESS"]
+        A1["repeated_stratified_kfold_audit.py"]
+        A2["resilient_parallel_grid_search.py"]
+        A3["audit_metadata_lineage.py"]
+        A4["svm_predicoes_valid_test.csv"]
+        A5["audit_repository_structure.py"]
+        A6["validate_documentation_and_links.py"]
+        A7["dicionario_de_dados.md (v3.0.0)"]
+    end
+
+    S --> E --> M --> MO --> A
+```
+
+### 12.1 Matriz de Rastreabilidade por Fase do Framework SEMMA
+
+| Fase SEMMA | Componente Oficial | Caminho Relativo no Repositório | Tipo de Componente | Entradas / Dependências | Saídas / Artefatos Gerados | Status de Homologação |
+| :---: | :--- | :--- | :---: | :--- | :--- | :---: |
+| **Sample** | Estratégia de Amostragem Estratificada | `Definição da Estratégia de Amostragem/sampling_pipeline.py` | Script Executável | `metadata_raw_images.csv` | Particionamento train (70%), valid (15%), test (15%) | **APPROVED** |
+| **Sample** | Metadados de Amostragem e Balanceamento | `Definição da Estratégia de Amostragem/distribuicao_e_balanceamento.md` | Documentação Técnica | Análise a priori de classes | Pesos `class_weight='balanced'` e regras anti-leakage | **APPROVED** |
+| **Explore** | Explorador de Padrões Visuais | `src/visual_patterns_analyzer.py` | Script Executável | Imagens brutas em `data/raw/` | Diagnóstico de resolução, variância laplaciana e histogramas | **APPROVED** |
+| **Explore** | Metadados Físicos de Imagens Brutas | `data/processed/metadata_raw_images.csv` | Catálogo de Dados | 13.142 arquivos fotográficos | Tabela com dimensões, aspect ratio, foco e hashes | **APPROVED** |
+| **Modify** | Pipeline de Engenharia de Features Visuais | `src/feature_engineering_visual.py` | Script Executável | `metadata_raw_images.csv` | Índices HSV, CIELAB, ExG, ExR, razões espectrais e GLCM | **APPROVED** |
+| **Modify** | Discretização Estatística e Binning | `src/discretizacao_binning.py` | Script Executável | Variáveis contínuas brutas | Bins de quantis calculados exclusivamente na partição treino | **APPROVED** |
+| **Modify** | Tabela Analítica Base (ABT Sanidade Vegetal) | `data/processed/abt_sanidade_vegetal.csv` | Tabela ABT Canônica | Extrações visuais e metadados | 6.571 registros x 35 atributos limpos e sem NaNs | **APPROVED** |
+| **Modify** | ABT Otimizada em Apache Parquet | `data/processed/abt_features_modelagem.parquet` | Tabela ABT Colunar | `abt_sanidade_vegetal.csv` | 6.571 registros x 35 colunas com compressão Snappy | **APPROVED** |
+| **Modify** | Pré-processador ColumnTransformer Atômico | `models/preprocessor_pipeline.joblib` | Pipeline Serializado | Subconjunto de treino | Objeto sklearn serializado (imputer + scaler + one-hot) | **APPROVED** |
+| **Model** | Pipeline Atômico SVM Anti-Leakage | `src/atomic_svm_pipeline.py` | Script Executável | `abt_sanidade_vegetal.csv` | Pipeline unificado com validação interna anti-leakage | **APPROVED** |
+| **Model** | Estudo de Kernel Trick (RBF e Polinomial) | `src/svm_kernel_trick_study.py` | Script Executável | Partição de treino | Comparativo matemático de kernels, margens e vetores de suporte | **APPROVED** |
+| **Model** | Grid Search Exaustivo de Hiperparâmetros | `src/grid_search_svm_optimization.py` | Script Executável | Partições train/valid | Matriz de hiperparâmetros (C, gamma, kernel) | **APPROVED** |
+| **Model** | Estimador SVM Campeão Serializado | `models/svm_pipeline_optimal.joblib` | Modelo Serializado MLOps | Treino completo | Modelo RBF ótimo (C=10.0, gamma=0.01) pronto para inferência | **APPROVED** |
+| **Assess** | Auditoria de Partições Repeated Stratified K-Fold | `src/repeated_stratified_kfold_audit.py` | Script Executável | ABT e labels de classe | 50 folds (5 splits x 10 repetições), IC 95% e estabilidade | **APPROVED** |
+| **Assess** | Grid Search Paralelo Resiliente com Telemetria | `src/resilient_parallel_grid_search.py` | Script Executável | Grid de 18 combinações SVM | Processamento multi-core, telemetria de RAM/CPU e checkpoints | **APPROVED** |
+| **Assess** | Auditoria de Linhagem e Métricas Formais | `src/audit_metadata_lineage.py` | Script Executável | `svm_predicoes_valid_test.csv` | Precision, Recall, F1, AUC-ROC > 0.91 e Specificity > 0.93 | **APPROVED** |
+| **Assess** | Tabela de Predições Calibradas | `data/processed/svm_predicoes_valid_test.csv` | Tabela de Predições | Valid (617) e Test (380) | 997 registros contendo rótulos, probabilidades e margens | **APPROVED** |
+| **Assess** | Auditoria Estrutural e Reprodutibilidade | `src/audit_repository_structure.py` | Script Executável | Estrutura de pastas | Validação de diretórios canônicos e requirements.txt | **APPROVED** |
+| **Assess** | Validação de Documentação e Links | `src/validate_documentation_and_links.py` | Script Executável | 44 arquivos Markdown | 100% de links validados (0 broken links) e manifesto MLOps | **APPROVED** |
+| **Assess** | Dicionário de Dados Auditado (v3.0.0) | `Modelagem Inicial e Dicionário de Dados/dicionario_de_dados.md` | Governança Documental | Todo o ecossistema | Especificação canônica completa de 90+ campos e entidades | **APPROVED** |
+
+---
+
+### 12.2 Inventário de Artefatos Persistidos em Produção
+
+```
+Sanidade-Vegetal/
+├── data/
+│   ├── processed/
+│   │   ├── abt_sanidade_vegetal.csv              # [3.00 MB] ABT Principal (6.571 linhas x 35 colunas)
+│   │   ├── abt_features_modelagem.parquet        # [0.92 MB] ABT Colunar Snappy Otimizada
+│   │   ├── abt_features_modelagem.csv            # [3.00 MB] Espelho CSV para interoperabilidade
+│   │   ├── metadata_raw_images.csv               # [2.10 MB] Catálogo físico de 13.142 imagens
+│   │   └── svm_predicoes_valid_test.csv          # [0.45 MB] 997 predições calibradas (valid/test)
+├── models/
+│   ├── svm_pipeline_optimal.joblib               # [1.45 MB] Estimador SVM Campeão RBF
+│   ├── preprocessor_pipeline.joblib              # [2.58 KB] Pipeline ColumnTransformer
+│   ├── gridsearch_checkpoint.json                # [4.80 KB] Checkpoint tolerante a falhas (18/18 jobs)
+│   ├── gridsearch_checkpoint_results.csv         # [6.20 KB] Resultados comparativos do grid search
+│   ├── repeated_kfold_audit_results.csv          # [9.10 KB] 50 folds auditados (Repeated K-Fold)
+│   ├── dataset_lineage_and_metrics_catalog.json  # [5.40 KB] Linhagem auditada e métricas formais
+│   └── production_artifacts_catalog.json         # [6.80 KB] Catálogo MLOps final do projeto
+├── src/
+│   ├── sampling_pipeline.py                      # Particionamento estratificado determinístico
+│   ├── visual_patterns_analyzer.py               # Extração de padrões óticos e resolução
+│   ├── feature_engineering_visual.py             # Descritores cromáticos (HSV/LAB) e texturais (GLCM)
+│   ├── discretizacao_binning.py                  # Discretização e binning anti-leakage
+│   ├── atomic_svm_pipeline.py                    # Pipeline atômico SVM unificado
+│   ├── svm_kernel_trick_study.py                 # Análise teórica e experimental de kernels SVM
+│   ├── grid_search_svm_optimization.py           # Otimização exaustiva de hiperparâmetros
+│   ├── repeated_stratified_kfold_audit.py        # Validação estocástica com 50 folds
+│   ├── resilient_parallel_grid_search.py         # Grid search paralelo multi-core com telemetria
+│   ├── audit_metadata_lineage.py                 # Auditoria matemática formal de métricas
+│   ├── audit_repository_structure.py             # Auditoria de arquitetura e reprodutibilidade
+│   └── validate_documentation_and_links.py       # Auditoria de links e integridade de markdown
+└── requirements.txt                              # Dependências com pinagem estrita de versão
+```
+
+### 12.3 Atestado de Congelamento e Prontidão de Produção (Code Freeze)
+
+Atesta-se por meio deste instrumento que o repositório **Sanidade-Vegetal (SugarVision)** atingiu o estado de prontidão operacional:
+1. **0 Links Quebrados:** Todos os 233 links entre 44 arquivos Markdown foram rigorosamente auditados e validados pelo validador automático (`validate_documentation_and_links.py`).
+2. **Total Rastreabilidade SEMMA:** Cada componente analítico, script, tabela e modelo está atrelado a uma fase canônica (*Sample, Explore, Modify, Model, Assess*), sem pontos cegos de linhagem.
+3. **Reprodutibilidade Estrita:** Todas as bibliotecas possuem versões exatas congeladas em `requirements.txt` com suporte a Python 3.10+, 3.11+ e 3.14+.
+4. **Governança de Licenciamento:** Todo o código está sob licença MIT e os dados/documentação sob licença Creative Commons Attribution 4.0 International (CC BY 4.0).

@@ -26,12 +26,12 @@
 - **[`../Definição da Estratégia de Amostragem/distribuicao_e_balanceamento.md`](../Defini%C3%A7%C3%A3o%20da%20Estrat%C3%A9gia%20de%20Amostragem/distribuicao_e_balanceamento.md)**: Estudo de desbalanceamento e pesos de classe.
 
 ### 5. Pipelines e Execução Técnica (Cesar & Equipe - Sprint 1)
-- **[`../notebooks/02_sprint1_master_pipeline_reprodutivel.ipynb`](../notebooks/02_sprint1_master_pipeline_reprodutivel.ipynb)**: Notebook mestre da Sprint 1 executável de ponta a ponta sem falhas.
+- **[`../notebooks/02A_sprint1_master_pipeline_reprodutivel.ipynb`](../notebooks/02A_sprint1_master_pipeline_reprodutivel.ipynb)**: Notebook mestre da Sprint 1 executável de ponta a ponta sem falhas.
 - **[`../data/processed/abt_sanidade_vegetal.csv`](../data/processed/abt_sanidade_vegetal.csv)**: Tabela analítica consolidada preliminar (6.571 registros x 16 atributos).
 
 ### 🏆 Relatórios Executivos da Sprint Review (Sprint 1)
-- **[`./Sprint_Review_Sprint_1_Sanidade_Vegetal.docx`](./Sprint_Review_Sprint_1_Sanidade_Vegetal.docx)**: Relatório executivo completo em formato Microsoft Word (`.docx`), com tabelas estritas, caixas de destaque e imagens diagnósticas incorporadas.
-- **[`./Sprint_Review_Sprint_1_Sanidade_Vegetal.pdf`](./Sprint_Review_Sprint_1_Sanidade_Vegetal.pdf)**: Relatório executivo completo em formato PDF pronto para distribuição e apresentação.
+- **[`./Sprint_Review_1_Sanidade_Vegetal_Completa.docx`](./Sprint_Review_1_Sanidade_Vegetal_Completa.docx)**: Relatório executivo completo em formato Microsoft Word (`.docx`), com tabelas estritas, caixas de destaque e imagens diagnósticas incorporadas.
+- **[`./Sprint_Review_1_Sanidade_Vegetal_Completa.pdf`](./Sprint_Review_1_Sanidade_Vegetal_Completa.pdf)**: Relatório executivo completo em formato PDF pronto para distribuição e apresentação.
 
 ---
 

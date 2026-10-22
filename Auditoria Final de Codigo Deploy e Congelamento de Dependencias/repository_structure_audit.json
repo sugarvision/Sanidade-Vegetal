@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-10-22 10:31:17",
+  "base_directory": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal",
+  "directories_audit": {
+    "data": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\data",
+      "files_and_subdirs_count": 7
+    },
+    "docs": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\docs",
+      "files_and_subdirs_count": 54
+    },
+    "models": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\models",
+      "files_and_subdirs_count": 22
+    },
+    "notebooks": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\notebooks",
+      "files_and_subdirs_count": 13
+    },
+    "src": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\src",
+      "files_and_subdirs_count": 45
+    }
+  },
+  "critical_artifacts_audit": {
+    "data_abt_sanidade": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\data\\processed\\abt_sanidade_vegetal.csv",
+      "size_kb_or_items": 3348.37
+    },
+    "data_metadata_raw": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\data\\processed\\metadata_raw_images.csv",
+      "size_kb_or_items": 4712.98
+    },
+    "data_predictions": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\data\\processed\\svm_predicoes_valid_test.csv",
+      "size_kb_or_items": 347.1
+    },
+    "models_optimal": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\models\\svm_pipeline_optimal.joblib",
+      "size_kb_or_items": 393.75
+    },
+    "models_lineage_catalog": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\models\\dataset_lineage_and_metrics_catalog.json",
+      "size_kb_or_items": 7.84
+    },
+    "models_computational_efficiency": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\models\\computational_efficiency_metrics.json",
+      "size_kb_or_items": 2.35
+    },
+    "models_repeated_kfold": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\models\\repeated_kfold_audit_metadata.json",
+      "size_kb_or_items": 8.13
+    },
+    "docs_figures_dir": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\docs\\figures",
+      "size_kb_or_items": 35
+    },
+    "src_atomic_svm_pipeline": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\src\\atomic_svm_pipeline.py",
+      "size_kb_or_items": 26.92
+    },
+    "src_repeated_stratified_kfold": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\src\\repeated_stratified_kfold_audit.py",
+      "size_kb_or_items": 30.14
+    },
+    "src_resilient_parallel_grid_search": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\src\\resilient_parallel_grid_search.py",
+      "size_kb_or_items": 30.76
+    },
+    "src_audit_metadata_lineage": {
+      "status": "APPROVED",
+      "path": "C:\\Users\\HEITORVITTIPARTEZANI\\Documents\\GitHub\\Sanidade-Vegetal\\src\\audit_metadata_lineage.py",
+      "size_kb_or_items": 18.63
+    }
+  },
+  "cleanliness_audit": {
+    "status": "APPROVED",
+    "orphan_tmp_files_count": 0,
+    "orphan_tmp_files": []
+  },
+  "test_suite_audit": {
+    "status": "APPROVED",
+    "return_code": 0,
+    "execution_time_seconds": 2.095,
+    "output": "..................\n----------------------------------------------------------------------\nRan 18 tests in 0.460s\n\nOK"
+  },
+  "overall_compliance_status": "APPROVED"
+}
