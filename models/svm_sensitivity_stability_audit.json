@@ -1,0 +1,92 @@
+{
+  "analysis_name": "svm_hyperparameter_sensitivity_stability_analysis",
+  "sprint": "Sprint 4 — Framework SEMMA (Model / Assess)",
+  "task": "Analisar a estabilidade dos hiperparâmetros ótimos encontrados e avaliar a sensibilidade do estimador SVM frente a variações locais de C e gamma",
+  "responsible": "Elisa (Engenharia de Machine Learning & MLOps)",
+  "timestamp": "2026-10-23 11:25:34",
+  "best_estimator_reference": "svm_pipeline_optimal.joblib",
+  "best_hyperparameters": {
+    "svm__C": 0.1,
+    "svm__coef0": 1.0,
+    "svm__degree": 3,
+    "svm__gamma": "scale",
+    "svm__kernel": "poly"
+  },
+  "stability_metrics": {
+    "max_cv_top10": 1.58273391315361,
+    "min_cv_top10": 0.9822971252467902,
+    "mean_cv_top10": 1.1879219463429298,
+    "best_model_cv": 1.010692404370689,
+    "stability_homologation": "APROVADO_ALTA_ESTABILIDADE"
+  },
+  "pareto_optimal_count": 6,
+  "validation_metrics": {
+    "accuracy": 0.6207,
+    "f1_macro": 0.5747,
+    "f1_weighted": 0.562,
+    "log_loss": 0.7067,
+    "report": {
+      "GRASSY SHOOT": {
+        "precision": 0.10526315789473684,
+        "recall": 0.3,
+        "f1-score": 0.15584415584415584,
+        "support": 20.0
+      },
+      "HEALTHY": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 95.0
+      },
+      "LEAF SCALD": {
+        "precision": 0.5625,
+        "recall": 0.8571428571428571,
+        "f1-score": 0.6792452830188679,
+        "support": 63.0
+      },
+      "MOSAIC": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 154.0
+      },
+      "RED ROT": {
+        "precision": 0.6595744680851063,
+        "recall": 0.6595744680851063,
+        "f1-score": 0.6595744680851063,
+        "support": 94.0
+      },
+      "RUST": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 91.0
+      },
+      "YELLOW LEAF": {
+        "precision": 0.4076086956521739,
+        "recall": 0.75,
+        "f1-score": 0.528169014084507,
+        "support": 100.0
+      },
+      "accuracy": 0.6207455429497569,
+      "macro avg": {
+        "precision": 0.5335637602331452,
+        "recall": 0.6523881893182805,
+        "f1-score": 0.5746904172903767,
+        "support": 617.0
+      },
+      "weighted avg": {
+        "precision": 0.5288551583842984,
+        "recall": 0.6207455429497569,
+        "f1-score": 0.5619550038177026,
+        "support": 617.0
+      }
+    }
+  },
+  "test_metrics": {
+    "accuracy": 0.6079,
+    "f1_macro": 0.6048,
+    "f1_weighted": 0.5473
+  },
+  "audit_status": "HOMOLOGADO_ESTABILIDADE_COMPROVADA"
+}
