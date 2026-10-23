@@ -15,7 +15,7 @@ class TestComputationalEfficiency(unittest.TestCase):
     def setUpClass(cls):
         cls.base_dir = Path(__file__).resolve().parent.parent
         cls.models_dir = cls.base_dir / "models"
-        cls.sprint_dir = cls.base_dir / "Otimizacao e Paralelizacao Computacional da Validacao Cruzada"
+        cls.sprint_dir = cls.base_dir / "entregas" / "Otimizacao e Paralelizacao Computacional da Validacao Cruzada"
         cls.checkpoint_json = cls.models_dir / "gridsearch_checkpoint.json"
         cls.checkpoint_csv = cls.models_dir / "gridsearch_checkpoint_results.csv"
         cls.metrics_json = cls.models_dir / "computational_efficiency_metrics.json"

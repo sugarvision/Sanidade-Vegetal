@@ -654,7 +654,7 @@ def execute_computational_efficiency_delivery():
     data_path = base_dir / "data" / "processed" / "abt_sanidade_vegetal.csv"
     models_dir = base_dir / "models"
     figures_dir = base_dir / "docs" / "figures"
-    sprint_dir = base_dir / "Otimizacao e Paralelizacao Computacional da Validacao Cruzada"
+    sprint_dir = base_dir / "entregas" / "Otimizacao e Paralelizacao Computacional da Validacao Cruzada"
     sprint_figures_dir = sprint_dir / "figures"
     
     print(f"Lendo ABT oficial de: {data_path}")

@@ -633,7 +633,7 @@ def execute_repeated_kfold_audit_delivery():
     data_path = base_dir / "data" / "processed" / "abt_sanidade_vegetal.csv"
     models_dir = base_dir / "models"
     figures_dir = base_dir / "docs" / "figures"
-    sprint_dir = base_dir / "Auditoria de Particoes e Robustez Estocastica Repeated Stratified K-Fold"
+    sprint_dir = base_dir / "entregas" / "Auditoria de Particoes e Robustez Estocastica Repeated Stratified K-Fold"
     
     print(f"Carregando ABT consolidada de: {data_path}")
     df = pd.read_csv(data_path)

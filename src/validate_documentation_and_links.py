@@ -37,7 +37,7 @@ SEMMA_COMPONENTS_MAP = [
     {
         "phase": "Sample",
         "component_name": "Estratégia de Amostragem Estratificada",
-        "relative_path": "Definição da Estratégia de Amostragem/sampling_pipeline.py",
+        "relative_path": "entregas/Definição da Estratégia de Amostragem/sampling_pipeline.py",
         "type": "Script Executável",
         "description": "Particionamento estratificado agronômico determinístico (70% treino, 15% validação, 15% teste) e cálculo de pesos de classe.",
         "status": "APPROVED"
@@ -45,7 +45,7 @@ SEMMA_COMPONENTS_MAP = [
     {
         "phase": "Sample",
         "component_name": "Metadados de Amostragem e Balanceamento",
-        "relative_path": "Definição da Estratégia de Amostragem/distribuicao_e_balanceamento.md",
+        "relative_path": "entregas/Definição da Estratégia de Amostragem/distribuicao_e_balanceamento.md",
         "type": "Documentação Técnica",
         "description": "Especificação da distribuição a priori e controle de vazamento entre talhões e plantas.",
         "status": "APPROVED"
@@ -177,7 +177,7 @@ SEMMA_COMPONENTS_MAP = [
     {
         "phase": "Assess",
         "component_name": "Dicionário de Dados Oficial Auditado (v3.0.0)",
-        "relative_path": "Modelagem Inicial e Dicionário de Dados/dicionario_de_dados.md",
+        "relative_path": "entregas/Modelagem Inicial e Dicionário de Dados/dicionario_de_dados.md",
         "type": "Governança Documental",
         "description": "Catálogo unificado e auditado de todas as entidades, saídas do modelo, métricas e restrições.",
         "status": "APPROVED"
@@ -322,7 +322,7 @@ def export_production_artifacts_catalog(
     base_dir: Path
 ):
     models_dir = base_dir / "models"
-    sprint_dir = base_dir / "Consolidacao Final do Dicionario de Dados e Catalogo de Producao"
+    sprint_dir = base_dir / "entregas" / "Consolidacao Final do Dicionario de Dados e Catalogo de Producao"
     models_dir.mkdir(parents=True, exist_ok=True)
     sprint_dir.mkdir(parents=True, exist_ok=True)
     
