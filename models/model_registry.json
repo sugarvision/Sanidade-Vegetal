@@ -1,0 +1,119 @@
+{
+  "registry_name": "sugarvision_model_registry",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "organization": "FATEC Rio Claro — IA Aplicada ao Agronegócio",
+  "responsible": "Elisa (Engenharia de Machine Learning & MLOps)",
+  "last_updated": "2026-10-23 12:12:00",
+  "versioning_scheme": "Semantic Versioning for Machine Learning (Model-SemVer: Major.Minor.Patch)",
+  "active_production_version": "1.0.0",
+  "rollback_target_version": "0.9.0",
+  "lifecycle_stages": [
+    "Development",
+    "Staging",
+    "In-Production",
+    "Archived",
+    "Deprecated"
+  ],
+  "registered_models": [
+    {
+      "model_version": "0.1.0",
+      "model_name": "baseline_dummy_most_frequent",
+      "stage": "Archived",
+      "artifact_path": "models/baseline_dummy_model.joblib",
+      "sha256": "4b7b29a28cf15d9183da69fbb509b55be9d287413645c1170757270b991da71d",
+      "creation_timestamp": "2026-10-22 10:44:00",
+      "git_commit": "fbcd47f",
+      "metrics": {
+        "test_f1_macro": 0.0872,
+        "test_accuracy": 0.3053
+      },
+      "description": "Baseline ingênuo de classe majoritária para estabelecimento de piso estocástico mínimo."
+    },
+    {
+      "model_version": "0.2.0",
+      "model_name": "svm_pipeline_baseline_rbf",
+      "stage": "Archived",
+      "artifact_path": "models/svm_pipeline_baseline.joblib",
+      "sha256": "7a353683cf8fe9f9f87c2b5ec632fbdbd85e4952ce28f8faef1d5ce39ba5f988",
+      "creation_timestamp": "2026-10-09 11:14:00",
+      "git_commit": "7875b96",
+      "metrics": {
+        "validation_f1_macro": 0.5421,
+        "validation_accuracy": 0.5981
+      },
+      "description": "Primeira integração atômica do ColumnTransformer ao SVC com kernel RBF padrão."
+    },
+    {
+      "model_version": "0.9.0",
+      "model_name": "svm_pipeline_optimal_gridsearch",
+      "stage": "Staging",
+      "artifact_path": "models/svm_pipeline_optimal.joblib",
+      "sha256": "be3df791d48c9177e44de5633b49bf9496c30498745e4f18c4d9e01bf8fa00e3",
+      "creation_timestamp": "2026-10-23 11:14:51",
+      "git_commit": "c50dcf9",
+      "metrics": {
+        "cv_f1_macro_mean": 0.5786,
+        "validation_f1_macro": 0.5747,
+        "validation_accuracy": 0.6207
+      },
+      "description": "Modelo campeão selecionado pelo Grid Search Exaustivo de 32 candidatos com 5 folds."
+    },
+    {
+      "model_version": "1.0.0",
+      "model_name": "sanidade_vegetal_pipeline_final",
+      "stage": "In-Production",
+      "artifact_path": "models/sanidade_vegetal_pipeline_final.joblib",
+      "metadata_path": "models/sanidade_vegetal_pipeline_final_metadata.json",
+      "schema_contract_path": "models/model_schema_contract.json",
+      "sha256": "0100a66f15c5e7601ff578efaabaea080bebac00a9f9ec170cd8e31fb27e3e02",
+      "creation_timestamp": "2026-10-23 11:56:25",
+      "git_commit": "c79a436",
+      "hyperparameters": {
+        "kernel": "poly",
+        "C": 0.1,
+        "degree": 3,
+        "coef0": 1.0,
+        "gamma": "scale",
+        "class_weight": "balanced",
+        "probability": true,
+        "random_state": 42
+      },
+      "metrics": {
+        "test_f1_macro": 0.6048,
+        "test_accuracy": 0.6079,
+        "validation_f1_macro": 0.5747,
+        "validation_accuracy": 0.6207,
+        "test_log_loss": 0.7714
+      },
+      "description": "Pipeline final canônico de produção, serializado atomicamente e protegido por Schema Validation.",
+      "security_audit": "APPROVED_TAMPER_PROOF"
+    }
+  ],
+  "governance_policies": {
+    "versioning_rules": {
+      "major_version_bump": "Quebra de contrato de schema de entrada (inclusão/remoção de features) ou alteração fundamental da arquitetura algorítmica.",
+      "minor_version_bump": "Re-treino completo com novos dados rotulados mantendo o mesmo schema de entrada ou alteração de hiperparâmetros.",
+      "patch_version_bump": "Ajuste fino de thresholds de calibração, thresholds de probabilidade ou correções de sanitização."
+    },
+    "promotion_gates_to_production": [
+      "F1-Macro no conjunto de teste independente >= 0.55",
+      "Acurácia balanceada >= 0.58",
+      "Aprovação em 100% dos testes da suíte de integridade e des-serialização",
+      "Hash SHA-256 verificado e imutável",
+      "Contrato formal de dados Schema Validation documentado e ativo"
+    ],
+    "rollback_triggers": {
+      "psi_threshold": 0.25,
+      "psi_description": "Population Stability Index > 0.25 indica Data Drift severo na entrada",
+      "quarantine_rejection_rate_threshold": 0.05,
+      "quarantine_description": "Taxa de rejeição de amostras por violação de schema > 5% em lotes de produção",
+      "latency_p95_threshold_ms": 200.0,
+      "performance_drop_f1_threshold": 0.50
+    },
+    "requalification_triggers": [
+      "Acúmulo de mais de 500 novas imagens rotuladas e auditadas por especialistas fitopatologistas",
+      "Detecção de Concept Drift estatístico via teste Kolmogorov-Smirnov (p-value < 0.01) nas features ópticas",
+      "Decurso de 90 dias contínuos em produção sem re-treinamento formal (política de cadência trimestral)"
+    ]
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "schema_name": "sugarvision_input_output_contract",
+  "version": "1.0.0",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "responsible": "Elisa (Engenharia de Machine Learning & MLOps)",
+  "timestamp": "2026-10-23 12:12:00",
+  "status": "APPROVED_PRODUCTION_CONTRACT",
+  "target_contract": {
+    "target_column": "target_multiclass",
+    "type": "integer",
+    "domain": [0, 1, 2, 3, 4, 5, 6],
+    "classes_mapping": {
+      "0": "GRASSY SHOOT",
+      "1": "HEALTHY",
+      "2": "LEAF SCALD",
+      "3": "MOSAIC",
+      "4": "RED ROT",
+      "5": "RUST",
+      "6": "YELLOW LEAF"
+    },
+    "prediction_output_contract": {
+      "format": "array_of_integers_or_probabilities",
+      "probability_matrix_shape": "n_samples x 7",
+      "probability_range": [0.0, 1.0],
+      "probability_sum_tolerance": 0.0001
+    }
+  },
+  "input_features_contract": {
+    "total_expected_features": 23,
+    "allow_extraneous_columns": true,
+    "extraneous_columns_action": "discarded_automatically_via_remainder_drop",
+    "numerical_features": {
+      "mean_hue": {
+        "type": "float",
+        "description": "Média do canal Matiz (Hue) no espaço de cor HSV da lâmina foliar",
+        "domain_min": 0.0,
+        "domain_max": 180.0,
+        "observed_min": 0.47,
+        "observed_max": 101.75,
+        "nullable": false
+      },
+      "std_saturation": {
+        "type": "float",
+        "description": "Desvio padrão do canal Saturação (Saturation) no espaço HSV",
+        "domain_min": 0.0,
+        "domain_max": 1.0,
+        "observed_min": 0.0286,
+        "observed_max": 0.3941,
+        "nullable": false
+      },
+      "exg_index": {
+        "type": "float",
+        "description": "Excess Green Index (2*G - R - B) para realce de tecido clorofiliano sadio",
+        "domain_min": -100.0,
+        "domain_max": 150.0,
+        "observed_min": -7.38,
+        "observed_max": 61.78,
+        "nullable": false
+      },
+      "exr_index": {
+        "type": "float",
+        "description": "Excess Red Index (1.4*R - G) para identificação de lesões necrosadas",
+        "domain_min": -100.0,
+        "domain_max": 150.0,
+        "observed_min": -31.63,
+        "observed_max": 49.75,
+        "nullable": false
+      },
+      "rg_ratio": {
+        "type": "float",
+        "description": "Razão espectral Vermelho/Verde (R/G) associada a estresse oxidativo",
+        "domain_min": 0.0,
+        "domain_max": 10.0,
+        "observed_min": 0.212,
+        "observed_max": 1.4383,
+        "nullable": false
+      },
+      "indice_clorose_necrose": {
+        "type": "float",
+        "description": "Índice de Clorose e Necrose Foliar combinando desvios fotométricos",
+        "domain_min": 0.0,
+        "domain_max": 100.0,
+        "observed_min": 1.4285,
+        "observed_max": 29.3912,
+        "nullable": false
+      },
+      "hue_dispersion": {
+        "type": "float",
+        "description": "Dispersão estocástica angular do matiz foliar",
+        "domain_min": 0.0,
+        "domain_max": 90.0,
+        "observed_min": 0.1089,
+        "observed_max": 22.8965,
+        "nullable": false
+      },
+      "glcm_contrast": {
+        "type": "float",
+        "description": "Contraste textural médio da Matriz de Coocorrência Haralick (GLCM)",
+        "domain_min": 0.0,
+        "domain_max": 255.0,
+        "observed_min": 3.87,
+        "observed_max": 62.64,
+        "nullable": false
+      },
+      "glcm_homogeneity": {
+        "type": "float",
+        "description": "Homogeneidade angular textural Haralick da superfície foliar",
+        "domain_min": 0.0,
+        "domain_max": 1.0,
+        "observed_min": 0.3473,
+        "observed_max": 0.982,
+        "nullable": false
+      },
+      "glcm_dissimilarity": {
+        "type": "float",
+        "description": "Dissimilaridade espacial de transição entre pixels vizinhos",
+        "domain_min": 0.0,
+        "domain_max": 50.0,
+        "observed_min": 0.3887,
+        "observed_max": 5.2904,
+        "nullable": false
+      },
+      "glcm_energy": {
+        "type": "float",
+        "description": "Energia / Segundo Momento Angular Haralick da lâmina foliar",
+        "domain_min": 0.0,
+        "domain_max": 1.0,
+        "observed_min": 0.3473,
+        "observed_max": 0.982,
+        "nullable": false
+      },
+      "indice_rugosidade_pustula": {
+        "type": "float",
+        "description": "Índice de Rugosidade Foliar de Pústula (IRFP) para detecção de ferrugem",
+        "domain_min": 0.0,
+        "domain_max": 5000.0,
+        "observed_min": 2.3731,
+        "observed_max": 750.3413,
+        "nullable": false
+      },
+      "laplacian_var": {
+        "type": "float",
+        "description": "Variância Laplaciana do foco e nitidez óptica fotográfica",
+        "domain_min": 0.0,
+        "domain_max": 2000.0,
+        "observed_min": 21.59,
+        "observed_max": 450.71,
+        "nullable": false
+      },
+      "size_kb": {
+        "type": "float",
+        "description": "Tamanho físico do arquivo de imagem capturado em Kilobytes",
+        "domain_min": 1.0,
+        "domain_max": 50000.0,
+        "observed_min": 17.3,
+        "observed_max": 14517.64,
+        "nullable": false
+      },
+      "total_pixels": {
+        "type": "float",
+        "description": "Área matricial total (largura x altura em pixels)",
+        "domain_min": 10000.0,
+        "domain_max": 100000000.0,
+        "observed_min": 409600.0,
+        "observed_max": 24160256.0,
+        "nullable": false
+      },
+      "resolution_mp": {
+        "type": "float",
+        "description": "Resolução do sensor em Megapixels",
+        "domain_min": 0.01,
+        "domain_max": 100.0,
+        "observed_min": 0.41,
+        "observed_max": 24.16,
+        "nullable": false
+      },
+      "aspect_ratio": {
+        "type": "float",
+        "description": "Proporção dimensional óptica (largura / altura)",
+        "domain_min": 0.1,
+        "domain_max": 10.0,
+        "observed_min": 0.49,
+        "observed_max": 2.76,
+        "nullable": false
+      }
+    },
+    "categorical_features": {
+      "dataset_source": {
+        "type": "string",
+        "description": "Base de proveniência agronômica padronizada",
+        "allowed_values": ["roboflow_sugarcane", "mendeley_data"],
+        "nullable": false
+      },
+      "extension": {
+        "type": "string",
+        "description": "Formato de compactação de arquivo de imagem original",
+        "allowed_values": [".jpg", ".jpeg", ".png", "jpg", "jpeg", "png"],
+        "nullable": false
+      },
+      "size_kb_bin": {
+        "type": "integer_or_category",
+        "description": "Faixa quantílica de tamanho em disco discretizada (Fase Modify)",
+        "allowed_values": [0, 1, 2, 3, "0", "1", "2", "3"],
+        "nullable": false
+      },
+      "laplacian_var_bin": {
+        "type": "integer_or_category",
+        "description": "Faixa quantílica de nitidez óptica laplaciana (Fase Modify)",
+        "allowed_values": [0, 1, 2, 3, "0", "1", "2", "3"],
+        "nullable": false
+      },
+      "resolution_bin": {
+        "type": "integer_or_category",
+        "description": "Faixa de resolução de sensor discretizada (Fase Modify)",
+        "allowed_values": [0, 1, 2, "0", "1", "2"],
+        "nullable": false
+      },
+      "aspect_ratio_bin": {
+        "type": "integer_or_category",
+        "description": "Faixa de aspect ratio discretizada (Fase Modify)",
+        "allowed_values": [0, 1, 2, "0", "1", "2"],
+        "nullable": false
+      }
+    }
+  }
+}
