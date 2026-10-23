@@ -1,0 +1,145 @@
+{
+  "pipeline_name": "sanidade_vegetal_pipeline_final",
+  "version": "1.0.0",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "sprint": "Sprint 5 — Governança, Deploy e Prontidão de Produção",
+  "task": "Construir a rotina de serialização atômica e segura do pipeline completo treinado",
+  "responsible": "Elisa (Engenharia de Machine Learning & MLOps)",
+  "timestamp": "2026-10-23 11:56:25",
+  "production_status": "HOMOLOGATED_PRODUCTION_READY",
+  "framework": {
+    "python_version": "3.13.5",
+    "scikit_learn_version": "1.6.1",
+    "joblib_version": "1.4.2",
+    "numpy_version": "2.1.3",
+    "pandas_version": "2.2.3"
+  },
+  "artifact": {
+    "filename": "sanidade_vegetal_pipeline_final.joblib",
+    "relative_path": "models/sanidade_vegetal_pipeline_final.joblib",
+    "size_bytes": 423341,
+    "size_kb": 413.42,
+    "sha256": "0100a66f15c5e7601ff578efaabaea080bebac00a9f9ec170cd8e31fb27e3e02",
+    "serialization_format": "joblib",
+    "compression_level": 3
+  },
+  "model_architecture": {
+    "pipeline_steps": [
+      "preprocessor",
+      "svm"
+    ],
+    "preprocessor": {
+      "type": "ColumnTransformer",
+      "remainder_strategy": "drop",
+      "numerical_features_count": 17,
+      "categorical_features_count": 6,
+      "numeric_subpipeline": "SimpleImputer(strategy='median') -> StandardScaler()",
+      "categorical_subpipeline": "SimpleImputer(strategy='most_frequent') -> OneHotEncoder(handle_unknown='ignore', sparse_output=False)"
+    },
+    "estimator": {
+      "type": "sklearn.svm.SVC",
+      "hyperparameters": {
+        "kernel": "poly",
+        "C": 0.1,
+        "degree": 3,
+        "coef0": 1.0,
+        "gamma": "scale",
+        "class_weight": "balanced",
+        "probability": true,
+        "random_state": 42
+      },
+      "n_classes": 7,
+      "classes_mapping": {
+        "0": "GRASSY SHOOT",
+        "1": "HEALTHY",
+        "2": "LEAF SCALD",
+        "3": "MOSAIC",
+        "4": "RED ROT",
+        "5": "RUST",
+        "6": "YELLOW LEAF"
+      },
+      "n_support_vectors_total": 3577,
+      "support_vectors_per_class": [
+        140,
+        22,
+        245,
+        1010,
+        1073,
+        59,
+        1028
+      ]
+    }
+  },
+  "input_contract": {
+    "numerical_features": [
+      "mean_hue",
+      "std_saturation",
+      "exg_index",
+      "exr_index",
+      "rg_ratio",
+      "indice_clorose_necrose",
+      "hue_dispersion",
+      "glcm_contrast",
+      "glcm_homogeneity",
+      "glcm_dissimilarity",
+      "glcm_energy",
+      "indice_rugosidade_pustula",
+      "laplacian_var",
+      "size_kb",
+      "total_pixels",
+      "resolution_mp",
+      "aspect_ratio"
+    ],
+    "discretized_features": [
+      "size_kb_bin",
+      "laplacian_var_bin",
+      "resolution_bin",
+      "aspect_ratio_bin"
+    ],
+    "categorical_nominal_features": [
+      "dataset_source",
+      "extension"
+    ],
+    "all_categorical_features": [
+      "dataset_source",
+      "extension",
+      "size_kb_bin",
+      "laplacian_var_bin",
+      "resolution_bin",
+      "aspect_ratio_bin"
+    ],
+    "total_contracted_features": 23,
+    "accepts_unmodeled_columns": true,
+    "remainder_policy": "discarded_automatically_via_remainder_drop"
+  },
+  "training_metadata": {
+    "source_data_file": "abt_sanidade_vegetal.csv",
+    "split_column": "split_partition",
+    "target_column": "target_multiclass",
+    "n_train_samples": 5574,
+    "n_valid_samples": 617,
+    "n_test_samples": 380,
+    "fit_time_seconds": 1.6693,
+    "class_distribution_train": {
+      "GRASSY SHOOT": 150,
+      "HEALTHY": 1005,
+      "LEAF SCALD": 313,
+      "MOSAIC": 1010,
+      "RED ROT": 1125,
+      "RUST": 915,
+      "YELLOW LEAF": 1056
+    }
+  },
+  "evaluation_metrics": {
+    "validation_partition": {
+      "accuracy": 0.6207,
+      "f1_macro": 0.5747,
+      "log_loss": 0.7067
+    },
+    "test_partition": {
+      "accuracy": 0.6079,
+      "f1_macro": 0.6048,
+      "log_loss": 0.7714
+    }
+  }
+}
