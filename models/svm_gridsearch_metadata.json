@@ -4,7 +4,7 @@
   "sprint": "Sprint 3 — Modelagem e Otimização",
   "sprint_task": "Configuração e Execução do Grid Search Exaustivo (GridSearchCV)",
   "responsible": "Elisa (Engenharia de Machine Learning & MLOps)",
-  "timestamp": "2026-10-09 11:50:26",
+  "timestamp": "2026-10-23 11:14:51",
   "framework": {
     "scikit_learn_version": "1.6.1",
     "joblib_version": "1.4.2",
@@ -13,29 +13,31 @@
   "artifact": {
     "filename": "svm_pipeline_optimal.joblib",
     "path": "C:\\Users\\elisa\\OneDrive\\Documentos\\Sanidade-Vegetal\\models\\svm_pipeline_optimal.joblib",
-    "size_kb": 393.75,
-    "sha256": "09ef37ca5a0cb839f876fc779f6a0a6c711a6fdc54fef3ef6bbe7150ec6fc208"
+    "size_kb": 413.38,
+    "sha256": "be3df791d48c9177e44de5633b49bf9496c30498745e4f18c4d9e01bf8fa00e3"
   },
   "search_configuration": {
     "search_strategy": "GridSearchCV",
     "cv": "StratifiedKFold(n_splits=5, shuffle=True, random_state=42)",
     "primary_scoring": "f1_macro",
     "refit_metric": "f1_macro",
-    "total_candidates": 31,
-    "total_fits": 155,
-    "execution_time_seconds": 52.92
+    "total_candidates": 32,
+    "total_fits": 160,
+    "execution_time_seconds": 501.58
   },
   "best_hyperparameters": {
-    "svm__C": 10.0,
-    "svm__gamma": 0.01,
-    "svm__kernel": "rbf"
+    "svm__C": 0.1,
+    "svm__coef0": 1.0,
+    "svm__degree": 3,
+    "svm__gamma": "scale",
+    "svm__kernel": "poly"
   },
-  "best_cv_score_f1_macro": 0.5773540612256906,
+  "best_cv_score_f1_macro": 0.5785511557280462,
   "independent_validation_metrics": {
     "accuracy": 0.6207,
-    "f1_macro": 0.5757,
-    "f1_weighted": 0.5624,
-    "log_loss": 0.7085,
+    "f1_macro": 0.5747,
+    "f1_weighted": 0.562,
+    "log_loss": 0.7067,
     "report": {
       "GRASSY SHOOT": {
         "precision": 0.10526315789473684,
@@ -50,9 +52,9 @@
         "support": 95.0
       },
       "LEAF SCALD": {
-        "precision": 0.5729166666666666,
-        "recall": 0.873015873015873,
-        "f1-score": 0.6918238993710691,
+        "precision": 0.5625,
+        "recall": 0.8571428571428571,
+        "f1-score": 0.6792452830188679,
         "support": 63.0
       },
       "MOSAIC": {
@@ -74,30 +76,30 @@
         "support": 91.0
       },
       "YELLOW LEAF": {
-        "precision": 0.40437158469945356,
-        "recall": 0.74,
-        "f1-score": 0.5229681978798587,
+        "precision": 0.4076086956521739,
+        "recall": 0.75,
+        "f1-score": 0.528169014084507,
         "support": 100.0
       },
       "accuracy": 0.6207455429497569,
       "macro avg": {
-        "precision": 0.5345894110494233,
-        "recall": 0.6532271915858542,
-        "f1-score": 0.5757443887400271,
+        "precision": 0.5335637602331452,
+        "recall": 0.6523881893182805,
+        "f1-score": 0.5746904172903767,
         "support": 617.0
       },
       "weighted avg": {
-        "precision": 0.5293941193319937,
+        "precision": 0.5288551583842984,
         "recall": 0.6207455429497569,
-        "f1-score": 0.5623964482418904,
+        "f1-score": 0.5619550038177026,
         "support": 617.0
       }
     }
   },
   "independent_test_metrics": {
     "accuracy": 0.6079,
-    "f1_macro": 0.6054,
-    "f1_weighted": 0.5475
+    "f1_macro": 0.6048,
+    "f1_weighted": 0.5473
   },
   "production_status": "HOMOLOGATED_OPTIMAL"
 }

@@ -102,7 +102,7 @@ def get_svm_param_grid() -> list:
         # Grade 1: Kernel Linear
         {
             'svm__kernel': ['linear'],
-            'svm__C': [0.1, 1.0, 10.0]
+            'svm__C': [0.1, 1.0, 10.0, 100.0]
         },
         # Grade 2: Kernel RBF
         {
@@ -114,8 +114,9 @@ def get_svm_param_grid() -> list:
         {
             'svm__kernel': ['poly'],
             'svm__C': [0.1, 1.0, 10.0],
-            'svm__gamma': ['scale', 'auto'],
-            'svm__degree': [2, 3]
+            'svm__gamma': ['scale'],
+            'svm__degree': [2, 3],
+            'svm__coef0': [0.0, 1.0]
         }
     ]
     return param_grid
@@ -245,6 +246,7 @@ def run_exhaustive_svm_grid_search(
         'param_svm__C',
         'param_svm__gamma',
         'param_svm__degree',
+        'param_svm__coef0',
         'mean_test_f1_macro',
         'std_test_f1_macro',
         'mean_test_accuracy',
