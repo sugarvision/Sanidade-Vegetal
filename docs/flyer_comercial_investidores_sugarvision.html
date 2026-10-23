@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SugarVision™ — Commercial & Investor One-Pager Flyer</title>
+  <title>SugarVision™ — Commercial & Business Executive Flyer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
@@ -23,7 +23,6 @@
       --card-bg: #ffffff;
       --border-subtle: #e2e8f0;
       --shadow-sm: 0 2px 6px rgba(6, 78, 59, 0.06);
-      --shadow-md: 0 8px 20px -4px rgba(6, 78, 59, 0.12);
     }
 
     * {
@@ -34,6 +33,11 @@
       print-color-adjust: exact !important;
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
     body {
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       background-color: #0f172a;
@@ -41,27 +45,27 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 24px 0;
+      padding: 20px 0;
       min-height: 100vh;
     }
 
-    /* Barra de Ações Superior (Apenas em tela) */
+    /* Barra Superior de Ações (Apenas em tela) */
     .toolbar {
       width: 210mm;
       max-width: 95vw;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: #1e293b;
-      padding: 12px 20px;
-      border-radius: 12px;
+      padding: 10px 18px;
+      border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
     }
 
     .toolbar-info {
-      font-size: 13px;
+      font-size: 12.5px;
       color: #94a3b8;
       display: flex;
       align-items: center;
@@ -77,28 +81,23 @@
       color: #34d399;
       padding: 2px 8px;
       border-radius: 6px;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 700;
       border: 1px solid rgba(52, 211, 153, 0.3);
-    }
-
-    .toolbar-actions {
-      display: flex;
-      gap: 10px;
     }
 
     .btn-print {
       background: linear-gradient(135deg, #10b981 0%, #059669 100%);
       color: white;
       border: none;
-      padding: 9px 20px;
+      padding: 8px 18px;
       border-radius: 8px;
       font-weight: 700;
-      font-size: 13px;
+      font-size: 12.5px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       transition: all 0.2s ease;
       box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
     }
@@ -116,20 +115,20 @@
       background: #ffffff;
       position: relative;
       overflow: hidden;
-      padding: 22px 26px 18px 26px;
+      padding: 16px 22px 14px 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
     }
 
-    /* Elementos Geométricos de Fundo Premium */
+    /* Efeitos Sutis de Fundo */
     .bg-gradient-mesh {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 180px;
+      height: 160px;
       background: linear-gradient(180deg, #f0fdf4 0%, rgba(240, 253, 244, 0.4) 60%, rgba(255, 255, 255, 0) 100%);
       pointer-events: none;
       z-index: 0;
@@ -139,8 +138,8 @@
       position: absolute;
       top: -80px;
       right: -80px;
-      width: 320px;
-      height: 320px;
+      width: 280px;
+      height: 280px;
       background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
       border-radius: 50%;
       pointer-events: none;
@@ -156,35 +155,35 @@
       justify-content: space-between;
     }
 
-    /* 1. CABEÇALHO EXECUTIVO */
+    /* 1. CABEÇALHO */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 12px;
-      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 8px;
+      border-bottom: 1.5px solid #f1f5f9;
     }
 
     .brand-group {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .brand-icon-box {
-      width: 44px;
-      height: 44px;
+      width: 38px;
+      height: 38px;
       background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
-      border-radius: 12px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 14px rgba(5, 150, 105, 0.25);
+      box-shadow: 0 4px 10px rgba(5, 150, 105, 0.25);
     }
 
     .brand-icon-box svg {
-      width: 26px;
-      height: 26px;
+      width: 22px;
+      height: 22px;
       fill: none;
       stroke: #ffffff;
       stroke-width: 2;
@@ -193,14 +192,14 @@
     }
 
     .brand-texts h1 {
-      font-size: 26px;
+      font-size: 23px;
       font-weight: 900;
-      letter-spacing: -0.6px;
+      letter-spacing: -0.5px;
       color: var(--primary-dark);
       line-height: 1.1;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
 
     .brand-texts h1 span {
@@ -210,79 +209,79 @@
     }
 
     .brand-texts .tagline {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.9px;
+      letter-spacing: 0.8px;
     }
 
     .header-badges {
       display: flex;
-      gap: 8px;
+      gap: 6px;
     }
 
     .deal-badge {
       background: #ecfdf5;
       color: #065f46;
       border: 1px solid #a7f3d0;
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 16px;
+      font-size: 10px;
       font-weight: 800;
       letter-spacing: 0.3px;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
 
     .deal-badge::before {
       content: "";
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
       background: #10b981;
-      box-shadow: 0 0 6px #10b981;
+      box-shadow: 0 0 5px #10b981;
     }
 
     .stage-badge {
       background: #eff6ff;
       color: #1e40af;
       border: 1px solid #bfdbfe;
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 16px;
+      font-size: 10px;
       font-weight: 800;
     }
 
-    /* 2. HERO SECTION / ELEVATOR PITCH */
+    /* 2. HERO / ELEVATOR PITCH */
     .hero-pitch {
-      margin-top: 10px;
+      margin-top: 6px;
       text-align: center;
     }
 
     .hero-category {
       display: inline-block;
-      font-size: 10.5px;
+      font-size: 9.5px;
       font-weight: 800;
       color: #059669;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
+      letter-spacing: 1px;
       background: #f0fdf4;
-      padding: 3px 12px;
-      border-radius: 12px;
-      margin-bottom: 6px;
+      padding: 2px 10px;
+      border-radius: 10px;
+      margin-bottom: 4px;
       border: 1px solid #bbf7d0;
     }
 
     .hero-headline {
-      font-size: 22.5px;
+      font-size: 19px;
       font-weight: 900;
-      line-height: 1.22;
+      line-height: 1.2;
       color: var(--dark-slate);
-      letter-spacing: -0.5px;
+      letter-spacing: -0.4px;
       max-width: 680px;
-      margin: 0 auto 6px auto;
+      margin: 0 auto 4px auto;
     }
 
     .hero-headline .highlight-green {
@@ -297,41 +296,42 @@
       bottom: 2px;
       left: 0;
       width: 100%;
-      height: 6px;
+      height: 5px;
       background: rgba(16, 185, 129, 0.25);
       z-index: -1;
-      border-radius: 3px;
+      border-radius: 2px;
     }
 
     .hero-subheadline {
-      font-size: 12.2px;
-      line-height: 1.45;
+      font-size: 11px;
+      line-height: 1.4;
       color: #334155;
-      max-width: 650px;
+      max-width: 660px;
       margin: 0 auto;
     }
 
-    /* 3. VISUAL SHOWCASE (MOCKUP + FLOATING KPI CARDS) */
+    /* 3. VITRINE VISUAL (FOTOGRAFIA AGRONÔMICA DE ALTO IMPACTO + KPI CARDS) */
     .showcase-container {
-      margin: 10px 0;
+      margin: 6px 0;
       display: grid;
-      grid-template-columns: 1.22fr 0.98fr;
-      gap: 14px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 10px;
       align-items: center;
       background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
       border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 12px 14px;
+      border-radius: 12px;
+      padding: 8px 10px;
       box-shadow: var(--shadow-sm);
     }
 
     .mockup-frame {
       position: relative;
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
-      height: 186px;
-      box-shadow: 0 10px 22px -6px rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(0, 0, 0, 0.08);
+      height: 145px;
+      background: #062e22;
+      box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .mockup-img {
@@ -344,69 +344,68 @@
 
     .mockup-overlay-pill {
       position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(11, 19, 32, 0.85);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      top: 6px;
+      left: 8px;
+      background: rgba(6, 46, 34, 0.88);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
       color: #ffffff;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 14px;
+      font-size: 8.5px;
       font-weight: 700;
       display: flex;
       align-items: center;
-      gap: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      gap: 5px;
+      border: 1px solid rgba(52, 211, 153, 0.35);
     }
 
     .mockup-overlay-pill .live-dot {
-      width: 6px;
-      height: 6px;
-      background: #10b981;
+      width: 5px;
+      height: 5px;
+      background: #34d399;
       border-radius: 50%;
-      box-shadow: 0 0 6px #10b981;
+      box-shadow: 0 0 5px #34d399;
     }
 
     .mockup-overlay-bot {
       position: absolute;
-      bottom: 8px;
-      right: 10px;
-      background: rgba(6, 78, 59, 0.92);
+      bottom: 6px;
+      right: 8px;
+      background: rgba(11, 19, 32, 0.88);
       color: #ffffff;
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-size: 9.5px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 8.5px;
       font-weight: 700;
-      border: 1px solid rgba(52, 211, 153, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.25);
     }
 
     .showcase-highlights {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
     .mini-kpi-card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 8px 12px;
+      border-radius: 8px;
+      padding: 6px 9px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      transition: all 0.2s;
+      gap: 8px;
     }
 
     .kpi-icon {
-      width: 32px;
-      height: 32px;
-      min-width: 32px;
-      border-radius: 8px;
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 15px;
+      font-size: 13px;
     }
 
     .icon-emerald { background: #dcfce7; color: #15803d; }
@@ -414,29 +413,29 @@
     .icon-blue { background: #dbeafe; color: #1d4ed8; }
 
     .kpi-details h4 {
-      font-size: 11.5px;
+      font-size: 10.5px;
       font-weight: 800;
       color: var(--dark-slate);
-      line-height: 1.2;
+      line-height: 1.15;
     }
 
     .kpi-details p {
-      font-size: 10px;
+      font-size: 9px;
       color: var(--text-muted);
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
     /* 4. BARRA DE MÉTRICAS / TRACTION RIBBON */
     .metrics-ribbon {
       background: linear-gradient(135deg, #062e22 0%, #064e3b 100%);
-      border-radius: 12px;
-      padding: 10px 16px;
+      border-radius: 10px;
+      padding: 8px 12px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      gap: 10px;
       color: #ffffff;
-      box-shadow: 0 8px 18px -4px rgba(6, 78, 59, 0.3);
-      margin-bottom: 10px;
+      box-shadow: 0 6px 14px -3px rgba(6, 78, 59, 0.25);
+      margin-bottom: 6px;
     }
 
     .metric-col {
@@ -447,7 +446,7 @@
     .metric-col:not(:last-child)::after {
       content: "";
       position: absolute;
-      right: -6px;
+      right: -5px;
       top: 15%;
       height: 70%;
       width: 1px;
@@ -456,40 +455,40 @@
 
     .metric-val {
       font-family: 'Space Grotesk', system-ui, sans-serif;
-      font-size: 21px;
+      font-size: 18px;
       font-weight: 700;
       color: #34d399;
       line-height: 1;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
     .metric-label {
-      font-size: 9.5px;
+      font-size: 8.5px;
       font-weight: 700;
       color: #e2e8f0;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
     }
 
     .metric-sub {
-      font-size: 8.5px;
+      font-size: 8px;
       color: #a7f3d0;
-      margin-top: 2px;
+      margin-top: 1px;
     }
 
-    /* 5. GRID DE PILARES COMERCIAIS & MOAT (4 CARDS) */
+    /* 5. GRID DE PILARES DE NEGÓCIO (4 CARDS) */
     .investor-pillars {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-bottom: 10px;
+      gap: 7px;
+      margin-bottom: 6px;
     }
 
     .pillar-card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 11px 13px;
+      border-radius: 10px;
+      padding: 8px 10px;
       position: relative;
       overflow: hidden;
     }
@@ -499,7 +498,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 4px;
+      width: 3.5px;
       height: 100%;
       background: #10b981;
     }
@@ -508,48 +507,48 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
     }
 
     .pillar-title {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
       color: var(--primary-dark);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
 
     .pillar-tag {
-      font-size: 9px;
+      font-size: 8px;
       font-weight: 800;
       text-transform: uppercase;
-      padding: 2px 7px;
+      padding: 1.5px 6px;
       border-radius: 4px;
       background: #f1f5f9;
       color: #475569;
     }
 
     .pillar-desc {
-      font-size: 10.2px;
-      line-height: 1.42;
+      font-size: 9.3px;
+      line-height: 1.35;
       color: #334155;
     }
 
     .pillar-bullets {
-      margin-top: 5px;
+      margin-top: 4px;
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2.5px;
     }
 
     .pillar-bullet-item {
-      font-size: 9.8px;
+      font-size: 8.8px;
       color: #475569;
       display: flex;
       align-items: flex-start;
-      gap: 5px;
-      line-height: 1.35;
+      gap: 4px;
+      line-height: 1.3;
     }
 
     .bullet-check {
@@ -557,40 +556,40 @@
       font-weight: 900;
     }
 
-    /* 6. FAIXA DE COBERTURA FITOPATOLÓGICA & COMPATIBILIDADE */
+    /* 6. FAIXA DE COBERTURA FITOPATOLÓGICA */
     .spectrum-bar {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 8px 12px;
+      border-radius: 8px;
+      padding: 6px 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .spectrum-title {
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 800;
       color: var(--dark-slate);
       text-transform: uppercase;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.5px;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
     }
 
     .spectrum-badges {
       display: flex;
-      gap: 6px;
+      gap: 5px;
       flex-wrap: wrap;
     }
 
     .disease-tag {
-      font-size: 9.5px;
+      font-size: 8.5px;
       font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 6px;
+      padding: 2px 7px;
+      border-radius: 5px;
     }
 
     .tag-rust { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
@@ -599,123 +598,78 @@
     .tag-mosaic { background: #e0f2fe; color: #075985; border: 1px solid #bae6fd; }
     .tag-healthy { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
 
-    /* 7. BUSINESS MODEL & GO-TO-MARKET BANNER */
-    .monetization-row {
+    /* 7. IMPACTO AGRONÔMICO E OPERACIONAL (SEM FALSAS PROMESSAS DE APP) */
+    .agronomic-impact-row {
       background: linear-gradient(90deg, #ecfdf5 0%, #f0fdf4 100%);
       border: 1px solid #a7f3d0;
-      border-radius: 10px;
-      padding: 9px 14px;
+      border-radius: 8px;
+      padding: 7px 11px;
       display: grid;
-      grid-template-columns: 1.1fr 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 10px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 6px;
     }
 
-    .monetize-col h5 {
-      font-size: 10.5px;
+    .impact-col h5 {
+      font-size: 9.8px;
       font-weight: 800;
       color: #065f46;
-      margin-bottom: 2px;
+      margin-bottom: 1.5px;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
     }
 
-    .monetize-col p {
-      font-size: 9.5px;
+    .impact-col p {
+      font-size: 8.7px;
       color: #374151;
-      line-height: 1.35;
+      line-height: 1.3;
     }
 
-    /* 8. RODAPÉ DE FECHAMENTO & CALL TO ACTION PARA INVESTIDORES */
+    /* 8. RODAPÉ DE FECHAMENTO */
     footer {
-      border-top: 2px solid #e2e8f0;
-      padding-top: 10px;
+      border-top: 1.5px solid #e2e8f0;
+      padding-top: 6px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .footer-pitch {
-      max-width: 380px;
-    }
-
     .footer-pitch h3 {
-      font-size: 12.5px;
+      font-size: 11px;
       font-weight: 900;
       color: var(--primary-dark);
-      margin-bottom: 2px;
+      margin-bottom: 1px;
     }
 
     .footer-pitch p {
-      font-size: 9.8px;
+      font-size: 8.7px;
       color: #475569;
-      line-height: 1.35;
+      line-height: 1.25;
     }
 
-    .deal-contact-box {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .contact-texts {
-      text-align: right;
-    }
-
-    .contact-title {
-      font-size: 9px;
-      font-weight: 800;
+    .footer-meta {
+      font-size: 8.5px;
+      font-weight: 700;
+      color: #059669;
       text-transform: uppercase;
-      letter-spacing: 0.6px;
-      color: #059669;
-    }
-
-    .contact-email {
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--dark-slate);
-    }
-
-    .contact-repo {
-      font-size: 9.5px;
-      color: #64748b;
-      margin-top: 1px;
-    }
-
-    .qr-box {
-      width: 52px;
-      height: 52px;
-      background: #ffffff;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 3px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.06);
-    }
-
-    .qr-svg {
-      width: 34px;
-      height: 34px;
-    }
-
-    .qr-label {
-      font-size: 7px;
-      font-weight: 800;
-      color: #059669;
-      margin-top: 2px;
       letter-spacing: 0.5px;
+      background: #f0fdf4;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid #bbf7d0;
     }
 
-    /* ESTILOS ESPECÍFICOS DE IMPRESSÃO A4 (Ctrl + P) */
+    /* ESTILOS DE IMPRESSÃO A4 (Ctrl + P) - 100% GARANTIDO 1 PÁGINA */
     @media print {
-      body {
+      html, body {
         background: transparent !important;
         padding: 0 !important;
         margin: 0 !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        overflow: hidden !important;
       }
 
       .no-print {
@@ -725,29 +679,31 @@
       .a4-page {
         width: 210mm !important;
         height: 297mm !important;
+        max-height: 297mm !important;
         box-shadow: none !important;
         margin: 0 !important;
-        padding: 18mm 20mm 15mm 20mm !important;
+        padding: 12mm 15mm 10mm 15mm !important;
         page-break-after: avoid !important;
         page-break-inside: avoid !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Barra Superior de Controle e Dicas (Ocultada na Impressão/PDF) -->
+  <!-- Barra Superior de Controle (Ocultada na Impressão/PDF) -->
   <div class="toolbar no-print">
     <div class="toolbar-info">
-      <span class="toolbar-badge">INVESTOR DEAL ROOM</span>
-      <span><strong>SugarVision™</strong> — Flyer Comercial e Executivo de 1 Página (A4 Oficial)</span>
+      <span class="toolbar-badge">BUSINESS & PRODUTIVIDADE</span>
+      <span><strong>SugarVision™</strong> — Flyer Executivo e Comercial • 1 Página A4 Oficial</span>
     </div>
     <div class="toolbar-actions">
-      <a href="flyer_divulgacao_sugarvision.html" class="btn-print" style="background: #334155; text-decoration: none;">
-        🌱 Versão Produtor / Campo
-      </a>
       <button class="btn-print" onclick="window.print()">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16">
           <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
           <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
         </svg>
@@ -763,7 +719,7 @@
 
     <div class="content-wrapper">
 
-      <!-- 1. CABEÇALHO -->
+      <!-- 1. CABEÇALHO EXECUTIVO -->
       <header>
         <div class="brand-group">
           <div class="brand-icon-box">
@@ -778,8 +734,8 @@
         </div>
 
         <div class="header-badges">
-          <span class="deal-badge">AgTech B2B SaaS</span>
-          <span class="stage-badge">Rodada Seed • 2026</span>
+          <span class="deal-badge">AgTech AI • Sanidade Vegetal</span>
+          <span class="stage-badge">Projeto Homologado • 2026</span>
         </div>
       </header>
 
@@ -790,39 +746,37 @@
           Transformando perdas de safra em <span class="highlight-green">economia milionária</span> com Visão Computacional no canavial
         </h2>
         <p class="hero-subheadline">
-          Detectamos <strong>Ferrugem</strong> e fitopatologias na cana-de-açúcar em <strong>menos de 1 segundo</strong>, direto pelo smartphone ou maquinário, 100% offline, reduzindo em até <strong>28% o custo de defensivos</strong>.
+          Identificamos <strong>Ferrugem</strong> e fitopatologias na cana-de-açúcar em <strong>menos de 1 segundo</strong> através de fotos foliares no campo, viabilizando contenção no D-Zero e reduzindo em até <strong>28% o gasto com defensivos</strong>.
         </p>
       </section>
 
-      <!-- 3. VITRINE DO PRODUTO & DIFERENCIAIS IMEDIATOS -->
+      <!-- 3. VITRINE VISUAL (FOTOGRAFIA AGRONÔMICA DE ALTO IMPACTO + KPI CARDS) -->
       <section class="showcase-container">
-        <!-- Mockup do App em Campo -->
         <div class="mockup-frame">
-          <img src="figures/sugarvision_app_mockup.jpg" alt="SugarVision Mobile & Edge AI Interface" class="mockup-img" onerror="this.src='sugarvision_app_mockup.jpg'">
+          <img src="figures/sugarvision_visao_computacional_campo.jpg" alt="Escaneamento Ótico de Visão Computacional em Folha de Cana SugarVision" class="mockup-img" onerror="this.src='figures/svm_esquema_margem_maxima.jpg'">
           <div class="mockup-overlay-pill">
             <span class="live-dot"></span>
-            SugarVision Edge AI • Scan #0492
+            SugarVision AI • Visão Computacional Foliar
           </div>
           <div class="mockup-overlay-bot">
-            98.7% Certeza • Pulverização Dirigida
+            91% AUC-ROC • Diagnóstico Preciso
           </div>
         </div>
 
-        <!-- Destaques de Venda Imediata -->
         <div class="showcase-highlights">
           <div class="mini-kpi-card">
             <div class="kpi-icon icon-emerald">⚡</div>
             <div class="kpi-details">
-              <h4>0.78s de Resposta (Offline)</h4>
-              <p>Funciona no meio do talhão sem depender de sinal 4G/5G ou nuvem cara.</p>
+              <h4>0.78s de Resposta no Campo</h4>
+              <p>Processamento instantâneo via algoritmos matemáticos leves de cor e textura.</p>
             </div>
           </div>
 
           <div class="mini-kpi-card">
             <div class="kpi-icon icon-amber">🎯</div>
             <div class="kpi-details">
-              <h4>Pulverização Cirúrgica</h4>
-              <p>Trata apenas os focos iniciais, eliminando o desperdício de defensivos em área total.</p>
+              <h4>Foco nas Pústulas de Ferrugem</h4>
+              <p>Distinção precisa entre tecido sadio e as primeiras lesões do fungo Puccinia.</p>
             </div>
           </div>
 
@@ -851,7 +805,7 @@
         <div class="metric-col">
           <div class="metric-val">28%</div>
           <div class="metric-label">Economia em Insumos</div>
-          <div class="metric-sub">Fungicidas & diesel</div>
+          <div class="metric-sub">Fungicidas & defensivos</div>
         </div>
         <div class="metric-col">
           <div class="metric-val">&lt; 1 Safra</div>
@@ -860,7 +814,7 @@
         </div>
       </section>
 
-      <!-- 5. 4 PILARES DE DEFESA PARA O INVESTIDOR -->
+      <!-- 5. 4 PILARES DE NEGÓCIO E VIABILIDADE -->
       <section class="investor-pillars">
         <!-- Pilar 1: Tamanho de Mercado -->
         <div class="pillar-card">
@@ -874,11 +828,11 @@
           <div class="pillar-bullets">
             <div class="pillar-bullet-item">
               <span class="bullet-check">✓</span>
-              <span><strong>SAM:</strong> 360 usinas e 65.000 produtores independentes.</span>
+              <span><strong>SAM:</strong> 360 usinas ativas e mais de 65.000 fornecedores de cana.</span>
             </div>
             <div class="pillar-bullet-item">
               <span class="bullet-check">✓</span>
-              <span><strong>SOM:</strong> Foco inicial em usinas de SP, MG e GO (72% da moagem).</span>
+              <span><strong>SOM:</strong> Foco inicial em usinas de SP, MG e GO (72% da moagem nacional).</span>
             </div>
           </div>
         </div>
@@ -887,19 +841,19 @@
         <div class="pillar-card">
           <div class="pillar-header">
             <div class="pillar-title">🧠 Moat Tecnológico & IA</div>
-            <span class="pillar-tag">Patenteável</span>
+            <span class="pillar-tag">Proprietário</span>
           </div>
           <p class="pillar-desc">
-            Diferente de modelos genéricos pesados, usamos <strong>SVM RBF Otimizado</strong> com descritores bio-inspirados (Índices ExG, ExR, HSV e Textura GLCM).
+            Classificador <strong>SVM RBF Otimizado</strong> baseado em 35 descritores matemáticos de cor (ExG, ExR, HSV) e textura de pústula (GLCM Haralick).
           </p>
           <div class="pillar-bullets">
             <div class="pillar-bullet-item">
               <span class="bullet-check">✓</span>
-              <span><strong>Zero Data Leakage:</strong> Pipeline atômico blindado (SEMMA).</span>
+              <span><strong>Zero Data Leakage:</strong> Pipeline atômico blindado e auditado (SEMMA).</span>
             </div>
             <div class="pillar-bullet-item">
               <span class="bullet-check">✓</span>
-              <span><strong>Edge-Ready:</strong> Roda em chips de baixo custo e câmeras de pulverizador.</span>
+              <span><strong>Algoritmo Ultraleve:</strong> Classificação em milissegundos sem complexidade.</span>
             </div>
           </div>
         </div>
@@ -911,37 +865,37 @@
             <span class="pillar-tag">Alto Retorno</span>
           </div>
           <p class="pillar-desc">
-            Cada dia de atraso no controle da ferrugem custa R$ 80 a R$ 140/ha em sacarose perdida. O SugarVision viabiliza contenção no D-Zero.
+            Cada dia de atraso no controle da ferrugem custa R$ 80 a R$ 140/ha em sacarose perdida. O SugarVision viabiliza contenção precoce.
           </p>
           <div class="pillar-bullets">
             <div class="pillar-bullet-item">
               <span class="bullet-check">✓</span>
-              <span><strong>Economia Direta:</strong> Redução de 2 a 3 aplicações desnecessárias.</span>
+              <span><strong>Economia Direta:</strong> Redução de 2 a 3 pulverizações desnecessárias.</span>
             </div>
             <div class="pillar-bullet-item">
               <span class="bullet-check">✓</span>
-              <span><strong>LTV / CAC projetado:</strong> > 6.5x devido à alta retenção por safra.</span>
+              <span><strong>LTV / CAC projetado:</strong> > 6.5x devido à alta taxa de retenção por safra.</span>
             </div>
           </div>
         </div>
 
-        <!-- Pilar 4: Escalabilidade B2B -->
+        <!-- Pilar 4: Escalabilidade da Solução -->
         <div class="pillar-card">
           <div class="pillar-header">
-            <div class="pillar-title">🚀 Go-To-Market & Modelo</div>
-            <span class="pillar-tag">SaaS B2B</span>
+            <div class="pillar-title">🚀 Escalabilidade & Adoção</div>
+            <span class="pillar-tag">Viabilidade</span>
           </div>
           <p class="pillar-desc">
-            Monetização híbrida recorrente desenhada para rápida adoção corporativa sem fricção técnica para o produtor.
+            Abordagem desenhada para integração direta nas rotinas de monitoramento agronômico de usinas e cooperativas.
           </p>
           <div class="pillar-bullets">
             <div class="pillar-bullet-item">
               <span class="bullet-check">✓</span>
-              <span><strong>SaaS por Hectare:</strong> R$ 14 a R$ 22/ha/ano para usinas e frotas.</span>
+              <span><strong>Monitoramento por Talhão:</strong> Mapeamento prioritário de áreas com foco de infecção.</span>
             </div>
             <div class="pillar-bullet-item">
               <span class="bullet-check">✓</span>
-              <span><strong>OEM API:</strong> Integração embarcada em drones e pulverizadores.</span>
+              <span><strong>Padronização Técnica:</strong> Elimina a subjetividade da inspeção visual humana.</span>
             </div>
           </div>
         </div>
@@ -961,27 +915,30 @@
         </div>
       </section>
 
-      <!-- 7. MODELO DE NEGÓCIOS / GTM STRATEGY -->
-      <section class="monetization-row">
-        <div class="monetize-col">
-          <h5>📱 1. Mobile App Agrônomo</h5>
-          <p>Laudo fitossanitário instantâneo georreferenciado direto no talhão para equipes de campo.</p>
+      <!-- 7. IMPACTO AGRONÔMICO E OPERACIONAL (SEM MENÇÃO A APPS) -->
+      <section class="agronomic-impact-row">
+        <div class="impact-col">
+          <h5>🛡️ 1. Proteção do ATR Foliar</h5>
+          <p>A ferrugem destrói o parênquima clorofiliano. O diagnóstico ágil impede o colapso da taxa de fotossíntese e sacarose.</p>
         </div>
-        <div class="monetize-col">
-          <h5>🛰️ 2. SugarVision Cloud Ops</h5>
-          <p>Painel gerencial para diretores agrícolas com mapas de calor de infestação e telemetria.</p>
+        <div class="impact-col">
+          <h5>🌱 2. Redução de Insumos Químicos</h5>
+          <p>Economia comprovada de até 28% no uso de fungicidas, concentrando aplicações nos talhões efetivamente infectados.</p>
         </div>
-        <div class="monetize-col">
-          <h5>🚜 3. Edge SDK para Pulverização</h5>
-          <p>Módulo embarcado para ativação seletiva de bicos em pulverizadores e drones.</p>
+        <div class="impact-col">
+          <h5>📊 3. Decisão Baseada em Dados</h5>
+          <p>Substituição da amostragem visual subjetiva por métricas estatísticas auditáveis (ExG, ExR e textura Haralick).</p>
         </div>
       </section>
 
-      <!-- 8. RODAPÉ DE FECHAMENTO & CALL TO ACTION -->
+      <!-- 8. RODAPÉ DE FECHAMENTO -->
       <footer>
         <div class="footer-pitch">
           <h3>Participe da Revolução da Sanidade Vegetal</h3>
-          <p>Buscamos investidores e parceiros estratégicos para acelerar a expansão comercial em usinas piloto na safra 2026/2027.</p>
+          <p>Solução validada com rigor estatístico (SEMMA • FATEC Rio Claro 2026), pronta para parcerias e pilotos operacionais no setor sucroenergético.</p>
+        </div>
+        <div class="footer-meta">
+          FATEC Rio Claro • Squad 2 • 2026
         </div>
       </footer>
 
