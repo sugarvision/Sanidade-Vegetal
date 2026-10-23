@@ -402,7 +402,7 @@ def execute_metadata_lineage_delivery():
     data_dir = base_dir / "data" / "processed"
     models_dir = base_dir / "models"
     figures_dir = base_dir / "docs" / "figures"
-    sprint_dir = base_dir / "Catalogo Formal de Metadados e Dicionario com Saidas Calibradas"
+    sprint_dir = base_dir / "entregas" / "Catalogo Formal de Metadados e Dicionario com Saidas Calibradas"
     
     df_raw_meta = pd.read_csv(data_dir / "metadata_raw_images.csv")
     df_abt = pd.read_csv(data_dir / "abt_sanidade_vegetal.csv")

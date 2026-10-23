@@ -27,8 +27,10 @@ class TestProductionCatalogSEMMA(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.base_dir = Path(__file__).resolve().parent.parent
-        cls.dict_md = cls.base_dir / "Modelagem Inicial e Dicionário de Dados" / "dicionario_de_dados.md"
-        cls.dict_csv = cls.base_dir / "Modelagem Inicial e Dicionário de Dados" / "dicionario_de_dados.csv"
+        dict_dir = cls.base_dir / "entregas" / "Modelagem Inicial e Dicionário de Dados"
+        if not dict_dir.exists(): dict_dir = cls.base_dir / "Modelagem Inicial e Dicionário de Dados"
+        cls.dict_md = dict_dir / "dicionario_de_dados.md"
+        cls.dict_csv = dict_dir / "dicionario_de_dados.csv"
         cls.catalog_json = cls.base_dir / "models" / "production_artifacts_catalog.json"
 
     def test_checklist_item1_dicionario_version_and_structure(self):
@@ -57,7 +59,7 @@ class TestProductionCatalogSEMMA(unittest.TestCase):
             "models/preprocessor_pipeline.joblib",
             "models/gridsearch_checkpoint.json",
             "models/production_artifacts_catalog.json",
-            "Consolidacao Final do Dicionario de Dados e Catalogo de Producao/relatorio_consolidacao_dicionario_e_catalogo_producao.md"
+            "entregas/Consolidacao Final do Dicionario de Dados e Catalogo de Producao/relatorio_consolidacao_dicionario_e_catalogo_producao.md"
         ]
         for rel_path in critical_artifacts:
             full_path = self.base_dir / rel_path

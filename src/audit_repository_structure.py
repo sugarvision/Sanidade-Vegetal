@@ -139,7 +139,7 @@ def audit_repository_canonical_structure(base_dir: Path) -> dict:
 def export_repository_audit_manifest(report: dict, base_dir: Path):
     """Salva o manifesto formal de conformidade em models/ e na pasta da sprint."""
     models_dir = base_dir / "models"
-    sprint_dir = base_dir / "Auditoria Final de Codigo Deploy e Congelamento de Dependencias"
+    sprint_dir = base_dir / "entregas" / "Auditoria Final de Codigo Deploy e Congelamento de Dependencias"
     models_dir.mkdir(parents=True, exist_ok=True)
     sprint_dir.mkdir(parents=True, exist_ok=True)
     

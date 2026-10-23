@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SugarVision - Flyer de Divulgação</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #064e3b;
+      --primary-light: #059669;
+      --accent: #10b981;
+      --accent-lime: #84cc16;
+      --dark: #0f172a;
+      --gray: #475569;
+      --gray-light: #f8fafc;
+      --border: #e2e8f0;
+      --white: #ffffff;
+      --card-bg: rgba(255, 255, 255, 0.95);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #e5e7eb;
+      color: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 0;
+      min-height: 100vh;
+    }
+
+    /* Barra de Ações Superior (Não imprime) */
+    .toolbar {
+      width: 210mm;
+      max-width: 95vw;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+
+    .toolbar-info {
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .toolbar-btn {
+      background: var(--primary-light);
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .toolbar-btn:hover {
+      background: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    /* Página A4 Padronizada */
+    .a4-page {
+      width: 210mm;
+      height: 297mm;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+      padding: 28px 34px 24px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Fundo Geométrico Suave */
+    .bg-shape-top {
+      position: absolute;
+      top: -120px;
+      right: -100px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+      border-radius: 50%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .bg-shape-bottom {
+      position: absolute;
+      bottom: -150px;
+      left: -120px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(132, 204, 22, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+      border-radius: 50%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .content-layer {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Cabeçalho */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 14px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 4px 10px rgba(5, 150, 105, 0.25);
+    }
+
+    .brand-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .brand-title span {
+      color: var(--accent);
+    }
+
+    .brand-tagline {
+      font-size: 11px;
+      color: var(--gray);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .header-pill {
+      background: #ecfdf5;
+      color: var(--primary-light);
+      border: 1px solid #a7f3d0;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-pill::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary-light);
+      margin-bottom: 6px;
+    }
+
+    .hero-title {
+      font-size: 25px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--dark);
+      letter-spacing: -0.4px;
+      max-width: 600px;
+      margin: 0 auto 8px auto;
+    }
+
+    .hero-title .highlight {
+      background: linear-gradient(120deg, #d1fae5 0%, #a7f3d0 100%);
+      padding: 0 6px;
+      border-radius: 4px;
+      color: var(--primary);
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--gray);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* Espaço da Imagem (Hero Image Placeholder) */
+    .image-slot-wrapper {
+      margin: 14px 0;
+      position: relative;
+    }
+
+    .image-slot {
+      width: 100%;
+      height: 205px;
+      border: 2px dashed #10b981;
+      background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+    }
+
+    .image-slot:hover {
+      border-color: var(--primary);
+      background: #ecfdf5;
+    }
+
+    .image-slot.has-image {
+      border-style: solid;
+      border-color: #e2e8f0;
+      padding: 0;
+    }
+
+    .image-preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .image-placeholder-content {
+      text-align: center;
+      padding: 16px;
+    }
+
+    .image-icon-box {
+      width: 52px;
+      height: 52px;
+      background: #dcfce7;
+      color: var(--primary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px auto;
+      font-size: 26px;
+    }
+
+    .image-slot-text {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .image-slot-subtext {
+      font-size: 11px;
+      color: var(--gray);
+    }
+
+    .image-input {
+      display: none;
+    }
+
+    /* Pilares de Valor (Cards de Benefícios) */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .benefit-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px 12px;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .benefit-card:hover {
+      border-color: var(--accent);
+      background: #ffffff;
+      box-shadow: 0 6px 14px -3px rgba(16, 185, 129, 0.12);
+    }
+
+    .benefit-icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .benefit-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .benefit-desc {
+      font-size: 11px;
+      line-height: 1.4;
+      color: var(--gray);
+    }
+
+    /* Seção "Como Funciona em 3 Passos" */
+    .how-it-works {
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+      color: white;
+      border-radius: 16px;
+      padding: 14px 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 16px -4px rgba(6, 78, 59, 0.25);
+    }
+
+    .how-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 10px;
+      color: #a7f3d0;
+      text-align: center;
+    }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .step-number {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: var(--accent-lime);
+      color: #064e3b;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .step-text h4 {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 2px;
+      color: #ffffff;
+    }
+
+    .step-text p {
+      font-size: 10.5px;
+      line-height: 1.35;
+      color: #d1fae5;
+    }
+
+    /* Destaques / Diagnósticos Cobertos */
+    .coverage-strip {
+      background: #f1f5f9;
+      border-radius: 12px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .coverage-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .coverage-tags {
+      display: flex;
+      gap: 8px;
+    }
+
+    .coverage-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .tag-rust {
+      background: #fee2e2;
+      color: #b91c1c;
+      border: 1px solid #fca5a5;
+    }
+
+    .tag-spot {
+      background: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fde68a;
+    }
+
+    .tag-healthy {
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #86efac;
+    }
+
+    /* Rodapé & Call to Action */
+    footer {
+      border-top: 2px solid #f1f5f9;
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cta-text h3 {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .cta-text p {
+      font-size: 10.5px;
+      color: var(--gray);
+    }
+
+    .contact-block {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .contact-item {
+      text-align: right;
+    }
+
+    .contact-label {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      color: var(--gray);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-value {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .qr-placeholder {
+      width: 48px;
+      height: 48px;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      font-weight: 700;
+      color: var(--gray);
+      text-align: center;
+      line-height: 1.1;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+
+    /* Estilos de Impressão A4 (Ctrl + P) */
+    @media print {
+      body {
+        background: transparent;
+        padding: 0;
+        margin: 0;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .a4-page {
+        width: 210mm;
+        height: 297mm;
+        box-shadow: none;
+        margin: 0;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+      }
+
+      .image-slot {
+        border-color: #94a3b8;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de Ferramentas da Tela (Não aparece na impressão) -->
+  <div class="toolbar no-print">
+    <div class="toolbar-info">
+      💡 <strong>Dica:</strong> Clique na caixa pontilhada para carregar sua imagem direto do computador. Depois, use o botão ao lado para salvar em PDF (A4).
+    </div>
+    <div style="display: flex; gap: 8px;">
+      <button class="toolbar-btn" onclick="document.getElementById('fileInput').click()">
+        📁 Escolher Imagem
+      </button>
+      <button class="toolbar-btn" onclick="window.print()" style="background: var(--primary);">
+        🖨️ Salvar como PDF / Imprimir
+      </button>
+    </div>
+  </div>
+
+  <!-- Folha A4 do Flyer -->
+  <main class="a4-page">
+    <div class="bg-shape-top"></div>
+    <div class="bg-shape-bottom"></div>
+
+    <div class="content-layer">
+
+      <!-- Cabeçalho Institucional -->
+      <header>
+        <div class="logo-container">
+          <div class="logo-badge">🌱</div>
+          <div>
+            <h1 class="brand-title">Sugar<span>Vision</span></h1>
+            <p class="brand-tagline">Sanidade Vegetal Inteligente</p>
+          </div>
+        </div>
+        <div class="header-pill">
+          Agro 4.0 & Inovação no Canavial
+        </div>
+      </header>
+
+      <!-- Chamada Principal (Hero) -->
+      <section class="hero">
+        <span class="hero-badge">Diagnóstico Precoce via Imagem</span>
+        <h2 class="hero-title">
+          Lavoura mais produtiva com <span class="highlight">inteligência artificial</span> no campo
+        </h2>
+        <p class="hero-subtitle">
+          Identifique ameaças foliares instantaneamente e tome decisões rápidas para proteger a rentabilidade e o vigor do seu canavial.
+        </p>
+      </section>
+
+      <!-- Espaço para Inserir a Imagem -->
+      <section class="image-slot-wrapper">
+        <div class="image-slot" id="imageSlot" onclick="document.getElementById('fileInput').click()" title="Clique para inserir uma imagem">
+          <img id="imagePreview" class="image-preview" alt="Pré-visualização da imagem">
+          <div class="image-placeholder-content" id="placeholderContent">
+            <div class="image-icon-box">📷</div>
+            <div class="image-slot-text">Clique ou arraste aqui a imagem do seu projeto</div>
+            <div class="image-slot-subtext">Ideal: foto do canavial, folha diagnosticada ou tela do aplicativo</div>
+          </div>
+        </div>
+        <input type="file" id="fileInput" class="image-input" accept="image/*">
+      </section>
+
+      <!-- Diagnósticos Monitorados -->
+      <div class="coverage-strip">
+        <span class="coverage-label">Monitoramento em Tempo Real:</span>
+        <div class="coverage-tags">
+          <span class="coverage-tag tag-healthy">✓ Folha Saudável</span>
+          <span class="coverage-tag tag-rust">⚠ Ferrugem</span>
+          <span class="coverage-tag tag-spot">⚠ Mancha-Parda</span>
+        </div>
+      </div>
+
+      <!-- Benefícios Diretos (Sem linguagem técnica excessiva) -->
+      <section class="benefits-grid">
+        <div class="benefit-card">
+          <span class="benefit-icon">⚡</span>
+          <h3 class="benefit-title">Agilidade Máxima</h3>
+          <p class="benefit-desc">
+            Diagnóstico fitossanitário em segundos através de uma foto comum, sem necessidade de esperar dias por laudos de laboratório.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <span class="benefit-icon">🎯</span>
+          <h3 class="benefit-title">Economia de Insumos</h3>
+          <p class="benefit-desc">
+            Aplique defensivos somente nos talhões que realmente precisam, reduzindo custos operacionais e o impacto ambiental.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <span class="benefit-icon">📈</span>
+          <h3 class="benefit-title">Mais Produtividade</h3>
+          <p class="benefit-desc">
+            Evite perdas severas de produtividade (TCH) e teor de sacarose (ATR), preservando a saúde da folha durante todo o ciclo.
+          </p>
+        </div>
+      </section>
+
+      <!-- Como Funciona em 3 Passos Simples -->
+      <section class="how-it-works">
+        <h3 class="how-title">Como funciona na prática: simples e direto</h3>
+        <div class="steps-row">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-text">
+              <h4>Fotografe</h4>
+              <p>Tire uma foto nítida da folha de cana direto no talhão.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-text">
+              <h4>Analise</h4>
+              <p>O SugarVision processa a imagem em poucos segundos.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-text">
+              <h4>Aja com Certeza</h4>
+              <p>Receba a resposta imediata para agir antes do dano se alastrar.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Rodapé Institucional & Contato -->
+      <footer>
+        <div class="cta-text">
+          <h3>Leve mais precisão para a sua safra</h3>
+          <p>Tecnologia acessível para produtores, agrônomos e usinas de açúcar e etanol.</p>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-item">
+            <div class="contact-label">Mais Informações</div>
+            <div class="contact-value">contato@sugarvision.agr.br</div>
+            <div class="contact-label" style="margin-top: 2px;">github.com/Sanidade-Vegetal</div>
+          </div>
+          <div class="qr-placeholder">
+            <span>QR CODE</span>
+            <span style="font-size: 7px; color: var(--accent);">ACESSE</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- Script para Interatividade de Upload da Imagem e Drag & Drop -->
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const imageSlot = document.getElementById('imageSlot');
+    const imagePreview = document.getElementById('imagePreview');
+    const placeholderContent = document.getElementById('placeholderContent');
+
+    function applyImage(file) {
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          imagePreview.src = e.target.result;
+          imagePreview.style.display = 'block';
+          placeholderContent.style.display = 'none';
+          imageSlot.classList.add('has-image');
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    fileInput.addEventListener('change', function(e) {
+      if (e.target.files && e.target.files[0]) {
+        applyImage(e.target.files[0]);
+      }
+    });
+
+    // Drag & Drop
+    imageSlot.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      imageSlot.style.borderColor = 'var(--primary)';
+      imageSlot.style.background = '#dcfce7';
+    });
+
+    imageSlot.addEventListener('dragleave', function(e) {
+      e.preventDefault();
+      imageSlot.style.borderColor = '#10b981';
+      imageSlot.style.background = '';
+    });
+
+    imageSlot.addEventListener('drop', function(e) {
+      e.preventDefault();
+      imageSlot.style.borderColor = '#10b981';
+      imageSlot.style.background = '';
+      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+        applyImage(e.dataTransfer.files[0]);
+      }
+    });
+  </script>
+</body>
+</html>

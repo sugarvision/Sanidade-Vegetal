@@ -108,18 +108,18 @@ flowchart TD
 Cada frente da Fase Modify possui uma pasta de documentação aprofundada com relatórios técnicos, fórmulas e checklists:
 
 1. **Engenharia de Atributos e Descritores Visuais:**
-   * [`Engenharia de Atributos e Descritores Visuais/README.md`](../Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/README.md)
-   * [`engenharia_descritores_cromaticos_e_indices.md`](../Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/engenharia_descritores_cromaticos_e_indices.md): Fundamentação biológica e ótica do $ExG$, HSV e CIELAB.
-   * [`extracao_textura_glcm_e_rugosidade.md`](../Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/extracao_textura_glcm_e_rugosidade.md): Equações da matriz GLCM e propriedades de Haralick.
-   * [`discretizacao_variaveis_continuas_binning.md`](../Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/discretizacao_variaveis_continuas_binning.md): Análise de assimetria e intervalos ótimos de corte.
+   * [`Engenharia de Atributos e Descritores Visuais/README.md`](../entregas/Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/README.md)
+   * [`engenharia_descritores_cromaticos_e_indices.md`](../entregas/Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/engenharia_descritores_cromaticos_e_indices.md): Fundamentação biológica e ótica do $ExG$, HSV e CIELAB.
+   * [`extracao_textura_glcm_e_rugosidade.md`](../entregas/Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/extracao_textura_glcm_e_rugosidade.md): Equações da matriz GLCM e propriedades de Haralick.
+   * [`discretizacao_variaveis_continuas_binning.md`](../entregas/Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/discretizacao_variaveis_continuas_binning.md): Análise de assimetria e intervalos ótimos de corte.
 
 2. **Pipeline Atômico e Anti-Leakage:**
-   * [`Pipeline Atômico de Pré-processamento e Anti-Leakage/README.md`](../Pipeline%20At%C3%B4mico%20de%20Pr%C3%A9-processamento%20e%20Anti-Leakage/README.md)
-   * [`pipeline_atomico_columntransformer.md`](../Pipeline%20At%C3%B4mico%20de%20Pr%C3%A9-processamento%20e%20Anti-Leakage/pipeline_atomico_columntransformer.md): Arquitetura dos transformadores, prova matemática anti-leakage e governança.
+   * [`Pipeline Atômico de Pré-processamento e Anti-Leakage/README.md`](../entregas/Pipeline%20At%C3%B4mico%20de%20Pr%C3%A9-processamento%20e%20Anti-Leakage/README.md)
+   * [`pipeline_atomico_columntransformer.md`](../entregas/Pipeline%20At%C3%B4mico%20de%20Pr%C3%A9-processamento%20e%20Anti-Leakage/pipeline_atomico_columntransformer.md): Arquitetura dos transformadores, prova matemática anti-leakage e governança.
 
 3. **Consolidação e Exportação da ABT Final:**
-   * [`Consolidação e Exportação da ABT Final/README.md`](../Consolida%C3%A7%C3%A3o%20e%20Exporta%C3%A7%C3%A3o%20da%20ABT%20Final/README.md)
-   * [`consolidacao_exportacao_abt_final.md`](../Consolida%C3%A7%C3%A3o%20e%20Exporta%C3%A7%C3%A3o%20da%20ABT%20Final/consolidacao_exportacao_abt_final.md): Dicionário das 40 variáveis consolidadas, benchmarks e contrato de integração com SVM.
+   * [`Consolidação e Exportação da ABT Final/README.md`](../entregas/Consolida%C3%A7%C3%A3o%20e%20Exporta%C3%A7%C3%A3o%20da%20ABT%20Final/README.md)
+   * [`consolidacao_exportacao_abt_final.md`](../entregas/Consolida%C3%A7%C3%A3o%20e%20Exporta%C3%A7%C3%A3o%20da%20ABT%20Final/consolidacao_exportacao_abt_final.md): Dicionário das 40 variáveis consolidadas, benchmarks e contrato de integração com SVM.
 
 ---
 

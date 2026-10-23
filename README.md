@@ -5,7 +5,7 @@
 ![Scikit-Learn](https://img.shields.io/badge/scikit--learn-1.8.0-orange?logo=scikit-learn)
 ![Framework](https://img.shields.io/badge/Framework-SEMMA%20(SAS)-darkgreen)
 ![Status](https://img.shields.io/badge/Sprint-5%20%7C%20Homologado-brightgreen)
-![Tests](https://img.shields.io/badge/Tests-14%2F14%20Passing-success)
+![Tests](https://img.shields.io/badge/Tests-29%2F29%20Passing-success)
 ![License](https://img.shields.io/badge/License-MIT%20%2B%20CC%20BY%204.0-lightgrey)
 
 ---
@@ -45,14 +45,23 @@ flowchart LR
 
 ---
 
-## 📂 3. Estrutura Canônica de Pastas do Repositório
+## 📂 3. Estrutura de Pastas e Mapa de Navegação do Repositório
 
-```text
+Para garantir máxima transparência e facilidade de navegação, a organização do projeto é dividida em dois eixos:
+1. **Estrutura Canônica de Código (Onde o Sistema Opera):** As 5 pastas fundamentais da arquitetura de produção (data/, docs/, models/, 
+otebooks/, src/).
+2. **Catálogo de Dossiês por Sprint (Tarefas Scrum / Jira):** As 16 pastas de entregas que documentam formalmente os requisitos e relatórios técnicos de cada etapa do framework SEMMA.
+
+### 3.1. Estrutura Canônica de Código
+
+`	ext
 Sanidade-Vegetal/
 ├── data/
 │   ├── raw/                                           # Imagens e anotações originais (Roboflow e Mendeley)
 │   └── processed/
 │       ├── abt_sanidade_vegetal.csv                   # Tabela Analítica Base (6.571 instâncias x 35 atributos)
+│       ├── abt_features_modelagem.parquet             # ABT tratada colunar Snappy (0 NaNs, 35 features Z-Score)
+│       ├── abt_features_modelagem.csv                 # ABT tratada tabular para auditoria e interoperabilidade
 │       ├── metadata_raw_images.csv                    # Metadados físicos de extração (13.142 registros)
 │       └── svm_predicoes_valid_test.csv               # Tabela de registros analíticos e predições calibradas
 ├── docs/
@@ -61,29 +70,46 @@ Sanidade-Vegetal/
 │   └── relatorios_sprints/                            # Dossiês executivos e relatos técnicos das entregas
 ├── models/
 │   ├── svm_pipeline_optimal.joblib                    # Estimador SVM campeão serializado para produção
+│   ├── baseline_dummy_model.joblib                    # Estimador Dummy estratificado baseline
+│   ├── baseline_logistic_regression.joblib            # Estimador Regressão Logística L2 baseline
+│   ├── baseline_decision_tree.joblib                  # Estimador Árvore de Decisão rasa interpretável
 │   ├── gridsearch_checkpoint.json                     # Checkpoint transacional atômico tolerante a falhas
 │   ├── gridsearch_checkpoint_results.csv              # Resultados comparativos da malha de hiperparâmetros
 │   ├── dataset_lineage_and_metrics_catalog.json       # Manifesto MLOps de rastreabilidade e métricas
+│   ├── production_artifacts_catalog.json              # Catálogo formal de artefatos de produção SEMMA
 │   ├── computational_efficiency_metrics.json          # Telemetria de CPU e memória RAM
 │   ├── repeated_kfold_audit_metadata.json             # Estatísticas de dispersão estocástica (15 folds)
 │   └── repository_structure_audit.json                # Atestado de conformidade estrutural
-├── notebooks/                                         # Cadernos Jupyter interativos de cada fase SEMMA
-├── src/
-│   ├── atomic_svm_pipeline.py                         # Construtor do pipeline atômico anti-leakage
-│   ├── repeated_stratified_kfold_audit.py             # Validador de robustez estocástica (15 splits)
-│   ├── resilient_parallel_grid_search.py              # Grid Search paralelo (n_jobs=-1) com telemetria
-│   ├── audit_metadata_lineage.py                      # Auditoria de linhagem e cálculo de métricas formais
-│   ├── audit_repository_structure.py                  # Auditor de pastas canônicas e integridade
-│   ├── test_repeated_kfold_audit.py                   # Suite de testes de validação cruzada
-│   ├── test_parallel_efficiency.py                    # Suite de testes de eficiência computacional
-│   └── test_metadata_catalog_governance.py            # Suite de testes de governança e integridade
-├── Modelagem Inicial e Dicionário de Dados/
-│   ├── dicionario_de_dados.md                         # Dicionário de dados técnico detalhado (v2.2.0)
-│   └── dicionario_de_dados.csv                        # Catálogo tabular completo com entidade de métricas
+├── notebooks/                                         # Cadernos Jupyter interativos de cada fase SEMMA (01A a 10)
+├── src/                                               # Módulos Python de produção e 29 rotinas de testes unitários
 ├── requirements.txt                                   # Congelamento estrito de dependências
 ├── LICENSE                                            # Licença MIT de código aberto
-└── README.md                                          # Este guia didático e portal de reprodução
-```
+└── README.md                                          # Este portal didático e guia de reprodução
+`
+
+### 3.2. Catálogo e Dossiês de Entregas por Sprint (Scrum / Jira)
+
+As 16 pastas adicionais presentes na raiz do repositório correspondem aos dossiês de prestação de contas técnica de cada cartão de sprint:
+
+| Sprint | Fase SEMMA | Diretório de Entrega na Raiz | Descrição e Artefatos Principais |
+| :---: | :---: | :--- | :--- |
+| **Sprint 1** | Sample | [Definição do Escopo do Problema/](entregas/Definição%20do%20Escopo%20do%20Problema/) | Escopo fitossanitário, hipóteses iniciais e formulação do problema. |
+| **Sprint 1** | Sample | [Definição da Estratégia de Amostragem/](entregas/Definição%20da%20Estratégia%20de%20Amostragem/) | Particionamento determinístico 70/15/15 e blindagem anti-leakage de talhões. |
+| **Sprint 1** | Explore | [Exploração de Imagens e Padrões Visuais/](entregas/Exploração%20de%20Imagens%20e%20Padrões%20Visuais/) | EDA de resolução, foco ótico (variância laplaciana) e histogramas cromáticos. |
+| **Sprint 2** | Modify | [Engenharia de Atributos e Descritores Visuais/](entregas/Engenharia%20de%20Atributos%20e%20Descritores%20Visuais/) | Extração de índices cromáticos (, ExR, R/G, ICN$) e textura Haralick ($). |
+| **Sprint 2** | Modify | [Pipeline Atômico de Pré-processamento e Anti-Leakage/](entregas/Pipeline%20Atômico%20de%20Pré-processamento%20e%20Anti-Leakage/) | Construção do ColumnTransformer (imputação mediana + Z-Score + OHE). |
+| **Sprint 2** | Modify | [Consolidação e Exportação da ABT Final/](entregas/Consolidação%20e%20Exportação%20da%20ABT%20Final/) | Base consolidada com 0 NaNs em Parquet e CSV com hashes SHA-256. |
+| **Sprint 2** | Modify | [Modelagem Inicial e Dicionário de Dados/](entregas/Modelagem%20Inicial%20e%20Dicionário%20de%20Dados/) | Dicionário de dados v1.0.0 a v3.0.0 (dicionario_de_dados.md e .csv). |
+| **Sprint 3** | Model | [Integração Atômica do Estimador SVM ao Pipeline Anti-Leakage/](entregas/Integração%20Atômica%20do%20Estimador%20SVM%20ao%20Pipeline%20Anti-Leakage/) | Encapsulamento completo Pipeline([ColumnTransformer, SVC]) com Platt Scaling. |
+| **Sprint 3** | Model | [Modelagem SVM com Kernel Trick (RBF e Polinomial)/](entregas/Modelagem%20SVM%20com%20Kernel%20Trick%20%28RBF%20e%20Polinomial%29/) | Estudo comparativo de fronteiras de decisão (Linear, Polinomial e RBF). |
+| **Sprint 3** | Model | [Configuração e Execução do Grid Search Exaustivo (GridSearchCV)/](entregas/Configuração%20e%20Execução%20do%20Grid%20Search%20Exaustivo%20%28GridSearchCV%29/) | Otimização de hiperparâmetros elegendo o estimador ótimo (=10, \gamma=0.01$). |
+| **Sprint 3** | Model | [Concepção, Treinamento e Benchmark de Modelos Baseline/](entregas/Concepção,%20Treinamento%20e%20Benchmark%20de%20Modelos%20Baseline/) | Modelos de referência (Dummy, Reg. Logística e Árvore rasa) e ganho estatístico do SVM. |
+| **Sprint 4** | Assess | [Auditoria de Particoes e Robustez Estocastica Repeated Stratified K-Fold/](entregas/Auditoria%20de%20Particoes%20e%20Robustez%20Estocastica%20Repeated%20Stratified%20K-Fold/) | Validação de 15 splits comprovando ausência de viés amostral (ANOVA  > 0,05$). |
+| **Sprint 4** | Assess | [Otimizacao e Paralelizacao Computacional da Validacao Cruzada/](entregas/Otimizacao%20e%20Paralelizacao%20Computacional%20da%20Validacao%20Cruzada/) | Paralelização multi-processo 
+_jobs=-1 com 1,64x de aceleração e telemetria. |
+| **Sprint 4** | Assess | [Catalogo Formal de Metadados e Dicionario com Saidas Calibradas/](entregas/Catalogo%20Formal%20de%20Metadados%20e%20Dicionario%20com%20Saidas%20Calibradas/) | Linhagem de ponta a ponta e auditoria de métricas com intervalos de confiança. |
+| **Sprint 5** | Assess | [Consolidacao Final do Dicionario de Dados e Catalogo de Producao/](entregas/Consolidacao%20Final%20do%20Dicionario%20de%20Dados%20e%20Catalogo%20de%20Producao/) | Consolidação do catálogo final de artefatos de produção e matriz SEMMA. |
+| **Sprint 5** | Assess | [Auditoria Final de Codigo Deploy e Congelamento de Dependencias/](entregas/Auditoria%20Final%20de%20Codigo%20Deploy%20e%20Congelamento%20de%20Dependencias/) | Congelamento de dependências, checklist de deploy e conformidade de licenças. |
 
 ---
 

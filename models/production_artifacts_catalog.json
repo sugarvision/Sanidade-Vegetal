@@ -2,7 +2,7 @@
   "catalog_title": "Catálogo Mestre de Produção e Matriz de Rastreabilidade SEMMA (Sprint 5)",
   "project": "Sanidade-Vegetal (SugarVision)",
   "responsible": "Heitor Partezani (Engenharia de Machine Learning & IA SVM)",
-  "timestamp": "2026-10-22 10:46:38",
+  "timestamp": "2026-10-23 11:22:30",
   "version": "3.0.0",
   "semma_lifecycle_audit": {
     "status": "APPROVED",
@@ -11,20 +11,20 @@
       {
         "phase": "Sample",
         "component_name": "Estratégia de Amostragem Estratificada",
-        "relative_path": "Definição da Estratégia de Amostragem/sampling_pipeline.py",
+        "relative_path": "entregas/Definição da Estratégia de Amostragem/sampling_pipeline.py",
         "type": "Script Executável",
         "exists": true,
-        "size_kb_or_items": 7.04,
+        "size_kb_or_items": 7.21,
         "description": "Particionamento estratificado agronômico determinístico (70% treino, 15% validação, 15% teste) e cálculo de pesos de classe.",
         "status": "APPROVED"
       },
       {
         "phase": "Sample",
         "component_name": "Metadados de Amostragem e Balanceamento",
-        "relative_path": "Definição da Estratégia de Amostragem/distribuicao_e_balanceamento.md",
+        "relative_path": "entregas/Definição da Estratégia de Amostragem/distribuicao_e_balanceamento.md",
         "type": "Documentação Técnica",
         "exists": true,
-        "size_kb_or_items": 3.33,
+        "size_kb_or_items": 3.4,
         "description": "Especificação da distribuição a priori e controle de vazamento entre talhões e plantas.",
         "status": "APPROVED"
       },
@@ -64,7 +64,7 @@
         "relative_path": "src/discretizacao_binning.py",
         "type": "Script Executável",
         "exists": true,
-        "size_kb_or_items": 15.75,
+        "size_kb_or_items": 16.08,
         "description": "Discretização ordinal de atributos físicos contínuos por quantis e clusters k-means.",
         "status": "APPROVED"
       },
@@ -104,7 +104,7 @@
         "relative_path": "src/svm_kernel_trick_study.py",
         "type": "Script Executável",
         "exists": true,
-        "size_kb_or_items": 12.21,
+        "size_kb_or_items": 12.49,
         "description": "Modelagem comparativa entre kernel Linear, RBF Gaussiano e Polinomial graus 2 e 3.",
         "status": "APPROVED"
       },
@@ -134,7 +134,7 @@
         "relative_path": "src/repeated_stratified_kfold_audit.py",
         "type": "Script Executável",
         "exists": true,
-        "size_kb_or_items": 30.14,
+        "size_kb_or_items": 30.81,
         "description": "Validação cruzada de 15 folds provando ausência de viés amostral e estabilidade estocástica.",
         "status": "APPROVED"
       },
@@ -144,7 +144,7 @@
         "relative_path": "src/resilient_parallel_grid_search.py",
         "type": "Script Executável",
         "exists": true,
-        "size_kb_or_items": 30.76,
+        "size_kb_or_items": 31.46,
         "description": "Paralelização n_jobs=-1 com controle de RAM, monitoramento de CPU e checkpoints tolerantes a falhas.",
         "status": "APPROVED"
       },
@@ -154,7 +154,7 @@
         "relative_path": "src/audit_metadata_lineage.py",
         "type": "Script Executável",
         "exists": true,
-        "size_kb_or_items": 18.63,
+        "size_kb_or_items": 19.06,
         "description": "Cálculo formal de Precision, Recall, F1, AUC-ROC > 0.91 e Specificity > 0.93 com rastreabilidade 100%.",
         "status": "APPROVED"
       },
@@ -174,17 +174,17 @@
         "relative_path": "src/audit_repository_structure.py",
         "type": "Script Executável",
         "exists": true,
-        "size_kb_or_items": 6.94,
+        "size_kb_or_items": 7.11,
         "description": "Auditoria das pastas canônicas, congelamento requirements.txt e governança de conformidade.",
         "status": "APPROVED"
       },
       {
         "phase": "Assess",
         "component_name": "Dicionário de Dados Oficial Auditado (v3.0.0)",
-        "relative_path": "Modelagem Inicial e Dicionário de Dados/dicionario_de_dados.md",
+        "relative_path": "entregas/Modelagem Inicial e Dicionário de Dados/dicionario_de_dados.md",
         "type": "Governança Documental",
         "exists": true,
-        "size_kb_or_items": 58.26,
+        "size_kb_or_items": 58.88,
         "description": "Catálogo unificado e auditado de todas as entidades, saídas do modelo, métricas e restrições.",
         "status": "APPROVED"
       }
@@ -192,9 +192,9 @@
   },
   "documentation_links_integrity": {
     "status": "APPROVED",
-    "total_markdown_files": 45,
-    "total_links_checked": 236,
-    "valid_internal_links": 219,
+    "total_markdown_files": 51,
+    "total_links_checked": 308,
+    "valid_internal_links": 291,
     "external_links_or_anchors": 17,
     "broken_links_count": 0,
     "broken_links": []

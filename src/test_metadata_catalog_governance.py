@@ -15,8 +15,10 @@ class TestMetadataCatalogGovernance(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.base_dir = Path(__file__).resolve().parent.parent
-        cls.dict_md = cls.base_dir / "Modelagem Inicial e Dicionário de Dados" / "dicionario_de_dados.md"
-        cls.dict_csv = cls.base_dir / "Modelagem Inicial e Dicionário de Dados" / "dicionario_de_dados.csv"
+        dict_dir = cls.base_dir / "entregas" / "Modelagem Inicial e Dicionário de Dados"
+        if not dict_dir.exists(): dict_dir = cls.base_dir / "Modelagem Inicial e Dicionário de Dados"
+        cls.dict_md = dict_dir / "dicionario_de_dados.md"
+        cls.dict_csv = dict_dir / "dicionario_de_dados.csv"
         cls.catalog_json = cls.base_dir / "models" / "dataset_lineage_and_metrics_catalog.json"
         cls.preds_csv = cls.base_dir / "data" / "processed" / "svm_predicoes_valid_test.csv"
         cls.abt_csv = cls.base_dir / "data" / "processed" / "abt_sanidade_vegetal.csv"
