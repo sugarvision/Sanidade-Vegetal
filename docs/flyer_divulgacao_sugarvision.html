@@ -557,14 +557,17 @@
   <!-- Barra de Ferramentas da Tela (Não aparece na impressão) -->
   <div class="toolbar no-print">
     <div class="toolbar-info">
-      💡 <strong>Dica:</strong> Clique na caixa pontilhada para carregar sua imagem direto do computador. Depois, use o botão ao lado para salvar em PDF (A4).
+      💡 <strong>SugarVision:</strong> Flyer de Divulgação de Campo. Você também pode visualizar o <a href="flyer_comercial_investidores_sugarvision.html" style="color: var(--primary-light); font-weight: 700; text-decoration: underline;">Flyer Comercial para Investidores</a>.
     </div>
     <div style="display: flex; gap: 8px;">
+      <a href="flyer_comercial_investidores_sugarvision.html" class="toolbar-btn" style="background: #0f172a; text-decoration: none;">
+        💼 Versão Investidores
+      </a>
       <button class="toolbar-btn" onclick="document.getElementById('fileInput').click()">
-        📁 Escolher Imagem
+        📁 Trocar Imagem
       </button>
       <button class="toolbar-btn" onclick="window.print()" style="background: var(--primary);">
-        🖨️ Salvar como PDF / Imprimir
+        🖨️ Salvar em PDF / Imprimir
       </button>
     </div>
   </div>
@@ -603,9 +606,9 @@
 
       <!-- Espaço para Inserir a Imagem -->
       <section class="image-slot-wrapper">
-        <div class="image-slot" id="imageSlot" onclick="document.getElementById('fileInput').click()" title="Clique para inserir uma imagem">
-          <img id="imagePreview" class="image-preview" alt="Pré-visualização da imagem">
-          <div class="image-placeholder-content" id="placeholderContent">
+        <div class="image-slot has-image" id="imageSlot" onclick="document.getElementById('fileInput').click()" title="Clique para trocar a imagem">
+          <img id="imagePreview" class="image-preview" src="figures/sugarvision_app_mockup.jpg" alt="Pré-visualização da imagem" style="display: block;">
+          <div class="image-placeholder-content" id="placeholderContent" style="display: none;">
             <div class="image-icon-box">📷</div>
             <div class="image-slot-text">Clique ou arraste aqui a imagem do seu projeto</div>
             <div class="image-slot-subtext">Ideal: foto do canavial, folha diagnosticada ou tela do aplicativo</div>
