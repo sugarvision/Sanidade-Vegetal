@@ -1,0 +1,285 @@
+{
+  "task_name": "Auditoria de Erros Críticos e Impacto Agronômico/Econômico (FP vs FN)",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "sprint": "Sprint 4 — Framework SEMMA (Fase: Assess)",
+  "timestamp": "2026-10-31 12:29:11",
+  "execution_time_seconds": 1.63,
+  "economic_parameters": {
+    "expected_yield_tons_per_ha": 85.0,
+    "price_per_ton_brl": 145.0,
+    "rust_yield_loss_fraction": 0.35,
+    "rust_epidemic_spread_multiplier": 1.8,
+    "premature_ratoon_renewal_cost_brl": 2252.5,
+    "fungicide_chemical_cost_brl": 285.0,
+    "fungicide_application_op_cost_brl": 145.0,
+    "environmental_phytotoxicity_cost_brl": 55.0,
+    "fungal_red_rot_omission_loss_brl": 2711.5,
+    "bacterial_viral_mismatch_cost_brl": 320.0,
+    "gross_revenue_per_ha_brl": 12325.0,
+    "unit_cost_fn_rust_brl": 10017.25,
+    "unit_cost_fp_fungicide_brl": 485.0,
+    "fn_to_fp_asymmetry_ratio": 20.6541
+  },
+  "test_set_error_isolation_summary": {
+    "total_test_samples": 380,
+    "misclassified_samples_count": 149,
+    "error_rate_percentage": 39.21,
+    "transitions_breakdown": [
+      {
+        "true_class_name": "MOSAIC",
+        "pred_class_name": "YELLOW LEAF",
+        "error_transition_pair": "MOSAIC -> YELLOW LEAF",
+        "agronomic_error_category": "CROSS_PATHOLOGY_TREATMENT_MISMATCH",
+        "error_count": 36,
+        "mean_pred_proba": 0.4694,
+        "mean_true_proba": 0.3555,
+        "mean_proba_gap": 0.1139,
+        "share_of_total_errors_pct": 24.16
+      },
+      {
+        "true_class_name": "MOSAIC",
+        "pred_class_name": "GRASSY SHOOT",
+        "error_transition_pair": "MOSAIC -> GRASSY SHOOT",
+        "agronomic_error_category": "CROSS_PATHOLOGY_TREATMENT_MISMATCH",
+        "error_count": 35,
+        "mean_pred_proba": 0.2796,
+        "mean_true_proba": 0.3905,
+        "mean_proba_gap": -0.1109,
+        "share_of_total_errors_pct": 23.49
+      },
+      {
+        "true_class_name": "MOSAIC",
+        "pred_class_name": "LEAF SCALD",
+        "error_transition_pair": "MOSAIC -> LEAF SCALD",
+        "agronomic_error_category": "CROSS_PATHOLOGY_TREATMENT_MISMATCH",
+        "error_count": 19,
+        "mean_pred_proba": 0.5113,
+        "mean_true_proba": 0.2968,
+        "mean_proba_gap": 0.2145,
+        "share_of_total_errors_pct": 12.75
+      },
+      {
+        "true_class_name": "GRASSY SHOOT",
+        "pred_class_name": "LEAF SCALD",
+        "error_transition_pair": "GRASSY SHOOT -> LEAF SCALD",
+        "agronomic_error_category": "CROSS_PATHOLOGY_TREATMENT_MISMATCH",
+        "error_count": 18,
+        "mean_pred_proba": 0.5139,
+        "mean_true_proba": 0.1762,
+        "mean_proba_gap": 0.3377,
+        "share_of_total_errors_pct": 12.08
+      },
+      {
+        "true_class_name": "RED ROT",
+        "pred_class_name": "YELLOW LEAF",
+        "error_transition_pair": "RED ROT -> YELLOW LEAF",
+        "agronomic_error_category": "FUNGAL_OMISSION_FN_RED_ROT",
+        "error_count": 14,
+        "mean_pred_proba": 0.4619,
+        "mean_true_proba": 0.1641,
+        "mean_proba_gap": 0.2978,
+        "share_of_total_errors_pct": 9.4
+      },
+      {
+        "true_class_name": "LEAF SCALD",
+        "pred_class_name": "GRASSY SHOOT",
+        "error_transition_pair": "LEAF SCALD -> GRASSY SHOOT",
+        "agronomic_error_category": "CROSS_PATHOLOGY_TREATMENT_MISMATCH",
+        "error_count": 12,
+        "mean_pred_proba": 0.2781,
+        "mean_true_proba": 0.2567,
+        "mean_proba_gap": 0.0214,
+        "share_of_total_errors_pct": 8.05
+      },
+      {
+        "true_class_name": "YELLOW LEAF",
+        "pred_class_name": "RED ROT",
+        "error_transition_pair": "YELLOW LEAF -> RED ROT",
+        "agronomic_error_category": "CROSS_PATHOLOGY_TREATMENT_MISMATCH",
+        "error_count": 11,
+        "mean_pred_proba": 0.4613,
+        "mean_true_proba": 0.3163,
+        "mean_proba_gap": 0.145,
+        "share_of_total_errors_pct": 7.38
+      },
+      {
+        "true_class_name": "MOSAIC",
+        "pred_class_name": "RED ROT",
+        "error_transition_pair": "MOSAIC -> RED ROT",
+        "agronomic_error_category": "CROSS_PATHOLOGY_TREATMENT_MISMATCH",
+        "error_count": 3,
+        "mean_pred_proba": 0.4589,
+        "mean_true_proba": 0.2283,
+        "mean_proba_gap": 0.2307,
+        "share_of_total_errors_pct": 2.01
+      },
+      {
+        "true_class_name": "YELLOW LEAF",
+        "pred_class_name": "MOSAIC",
+        "error_transition_pair": "YELLOW LEAF -> MOSAIC",
+        "agronomic_error_category": "CROSS_PATHOLOGY_TREATMENT_MISMATCH",
+        "error_count": 1,
+        "mean_pred_proba": 0.3763,
+        "mean_true_proba": 0.3109,
+        "mean_proba_gap": 0.0654,
+        "share_of_total_errors_pct": 0.67
+      }
+    ]
+  },
+  "false_negative_agronomic_risk": {
+    "n_rust_foci_evaluated": 51,
+    "rust_true_positives": 51,
+    "rust_false_negatives": 0,
+    "rust_false_negative_rate_pct": 0.0,
+    "rust_sensitivity_recall_pct": 100.0,
+    "unit_cost_fn_rust_brl_per_ha": 10017.25,
+    "observed_rust_fn_loss_brl": 0.0,
+    "prevented_rust_catastrophe_value_brl": 510879.75,
+    "fn_any_pathology_as_healthy": 0,
+    "red_rot_total_foci": 49,
+    "red_rot_false_negatives": 14,
+    "observed_red_rot_fn_loss_brl": 37961.0,
+    "epidemiological_stress_scenarios": [
+      {
+        "simulated_fn_rate_pct": 0.0,
+        "simulated_missed_rust_foci": 0,
+        "estimated_crop_loss_brl": 0.0,
+        "yield_tons_lost_estimate": 0.0
+      },
+      {
+        "simulated_fn_rate_pct": 2.0,
+        "simulated_missed_rust_foci": 1,
+        "estimated_crop_loss_brl": 10017.25,
+        "yield_tons_lost_estimate": 53.55
+      },
+      {
+        "simulated_fn_rate_pct": 5.0,
+        "simulated_missed_rust_foci": 3,
+        "estimated_crop_loss_brl": 30051.75,
+        "yield_tons_lost_estimate": 160.65
+      },
+      {
+        "simulated_fn_rate_pct": 10.0,
+        "simulated_missed_rust_foci": 5,
+        "estimated_crop_loss_brl": 50086.25,
+        "yield_tons_lost_estimate": 267.75
+      },
+      {
+        "simulated_fn_rate_pct": 20.0,
+        "simulated_missed_rust_foci": 10,
+        "estimated_crop_loss_brl": 100172.5,
+        "yield_tons_lost_estimate": 535.5
+      },
+      {
+        "simulated_fn_rate_pct": 30.0,
+        "simulated_missed_rust_foci": 15,
+        "estimated_crop_loss_brl": 150258.75,
+        "yield_tons_lost_estimate": 803.25
+      }
+    ]
+  },
+  "false_positive_economic_impact": {
+    "n_non_rust_samples": 329,
+    "rust_false_positives": 0,
+    "rust_true_negatives": 329,
+    "rust_false_positive_rate_pct": 0.0,
+    "rust_specificity_pct": 100.0,
+    "healthy_false_positives_as_diseased": 0,
+    "unit_cost_fp_fungicide_brl_per_ha": 485.0,
+    "unnecessary_fungicide_cost_brl": 0.0,
+    "cross_pathology_mismatches_count": 135,
+    "cross_pathology_management_cost_brl": 43200.0,
+    "blind_blanket_spraying_cost_brl": 184300.0,
+    "targeted_ai_spraying_cost_brl": 24735.0,
+    "chemical_savings_by_svm_triage_brl": 159565.0,
+    "chemical_savings_percentage": 86.58
+  },
+  "agronomic_cost_matrix_evaluation": {
+    "n_samples_evaluated": 380,
+    "total_agronomic_loss_brl": 81161.0,
+    "mean_agronomic_loss_per_ha_brl": 213.58,
+    "inaction_baseline_total_loss_brl": 1229279.75,
+    "blind_spray_baseline_total_loss_brl": 250125.0,
+    "net_savings_vs_inaction_brl": 1148118.75,
+    "loss_reduction_vs_inaction_pct": 93.4,
+    "realized_loss_matrix_brl": [
+      [
+        0.0,
+        0.0,
+        5760.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        3840.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        11200.0,
+        0.0,
+        6080.0,
+        0.0,
+        960.0,
+        0.0,
+        11520.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        37961.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        320.0,
+        3520.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "bayes_minimum_risk_total_loss_brl": 51125.0,
+    "bayes_minimum_risk_mean_loss_per_ha_brl": 134.54,
+    "bayes_additional_savings_brl": 30036.0
+  },
+  "artifacts": {
+    "misclassified_instances_csv": "/home/marvao/Sanidade-Vegetal/models/svm_misclassified_test_instances.csv",
+    "error_transitions_csv": "/home/marvao/Sanidade-Vegetal/models/svm_error_transitions_summary.csv",
+    "cost_matrix_csv": "/home/marvao/Sanidade-Vegetal/models/svm_agronomic_cost_matrix_7x7.csv",
+    "audit_report_md": "/home/marvao/Sanidade-Vegetal/docs/relatorio_auditoria_erros_impacto_agronomico_sprint4.md",
+    "entrega_dossier_md": "/home/marvao/Sanidade-Vegetal/entregas/Auditoria de Erros Críticos e Impacto Agronômico (FP vs FN)/README.md",
+    "figures": {
+      "cost_matrix_and_losses": "/home/marvao/Sanidade-Vegetal/docs/figures/sprint4_agronomic_cost_matrix_and_losses.png",
+      "fn_fp_economic_risk": "/home/marvao/Sanidade-Vegetal/docs/figures/sprint4_fn_fp_economic_risk_curves.png"
+    }
+  }
+}

@@ -99,8 +99,12 @@
 - **[`./figures/sprint4_pr_curve_rust_and_critical_classes.png`](./figures/sprint4_pr_curve_rust_and_critical_classes.png)**: Curva Precision-Recall focada na classe crítica de Ferrugem (`RUST`) e comparativo multiclasse.
 - **[`./figures/sprint4_threshold_tuning_sensitivity_calibration.png`](./figures/sprint4_threshold_tuning_sensitivity_calibration.png)**: Curvas de calibração de limiares de decisão (*Threshold Tuning*) para otimização de sensibilidade.
 
-
-
-
-
+### 11. Auditoria de Erros Críticos e Impacto Agronômico/Econômico (Falsos Positivos vs. Falsos Negativos)
+- **[`./relatorio_auditoria_erros_impacto_agronomico_sprint4.md`](./relatorio_auditoria_erros_impacto_agronomico_sprint4.md)**: Relatório executivo e financeiro de auditoria das 149 instâncias classificadas incorretamente no conjunto de teste independente ($N=380$), quantificação do risco agronômico de Falso Negativo (`RUST` e `RED ROT`), impacto econômico de Falso Positivo (fungicida químico) e Matriz de Custo/Perda Agronômica $7 \times 7$ com Regra de Decisão de Risco Mínimo de Bayes.
+- **[`../entregas/Auditoria de Erros Críticos e Impacto Agronômico (FP vs FN)/README.md`](../entregas/Auditoria%20de%20Erros%20Cr%C3%ADticos%20e%20Impacto%20Agron%C3%B4mico%20(FP%20vs%20FN)/README.md)**: Dossiê completo da entrega de Auditoria de Erros da Sprint 4.
+- **[`../src/svm_agronomic_error_audit.py`](../src/svm_agronomic_error_audit.py)**: Módulo Python de isolamento de instâncias incorretas, modelagem econômico-agronômica da cana-de-açúcar e geração automatizada de relatórios e gráficos.
+- **[`../models/svm_misclassified_test_instances.csv`](../models/svm_misclassified_test_instances.csv)**: Catálogo completo das 149 amostras classificadas incorretamente no conjunto de teste com metadados visuais e probabilidades preditas.
+- **[`../models/svm_agronomic_cost_matrix_7x7.csv`](../models/svm_agronomic_cost_matrix_7x7.csv)**: Matriz de Custo/Perda Agronômica $7 \times 7$ ($\mathbf{L}$) em R$/ha.
+- **[`./figures/sprint4_agronomic_cost_matrix_and_losses.png`](./figures/sprint4_agronomic_cost_matrix_and_losses.png)**: Mapa de calor da Matriz de Custo Agronômico ($\text{R\$/ha}$) e Perda Financeira Realizada ($\text{R\$}$) no conjunto de teste.
+- **[`./figures/sprint4_fn_fp_economic_risk_curves.png`](./figures/sprint4_fn_fp_economic_risk_curves.png)**: Distribuição das 149 instâncias incorretas por par de transição e curvas de custo assimétrico de Falso Negativo vs. Falso Positivo.
 
