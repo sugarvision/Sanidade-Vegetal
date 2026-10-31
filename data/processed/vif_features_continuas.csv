@@ -1,0 +1,17 @@
+feature,vif,interpretation
+exg_index,1000799917193443.5,colinearidade perfeita/instabilidade numérica
+exr_index,1000799917193443.5,colinearidade perfeita/instabilidade numérica
+rg_ratio,1000799917193443.5,colinearidade perfeita/instabilidade numérica
+glcm_energy,1000799917193443.5,colinearidade perfeita/instabilidade numérica
+glcm_homogeneity,1000799917193443.5,colinearidade perfeita/instabilidade numérica
+glcm_dissimilarity,422.04006088664045,redundância forte (revisar)
+glcm_contrast,51.831196512106736,redundância forte (revisar)
+indice_rugosidade_pustula,27.864742120131737,redundância forte (revisar)
+size_kb,22.094164170125854,redundância forte (revisar)
+resolution_mp,21.07979255262493,redundância forte (revisar)
+mean_hue,19.596124925745436,redundância forte (revisar)
+std_saturation,16.765707186839713,redundância forte (revisar)
+hue_dispersion,12.132353542927776,redundância forte (revisar)
+aspect_ratio,5.788134243622277,atenção (investigar)
+indice_clorose_necrose,4.635028397479576,sem alerta pelo limiar adotado
+laplacian_var,2.99132287626996,sem alerta pelo limiar adotado
