@@ -85,6 +85,21 @@
 - **[`./figures/sprint3_svm_bias_variance_regimes_comparison.png`](./figures/sprint3_svm_bias_variance_regimes_comparison.png)**: Comparativo experimental dos três regimes de Viés-Variância (Subajuste, Equilíbrio Campeão e Sobreajuste).
 - **[`./figures/sprint3_svm_learning_curve_scalability_times.png`](./figures/sprint3_svm_learning_curve_scalability_times.png)**: Escalabilidade temporal de treinamento/inferência e retorno marginal por incremento amostral.
 
+---
+
+## 📂 Entregas da Sprint 4 — Framework SEMMA (Fase: Assess — Relato Vol. 4)
+
+### 10. Matrizes de Confusão Normalizadas, Curvas ROC-AUC, Precision-Recall e Threshold Tuning
+- **[`./relatorio_validacao_estatistica_matrizes_roc_pr_vol4.md`](./relatorio_validacao_estatistica_matrizes_roc_pr_vol4.md)**: Relatório estatístico completo do **Relato Vol. 4** contendo matrizes de confusão absolutas e normalizadas (7 patologias e agrupamento agronômico Saudável/Ferrugem/Outras), curvas ROC One-vs-Rest (Macro/Micro AUC), curvas Precision-Recall focadas na Ferrugem e calibração de limiares (*Threshold Tuning*).
+- **[`../entregas/Matrizes de Confusão e Curvas de Discriminação Estatística (ROC e PR)/README.md`](../entregas/Matrizes%20de%20Confus%C3%A3o%20e%20Curvas%20de%20Discrimina%C3%A7%C3%A3o%20Estat%C3%ADstica%20(ROC%20e%20PR)/README.md)**: Dossiê executivo da entrega da Sprint 4.
+- **[`../src/svm_statistical_validation_assess.py`](../src/svm_statistical_validation_assess.py)**: Módulo Python de validação estatística e geração das figuras em alta resolução.
+- **[`./figures/sprint4_confusion_matrices_multiclass_abs_norm.png`](./figures/sprint4_confusion_matrices_multiclass_abs_norm.png)**: Matrizes de confusão absoluta e normalizada das 7 patologias foliares.
+- **[`./figures/sprint4_confusion_matrices_agronomic_3class.png`](./figures/sprint4_confusion_matrices_agronomic_3class.png)**: Matrizes de confusão absoluta e normalizada do agrupamento agronômico (Saudável, Ferrugem e Outras Patologias).
+- **[`./figures/sprint4_roc_curves_multiclass_ovr.png`](./figures/sprint4_roc_curves_multiclass_ovr.png)**: Curvas ROC multiclasse One-vs-Rest (Macro e Micro AUC-ROC).
+- **[`./figures/sprint4_pr_curve_rust_and_critical_classes.png`](./figures/sprint4_pr_curve_rust_and_critical_classes.png)**: Curva Precision-Recall focada na classe crítica de Ferrugem (`RUST`) e comparativo multiclasse.
+- **[`./figures/sprint4_threshold_tuning_sensitivity_calibration.png`](./figures/sprint4_threshold_tuning_sensitivity_calibration.png)**: Curvas de calibração de limiares de decisão (*Threshold Tuning*) para otimização de sensibilidade.
+
+
 
 
 

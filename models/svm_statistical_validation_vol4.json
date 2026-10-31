@@ -1,0 +1,355 @@
+{
+  "task_name": "Matrizes de Confusão Normalizadas e Curvas de Discriminação Estatística (ROC-AUC e PR)",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "sprint": "Sprint 4 — Framework SEMMA (Fase: Assess — Relato Vol. 4)",
+  "timestamp": "2026-10-31 11:18:55",
+  "execution_time_seconds": 3.81,
+  "validation_partition_metrics": {
+    "n_samples": 617,
+    "roc_auc_macro": 0.914775,
+    "roc_auc_micro": 0.949848,
+    "roc_auc_weighted": 0.906257,
+    "auc_per_class": {
+      "GRASSY SHOOT": 0.882663,
+      "HEALTHY": 1.0,
+      "LEAF SCALD": 0.952467,
+      "MOSAIC": 0.816793,
+      "RED ROT": 0.90572,
+      "RUST": 1.0,
+      "YELLOW LEAF": 0.845783
+    },
+    "ap_macro": 0.615087,
+    "ap_micro": 0.771255,
+    "rust_pr_metrics": {
+      "class_id": 5,
+      "prevalence_baseline": 0.1475,
+      "average_precision_ap": 1.0,
+      "auc_pr": 1.0,
+      "max_f1_on_pr_curve": 1.0,
+      "precision_at_max_f1": 1.0,
+      "recall_at_max_f1": 1.0
+    },
+    "cm_agronomic_3class_labels": [
+      "SAUDÁVEL (HEALTHY)",
+      "FERRUGEM (RUST)",
+      "OUTRAS PATOLOGIAS"
+    ],
+    "cm_agronomic_3class_abs": [
+      [
+        95,
+        0,
+        0
+      ],
+      [
+        0,
+        91,
+        0
+      ],
+      [
+        0,
+        0,
+        431
+      ]
+    ],
+    "cm_agronomic_3class_norm": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "per_class_confusion_metrics": [
+      {
+        "class_id": 0,
+        "class_name": "GRASSY SHOOT",
+        "support": 20,
+        "true_positives": 6,
+        "false_positives": 51,
+        "false_negatives": 14,
+        "true_negatives": 546,
+        "recall_sensitivity": 0.3,
+        "specificity": 0.9146,
+        "precision": 0.1053,
+        "f1_score": 0.1558
+      },
+      {
+        "class_id": 1,
+        "class_name": "HEALTHY",
+        "support": 95,
+        "true_positives": 95,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "true_negatives": 522,
+        "recall_sensitivity": 1.0,
+        "specificity": 1.0,
+        "precision": 1.0,
+        "f1_score": 1.0
+      },
+      {
+        "class_id": 2,
+        "class_name": "LEAF SCALD",
+        "support": 63,
+        "true_positives": 55,
+        "false_positives": 41,
+        "false_negatives": 8,
+        "true_negatives": 513,
+        "recall_sensitivity": 0.873,
+        "specificity": 0.926,
+        "precision": 0.5729,
+        "f1_score": 0.6918
+      },
+      {
+        "class_id": 3,
+        "class_name": "MOSAIC",
+        "support": 154,
+        "true_positives": 0,
+        "false_positives": 1,
+        "false_negatives": 154,
+        "true_negatives": 462,
+        "recall_sensitivity": 0.0,
+        "specificity": 0.9978,
+        "precision": 0.0,
+        "f1_score": 0.0
+      },
+      {
+        "class_id": 4,
+        "class_name": "RED ROT",
+        "support": 94,
+        "true_positives": 62,
+        "false_positives": 32,
+        "false_negatives": 32,
+        "true_negatives": 491,
+        "recall_sensitivity": 0.6596,
+        "specificity": 0.9388,
+        "precision": 0.6596,
+        "f1_score": 0.6596
+      },
+      {
+        "class_id": 5,
+        "class_name": "RUST",
+        "support": 91,
+        "true_positives": 91,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "true_negatives": 526,
+        "recall_sensitivity": 1.0,
+        "specificity": 1.0,
+        "precision": 1.0,
+        "f1_score": 1.0
+      },
+      {
+        "class_id": 6,
+        "class_name": "YELLOW LEAF",
+        "support": 100,
+        "true_positives": 74,
+        "false_positives": 109,
+        "false_negatives": 26,
+        "true_negatives": 408,
+        "recall_sensitivity": 0.74,
+        "specificity": 0.7892,
+        "precision": 0.4044,
+        "f1_score": 0.523
+      }
+    ]
+  },
+  "test_partition_metrics": {
+    "n_samples": 380,
+    "roc_auc_macro": 0.911601,
+    "roc_auc_micro": 0.940454,
+    "roc_auc_weighted": 0.898564,
+    "auc_per_class": {
+      "GRASSY SHOOT": 0.852632,
+      "HEALTHY": 1.0,
+      "LEAF SCALD": 0.916229,
+      "MOSAIC": 0.778952,
+      "RED ROT": 0.941735,
+      "RUST": 1.0,
+      "YELLOW LEAF": 0.89166
+    },
+    "ap_macro": 0.625919,
+    "ap_micro": 0.734053,
+    "rust_pr_metrics": {
+      "class_id": 5,
+      "prevalence_baseline": 0.1342,
+      "average_precision_ap": 1.0,
+      "auc_pr": 1.0,
+      "max_f1_on_pr_curve": 1.0,
+      "precision_at_max_f1": 1.0,
+      "recall_at_max_f1": 1.0
+    }
+  },
+  "threshold_tuning_calibration": {
+    "rust_critical_class": {
+      "target_class_id": 5,
+      "target_class_name": "RUST",
+      "default_threshold_050": {
+        "threshold": 0.5,
+        "sensitivity_recall": 1.0,
+        "specificity": 1.0,
+        "precision": 1.0,
+        "f1_score": 1.0,
+        "f2_score_agronomic": 1.0,
+        "youden_j_index": 1.0,
+        "fpr": 0.0,
+        "tp": 91.0,
+        "fp": 0.0,
+        "fn": 0.0,
+        "tn": 526.0
+      },
+      "optimal_f1_threshold": {
+        "threshold": 0.23,
+        "sensitivity_recall": 1.0,
+        "specificity": 1.0,
+        "precision": 1.0,
+        "f1_score": 1.0,
+        "f2_score_agronomic": 1.0,
+        "youden_j_index": 1.0,
+        "fpr": 0.0,
+        "tp": 91.0,
+        "fp": 0.0,
+        "fn": 0.0,
+        "tn": 526.0
+      },
+      "optimal_f2_agronomic_threshold": {
+        "threshold": 0.23,
+        "sensitivity_recall": 1.0,
+        "specificity": 1.0,
+        "precision": 1.0,
+        "f1_score": 1.0,
+        "f2_score_agronomic": 1.0,
+        "youden_j_index": 1.0,
+        "fpr": 0.0,
+        "tp": 91.0,
+        "fp": 0.0,
+        "fn": 0.0,
+        "tn": 526.0
+      },
+      "optimal_youden_j_threshold": {
+        "threshold": 0.23,
+        "sensitivity_recall": 1.0,
+        "specificity": 1.0,
+        "precision": 1.0,
+        "f1_score": 1.0,
+        "f2_score_agronomic": 1.0,
+        "youden_j_index": 1.0,
+        "fpr": 0.0,
+        "tp": 91.0,
+        "fp": 0.0,
+        "fn": 0.0,
+        "tn": 526.0
+      },
+      "high_sensitivity_screening_threshold": {
+        "threshold": 0.54,
+        "sensitivity_recall": 1.0,
+        "specificity": 1.0,
+        "precision": 1.0,
+        "f1_score": 1.0,
+        "f2_score_agronomic": 1.0,
+        "youden_j_index": 1.0,
+        "fpr": 0.0,
+        "tp": 91.0,
+        "fp": 0.0,
+        "fn": 0.0,
+        "tn": 526.0
+      }
+    },
+    "leaf_scald_overlapping_class": {
+      "target_class_id": 2,
+      "target_class_name": "LEAF SCALD",
+      "default_threshold_050": {
+        "threshold": 0.5,
+        "sensitivity_recall": 0.777778,
+        "specificity": 0.936823,
+        "precision": 0.583333,
+        "f1_score": 0.666667,
+        "f2_score_agronomic": 0.729167,
+        "youden_j_index": 0.714601,
+        "fpr": 0.063177,
+        "tp": 49.0,
+        "fp": 35.0,
+        "fn": 14.0,
+        "tn": 519.0
+      },
+      "optimal_f1_threshold": {
+        "threshold": 0.41,
+        "sensitivity_recall": 0.904762,
+        "specificity": 0.922383,
+        "precision": 0.57,
+        "f1_score": 0.699387,
+        "f2_score_agronomic": 0.809659,
+        "youden_j_index": 0.827145,
+        "fpr": 0.077617,
+        "tp": 57.0,
+        "fp": 43.0,
+        "fn": 6.0,
+        "tn": 511.0
+      },
+      "optimal_f2_agronomic_threshold": {
+        "threshold": 0.41,
+        "sensitivity_recall": 0.904762,
+        "specificity": 0.922383,
+        "precision": 0.57,
+        "f1_score": 0.699387,
+        "f2_score_agronomic": 0.809659,
+        "youden_j_index": 0.827145,
+        "fpr": 0.077617,
+        "tp": 57.0,
+        "fp": 43.0,
+        "fn": 6.0,
+        "tn": 511.0
+      },
+      "optimal_youden_j_threshold": {
+        "threshold": 0.12,
+        "sensitivity_recall": 1.0,
+        "specificity": 0.850181,
+        "precision": 0.431507,
+        "f1_score": 0.602871,
+        "f2_score_agronomic": 0.791457,
+        "youden_j_index": 0.850181,
+        "fpr": 0.149819,
+        "tp": 63.0,
+        "fp": 83.0,
+        "fn": 0.0,
+        "tn": 471.0
+      },
+      "high_sensitivity_screening_threshold": {
+        "threshold": 0.13,
+        "sensitivity_recall": 0.984127,
+        "specificity": 0.855596,
+        "precision": 0.43662,
+        "f1_score": 0.604878,
+        "f2_score_agronomic": 0.786802,
+        "youden_j_index": 0.839723,
+        "fpr": 0.144404,
+        "tp": 62.0,
+        "fp": 80.0,
+        "fn": 1.0,
+        "tn": 474.0
+      }
+    }
+  },
+  "artifacts": {
+    "per_class_csv": "/home/marvao/Sanidade-Vegetal/models/svm_statistical_validation_per_class.csv",
+    "rust_threshold_csv": "/home/marvao/Sanidade-Vegetal/models/svm_threshold_tuning_rust.csv",
+    "leaf_scald_threshold_csv": "/home/marvao/Sanidade-Vegetal/models/svm_threshold_tuning_leaf_scald.csv",
+    "relato_vol4_report_md": "/home/marvao/Sanidade-Vegetal/docs/relatorio_validacao_estatistica_matrizes_roc_pr_vol4.md",
+    "entrega_dossier_md": "/home/marvao/Sanidade-Vegetal/entregas/Matrizes de Confusão e Curvas de Discriminação Estatística (ROC e PR)/README.md",
+    "figures": {
+      "cm_multiclass_abs_norm": "/home/marvao/Sanidade-Vegetal/docs/figures/sprint4_confusion_matrices_multiclass_abs_norm.png",
+      "cm_agronomic_3class": "/home/marvao/Sanidade-Vegetal/docs/figures/sprint4_confusion_matrices_agronomic_3class.png",
+      "roc_multiclass_ovr": "/home/marvao/Sanidade-Vegetal/docs/figures/sprint4_roc_curves_multiclass_ovr.png",
+      "pr_curve_rust_focused": "/home/marvao/Sanidade-Vegetal/docs/figures/sprint4_pr_curve_rust_and_critical_classes.png",
+      "threshold_tuning_calibration": "/home/marvao/Sanidade-Vegetal/docs/figures/sprint4_threshold_tuning_sensitivity_calibration.png"
+    }
+  }
+}
