@@ -72,6 +72,20 @@
 - **[`./inventario_fase_modify_semma.md`](./inventario_fase_modify_semma.md)**: **Inventário Geral e Dossiê da Fase Modify**: Catálogo completo com mapeamento de todos os notebooks, scripts em `src/`, documentações técnicas, bases persistidas e guia de execução.
 - **[`./guia_didatico_termos_demoday2.md`](./guia_didatico_termos_demoday2.md)**: **Guia Didático para Leigos**: Explicação descomplicada com analogias cotidianas de todos os termos técnicos (Features, GLCM, ExG, Data Leakage, ABT, Parquet e SVM).
 
+---
+
+## 📂 Entregas da Sprint 3 — Framework SEMMA (Fase: Model)
+
+### 9. Diagnóstico Matemático dos Vetores de Suporte e Curvas de Aprendizado (Viés-Variância)
+- **[`../entregas/Diagnóstico Matemático dos Vetores de Suporte (Support Vectors)/README.md`](../entregas/Diagn%C3%B3stico%20Matem%C3%A1tico%20dos%20Vetores%20de%20Suporte%20(Support%20Vectors)/README.md)**: Dossiê completo de densidade de suporte (`n_support_`), trade-off de $C$, variáveis de folga ($\xi_i > 0$), isolamento de patches ambíguos e projeções 2D/3D do hiperplano.
+- **[`./relatorio_curvas_aprendizado_vies_variancia_sprint3.md`](./relatorio_curvas_aprendizado_vies_variancia_sprint3.md)**: Relatório técnico-estatístico de Curvas de Aprendizado (10% a 100%), convergência assintótica ($S_\infty$) e decomposição do Trade-off Viés-Variância comprovando a ausência de sobreajuste.
+- **[`../entregas/Curvas de Aprendizado e Análise do Trade-off Viés-Variância/README.md`](../entregas/Curvas%20de%20Aprendizado%20e%20An%C3%A1lise%20do%20Trade-off%20Vi%C3%A9s-Vari%C3%A2ncia/README.md)**: Dossiê executivo da entrega da Sprint 3 com tabelas, diagnósticos matemáticos e figuras em 300 DPI.
+- **[`../src/svm_learning_curves_bias_variance.py`](../src/svm_learning_curves_bias_variance.py)**: Módulo Python de geração de curvas de aprendizado, diagnóstico assintótico e plotagem estatística.
+- **[`./figures/sprint3_svm_learning_curve_champion.png`](./figures/sprint3_svm_learning_curve_champion.png)**: Curva de aprendizado (10% a 100%) e contração do gap de generalização do modelo campeão.
+- **[`./figures/sprint3_svm_bias_variance_regimes_comparison.png`](./figures/sprint3_svm_bias_variance_regimes_comparison.png)**: Comparativo experimental dos três regimes de Viés-Variância (Subajuste, Equilíbrio Campeão e Sobreajuste).
+- **[`./figures/sprint3_svm_learning_curve_scalability_times.png`](./figures/sprint3_svm_learning_curve_scalability_times.png)**: Escalabilidade temporal de treinamento/inferência e retorno marginal por incremento amostral.
+
+
 
 
 
