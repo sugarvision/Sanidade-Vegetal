@@ -1,0 +1,90 @@
+{
+  "task_name": "Análise de Interpretabilidade Matemática e Importância de Features Pós-Otimização",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "sprint": "Sprint 4 — Framework SEMMA (Fase: Assess)",
+  "responsible": "Cesar (Lead Técnico & Visão Computacional)",
+  "timestamp": "2026-11-04 10:46:12",
+  "model_analyzed": "models\\svm_pipeline_optimal.joblib",
+  "test_set_size": 380,
+  "baseline_metrics": {
+    "balanced_accuracy": 0.6768707482993197,
+    "macro_f1_score": 0.6054316178971881
+  },
+  "n_repeats": 15,
+  "random_state": 42,
+  "top_10_features": [
+    {
+      "feature": "size_kb_bin",
+      "functional_group": "Discretização & Categóricas",
+      "bal_acc_drop_mean": 0.07406327610409243
+    },
+    {
+      "feature": "dataset_source",
+      "functional_group": "Discretização & Categóricas",
+      "bal_acc_drop_mean": 0.06041098467036581
+    },
+    {
+      "feature": "size_kb",
+      "functional_group": "Metadados Geométricos",
+      "bal_acc_drop_mean": 0.057026866045957546
+    },
+    {
+      "feature": "total_pixels",
+      "functional_group": "Metadados Geométricos",
+      "bal_acc_drop_mean": 0.0215797430083144
+    },
+    {
+      "feature": "resolution_mp",
+      "functional_group": "Metadados Geométricos",
+      "bal_acc_drop_mean": 0.019047619047619018
+    },
+    {
+      "feature": "aspect_ratio",
+      "functional_group": "Metadados Geométricos",
+      "bal_acc_drop_mean": 0.01621315192743762
+    },
+    {
+      "feature": "extension",
+      "functional_group": "Discretização & Categóricas",
+      "bal_acc_drop_mean": 0.009829810060224823
+    },
+    {
+      "feature": "exr_index",
+      "functional_group": "Cor & Índices Espectrais",
+      "bal_acc_drop_mean": 0.008958945897199441
+    },
+    {
+      "feature": "laplacian_var",
+      "functional_group": "Bordas & Foco (Laplaciano)",
+      "bal_acc_drop_mean": 0.007634164777021842
+    },
+    {
+      "feature": "indice_clorose_necrose",
+      "functional_group": "Cor & Índices Espectrais",
+      "bal_acc_drop_mean": 0.004143858393777119
+    }
+  ],
+  "group_comparison_summary": {
+    "top_color_feature": "exr_index",
+    "top_color_impact": 0.008958945897199441,
+    "top_haralick_feature": "indice_rugosidade_pustula",
+    "top_haralick_impact": -4.4462229336228456e-05,
+    "color_vs_haralick_ratio": -206.1317616243768
+  },
+  "discretization_and_edges_impact": {
+    "discretization_features_evaluated": [
+      "size_kb_bin",
+      "laplacian_var_bin",
+      "resolution_bin",
+      "aspect_ratio_bin"
+    ],
+    "edge_laplacian_impact": 0.007634164777021842
+  },
+  "biological_validation_status": "VALIDATED_WITH_PHYTOPATHOLOGY_LITERATURE",
+  "artifacts_generated": [
+    "models/svm_permutation_feature_importance.csv",
+    "models/svm_feature_importance_by_group.csv",
+    "docs/figures/sprint4_permutation_feature_importance_ranking.png",
+    "docs/figures/sprint4_feature_importance_by_group.png"
+  ]
+}

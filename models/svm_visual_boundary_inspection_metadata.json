@@ -1,0 +1,97 @@
+{
+  "task_name": "Inspeção Visual de Casos de Fronteira e Discordância no Conjunto de Teste",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "sprint": "Sprint 4 — Framework SEMMA (Fase: Assess)",
+  "responsible": "Cesar (Lead Técnico & Visão Computacional)",
+  "timestamp": "2026-11-04 10:47:30",
+  "model_analyzed": "models\\svm_pipeline_optimal.joblib",
+  "total_test_samples": 380,
+  "total_misclassified": 149,
+  "overall_error_rate_pct": 39.21,
+  "photographic_failure_modes": {
+    "Iluminação Inadequada / Especularidade": 28,
+    "Desfocagem / Sobreposição de Folhas": 16,
+    "Necrose Senescente / Clorose Fisiológica": 37,
+    "Ambiguidade Ferrugem Inicial vs Manchas": 0,
+    "Ambiguidade Espectro-Textural Geral": 88
+  },
+  "boundary_samples_count_20pct": 76,
+  "boundary_samples_error_rate_pct": 44.74,
+  "top_10_most_ambiguous_test_samples": [
+    {
+      "sample_id": "77f3891f-d614-444c-aa28-022fb39896ef",
+      "class_label": "YELLOW LEAF",
+      "y_pred_label": "MOSAIC",
+      "delta_geometric_margin": 0.0008206068351013229,
+      "shannon_entropy": 1.9779669708870635
+    },
+    {
+      "sample_id": "d12cf02e-dd9b-45c3-861d-2c9dfe6aaeb7",
+      "class_label": "HEALTHY",
+      "y_pred_label": "HEALTHY",
+      "delta_geometric_margin": 0.9761620215782836,
+      "shannon_entropy": 0.9717267241068439
+    },
+    {
+      "sample_id": "fe3b9c84-4ae5-472f-9091-976735f42384",
+      "class_label": "MOSAIC",
+      "y_pred_label": "GRASSY SHOOT",
+      "delta_geometric_margin": 0.9787660462513195,
+      "shannon_entropy": 1.685500881409191
+    },
+    {
+      "sample_id": "5ddbb809-c1d9-4478-aae7-71d15f182564",
+      "class_label": "LEAF SCALD",
+      "y_pred_label": "GRASSY SHOOT",
+      "delta_geometric_margin": 0.9845252948208492,
+      "shannon_entropy": 1.5954190698164243
+    },
+    {
+      "sample_id": "d1eb5936-4d6f-4a95-af67-b63b8cf01c35",
+      "class_label": "HEALTHY",
+      "y_pred_label": "HEALTHY",
+      "delta_geometric_margin": 0.984709663456619,
+      "shannon_entropy": 0.39465966057448865
+    },
+    {
+      "sample_id": "a2de02cd-3bb1-4e6d-8d23-3569593e7b2c",
+      "class_label": "LEAF SCALD",
+      "y_pred_label": "GRASSY SHOOT",
+      "delta_geometric_margin": 0.9875845677014272,
+      "shannon_entropy": 1.6747961160405542
+    },
+    {
+      "sample_id": "55035d67-c676-4845-8ea1-b25462b87aac",
+      "class_label": "MOSAIC",
+      "y_pred_label": "GRASSY SHOOT",
+      "delta_geometric_margin": 0.9878790225620602,
+      "shannon_entropy": 1.6497858880318486
+    },
+    {
+      "sample_id": "c97d61d4-61fb-45e9-ad04-32c7ba754eb3",
+      "class_label": "MOSAIC",
+      "y_pred_label": "GRASSY SHOOT",
+      "delta_geometric_margin": 0.989804134936926,
+      "shannon_entropy": 1.701154748123926
+    },
+    {
+      "sample_id": "106bc1b2-296b-450f-9c0b-d3a89fbf3b25",
+      "class_label": "MOSAIC",
+      "y_pred_label": "GRASSY SHOOT",
+      "delta_geometric_margin": 0.9906601638254049,
+      "shannon_entropy": 1.7844751562582855
+    },
+    {
+      "sample_id": "e0a481f9-de0a-4f9b-b940-d0f689b38203",
+      "class_label": "LEAF SCALD",
+      "y_pred_label": "GRASSY SHOOT",
+      "delta_geometric_margin": 0.9907926337590114,
+      "shannon_entropy": 1.7930509263820156
+    }
+  ],
+  "artifacts_generated": [
+    "models/svm_boundary_geometric_margin_cases.csv",
+    "models/svm_visual_error_patterns_summary.csv",
+    "docs/figures/sprint4_visual_boundary_cases_and_limitations.png"
+  ]
+}
