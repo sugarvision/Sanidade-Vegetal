@@ -2,7 +2,7 @@
 Módulo de Validação de Links, Integridade de Documentação e Catálogo SEMMA
 Projeto: Sanidade-Vegetal (SugarVision)
 Sprint: 5 — Consolidação Final do Dicionário de Dados e Catálogo de Produção
-Responsável: Heitor Partezani (Engenharia de Machine Learning & IA SVM)
+Responsável: Heitor Vitti (Engenharia de Machine Learning & IA SVM)
 
 Checklist Coberto:
 1. Fechar a versão final dos arquivos dicionario_de_dados.md e dicionario_de_dados.csv.
@@ -329,7 +329,7 @@ def export_production_artifacts_catalog(
     catalog_payload = {
         "catalog_title": "Catálogo Mestre de Produção e Matriz de Rastreabilidade SEMMA (Sprint 5)",
         "project": "Sanidade-Vegetal (SugarVision)",
-        "responsible": "Heitor Partezani (Engenharia de Machine Learning & IA SVM)",
+        "responsible": "Heitor Vitti (Engenharia de Machine Learning & IA SVM)",
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "version": "3.0.0",
         "semma_lifecycle_audit": semma_audit,

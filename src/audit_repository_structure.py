@@ -2,7 +2,7 @@
 Módulo de Auditoria da Estrutura de Pastas e Conformidade do Repositório
 Projeto: Sanidade-Vegetal (SugarVision)
 Sprint: 5 — Auditoria Final, Padronização de Deploy e Reprodutibilidade
-Responsável: Heitor Partezani (Engenharia de Machine Learning & IA SVM)
+Responsável: Heitor Vitti (Engenharia de Machine Learning & IA SVM)
 
 Checklist Coberto:
 1. Auditar a estrutura de pastas do repositório (data/, docs/, models/, notebooks/, src/) garantindo conformidade.

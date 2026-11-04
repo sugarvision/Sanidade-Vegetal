@@ -3,7 +3,7 @@
 
 **Projeto:** Sanidade Vegetal (SugarVision) — Diagnóstico Fitopatológico em Cana-de-Açúcar  
 **Sprint:** 5 — Auditoria Final da Base de Código, Padronização de Deploy e Congelamento de Dependências  
-**Responsável Técnico:** Heitor Partezani (Engenharia de Machine Learning & IA SVM)  
+**Detentores dos Direitos Autorais (Copyright Holders):** Heitor Vitti, César Bovo, Guilherme Romanzotti, Marvin Cristhian, Elisa Alcantara e Luis Otávio  
 **Status da Tarefa:** **100% CONCLUÍDO, TESTADO E HOMOLOGADO PARA PRODUÇÃO**  
 
 ---
@@ -137,4 +137,4 @@ OK
 
 1. **Reprodutibilidade 100% Assegurada:** Qualquer desenvolvedor ou avaliador que clonar o repositório conseguirá reproduzir integralmente os experimentos e obter os mesmos resultados estatísticos seguindo o guia do `README.md`.
 2. **Robustez MLOps Comprovada:** O estimador campeão SVM RBF apresenta AUC-ROC $> 0.91$, Specificity $> 93.6\%$, ausência comprovada de viés amostral e detecção perfeita (100%) da Ferrugem da Cana.
-3. **Conformidade de Propriedade Intelectual:** Todo o código está protegido sob a licença MIT com total respeito às licenças CC BY 4.0 das bases e permissões das dependências.
+3. **Conformidade de Propriedade Intelectual e Copyright:** Todo o código está protegido sob a licença MIT concedida exclusivamente pelos detentores Heitor Vitti, César Bovo, Guilherme Romanzotti, Marvin Cristhian, Elisa Alcantara e Luis Otávio, com total respeito às licenças CC BY 4.0 das bases externas e permissões das dependências FOSS.

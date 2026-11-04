@@ -1,7 +1,7 @@
 """
 Testes Unitários da Consolidação do Dicionário de Dados e Catálogo de Produção SEMMA
 Sprint: 5 — Consolidação Final do Dicionário de Dados e Catálogo de Produção
-Responsável: Heitor Partezani (Engenheiro de Machine Learning & IA SVM)
+Responsável: Heitor Vitti (Engenheiro de Machine Learning & IA SVM)
 
 Checklist Validado:
 1. Fechar a versão final dos arquivos dicionario_de_dados.md e dicionario_de_dados.csv.

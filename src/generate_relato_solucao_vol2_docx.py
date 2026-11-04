@@ -201,7 +201,7 @@ def build_relato_volume_2(output_path: Path):
          "Accountable (A) — Pipeline Atômico & ABT Final: Arquitetura do ColumnTransformer com sub-pipelines desacoplados, prova matemática de isolamento anti-leakage, consolidação da base abt_features_modelagem e exportação em Apache Parquet/CSV com SHA-256."),
         ("Luis Otavio Routh da Silva", "Scrum Master & QA", 
          "Accountable (A) — Governança Ágil & Qualidade: Facilitação do Demoday 2, elaboração do Relato da Solução — Volume 2, controle rigoroso do Definition of Done (DoD) e conformidade técnica das entregas."),
-        ("Heitor Vitti Partezani", "Data Architect", 
+        ("Heitor Vitti", "Data Architect", 
          "Accountable (A) — Amostragem & Schema: Manutenção da integridade referencial dos alvos supervisionados (binário e multiclasse), governança dos identificadores únicos (sample_id) e atualização do Dicionário de Dados."),
         ("Marvin Cristhian Gomes Pinto", "Data Scientist", 
          "Accountable (A) — Auditoria Estatística: Análise exploratória multivariada, auditoria de assimetria nos metadados ópticos, avaliação comparativa de bins e suporte aos testes estatísticos de separabilidade."),

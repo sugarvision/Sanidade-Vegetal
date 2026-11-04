@@ -4,7 +4,7 @@
 **Fase:** Framework SEMMA — Ciclo Completo (Sprint 5 — Consolidação Final do Dicionário de Dados e Catálogo de Produção)  
 **Versão:** 3.0.0 (Release Oficial de Produção e Governança MLOps)  
 **Data:** Outubro de 2026  
-**Responsáveis:** Heitor Partezani (Engenharia de Machine Learning & IA SVM) e Equipe de Ciência de Dados  
+**Responsáveis:** Heitor Vitti (Engenharia de Machine Learning & IA SVM) e Equipe de Ciência de Dados  
 
 ---
 

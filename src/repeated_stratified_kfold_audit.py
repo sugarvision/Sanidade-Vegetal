@@ -2,7 +2,7 @@
 Módulo de Repeated Stratified K-Fold e Auditoria de Partições
 Projeto: Sanidade-Vegetal (SugarVision)
 Sprint: 4 — Validação de Robustez e Governança Estatística
-Responsável: Heitor Partezani (Engenharia de Machine Learning & IA SVM)
+Responsável: Heitor Vitti (Engenharia de Machine Learning & IA SVM)
 
 Checklist Coberto:
 1. Configurar e executar rotina com RepeatedStratifiedKFold(n_splits=5, n_repeats=3, random_state=42).
@@ -568,7 +568,7 @@ def export_mlops_audit_artifacts(
         "task_name": "Stratified K-Fold e auditoria de partições para comprovar que o desempenho do modelo não é fruto de viés amostral",
         "project": "Sanidade-Vegetal (SugarVision)",
         "sprint": "Sprint 4",
-        "responsible": "Heitor Partezani (Engenharia de Machine Learning & IA SVM)",
+        "responsible": "Heitor Vitti (Engenharia de Machine Learning & IA SVM)",
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "framework_versions": {
             "scikit_learn": sklearn.__version__,

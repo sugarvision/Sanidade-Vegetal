@@ -2,7 +2,7 @@
   "task_name": "Otimizar a execução computacional da malha de validação cruzada, implementando paralelização eficiente e monitoramento de memória e CPU",
   "project": "Sanidade-Vegetal (SugarVision)",
   "sprint": "Sprint 4",
-  "responsible": "Gabriel Ramos / Heitor Partezani (Engenharia de Machine Learning & IA SVM)",
+  "responsible": "Guilherme Romanzotti / Heitor Vitti (Engenharia de Machine Learning & IA SVM)",
   "timestamp": "2026-10-22 09:21:06",
   "hardware_environment": {
     "logical_cpus": 12,

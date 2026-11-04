@@ -233,24 +233,39 @@ for i, code in enumerate(pred_codes):
 
 ---
 
-## ⚖️ 7. Conformidade de Licenças e Permissões de Dados
+## ⚖️ 7. Conformidade de Licenças, Copyright e Permissões de Dados
 
 O projeto **SugarVision** foi desenvolvido sob rigorosa conformidade de propriedade intelectual e governança de dados abertos:
 
-1. **Licenciamento do Código-Fonte:**  
-   O código deste repositório está licenciado sob a **Licença MIT** ([LICENSE](LICENSE)), garantindo liberdade de uso acadêmico e comercial.
-2. **Conjuntos de Dados Externos:**  
+1. **Titularidade de Direitos Autorais (Copyright):**  
+   Os direitos autorais (*Copyright © 2026*) de todo o código-fonte, arquitetura, modelos e documentação técnica deste projeto pertencem exclusivamente aos seguintes detentores:  
+   - **Heitor Vitti**  
+   - **César Bovo**  
+   - **Guilherme Romanzotti**  
+   - **Marvin Cristhian**  
+   - **Elisa Alcantara**  
+   - **Luis Otávio**  
+
+2. **Licenciamento do Código-Fonte:**  
+   O código deste repositório está formalmente licenciado sob a **Licença MIT** ([LICENSE](LICENSE)), garantindo liberdade de uso acadêmico e comercial mediante manutenção do aviso de copyright e atribuições legais.
+
+3. **Conjuntos de Dados Externos:**  
    - **Roboflow Universe (*Sugarcane Disease Classification*):** Licenciado sob **Creative Commons Attribution 4.0 International (CC BY 4.0)**. Autoria: Asad Unvar.
    - **Mendeley Data (*Sugarcane Diseases*):** Licenciado sob **Creative Commons Attribution 4.0 International (CC BY 4.0)** (DOI: [10.17632/rzh99cj2rj.1](https://doi.org/10.17632/rzh99cj2rj.1)). Autoria: Kalhoro et al.
    - Ambas as licenças permitem expressamente a transformação, adaptação e uso acadêmico/comercial mediante a citação e atribuição dos autores originais.
-3. **Bibliotecas de Código Aberto:**  
-   Todas as dependências congeladas em `requirements.txt` (`scikit-learn`, `numpy`, `pandas`, `scipy`, `matplotlib`, `joblib`, `psutil`, `Pillow`, `opencv`) possuem licenças permissivas compatíveis (**BSD 3-Clause, Apache 2.0 ou MIT**), ausentes de restrições copyleft virais.
-   Consulte o relatório formal em [`docs/relatorio_conformidade_licencas_e_permissoes.md`](docs/relatorio_conformidade_licencas_e_permissoes.md).
+
+4. **Bibliotecas de Código Aberto:**  
+   Todas as dependências congeladas em 
+equirements.txt (scikit-learn, 
+umpy, pandas, scipy, matplotlib, joblib, psutil, Pillow, opencv) possuem licenças permissivas compatíveis (**BSD 3-Clause, Apache 2.0 ou MIT**), ausentes de restrições copyleft virais.  
+   Consulte o relatório formal em [docs/relatorio_conformidade_licencas_e_permissoes.md](docs/relatorio_conformidade_licencas_e_permissoes.md).
 
 ---
 
-## 👥 Equipe e Responsáveis Técnicos
-- **Heitor Partezani (HP)** — Engenharia de Machine Learning, IA SVM & MLOps
-- **Gabriel Ramos (GR)** — Eficiência Computacional e Infraestrutura
-- **Cesar** — Lead Técnico & Visão Computacional
-- **Elisa** — Engenharia de Dados & Governança SEMMA
+## 👥 Equipe e Detentores dos Direitos Autorais (Copyright Holders)
+- **Heitor Vitti** — Engenharia de Machine Learning, IA SVM & Arquitetura de Dados
+- **César Bovo** — Product Owner, Lead Técnico & Visão Computacional
+- **Guilherme Romanzotti** — Engenharia de DevOps, Repositório & Infraestrutura
+- **Marvin Cristhian** — Ciência de Dados & Análise Multivariada
+- **Elisa Alcantara** — Engenharia de Dados, Pipeline Atômico & Governança MLOps
+- **Luis Otávio** — Scrum Master, Qualidade de Software & Governança Ágil

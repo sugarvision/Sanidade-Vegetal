@@ -2,7 +2,7 @@
   "task_name": "Stratified K-Fold e auditoria de partições para comprovar que o desempenho do modelo não é fruto de viés amostral",
   "project": "Sanidade-Vegetal (SugarVision)",
   "sprint": "Sprint 4",
-  "responsible": "Heitor Partezani (Engenharia de Machine Learning & IA SVM)",
+  "responsible": "Heitor Vitti (Engenharia de Machine Learning & IA SVM)",
   "timestamp": "2026-10-22 09:09:33",
   "framework_versions": {
     "scikit_learn": "1.8.0",

@@ -2,7 +2,7 @@
 
 **Sprint 5 — Governança MLOps, Rastreabilidade SEMMA e Congelamento de Código**  
 **Projeto:** Sanidade-Vegetal (SugarVision)  
-**Responsável Técnico:** Heitor Partezani (Engenheiro de Machine Learning & IA SVM)  
+**Responsável Técnico:** Heitor Vitti (Engenheiro de Machine Learning & IA SVM)  
 **Versão Oficial:** 3.0.0 (Release de Produção)  
 
 ---

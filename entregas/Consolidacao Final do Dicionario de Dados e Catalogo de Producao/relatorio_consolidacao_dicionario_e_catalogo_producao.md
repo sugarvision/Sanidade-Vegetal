@@ -4,7 +4,7 @@
 **Sprint:** 5 — Deploy, Congelamento de Dependências e Governança MLOps Final  
 **Framework Metodológico:** SEMMA (*Sample, Explore, Modify, Model, Assess*) — Ciclo Completo  
 **Versão Oficial do Dicionário:** 3.0.0 (Release de Produção)  
-**Responsável Técnico:** Heitor Partezani (Engenheiro de Machine Learning & Especialista em IA SVM)  
+**Responsável Técnico:** Heitor Vitti (Engenheiro de Machine Learning & Especialista em IA SVM)  
 **Data de Homologação:** Outubro de 2026  
 
 ---

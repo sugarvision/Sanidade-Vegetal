@@ -2,7 +2,7 @@
 Módulo de Otimização e Paralelização Computacional da Validação Cruzada (Grid Search)
 Projeto: Sanidade-Vegetal (SugarVision)
 Sprint: 4 — Eficiência Computacional, Governança MLOps e Resiliência
-Responsável: Gabriel Ramos / Heitor Partezani (Engenharia de Machine Learning & IA SVM)
+Responsável: Guilherme Romanzotti / Heitor Vitti (Engenharia de Machine Learning & IA SVM)
 
 Checklist Coberto:
 1. Configurar execução paralela no Scikit-Learn utilizando n_jobs=-1 com controle de consumo de memória RAM.
@@ -590,7 +590,7 @@ def export_computational_efficiency_artifacts(
         "task_name": "Otimizar a execução computacional da malha de validação cruzada, implementando paralelização eficiente e monitoramento de memória e CPU",
         "project": "Sanidade-Vegetal (SugarVision)",
         "sprint": "Sprint 4",
-        "responsible": "Gabriel Ramos / Heitor Partezani (Engenharia de Machine Learning & IA SVM)",
+        "responsible": "Guilherme Romanzotti / Heitor Vitti (Engenharia de Machine Learning & IA SVM)",
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "hardware_environment": {
             "logical_cpus": psutil.cpu_count(logical=True),

@@ -1,7 +1,7 @@
 {
   "catalog_name": "Catálogo Formal de Metadados e Tabela de Registros Analíticos (Sprint 4)",
   "project": "Sanidade-Vegetal (SugarVision)",
-  "responsible": "Heitor Partezani (Engenharia de Machine Learning & IA SVM)",
+  "responsible": "Heitor Vitti (Engenharia de Machine Learning & IA SVM)",
   "timestamp": "2026-10-22 10:13:22",
   "lineage_audit": {
     "status": "APPROVED",

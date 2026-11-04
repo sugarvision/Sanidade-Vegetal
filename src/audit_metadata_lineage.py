@@ -2,7 +2,7 @@
 Módulo de Auditoria de Linhagem de Dados, Métricas Formais e Governança do SVM
 Projeto: Sanidade-Vegetal (SugarVision)
 Sprint: 4 — Governança de Metadados, Dicionário de Dados e Rastreabilidade
-Responsável: Heitor Partezani (Engenharia de Machine Learning & IA SVM)
+Responsável: Heitor Vitti (Engenharia de Machine Learning & IA SVM)
 
 Checklist Coberto:
 1. Atualizar os arquivos dicionario_de_dados.md e dicionario_de_dados.csv com as métricas de validação.
@@ -351,7 +351,7 @@ def export_governance_lineage_catalog(
     manifest = {
         "catalog_name": "Catálogo Formal de Metadados e Tabela de Registros Analíticos (Sprint 4)",
         "project": "Sanidade-Vegetal (SugarVision)",
-        "responsible": "Heitor Partezani (Engenharia de Machine Learning & IA SVM)",
+        "responsible": "Heitor Vitti (Engenharia de Machine Learning & IA SVM)",
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "lineage_audit": lineage_audit,
         "champion_hyperparameters": {

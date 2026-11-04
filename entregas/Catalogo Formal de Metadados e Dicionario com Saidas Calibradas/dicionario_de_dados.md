@@ -4,7 +4,7 @@
 **Fase:** Framework SEMMA — Model & Assess (Sprint 4 — Validação Formal de Métricas, Hiperparâmetros e Rastreabilidade)  
 **Versão:** 2.2.0  
 **Data:** Outubro de 2026  
-**Responsáveis:** Heitor Partezani (Engenharia de Machine Learning & IA SVM) e Equipe de Ciência de Dados  
+**Responsáveis:** Heitor Vitti (Engenharia de Machine Learning & IA SVM) e Equipe de Ciência de Dados  
 
 ---
 

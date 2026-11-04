@@ -3,7 +3,7 @@
 
 **Projeto:** Sanidade Vegetal (SugarVision) — Diagnóstico Fitopatológico em Cana-de-Açúcar  
 **Sprint:** 4 — Validação de Robustez, Governança Estatística e Mitigação de Viés  
-**Responsável Técnico:** Heitor Partezani (Engenharia de Machine Learning & IA SVM)  
+**Responsável Técnico:** Heitor Vitti (Engenharia de Machine Learning & IA SVM)  
 **Estimador Avaliado:** Support Vector Machine (SVC) com Kernel RBF Atômico Anti-Leakage  
 **Status da Tarefa:** **100% CONCLUÍDO E HOMOLOGADO**  
 
