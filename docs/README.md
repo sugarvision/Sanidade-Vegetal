@@ -123,3 +123,17 @@
 - **[./figures/sprint4_permutation_feature_importance_ranking.png](./figures/sprint4_permutation_feature_importance_ranking.png)**: Gráfico executivo de barras com ranking de importância e erro padrão.
 - **[./figures/sprint4_feature_importance_by_group.png](./figures/sprint4_feature_importance_by_group.png)**: Gráfico comparativo de impacto acumulado e share percentual por família funcional.
 - **[./figures/sprint4_visual_boundary_cases_and_limitations.png](./figures/sprint4_visual_boundary_cases_and_limitations.png)**: Painel diagnóstico de 4 quadrantes (margem geométrica, entropia, falhas fotográficas e casos limítrofes  \\times ICN$).
+
+---
+
+## 📂 Entregas da Sprint 5 — Framework SEMMA (Fase: Assess & Deploy Readiness — Demoday 5)
+
+### 13. Interface Interativa em Tempo Real, Validação Operacional e Roteiro de Apresentação (Cesar — Sprint 5)
+- **[../src/app_demoday5_sugarvision.py](../src/app_demoday5_sugarvision.py)**: Aplicação visual interativa em Streamlit desenvolvida para a demonstração ao vivo da banca avaliadora, contendo upload drag-and-drop, galeria de teste cego, cards de probabilidade calibrada (Platt Scaling), triplo painel visual (Imagem Original, Mapa de Textura Haralick GLCM e Máscara de Segmentação ExR/Otsu) e salvaguarda operacional de SLA.
+- **[../src/vision_inference_engine.py](../src/vision_inference_engine.py)**: Motor de visão computacional em tempo real que extrai os 27 descritores espectro-texturais de fotos brutas, gera os mapas de relevo rugoso e executa o estimador campeão com predição tripartida (Sadia vs Ferrugem vs Outras Doenças).
+- **[../src/test_demoday5_interface.py](../src/test_demoday5_interface.py)**: Suíte de testes automatizados unitários homologando o motor de inferência, a extração de atributos, a consistência dos mapas visuais e as amostras do teste cego (5/5 testes aprovados).
+- **[../data/demoday5_blind_samples/](../data/demoday5_blind_samples/)**: Conjunto curado de 6 imagens de teste cego representando condições desafiadoras de campo (ferrugem severa, folha sadia controle, início de pústulas, estrias cloróticas, sombra senescente e reflexo solar direto).
+- **[../data/demoday5_blind_samples/manifest_teste_cego_demoday5.json](../data/demoday5_blind_samples/manifest_teste_cego_demoday5.json)**: Manifesto auditado com laudos agronômicos de referência, escalas de severidade e recomendações fitossanitárias.
+- **[./roteiro_demonstracao_ao_vivo_demoday5.md](./roteiro_demonstracao_ao_vivo_demoday5.md)**: Roteiro minucioso passo a passo cronometrado (8 a 10 minutos) para a banca avaliadora presencial, com script de fala, matriz de validação agronômica e plano de contingência técnico operacional (Plano B).
+- **[./checklist_preparacao_ambiente_demoday5.md](./checklist_preparacao_ambiente_demoday5.md)**: Protocolo rigoroso de checklist de hardware, conectividade de vídeo, dependências do ambiente Python e comando único de inicialização offline para o dia 11/12/2026.
+- **[./especificidade_escala_e_limitacoes_operacionais_modelo.md](./especificidade_escala_e_limitacoes_operacionais_modelo.md)**: Nota técnica formal sobre especificidade de escala (*Leaf-Level Macro Inspection* vs *Canopy / Field Landscape*), detalhando a física de degradação espectro-textural ($ExG$, $ExR$, GLCM), limites de Nyquist e roadmap de expansão multi-escala (YOLO / Drones).
