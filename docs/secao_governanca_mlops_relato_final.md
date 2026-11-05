@@ -23,7 +23,7 @@ Para blindar o classificador contra o princípio *garbage-in, garbage-out* e ass
 
 ## 2. Contrato Formal de Entrada e Saída (Schema Contract)
 
-O contrato de dados foi formalizado no arquivo [`models/model_schema_contract.json`](file:///c:/Users/elisa/OneDrive/Documentos/Sanidade-Vegetal/models/model_schema_contract.json). Ele estabelece os limites operacionais aceitos pelo sistema de inteligência artificial:
+O contrato de dados foi formalizado no arquivo [`models/model_schema_contract.json`](../models/model_schema_contract.json). Ele estabelece os limites operacionais aceitos pelo sistema de inteligência artificial:
 
 ### 2.1 Especificação das Variáveis de Entrada
 O sistema consome **23 descritores modelados**, organizados em duas naturezas estatísticas:
@@ -39,13 +39,13 @@ O sistema consome **23 descritores modelados**, organizados em duas naturezas es
   * Bins quantílicos e ordinais derivados na Fase Modify (`size_kb_bin`, `laplacian_var_bin`, `resolution_bin`, `aspect_ratio_bin`).
 
 ### 2.2 Política de Descarte de Metadados Não Preditivos
-A arquitetura do pipeline utiliza a diretiva `remainder='drop'` no [`ColumnTransformer`](file:///c:/Users/elisa/OneDrive/Documentos/Sanidade-Vegetal/src/atomic_pipeline_preprocessing.py). Quaisquer colunas de rastreabilidade ou telemetria externa (ex.: coordenadas GPS, identificador do operador, UUID da foto) são descartadas de forma atômica e transparente antes de alimentar o classificador SVM, impedindo qualquer intervenção manual na inferência.
+A arquitetura do pipeline utiliza a diretiva `remainder='drop'` no [`ColumnTransformer`](../src/atomic_pipeline_preprocessing.py). Quaisquer colunas de rastreabilidade ou telemetria externa (ex.: coordenadas GPS, identificador do operador, UUID da foto) são descartadas de forma atômica e transparente antes de alimentar o classificador SVM, impedindo qualquer intervenção manual na inferência.
 
 ---
 
 ## 3. Arquitetura do Validador de Schema e Sistema de Quarentena
 
-Para impedir que dados defeituosos causem falhas em tempo de execução ou gerem diagnósticos espúrios, foi desenvolvido o módulo [`src/schema_validator.py`](file:///c:/Users/elisa/OneDrive/Documentos/Sanidade-Vegetal/src/schema_validator.py).
+Para impedir que dados defeituosos causem falhas em tempo de execução ou gerem diagnósticos espúrios, foi desenvolvido o módulo [`src/schema_validator.py`](../src/schema_validator.py).
 
 ```mermaid
 flowchart TD
@@ -68,7 +68,7 @@ Quando um lote agrícola misto é submetido à predição:
 
 ## 4. Model Registry e Rastreabilidade Criptográfica
 
-Todos os modelos desenvolvidos e avaliados ao longo do ciclo SEMMA foram unificados no catálogo [`models/model_registry.json`](file:///c:/Users/elisa/OneDrive/Documentos/Sanidade-Vegetal/models/model_registry.json), garantindo a genealogia estrita da solução:
+Todos os modelos desenvolvidos e avaliados ao longo do ciclo SEMMA foram unificados no catálogo [`models/model_registry.json`](../models/model_registry.json), garantindo a genealogia estrita da solução:
 
 | Versão | Nome do Artefato | Estágio MLOps | Hash SHA-256 | Commit Git | $F_1$-Macro Teste |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -78,7 +78,7 @@ Todos os modelos desenvolvidos e avaliados ao longo do ciclo SEMMA foram unifica
 | **1.0.0** | `sanidade_vegetal_pipeline_final.joblib` | **In-Production** | `0100a66f...` | `c79a436` | **$0.6048$** |
 
 ### Garantias de Integridade Imutável:
-* O arquivo binário oficial de produção ([`models/sanidade_vegetal_pipeline_final.joblib`](file:///c:/Users/elisa/OneDrive/Documentos/Sanidade-Vegetal/models/sanidade_vegetal_pipeline_final.joblib)) possui o hash SHA-256 `0100a66f15c5e7601ff578efaabaea080bebac00a9f9ec170cd8e31fb27e3e02`.
+* O arquivo binário oficial de produção ([`models/sanidade_vegetal_pipeline_final.joblib`](../models/sanidade_vegetal_pipeline_final.joblib)) possui o hash SHA-256 `0100a66f15c5e7601ff578efaabaea080bebac00a9f9ec170cd8e31fb27e3e02`.
 * Qualquer alteração não autorizada no binário causará falha imediata na checagem criptográfica em tempo de inicialização do serviço de predição.
 
 ---
@@ -105,7 +105,7 @@ O pipeline de re-treinamento é disparado sob três condições:
 
 ## 6. Validação e Homologação por Testes Automatizados
 
-A conformidade desta governança é assegurada pela suíte [`src/test_schema_validation_and_registry.py`](file:///c:/Users/elisa/OneDrive/Documentos/Sanidade-Vegetal/src/test_schema_validation_and_registry.py), cobrindo:
+A conformidade desta governança é assegurada pela suíte [`src/test_schema_validation_and_registry.py`](../src/test_schema_validation_and_registry.py), cobrindo:
 * Validação de schema JSON contra a especificação formal.
 * Rejeição e isolamento de amostras corrompidas e nulas.
 * Homologação de lotes sadios sem falso-positivos de validação.

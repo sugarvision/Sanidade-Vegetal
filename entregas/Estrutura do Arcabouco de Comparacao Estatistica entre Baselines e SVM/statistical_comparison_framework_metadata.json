@@ -1,0 +1,34 @@
+{
+  "task_name": "Estruturar o arcabouço de comparação estatística entre os modelos baselines e as configurações otimizadas de SVM",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "sprint": "Sprint 4 - Framework SEMMA (Fase: Assess - Relato Vol. 4)",
+  "responsible": "Luis (Engenheiro Responsável pelo Benchmark e Governança Analítica)",
+  "timestamp": "2026-11-05 08:40:42",
+  "champion_estimator": "SVM Polinomial Campeão GridSearch",
+  "champion_hyperparameters": {
+    "kernel": "poly",
+    "degree": 3,
+    "C": 0.1,
+    "coef0": 1.0,
+    "gamma": "scale",
+    "class_weight": "balanced"
+  },
+  "total_models_evaluated": 10,
+  "statistical_tests": {
+    "t_test_paired": "scipy.stats.ttest_rel",
+    "wilcoxon_signed_rank": "scipy.stats.wilcoxon(alternative='greater')",
+    "confidence_level": 0.95,
+    "significance_threshold_alpha": 0.05
+  },
+  "key_findings": {
+    "dummy_classifier_rejection": "Rejeitado categoricamente (p-value = 0.0, ganho relativo +337.8%)",
+    "decision_tree_rejection": "Rejeitado por underfitting estrutural (p-value < 0.05, ganho relativo +8.5%)",
+    "logistic_regression_rejection": "Rejeitada por incapacidade de capturar separabilidade não-linear (p-value < 0.05)",
+    "svm_stability": "Comprovada com CV% < 1.05% e Margem de Erro de F1-Macro de ±0.73% a 95% de confiança"
+  },
+  "artifacts_persisted": {
+    "unified_table_csv": "C:\\Users\\LUISOTAVIOROUTHDASIL\\Documents\\GitHub\\Sanidade-Vegetal\\models\\unified_models_benchmark_sprint3_sprint4.csv",
+    "hypothesis_tests_csv": "C:\\Users\\LUISOTAVIOROUTHDASIL\\Documents\\GitHub\\Sanidade-Vegetal\\models\\statistical_hypothesis_tests_summary.csv",
+    "confidence_intervals_csv": "C:\\Users\\LUISOTAVIOROUTHDASIL\\Documents\\GitHub\\Sanidade-Vegetal\\models\\confidence_intervals_metrics_95.csv"
+  }
+}

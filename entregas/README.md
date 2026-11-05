@@ -1,6 +1,6 @@
 # 📦 Catálogo de Entregas das Sprints — SugarVision
 
-Neste diretório estão consolidadas todas as **16 pastas de entregas e relatórios técnicos** das tarefas de cada cartão Scrum/Jira, organizadas por Sprint e Fase do framework SEMMA:
+Neste diretório estão consolidadas todas as pastas de entregas e relatórios técnicos das tarefas de cada cartão Scrum/Jira, organizadas por Sprint e Fase do framework SEMMA:
 
 | Sprint | Fase SEMMA | Diretório de Entrega | Descrição e Artefatos Principais |
 | :---: | :---: | :--- | :--- |
@@ -15,7 +15,12 @@ Neste diretório estão consolidadas todas as **16 pastas de entregas e relatór
 | **Sprint 3** | `Model` | [`Modelagem SVM com Kernel Trick (RBF e Polinomial)/`](./Modelagem%20SVM%20com%20Kernel%20Trick%20%28RBF%20e%20Polinomial%29/) | Estudo comparativo de fronteiras de decisão (Linear, Polinomial e RBF). |
 | **Sprint 3** | `Model` | [`Configuração e Execução do Grid Search Exaustivo (GridSearchCV)/`](./Configuração%20e%20Execução%20do%20Grid%20Search%20Exaustivo%20%28GridSearchCV%29/) | Otimização de hiperparâmetros elegendo o estimador ótimo ($C=10, \gamma=0.01$). |
 | **Sprint 3** | `Model` | [`Concepção, Treinamento e Benchmark de Modelos Baseline/`](./Concepção,%20Treinamento%20e%20Benchmark%20de%20Modelos%20Baseline/) | Modelos de referência (Dummy, Reg. Logística e Árvore rasa) e ganho estatístico do SVM. |
+| **Sprint 3** | `Model` | [`Curvas de Aprendizado e Análise do Trade-off Viés-Variância/`](./Curvas%20de%20Aprendizado%20e%20Análise%20do%20Trade-off%20Viés-Variância/) | Curvas de aprendizado (10% a 100%), convergência assintótica e trade-off viés-variância. |
+| **Sprint 3** | `Model` | [`Diagnóstico Matemático dos Vetores de Suporte (Support Vectors)/`](./Diagnóstico%20Matemático%20dos%20Vetores%20de%20Suporte%20%28Support%20Vectors%29/) | Análise da densidade de vetores de suporte, margem e hiperplano de separação. |
+| **Sprint 4** | `Assess` | [`Estrutura do Arcabouco de Comparacao Estatistica entre Baselines e SVM/`](./Estrutura%20do%20Arcabouco%20de%20Comparacao%20Estatistica%20entre%20Baselines%20e%20SVM/) | **Arcabouço formal de comparação estatística (Luis), testes pareados (t-test e Wilcoxon), IC 95% e governança.** |
 | **Sprint 4** | `Assess` | [`Auditoria de Particoes e Robustez Estocastica Repeated Stratified K-Fold/`](./Auditoria%20de%20Particoes%20e%20Robustez%20Estocastica%20Repeated%20Stratified%20K-Fold/) | Validação de 15 splits comprovando ausência de viés amostral (ANOVA $p > 0,05$). |
+| **Sprint 4** | `Assess` | [`Matrizes de Confusão e Curvas de Discriminação Estatística (ROC e PR)/`](./Matrizes%20de%20Confusão%20e%20Curvas%20de%20Discriminação%20Estatística%20%28ROC%20e%20PR%29/) | Matrizes de confusão normalizadas, curvas ROC OvR, PR Curve de ferrugem e threshold tuning. |
+| **Sprint 4** | `Assess` | [`Auditoria de Erros Críticos e Impacto Agronômico (FP vs FN)/`](./Auditoria%20de%20Erros%20Críticos%20e%20Impacto%20Agronômico%20%28FP%20vs%20FN%29/) | Auditoria de 149 erros em teste, matriz de custo agronômico 7x7 e risco de Bayes. |
 | **Sprint 4** | `Assess` | [`Otimizacao e Paralelizacao Computacional da Validacao Cruzada/`](./Otimizacao%20e%20Paralelizacao%20Computacional%20da%20Validacao%20Cruzada/) | Paralelização multi-processo `n_jobs=-1` com 1,64x de aceleração e telemetria. |
 | **Sprint 4** | `Assess` | [`Catalogo Formal de Metadados e Dicionario com Saidas Calibradas/`](./Catalogo%20Formal%20de%20Metadados%20e%20Dicionario%20com%20Saidas%20Calibradas/) | Linhagem de ponta a ponta e auditoria de métricas com intervalos de confiança. |
 | **Sprint 5** | `Assess` | [`Consolidacao Final do Dicionario de Dados e Catalogo de Producao/`](./Consolidacao%20Final%20do%20Dicionario%20de%20Dados%20e%20Catalogo%20de%20Producao/) | Consolidação do catálogo final de artefatos de produção e matriz SEMMA. |

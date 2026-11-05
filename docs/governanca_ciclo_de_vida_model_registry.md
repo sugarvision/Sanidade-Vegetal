@@ -15,7 +15,7 @@ O sistema de governança de modelos do **SugarVision** implementa uma arquitetur
 1. **Dados de Origem:** Hash SHA-256 e partição da Tabela Analítica Base (`abt_sanidade_vegetal.csv`).
 2. **Código e Pipeline:** Commit Git rastreável e código-fonte auditado do estimador.
 3. **Artefato de Inferência:** Binário serializado (`models/sanidade_vegetal_pipeline_final.joblib`) com assinatura criptográfica.
-4. **Contrato de Dados:** Validação estrita de entrada e saída via [`models/model_schema_contract.json`](file:///c:/Users/elisa/OneDrive/Documentos/Sanidade-Vegetal/models/model_schema_contract.json).
+4. **Contrato de Dados:** Validação estrita de entrada e saída via [`models/model_schema_contract.json`](../models/model_schema_contract.json).
 
 ```mermaid
 flowchart LR
@@ -30,7 +30,7 @@ flowchart LR
 
 ## 2. Taxonomia dos Estágios do Ciclo de Vida
 
-Todo artefato de modelo supervisionado percorre obrigatoriamente 5 estágios formais no [`models/model_registry.json`](file:///c:/Users/elisa/OneDrive/Documentos/Sanidade-Vegetal/models/model_registry.json):
+Todo artefato de modelo supervisionado percorre obrigatoriamente 5 estágios formais no [`models/model_registry.json`](../models/model_registry.json):
 
 | Estágio | Definição Operacional | Permissão de Inferência em Campo |
 | :--- | :--- | :---: |
@@ -81,14 +81,14 @@ Caso o modelo em produção apresente comportamento anômalo em campo, a revers�
 
 ### 5.1 Gatilhos de Acionamento Imediato de Rollback
 * **Data Drift Excessivo:** Índice de Estabilidade Populacional ($PSI > 0.25$) entre a distribuição de treino e a entrada de inferência.
-* **Alta Taxa de Rejeição de Schema:** Mais de $5.0% $ das imagens recebidas em um lote rejeitadas pelo [`SchemaValidator`](file:///c:/Users/elisa/OneDrive/Documentos/Sanidade-Vegetal/src/schema_validator.py).
+* **Alta Taxa de Rejeição de Schema:** Mais de $5.0\% $ das imagens recebidas em um lote rejeitadas pelo [`SchemaValidator`](../src/schema_validator.py).
 * **Degradação de Latência:** Latência no percentil 95 ($P_{95} > 200\text{ ms}$).
 * **Degradação de Qualidade Diagnosticada:** Queda abrupta de performance em auditorias de campo por especialistas ($F_1\text{-Macro} < 0.50$).
 
 ### 5.2 Fluxo de Execução do Rollback
 1. O serviço de monitoramento dispara o alerta de violação de SLA.
-2. O ponteiro de produção em [`models/model_registry.json`](file:///c:/Users/elisa/OneDrive/Documentos/Sanidade-Vegetal/models/model_registry.json) é apontado para a versão indicada em `rollback_target_version` (`v0.9.0` — `models/svm_pipeline_optimal.joblib`).
-3. O serviço [`ProductionInferenceService`](file:///c:/Users/elisa/OneDrive/Documentos/Sanidade-Vegetal/src/schema_validator.py) recarrega o modelo homologado de backup.
+2. O ponteiro de produção em [`models/model_registry.json`](../models/model_registry.json) é apontado para a versão indicada em `rollback_target_version` (`v0.9.0` — `models/svm_pipeline_optimal.joblib`).
+3. O serviço [`ProductionInferenceService`](../src/schema_validator.py) recarrega o modelo homologado de backup.
 4. É emitido um relatório de incidente contendo o snapshot das predições anômalas para investigação da equipe de MLOps.
 
 ---

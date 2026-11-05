@@ -1,7 +1,7 @@
 ﻿"""
 Gerador e Executor Automatizado ("Restart & Run All") do Master Notebook da Sprint 3
 Arquivo Alvo: notebooks/04_sprint3_model_pipeline.ipynb
-Projeto: Sanidade-Vegetal (SugarVision) â€” Fase 4: Model (SEMMA)
+Projeto: Sanidade-Vegetal (SugarVision) — Fase 4: Model (SEMMA)
 """
 
 import io
@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 
 
 def create_sprint3_notebook_structure() -> nbf.NotebookNode:
-    """ConstrÃ³i a estrutura didÃ¡tica e o cÃ³digo limpo de notebooks/04_sprint3_model_pipeline.ipynb."""
+    """Constrói a estrutura didática e o código limpo de notebooks/04_sprint3_model_pipeline.ipynb."""
     nb = nbf.v4.new_notebook()
     nb["metadata"] = {
         "kernelspec": {
@@ -43,27 +43,27 @@ def create_sprint3_notebook_structure() -> nbf.NotebookNode:
     cells = []
 
     # =========================================================================
-    # CÃ‰LULA 1: CABEÃ‡ALHO E ARQUITETURA SEMMA (MARKDOWN)
+    # CÉLULA 1: CABEÇALHO E ARQUITETURA SEMMA (MARKDOWN)
     # =========================================================================
-    cells.append(nbf.v4.new_markdown_cell("""# ðŸŒ¿ SugarVision â€” Master Notebook da Sprint 3: Pipeline de Modelagem e OtimizaÃ§Ã£o (Fase *Model* â€” SEMMA)
+    cells.append(nbf.v4.new_markdown_cell("""# ðŸŒ¿ SugarVision — Master Notebook da Sprint 3: Pipeline de Modelagem e Otimização (Fase *Model* — SEMMA)
 
-**Projeto:** ClassificaÃ§Ã£o e DiagnÃ³stico Inteligente de Fitopatologias em Cana-de-AÃ§Ãºcar (*Saccharum officinarum*)  
-**Fase SEMMA:** `4. MODEL` (Modelagem Supervisionada, Kernel Trick, OtimizaÃ§Ã£o de HiperparÃ¢metros e DiagnÃ³stico)  
-**Base de Dados:** `data/processed/abt_sanidade_vegetal.csv` (6.571 instÃ¢ncias | 7 classes fitopatolÃ³gicas)  
+**Projeto:** Classificação e Diagnóstico Inteligente de Fitopatologias em Cana-de-Açúcar (*Saccharum officinarum*)  
+**Fase SEMMA:** `4. MODEL` (Modelagem Supervisionada, Kernel Trick, Otimização de Hiperparâmetros e Diagnóstico)  
+**Base de Dados:** `data/processed/abt_sanidade_vegetal.csv` (6.571 instâncias | 7 classes fitopatológicas)  
 
 ---
 
 ## ðŸŽ¯ Objetivos e Escopo do Master Notebook
-Este caderno consolida de ponta a ponta toda a etapa de **Modelagem Supervisionada (Sprint 3)** do projeto **SugarVision**, garantindo reprodutibilidade determinÃ­stica (`random_state=42`), blindagem estrita contra vazamento de dados (*Anti-Leakage*) e execuÃ§Ã£o integral em menos de 15 minutos:
+Este caderno consolida de ponta a ponta toda a etapa de **Modelagem Supervisionada (Sprint 3)** do projeto **SugarVision**, garantindo reprodutibilidade determinística (`random_state=42`), blindagem estrita contra vazamento de dados (*Anti-Leakage*) e execução integral em menos de 15 minutos:
 
-1. **IngestÃ£o e GovernanÃ§a de PartiÃ§Ãµes:** Carregamento da Tabela AnalÃ­tica Base (ABT) respeitando o particionamento determinÃ­stico estratificado (`train` = 5.574 amostras, `valid` = 617 amostras, `test` = 380 amostras).
-2. **Modelos Baseline e Piso EstatÃ­stico:** Treinamento e avaliaÃ§Ã£o de `DummyClassifier(strategy='stratified')`, `LogisticRegression(penalty='l2', class_weight='balanced')` e `DecisionTreeClassifier(max_depth=4, class_weight='balanced')`.
-3. **Pipeline AtÃ´mico Anti-Leakage (`ColumnTransformer` + `SVC`):** Encapsulamento unificado de imputaÃ§Ã£o mediana/moda, padronizaÃ§Ã£o Z-Score (`StandardScaler`), codificaÃ§Ã£o One-Hot e classificador SVM com calibraÃ§Ã£o probabilÃ­stica de Platt (`probability=True`).
-4. **Estudo do Kernel Trick e Matrizes de DecisÃ£o:** ComparaÃ§Ã£o empÃ­rica e visual das fronteiras de decisÃ£o nÃ£o-lineares (`linear`, `poly`, `rbf`).
-5. **OtimizaÃ§Ã£o por Grade (`GridSearchCV`) e DiagnÃ³stico Visual:** Busca exaustiva elegendo o hiperparÃ¢metro campeÃ£o ($C=10.0, \\gamma=0.01$), exportaÃ§Ã£o das matrizes de confusÃ£o, curvas ROC One-vs-Rest e superfÃ­cies de decisÃ£o em `docs/figures/`."""))
+1. **Ingestão e Governança de Partições:** Carregamento da Tabela Analítica Base (ABT) respeitando o particionamento determinístico estratificado (`train` = 5.574 amostras, `valid` = 617 amostras, `test` = 380 amostras).
+2. **Modelos Baseline e Piso Estatístico:** Treinamento e avaliação de `DummyClassifier(strategy='stratified')`, `LogisticRegression(penalty='l2', class_weight='balanced')` e `DecisionTreeClassifier(max_depth=4, class_weight='balanced')`.
+3. **Pipeline Atômico Anti-Leakage (`ColumnTransformer` + `SVC`):** Encapsulamento unificado de imputação mediana/moda, padronização Z-Score (`StandardScaler`), codificação One-Hot e classificador SVM com calibração probabilística de Platt (`probability=True`).
+4. **Estudo do Kernel Trick e Matrizes de Decisão:** Comparação empírica e visual das fronteiras de decisão não-lineares (`linear`, `poly`, `rbf`).
+5. **Otimização por Grade (`GridSearchCV`) e Diagnóstico Visual:** Busca exaustiva elegendo o hiperparâmetro campeão ($C=10.0, \\gamma=0.01$), exportação das matrizes de confusão, curvas ROC One-vs-Rest e superfícies de decisão em `docs/figures/`."""))
 
     # =========================================================================
-    # CÃ‰LULA 2: SETUP, IMPORTS E TELEMETRIA INICIAL (CODE)
+    # CÉLULA 2: SETUP, IMPORTS E TELEMETRIA INICIAL (CODE)
     # =========================================================================
     cells.append(nbf.v4.new_code_cell("""import os
 import sys
@@ -76,7 +76,7 @@ from pathlib import Path
 warnings.filterwarnings('ignore')
 NOTEBOOK_START_TIME = time.perf_counter()
 
-# Garantir acesso ao diretÃ³rio raiz e pacote src/
+# Garantir acesso ao diretório raiz e pacote src/
 ROOT_DIR = Path.cwd().parent if Path.cwd().name == 'notebooks' else Path.cwd()
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
@@ -120,7 +120,7 @@ from src.atomic_pipeline_preprocessing import (
 )
 from src.atomic_svm_pipeline import build_atomic_svm_pipeline
 
-# DiretÃ³rios canÃ´nicos de saÃ­da
+# Diretórios canônicos de saída
 DATA_DIR = ROOT_DIR / 'data' / 'processed'
 MODELS_DIR = ROOT_DIR / 'models'
 FIGURES_DIR = ROOT_DIR / 'docs' / 'figures'
@@ -143,16 +143,16 @@ CLASS_LABELS = [CLASS_NAMES_MAP[i] for i in range(7)]
 SHORT_LABELS = ['GS', 'HEA', 'LS', 'MOS', 'RR', 'RUST', 'YL']
 
 print(f"[OK] Ambiente inicializado com sucesso em: {ROOT_DIR}")
-print(f"[OK] DiretÃ³rio de figuras diagnÃ³sticas: {FIGURES_DIR}")"""))
+print(f"[OK] Diretório de figuras diagnósticas: {FIGURES_DIR}")"""))
 
     # =========================================================================
-    # CÃ‰LULA 3: INGESTÃƒO DA ABT E AUDITORIA DE PARTIÃ‡Ã•ES (MARKDOWN + CODE)
+    # CÉLULA 3: INGESTÃO DA ABT E AUDITORIA DE PARTIÇÕES (MARKDOWN + CODE)
     # =========================================================================
-    cells.append(nbf.v4.new_markdown_cell("""## 1. Carregamento da ABT e VerificaÃ§Ã£o do Particionamento Anti-Leakage
-Carregamos a base `data/processed/abt_sanidade_vegetal.csv` contendo os descritores cromÃ¡ticos (`mean_hue`, `std_saturation`, `exg_index`, `exr_index`, `rg_ratio`, `indice_clorose_necrose`, `hue_dispersion`), texturais de Haralick (`glcm_contrast`, `glcm_homogeneity`, `glcm_dissimilarity`, `glcm_energy`, `indice_rugosidade_pustula`) e variÃ¡veis discretizadas. O ajuste (`.fit()`) ocorrerÃ¡ **exclusivamente** na partiÃ§Ã£o `train`."""))
+    cells.append(nbf.v4.new_markdown_cell("""## 1. Carregamento da ABT e Verificação do Particionamento Anti-Leakage
+Carregamos a base `data/processed/abt_sanidade_vegetal.csv` contendo os descritores cromáticos (`mean_hue`, `std_saturation`, `exg_index`, `exr_index`, `rg_ratio`, `indice_clorose_necrose`, `hue_dispersion`), texturais de Haralick (`glcm_contrast`, `glcm_homogeneity`, `glcm_dissimilarity`, `glcm_energy`, `indice_rugosidade_pustula`) e variáveis discretizadas. O ajuste (`.fit()`) ocorrerá **exclusivamente** na partição `train`."""))
 
     cells.append(nbf.v4.new_code_cell("""abt_path = DATA_DIR / 'abt_sanidade_vegetal.csv'
-assert abt_path.exists(), f"ABT nÃ£o encontrada em: {abt_path}"
+assert abt_path.exists(), f"ABT não encontrada em: {abt_path}"
 
 df_abt = pd.read_csv(abt_path)
 
@@ -164,38 +164,38 @@ X_train, y_train = df_train.drop(columns=TARGET_COLUMNS), df_train['target_multi
 X_valid, y_valid = df_valid.drop(columns=TARGET_COLUMNS), df_valid['target_multiclass']
 X_test,  y_test  = df_test.drop(columns=TARGET_COLUMNS),  df_test['target_multiclass']
 
-print(f"Total de instÃ¢ncias na ABT : {len(df_abt):,d} linhas x {df_abt.shape[1]} colunas")
-print(f"  - PartiÃ§Ã£o Train         : {len(df_train):,d} amostras ({len(df_train)/len(df_abt)*100:.1f}%)")
-print(f"  - PartiÃ§Ã£o Valid         : {len(df_valid):,d} amostras ({len(df_valid)/len(df_abt)*100:.1f}%)")
-print(f"  - PartiÃ§Ã£o Test (Cego)   : {len(df_test):,d} amostras ({len(df_test)/len(df_abt)*100:.1f}%)")
+print(f"Total de instâncias na ABT : {len(df_abt):,d} linhas x {df_abt.shape[1]} colunas")
+print(f"  - Partição Train         : {len(df_train):,d} amostras ({len(df_train)/len(df_abt)*100:.1f}%)")
+print(f"  - Partição Valid         : {len(df_valid):,d} amostras ({len(df_valid)/len(df_abt)*100:.1f}%)")
+print(f"  - Partição Test (Cego)   : {len(df_test):,d} amostras ({len(df_test)/len(df_abt)*100:.1f}%)")
 
-# Resumo da distribuiÃ§Ã£o por classe fitopatolÃ³gica
+# Resumo da distribuição por classe fitopatológica
 dist_df = pd.DataFrame({
-    'CÃ³digo': range(7),
+    'Código': range(7),
     'Patologia (Classe)': CLASS_LABELS,
     'Treino': [int((y_train == i).sum()) for i in range(7)],
-    'ValidaÃ§Ã£o': [int((y_valid == i).sum()) for i in range(7)],
+    'Validação': [int((y_valid == i).sum()) for i in range(7)],
     'Teste Cego': [int((y_test == i).sum()) for i in range(7)]
 })
-dist_df['Total'] = dist_df['Treino'] + dist_df['ValidaÃ§Ã£o'] + dist_df['Teste Cego']
-print("\\nDistribuiÃ§Ã£o Estratificada por Patologia:")
+dist_df['Total'] = dist_df['Treino'] + dist_df['Validação'] + dist_df['Teste Cego']
+print("\\nDistribuição Estratificada por Patologia:")
 print(dist_df.to_string(index=False))"""))
 
     # =========================================================================
-    # CÃ‰LULA 4: BENCHMARK DE MODELOS BASELINE (MARKDOWN + CODE)
+    # CÉLULA 4: BENCHMARK DE MODELOS BASELINE (MARKDOWN + CODE)
     # =========================================================================
-    cells.append(nbf.v4.new_markdown_cell("""## 2. ConcepÃ§Ã£o, Treinamento e Benchmark de Modelos Baseline
-Antes de otimizar o estimador nÃ£o-linear SVM, estabelecemos o piso estatÃ­stico com trÃªs arquiteturas de referÃªncia encapsuladas no mesmo `ColumnTransformer` anti-leakage:
-1. **Dummy Classifier (`strategy='stratified'`):** Baseline aleatÃ³rio respeitando as proporÃ§Ãµes marginais de treino.
-2. **RegressÃ£o LogÃ­stica Multinomial (`penalty='l2', class_weight='balanced'`):** Baseline linear paramÃ©trico com regularizaÃ§Ã£o Ridge.
-3. **Ãrvore de DecisÃ£o Rasa (`max_depth=4, class_weight='balanced'`):** Baseline nÃ£o-linear de alta interpretabilidade agronÃ´mica."""))
+    cells.append(nbf.v4.new_markdown_cell("""## 2. Concepção, Treinamento e Benchmark de Modelos Baseline
+Antes de otimizar o estimador não-linear SVM, estabelecemos o piso estatístico com três arquiteturas de referência encapsuladas no mesmo `ColumnTransformer` anti-leakage:
+1. **Dummy Classifier (`strategy='stratified'`):** Baseline aleatório respeitando as proporções marginais de treino.
+2. **Regressão Logística Multinomial (`penalty='l2', class_weight='balanced'`):** Baseline linear paramétrico com regularização Ridge.
+3. **Árvore de Decisão Rasa (`max_depth=4, class_weight='balanced'`):** Baseline não-linear de alta interpretabilidade agronômica."""))
 
     cells.append(nbf.v4.new_code_cell("""baseline_Specs = {
     'Dummy Stratified': DummyClassifier(strategy='stratified', random_state=RANDOM_STATE),
     'Logistic Regression (L2 Balanced)': LogisticRegression(C=1.0, class_weight='balanced', max_iter=1000, random_state=RANDOM_STATE),
     'Decision Tree (max_depth=4 Balanced)': DecisionTreeClassifier(max_depth=4, class_weight='balanced', random_state=RANDOM_STATE),
     'SVM RBF Default (C=1.0, scale)': SVC(kernel='rbf', C=1.0, gamma='scale', class_weight='balanced', probability=True, random_state=RANDOM_STATE),
-    'SVM RBF CampeÃ£o (C=10.0, gamma=0.01)': SVC(kernel='rbf', C=10.0, gamma=0.01, class_weight='balanced', probability=True, random_state=RANDOM_STATE)
+    'SVM RBF Campeão (C=10.0, gamma=0.01)': SVC(kernel='rbf', C=10.0, gamma=0.01, class_weight='balanced', probability=True, random_state=RANDOM_STATE)
 }
 
 skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=RANDOM_STATE)
@@ -210,7 +210,7 @@ for name, clf in baseline_Specs.items():
         ('classifier', clone(clf))
     ])
     
-    # ValidaÃ§Ã£o Cruzada 5-Fold no Treino
+    # Validação Cruzada 5-Fold no Treino
     cv_f1s, cv_accs = [], []
     for tr_idx, va_idx in skf.split(X_train, y_train):
         p_fold = clone(pipe)
@@ -221,7 +221,7 @@ for name, clf in baseline_Specs.items():
     
     fold_f1_history[name] = cv_f1s
     
-    # Fit integral no Treino e avaliaÃ§Ã£o em ValidaÃ§Ã£o e Teste
+    # Fit integral no Treino e avaliação em Validação e Teste
     pipe.fit(X_train, y_train)
     fitted_pipelines[name] = pipe
     
@@ -248,18 +248,18 @@ df_bench = pd.DataFrame(benchmark_rows)
 print("=== TABELA COMPARATIVA DE MODELOS BASELINE VS. SVM ===")
 print(df_bench.to_string(index=False))
 
-# Teste t pareado comprovando o ganho estatÃ­stico do SVM CampeÃ£o
-ref_scores = fold_f1_history['SVM RBF CampeÃ£o (C=10.0, gamma=0.01)']
-print("\\n=== TESTE T PAREADO (GANHO ESTATÃSTICO DO SVM CAMPEÃƒO EM 5-FOLD CV) ===")
+# Teste t pareado comprovando o ganho estatístico do SVM Campeão
+ref_scores = fold_f1_history['SVM RBF Campeão (C=10.0, gamma=0.01)']
+print("\\n=== TESTE T PAREADO (GANHO ESTATÍSTICO DO SVM CAMPEÃO EM 5-FOLD CV) ===")
 for name, scores in fold_f1_history.items():
-    if name == 'SVM RBF CampeÃ£o (C=10.0, gamma=0.01)':
+    if name == 'SVM RBF Campeão (C=10.0, gamma=0.01)':
         continue
     t_stat, p_val = ttest_rel(ref_scores, scores)
     gain = np.mean(ref_scores) - np.mean(scores)
     print(f"  vs. {name:38s}: Ganho F1 = +{gain:.4f} | t = {t_stat:6.2f} | p-valor = {p_val:.6f} ({'SIGNIFICANTE' if p_val < 0.05 else 'NS'})")"""))
 
     # =========================================================================
-    # CÃ‰LULA 5: GRÃFICO DE BENCHMARK E ÃRVORE DE DECISÃƒO (CODE)
+    # CÉLULA 5: GRÁFICO DE BENCHMARK E ÁRVORE DE DECISÃO (CODE)
     # =========================================================================
     cells.append(nbf.v4.new_code_cell("""# Salvar Figura 1: Comparativo de Desempenho Baseline vs SVM
 fig, ax = plt.subplots(figsize=(12, 6), dpi=300)
@@ -267,7 +267,7 @@ x = np.arange(len(df_bench))
 w = 0.25
 
 b1 = ax.bar(x - w, df_bench['CV_F1_Macro_Mean'], width=w, label='5-Fold CV (Treino)', color='#1E88E5')
-b2 = ax.bar(x,     df_bench['Valid_F1_Macro'],   width=w, label='ValidaÃ§Ã£o (N=617)', color='#43A047')
+b2 = ax.bar(x,     df_bench['Valid_F1_Macro'],   width=w, label='Validação (N=617)', color='#43A047')
 b3 = ax.bar(x + w, df_bench['Test_F1_Macro'],    width=w, label='Teste Cego (N=380)', color='#FB8C00')
 
 for bars in [b1, b2, b3]:
@@ -275,7 +275,7 @@ for bars in [b1, b2, b3]:
         h = rect.get_height()
         ax.text(rect.get_x() + rect.get_width()/2., h + 0.01, f"{h:.3f}", ha='center', va='bottom', fontsize=8, fontweight='bold')
 
-ax.set_title('Benchmark de Modelos Baseline vs. Estimador SVM (MÃ©trica: F1-Score Macro)', fontsize=12, fontweight='bold')
+ax.set_title('Benchmark de Modelos Baseline vs. Estimador SVM (Métrica: F1-Score Macro)', fontsize=12, fontweight='bold')
 ax.set_xticks(x)
 ax.set_xticklabels(df_bench['Modelo'], rotation=15, ha='right', fontsize=9)
 ax.set_ylabel('F1-Score Macro')
@@ -287,26 +287,26 @@ plt.tight_layout()
 fig_bench_path = FIGURES_DIR / 'baseline_models_benchmark_comparison.png'
 plt.savefig(fig_bench_path, dpi=300)
 plt.show()
-print(f"[OK] GrÃ¡fico de benchmark salvo em: {fig_bench_path}")"""))
+print(f"[OK] Gráfico de benchmark salvo em: {fig_bench_path}")"""))
 
     # =========================================================================
-    # CÃ‰LULA 6: KERNEL TRICK E MATRIZES DE DECISÃƒO 2D (MARKDOWN + CODE)
+    # CÉLULA 6: KERNEL TRICK E MATRIZES DE DECISÃO 2D (MARKDOWN + CODE)
     # =========================================================================
-    cells.append(nbf.v4.new_markdown_cell("""## 3. Estudo do Kernel Trick (Linear, Polinomial e RBF) e Matrizes de DecisÃ£o
-Avaliamos o comportamento geomÃ©trico das funÃ§Ãµes de Kernel na separaÃ§Ã£o das fitopatologias:
+    cells.append(nbf.v4.new_markdown_cell("""## 3. Estudo do Kernel Trick (Linear, Polinomial e RBF) e Matrizes de Decisão
+Avaliamos o comportamento geométrico das funções de Kernel na separação das fitopatologias:
 * **Kernel Linear:** $K(\\mathbf{x}_i, \\mathbf{x}_j) = \\mathbf{x}_i^\\top \\mathbf{x}_j$
 * **Kernel Polinomial ($d=3$):** $K(\\mathbf{x}_i, \\mathbf{x}_j) = (\\gamma \\mathbf{x}_i^\\top \\mathbf{x}_j + r)^d$
 * **Kernel RBF (Gaussiano):** $K(\\mathbf{x}_i, \\mathbf{x}_j) = \\exp(-\\gamma \\|\\mathbf{x}_i - \\mathbf{x}_j\\|^2)$
 
-Abaixo, projetamos o espaÃ§o padronizado de treino nos 2 componentes principais de maior variÃ¢ncia (PCA 2D ajustado estritamente no treino) e construÃ­mos a **Matriz de DecisÃ£o (SuperfÃ­cies de Fronteira)** comparando os trÃªs Kernels."""))
+Abaixo, projetamos o espaço padronizado de treino nos 2 componentes principais de maior variância (PCA 2D ajustado estritamente no treino) e construímos a **Matriz de Decisão (Superfícies de Fronteira)** comparando os três Kernels."""))
 
     cells.append(nbf.v4.new_code_cell("""kernels_study = [
     ('Kernel Linear (C=1.0)', SVC(kernel='linear', C=1.0, class_weight='balanced', random_state=RANDOM_STATE)),
     ('Kernel Polinomial (grau=3, C=1.0)', SVC(kernel='poly', degree=3, C=1.0, gamma='scale', class_weight='balanced', random_state=RANDOM_STATE)),
-    ('Kernel RBF Ã“timo (C=10.0, Î³=0.01)', SVC(kernel='rbf', C=10.0, gamma=0.01, class_weight='balanced', random_state=RANDOM_STATE))
+    ('Kernel RBF Ótimo (C=10.0, γ=0.01)', SVC(kernel='rbf', C=10.0, gamma=0.01, class_weight='balanced', random_state=RANDOM_STATE))
 ]
 
-# TransformaÃ§Ã£o isolada anti-leakage para projeÃ§Ã£o 2D das superfÃ­cies de decisÃ£o
+# Transformação isolada anti-leakage para projeção 2D das superfícies de decisão
 prep_2d = build_atomic_column_transformer()
 X_tr_scaled = prep_2d.fit_transform(X_train)
 X_va_scaled = prep_2d.transform(X_valid)
@@ -315,7 +315,7 @@ pca_2d = PCA(n_components=2, random_state=RANDOM_STATE)
 X_tr_pca = pca_2d.fit_transform(X_tr_scaled)
 X_va_pca = pca_2d.transform(X_va_scaled)
 
-# Malha 2D para plotagem das matrizes/regiÃµes de decisÃ£o
+# Malha 2D para plotagem das matrizes/regiões de decisão
 x_min, x_max = np.percentile(X_tr_pca[:, 0], 1), np.percentile(X_tr_pca[:, 0], 99)
 y_min, y_max = np.percentile(X_tr_pca[:, 1], 1), np.percentile(X_tr_pca[:, 1], 99)
 xx, yy = np.meshgrid(np.linspace(x_min - 0.8, x_max + 0.8, 180),
@@ -326,7 +326,7 @@ cmap_bg = plt.get_cmap('tab10', 7)
 
 kernel_metrics = []
 for idx, (k_title, svm_2d) in enumerate(kernels_study):
-    # Avaliar tambÃ©m no espaÃ§o original completo de 35 features
+    # Avaliar também no espaço original completo de 35 features
     full_k_pipe = Pipeline([
         ('preprocessor', build_atomic_column_transformer()),
         ('svm', clone(svm_2d))
@@ -343,37 +343,37 @@ for idx, (k_title, svm_2d) in enumerate(kernels_study):
         'Vetores_de_Suporte': n_sv
     })
     
-    # Ajustar no plano 2D para renderizar a Matriz de DecisÃ£o
+    # Ajustar no plano 2D para renderizar a Matriz de Decisão
     svm_2d.fit(X_tr_pca, y_train)
     Z = svm_2d.predict(np.c_[xx.ravel(), yy.ravel()]).reshape(xx.shape)
     
     ax = axes[idx]
     ax.contourf(xx, yy, Z, alpha=0.30, cmap=cmap_bg, levels=np.arange(-0.5, 7, 1))
     scatter = ax.scatter(X_va_pca[:, 0], X_va_pca[:, 1], c=y_valid, cmap=cmap_bg, s=18, edgecolor='k', linewidth=0.3, alpha=0.85)
-    ax.set_title(f"{k_title}\\n(EspaÃ§o 35D: F1-Macro = {f1_k:.4f} | Acc = {acc_k*100:.1f}%)", fontsize=10.5, fontweight='bold')
-    ax.set_xlabel('Componente Principal 1 (Vigor CromÃ¡tico ExG/Hue)')
+    ax.set_title(f"{k_title}\\n(Espaço 35D: F1-Macro = {f1_k:.4f} | Acc = {acc_k*100:.1f}%)", fontsize=10.5, fontweight='bold')
+    ax.set_xlabel('Componente Principal 1 (Vigor Cromático ExG/Hue)')
     ax.set_ylabel('Componente Principal 2 (Rugosidade GLCM)')
     ax.set_xlim(xx.min(), xx.max())
     ax.set_ylim(yy.min(), yy.max())
 
 handles, _ = scatter.legend_elements()
 fig.legend(handles, CLASS_LABELS, loc='lower center', ncol=7, bbox_to_anchor=(0.5, -0.04), fontsize=8.5, frameon=True)
-plt.suptitle('Matrizes de DecisÃ£o e Fronteiras NÃ£o-Lineares por FunÃ§Ã£o de Kernel (ValidaÃ§Ã£o)', fontsize=13, fontweight='bold')
+plt.suptitle('Matrizes de Decisão e Fronteiras Não-Lineares por Função de Kernel (Validação)', fontsize=13, fontweight='bold')
 plt.tight_layout(rect=[0, 0.04, 1, 0.95])
 
 decision_matrix_fig = FIGURES_DIR / 'sprint3_matriz_decisao_kernels_2d.png'
 plt.savefig(decision_matrix_fig, dpi=300, bbox_inches='tight')
 plt.show()
 
-print("\\n=== DESEMPENHO POR FUNÃ‡ÃƒO DE KERNEL NO ESPAÃ‡O COMPLETO (35 FEATURES) ===")
+print("\\n=== DESEMPENHO POR FUNÇÃO DE KERNEL NO ESPAÇO COMPLETO (35 FEATURES) ===")
 print(pd.DataFrame(kernel_metrics).to_string(index=False))
-print(f"[OK] Matriz de decisÃ£o dos Kernels salva em: {decision_matrix_fig}")"""))
+print(f"[OK] Matriz de decisão dos Kernels salva em: {decision_matrix_fig}")"""))
 
     # =========================================================================
-    # CÃ‰LULA 7: GRID SEARCH EXAUSTIVO E SUPERFÃCIE DE RESPOSTA (MARKDOWN + CODE)
+    # CÉLULA 7: GRID SEARCH EXAUSTIVO E SUPERFÍCIE DE RESPOSTA (MARKDOWN + CODE)
     # =========================================================================
-    cells.append(nbf.v4.new_markdown_cell("""## 4. OtimizaÃ§Ã£o de HiperparÃ¢metros (`GridSearchCV`) e SuperfÃ­cie $C \\times \\gamma$
-Executamos a busca em grade estratificada (`StratifiedKFold(n_splits=5)`) otimizando `f1_macro` sobre o pipeline atÃ´mico `Pipeline([('preprocessor', ColumnTransformer), ('svm', SVC)])`. O escalonamento ocorre estritamente no interior de cada *fold*, impedindo qualquer vazamento de dados."""))
+    cells.append(nbf.v4.new_markdown_cell("""## 4. Otimização de Hiperparâmetros (`GridSearchCV`) e Superfície $C \\times \\gamma$
+Executamos a busca em grade estratificada (`StratifiedKFold(n_splits=5)`) otimizando `f1_macro` sobre o pipeline atômico `Pipeline([('preprocessor', ColumnTransformer), ('svm', SVC)])`. O escalonamento ocorre estritamente no interior de cada *fold*, impedindo qualquer vazamento de dados."""))
 
     cells.append(nbf.v4.new_code_cell("""param_grid = {
     'svm__kernel': ['rbf'],
@@ -405,8 +405,8 @@ grid_search = GridSearchCV(
 grid_search.fit(X_train, y_train)
 gs_time = time.perf_counter() - t0_gs
 
-print(f"[OK] GridSearchCV concluÃ­do em {gs_time:.2f} segundos!")
-print(f"  - Melhores HiperparÃ¢metros : {grid_search.best_params_}")
+print(f"[OK] GridSearchCV concluído em {gs_time:.2f} segundos!")
+print(f"  - Melhores Hiperparâmetros : {grid_search.best_params_}")
 print(f"  - Melhor F1-Macro (5-Fold) : {grid_search.best_score_:.4f}")
 
 # Construir Heatmap C x Gamma
@@ -415,8 +415,8 @@ pivot_f1 = cv_res_df.pivot(index='param_svm__C', columns='param_svm__gamma', val
 
 fig, ax = plt.subplots(figsize=(8, 6), dpi=300)
 sns.heatmap(pivot_f1, annot=True, fmt=".4f", cmap="YlGnBu", cbar_kws={'label': 'F1-Score Macro (5-Fold CV)'}, ax=ax)
-ax.set_title('SuperfÃ­cie de OtimizaÃ§Ã£o GridSearchCV â€” SVM Kernel RBF (C vs. Gamma)', fontsize=11.5, fontweight='bold')
-ax.set_xlabel('HiperparÃ¢metro Gamma (Î³)')
+ax.set_title('Superfície de Otimização GridSearchCV — SVM Kernel RBF (C vs. Gamma)', fontsize=11.5, fontweight='bold')
+ax.set_xlabel('Hiperparâmetro Gamma (γ)')
 ax.set_ylabel('Penalidade de Margem Suave (C)')
 plt.tight_layout()
 
@@ -426,46 +426,46 @@ plt.show()
 print(f"[OK] Heatmap do GridSearchCV salvo em: {heatmap_fig_path}")"""))
 
     # =========================================================================
-    # CÃ‰LULA 8: DIAGNÃ“STICO DO ESTIMADOR CAMPEÃƒO (MATRIZES DE CONFUSÃƒO E ROC)
+    # CÉLULA 8: DIAGNÓSTICO DO ESTIMADOR CAMPEÃO (MATRIZES DE CONFUSÃO E ROC)
     # =========================================================================
-    cells.append(nbf.v4.new_markdown_cell("""## 5. AvaliaÃ§Ã£o DiagnÃ³stica do Modelo CampeÃ£o (`C=10.0, gamma=0.01`)
-Com o estimador Ã³timo homologado (`svm_pipeline_optimal`), avaliamos as prediÃ§Ãµes determinÃ­sticas e as probabilidades calibradas via Platt Scaling nas partiÃ§Ãµes de **ValidaÃ§Ã£o Independente ($N=617$)** e **Teste Cego ($N=380$)**, gerando as Matrizes de ConfusÃ£o e as Curvas ROC Multiclasse One-vs-Rest."""))
+    cells.append(nbf.v4.new_markdown_cell("""## 5. Avaliação Diagnóstica do Modelo Campeão (`C=10.0, gamma=0.01`)
+Com o estimador ótimo homologado (`svm_pipeline_optimal`), avaliamos as predições determinísticas e as probabilidades calibradas via Platt Scaling nas partições de **Validação Independente ($N=617$)** e **Teste Cego ($N=380$)**, gerando as Matrizes de Confusão e as Curvas ROC Multiclasse One-vs-Rest."""))
 
     cells.append(nbf.v4.new_code_cell("""champion_pipe = grid_search.best_estimator_
 
-# PrediÃ§Ãµes e probabilidades calibradas
+# Predições e probabilidades calibradas
 y_val_pred  = champion_pipe.predict(X_valid)
 y_val_proba = champion_pipe.predict_proba(X_valid)
 
 y_test_pred  = champion_pipe.predict(X_test)
 y_test_proba = champion_pipe.predict_proba(X_test)
 
-# VerificaÃ§Ã£o de calibraÃ§Ã£o estocÃ¡stica (soma = 1.0)
+# Verificação de calibração estocástica (soma = 1.0)
 np.testing.assert_allclose(y_val_proba.sum(axis=1), 1.0, atol=1e-5)
 np.testing.assert_allclose(y_test_proba.sum(axis=1), 1.0, atol=1e-5)
 
-# MÃ©tricas Globais
+# Métricas Globais
 val_auc  = roc_auc_score(y_valid, y_val_proba, multi_class='ovr', average='macro')
 test_auc = roc_auc_score(y_test, y_test_proba, multi_class='ovr', average='macro')
 
-print("=== MÃ‰TRICAS OFICIAIS DO ESTIMADOR CAMPEÃƒO (SVM RBF C=10.0, Î³=0.01) ===")
-print(f"ValidaÃ§Ã£o (N=617) | Acc: {accuracy_score(y_valid, y_val_pred)*100:.2f}% | Bal. Acc: {balanced_accuracy_score(y_valid, y_val_pred)*100:.2f}% | F1-Macro: {f1_score(y_valid, y_val_pred, average='macro'):.4f} | AUC-ROC: {val_auc:.4f}")
+print("=== MÉTRICAS OFICIAIS DO ESTIMADOR CAMPEÃO (SVM RBF C=10.0, γ=0.01) ===")
+print(f"Validação (N=617) | Acc: {accuracy_score(y_valid, y_val_pred)*100:.2f}% | Bal. Acc: {balanced_accuracy_score(y_valid, y_val_pred)*100:.2f}% | F1-Macro: {f1_score(y_valid, y_val_pred, average='macro'):.4f} | AUC-ROC: {val_auc:.4f}")
 print(f"Teste Cego (N=380)| Acc: {accuracy_score(y_test, y_test_pred)*100:.2f}% | Bal. Acc: {balanced_accuracy_score(y_test, y_test_pred)*100:.2f}% | F1-Macro: {f1_score(y_test, y_test_pred, average='macro'):.4f} | AUC-ROC: {test_auc:.4f}")
 
-print("\\nRelatÃ³rio Detalhado por Patologia (Teste Cego N=380):")
+print("\\nRelatório Detalhado por Patologia (Teste Cego N=380):")
 print(classification_report(y_test, y_test_pred, target_names=CLASS_LABELS, digits=4))
 
-# Figura 3: Matrizes de ConfusÃ£o Normalizadas (ValidaÃ§Ã£o vs Teste Cego)
+# Figura 3: Matrizes de Confusão Normalizadas (Validação vs Teste Cego)
 fig, axes = plt.subplots(1, 2, figsize=(15, 6), dpi=300)
-for idx, (split_lbl, y_t, y_p) in enumerate([('ValidaÃ§Ã£o (N=617)', y_valid, y_val_pred), ('Teste Cego (N=380)', y_test, y_test_pred)]):
+for idx, (split_lbl, y_t, y_p) in enumerate([('Validação (N=617)', y_valid, y_val_pred), ('Teste Cego (N=380)', y_test, y_test_pred)]):
     cm = confusion_matrix(y_t, y_p, labels=range(7))
     cm_norm = cm.astype(float) / cm.sum(axis=1, keepdims=True)
     sns.heatmap(cm_norm, annot=True, fmt=".2f", cmap="Blues", xticklabels=SHORT_LABELS, yticklabels=SHORT_LABELS, ax=axes[idx], cbar=True)
-    axes[idx].set_title(f"Matriz de ConfusÃ£o Normalizada â€” {split_lbl}", fontsize=11.5, fontweight='bold')
+    axes[idx].set_title(f"Matriz de Confusão Normalizada — {split_lbl}", fontsize=11.5, fontweight='bold')
     axes[idx].set_xlabel("Classe Predita pelo SVM")
-    axes[idx].set_ylabel("Classe Verdadeira (Laudo FitopatolÃ³gico)")
+    axes[idx].set_ylabel("Classe Verdadeira (Laudo Fitopatológico)")
 
-plt.suptitle("Matrizes de DecisÃ£o e ConfusÃ£o do Modelo CampeÃ£o (Healthy e Rust = 100% SeparÃ¡veis)", fontsize=13, fontweight='bold')
+plt.suptitle("Matrizes de Decisão e Confusão do Modelo Campeão (Healthy e Rust = 100% Separáveis)", fontsize=13, fontweight='bold')
 plt.tight_layout()
 cm_fig_path = FIGURES_DIR / 'sprint3_matrizes_confusao_valid_test.png'
 plt.savefig(cm_fig_path, dpi=300)
@@ -476,7 +476,7 @@ fig, axes = plt.subplots(1, 2, figsize=(15, 6), dpi=300)
 colors = ['#E53935', '#43A047', '#FB8C00', '#8E24AA', '#3949AB', '#00ACC1', '#FDD835']
 
 for idx, (split_lbl, y_t, y_prob, auc_m) in enumerate([
-    ('VALIDAÃ‡ÃƒO (N=617)', y_valid.values, y_val_proba, val_auc),
+    ('VALIDAÇÃO (N=617)', y_valid.values, y_val_proba, val_auc),
     ('TESTE CEGO (N=380)', y_test.values, y_test_proba, test_auc)
 ]):
     ax = axes[idx]
@@ -484,8 +484,8 @@ for idx, (split_lbl, y_t, y_prob, auc_m) in enumerate([
         fpr, tpr, _ = roc_curve((y_t == c).astype(int), y_prob[:, c])
         auc_c = roc_auc_score((y_t == c).astype(int), y_prob[:, c])
         ax.plot(fpr, tpr, color=colors[c], lw=1.8, label=f"{CLASS_LABELS[c]} (AUC = {auc_c:.4f})")
-    ax.plot([0, 1], [0, 1], 'k--', lw=1.1, label='AleatÃ³rio (0.5000)')
-    ax.set_title(f"Curvas ROC One-vs-Rest â€” {split_lbl}\\n(AUC-ROC Macro: {auc_m:.4f})", fontsize=11.5, fontweight='bold')
+    ax.plot([0, 1], [0, 1], 'k--', lw=1.1, label='Aleatório (0.5000)')
+    ax.set_title(f"Curvas ROC One-vs-Rest — {split_lbl}\\n(AUC-ROC Macro: {auc_m:.4f})", fontsize=11.5, fontweight='bold')
     ax.set_xlabel("1 - Especificidade (Taxa de Falsos Positivos)")
     ax.set_ylabel("Sensibilidade / Recall (Taxa de Verdadeiros Positivos)")
     ax.grid(linestyle=':', alpha=0.7)
@@ -495,19 +495,19 @@ plt.tight_layout()
 roc_fig_path = FIGURES_DIR / 'svm_multiclass_roc_curves.png'
 plt.savefig(roc_fig_path, dpi=300)
 plt.show()
-print(f"[OK] Matrizes de confusÃ£o e curvas ROC salvas em: {FIGURES_DIR}")"""))
+print(f"[OK] Matrizes de confusão e curvas ROC salvas em: {FIGURES_DIR}")"""))
 
     # =========================================================================
-    # CÃ‰LULA 9: PERSISTÃŠNCIA MLOPS E CERTIFICAÃ‡ÃƒO DE TEMPO (< 15 MIN)
+    # CÉLULA 9: PERSISTÃŠNCIA MLOPS E CERTIFICAÇÃO DE TEMPO (< 15 MIN)
     # =========================================================================
-    cells.append(nbf.v4.new_markdown_cell("""## 6. SerializaÃ§Ã£o de Artefatos MLOps e CertificaÃ§Ã£o de Tempo de ExecuÃ§Ã£o
-Persistimos o pipeline campeÃ£o (`models/svm_pipeline_optimal.joblib`), os modelos baseline e o registro de prediÃ§Ãµes calibradas (`data/processed/svm_predicoes_valid_test.csv`), certificando que o tempo total de *Restart & Run All* Ã© estritamente inferior ao limite de 15 minutos (900 segundos)."""))
+    cells.append(nbf.v4.new_markdown_cell("""## 6. Serialização de Artefatos MLOps e Certificação de Tempo de Execução
+Persistimos o pipeline campeão (`models/svm_pipeline_optimal.joblib`), os modelos baseline e o registro de predições calibradas (`data/processed/svm_predicoes_valid_test.csv`), certificando que o tempo total de *Restart & Run All* é estritamente inferior ao limite de 15 minutos (900 segundos)."""))
 
-    cells.append(nbf.v4.new_code_cell("""# 1. Persistir o estimador campeÃ£o atÃ´mico
+    cells.append(nbf.v4.new_code_cell("""# 1. Persistir o estimador campeão atômico
 optimal_model_path = MODELS_DIR / 'svm_pipeline_optimal.joblib'
 joblib.dump(champion_pipe, optimal_model_path, compress=3)
 
-# 2. Exportar tabela auditÃ¡vel de prediÃ§Ãµes calibradas (ValidaÃ§Ã£o + Teste)
+# 2. Exportar tabela auditável de predições calibradas (Validação + Teste)
 proba_col_names = [
     'y_proba_grassy_shoot', 'y_proba_healthy', 'y_proba_leaf_scald',
     'y_proba_mosaic', 'y_proba_red_rot', 'y_proba_rust', 'y_proba_yellow_leaf'
@@ -538,11 +538,11 @@ total_elapsed_sec = time.perf_counter() - NOTEBOOK_START_TIME
 assert total_elapsed_sec < 900.0, f"Tempo limite de 15 min excedido: {total_elapsed_sec:.2f}s"
 
 print("="*80)
-print("CERTIFICAÃ‡ÃƒO DE EXECUÃ‡ÃƒO REPRODUTÃVEL ('RESTART & RUN ALL')")
+print("CERTIFICAÇÃO DE EXECUÇÃO REPRODUTÍVEL ('RESTART & RUN ALL')")
 print("="*80)
-print(f"  - Modelo CampeÃ£o Serializado : {optimal_model_path.name} ({optimal_model_path.stat().st_size / 1024:.2f} KB)")
-print(f"  - PrediÃ§Ãµes Calibradas       : {preds_csv_path.name} ({len(df_preds_out)} instÃ¢ncias auditadas)")
-print(f"  - Tempo Total de ExecuÃ§Ã£o    : {total_elapsed_sec:.2f} segundos ({total_elapsed_sec/60:.2f} min) << Limite de 15 min [APROVADO]")
+print(f"  - Modelo Campeão Serializado : {optimal_model_path.name} ({optimal_model_path.stat().st_size / 1024:.2f} KB)")
+print(f"  - Predições Calibradas       : {preds_csv_path.name} ({len(df_preds_out)} instâncias auditadas)")
+print(f"  - Tempo Total de Execução    : {total_elapsed_sec:.2f} segundos ({total_elapsed_sec/60:.2f} min) << Limite de 15 min [APROVADO]")
 print("="*80)"""))
 
     nb["cells"] = cells
@@ -552,7 +552,7 @@ print("="*80)"""))
 def execute_and_render_notebook(notebook_path: Path) -> float:
     """
     Simula 'Restart & Run All' em um namespace limpo, captura stdout e figuras PNG
-    do Matplotlib e grava as saÃ­das renderizadas diretamente no arquivo .ipynb.
+    do Matplotlib e grava as saídas renderizadas diretamente no arquivo .ipynb.
     """
     print(f"\n[1/3] Carregando estrutura do notebook: {notebook_path}")
     with open(notebook_path, "r", encoding="utf-8") as f:
@@ -566,7 +566,7 @@ def execute_and_render_notebook(notebook_path: Path) -> float:
         if cell["cell_type"] == "code":
             code_idx += 1
             source_code = "".join(cell["source"])
-            print(f"[2/3] Executando cÃ©lula de cÃ³digo #{code_idx}...")
+            print(f"[2/3] Executando célula de código #{code_idx}...")
 
             old_stdout = sys.stdout
             captured_out = io.StringIO()
@@ -580,7 +580,7 @@ def execute_and_render_notebook(notebook_path: Path) -> float:
                 exec(exec_code, global_env)
             except Exception as exc:
                 sys.stdout = old_stdout
-                print(f"[ERRO] Falha na cÃ©lula #{code_idx}: {exc}")
+                print(f"[ERRO] Falha na célula #{code_idx}: {exc}")
                 raise exc
             finally:
                 sys.stdout = old_stdout

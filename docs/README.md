@@ -77,7 +77,7 @@
 ## 📂 Entregas da Sprint 3 — Framework SEMMA (Fase: Model)
 
 ### 9. Diagnóstico Matemático dos Vetores de Suporte e Curvas de Aprendizado (Viés-Variância)
-- **[`../entregas/Diagnóstico Matemático dos Vetores de Suporte (Support Vectors)/README.md`](../entregas/Diagn%C3%B3stico%20Matem%C3%A1tico%20dos%20Vetores%20de%20Suporte%20(Support%20Vectors)/README.md)**: Dossiê completo de densidade de suporte (`n_support_`), trade-off de $C$, variáveis de folga ($\xi_i > 0$), isolamento de patches ambíguos e projeções 2D/3D do hiperplano.
+- **[`../entregas/Diagnóstico Matemático dos Vetores de Suporte (Support Vectors)/README.md`](../entregas/Diagn%C3%B3stico%20Matem%C3%A1tico%20dos%20Vetores%20de%20Suporte%20%28Support%20Vectors%29/README.md)**: Dossiê completo de densidade de suporte (`n_support_`), trade-off de $C$, variáveis de folga ($\xi_i > 0$), isolamento de patches ambíguos e projeções 2D/3D do hiperplano.
 - **[`./relatorio_curvas_aprendizado_vies_variancia_sprint3.md`](./relatorio_curvas_aprendizado_vies_variancia_sprint3.md)**: Relatório técnico-estatístico de Curvas de Aprendizado (10% a 100%), convergência assintótica ($S_\infty$) e decomposição do Trade-off Viés-Variância comprovando a ausência de sobreajuste.
 - **[`../entregas/Curvas de Aprendizado e Análise do Trade-off Viés-Variância/README.md`](../entregas/Curvas%20de%20Aprendizado%20e%20An%C3%A1lise%20do%20Trade-off%20Vi%C3%A9s-Vari%C3%A2ncia/README.md)**: Dossiê executivo da entrega da Sprint 3 com tabelas, diagnósticos matemáticos e figuras em 300 DPI.
 - **[`../src/svm_learning_curves_bias_variance.py`](../src/svm_learning_curves_bias_variance.py)**: Módulo Python de geração de curvas de aprendizado, diagnóstico assintótico e plotagem estatística.
@@ -91,7 +91,7 @@
 
 ### 10. Matrizes de Confusão Normalizadas, Curvas ROC-AUC, Precision-Recall e Threshold Tuning
 - **[`./relatorio_validacao_estatistica_matrizes_roc_pr_vol4.md`](./relatorio_validacao_estatistica_matrizes_roc_pr_vol4.md)**: Relatório estatístico completo do **Relato Vol. 4** contendo matrizes de confusão absolutas e normalizadas (7 patologias e agrupamento agronômico Saudável/Ferrugem/Outras), curvas ROC One-vs-Rest (Macro/Micro AUC), curvas Precision-Recall focadas na Ferrugem e calibração de limiares (*Threshold Tuning*).
-- **[`../entregas/Matrizes de Confusão e Curvas de Discriminação Estatística (ROC e PR)/README.md`](../entregas/Matrizes%20de%20Confus%C3%A3o%20e%20Curvas%20de%20Discrimina%C3%A7%C3%A3o%20Estat%C3%ADstica%20(ROC%20e%20PR)/README.md)**: Dossiê executivo da entrega da Sprint 4.
+- **[`../entregas/Matrizes de Confusão e Curvas de Discriminação Estatística (ROC e PR)/README.md`](../entregas/Matrizes%20de%20Confus%C3%A3o%20e%20Curvas%20de%20Discrimina%C3%A7%C3%A3o%20Estat%C3%ADstica%20%28ROC%20e%20PR%29/README.md)**: Dossiê executivo da entrega da Sprint 4.
 - **[`../src/svm_statistical_validation_assess.py`](../src/svm_statistical_validation_assess.py)**: Módulo Python de validação estatística e geração das figuras em alta resolução.
 - **[`./figures/sprint4_confusion_matrices_multiclass_abs_norm.png`](./figures/sprint4_confusion_matrices_multiclass_abs_norm.png)**: Matrizes de confusão absoluta e normalizada das 7 patologias foliares.
 - **[`./figures/sprint4_confusion_matrices_agronomic_3class.png`](./figures/sprint4_confusion_matrices_agronomic_3class.png)**: Matrizes de confusão absoluta e normalizada do agrupamento agronômico (Saudável, Ferrugem e Outras Patologias).
@@ -99,9 +99,23 @@
 - **[`./figures/sprint4_pr_curve_rust_and_critical_classes.png`](./figures/sprint4_pr_curve_rust_and_critical_classes.png)**: Curva Precision-Recall focada na classe crítica de Ferrugem (`RUST`) e comparativo multiclasse.
 - **[`./figures/sprint4_threshold_tuning_sensitivity_calibration.png`](./figures/sprint4_threshold_tuning_sensitivity_calibration.png)**: Curvas de calibração de limiares de decisão (*Threshold Tuning*) para otimização de sensibilidade.
 
+### 10b. Arcabouço de Comparação Estatística: Baselines vs. Configurações Otimizadas de SVM (Luis — Relato Vol. 4)
+- **[`./relatorio_arcabouco_comparacao_estatistica_baselines_vs_svm.md`](./relatorio_arcabouco_comparacao_estatistica_baselines_vs_svm.md)**: Relatório estatístico executivo completo cobrindo a comparação unificada dos 10 modelos supervisionados (Sprints 3 e 4), testes de hipótese pareados (teste t de Student e Wilcoxon), intervalos de confiança a 95%, margens de erro entre folds e justificativa de governança analítica.
+- **[`../entregas/Estrutura do Arcabouco de Comparacao Estatistica entre Baselines e SVM/README.md`](../entregas/Estrutura%20do%20Arcabouco%20de%20Comparacao%20Estatistica%20entre%20Baselines%20e%20SVM/README.md)**: Dossiê completo da entrega com checklist 100% homologado.
+- **[`../src/statistical_comparison_framework.py`](../src/statistical_comparison_framework.py)**: Módulo Python executável de avaliação cruzada 5-fold, testes de hipótese estatística e cálculo de intervalos de confiança.
+- **[`../src/test_statistical_comparison_framework.py`](../src/test_statistical_comparison_framework.py)**: Suíte de testes automatizados com 100% de cobertura dos 4 critérios de aceite do checklist.
+- **[`../models/unified_models_benchmark_sprint3_sprint4.csv`](../models/unified_models_benchmark_sprint3_sprint4.csv)**: Tabela consolidada com 27 atributos de generalização para os 10 modelos supervisionados.
+- **[`../models/statistical_hypothesis_tests_summary.csv`](../models/statistical_hypothesis_tests_summary.csv)**: Consolidação dos testes pareados de Student, Wilcoxon, Cohen's $d$, ganhos absolutos e relativos.
+- **[`../models/confidence_intervals_metrics_95.csv`](../models/confidence_intervals_metrics_95.csv)**: Documentação formal dos intervalos de confiança (95%) e margens de erro entre os folds.
+- **[`../models/statistical_comparison_framework_metadata.json`](../models/statistical_comparison_framework_metadata.json)**: Manifesto de governança analítica e metadados MLOps.
+- **[`./figures/models_benchmark_unified_comparison.png`](./figures/models_benchmark_unified_comparison.png)**: Comparativo unificado de métricas ($F_1\text{-Macro}$ e Acurácia) por partição.
+- **[`./figures/confidence_intervals_error_margins_95.png`](./figures/confidence_intervals_error_margins_95.png)**: Forest plot com intervalos de confiança a 95% e margens de erro.
+- **[`./figures/statistical_gain_hypothesis_tests.png`](./figures/statistical_gain_hypothesis_tests.png)**: Tamanhos de efeito de Cohen ($d$) e ganhos relativos percentuais sobre os baselines.
+- **[`./figures/pareto_efficiency_latency_vs_f1.png`](./figures/pareto_efficiency_latency_vs_f1.png)**: Mapeamento da fronteira de Pareto de latência vs desempenho preditivo.
+
 ### 11. Auditoria de Erros Críticos e Impacto Agronômico/Econômico (Falsos Positivos vs. Falsos Negativos)
 - **[`./relatorio_auditoria_erros_impacto_agronomico_sprint4.md`](./relatorio_auditoria_erros_impacto_agronomico_sprint4.md)**: Relatório executivo e financeiro de auditoria das 149 instâncias classificadas incorretamente no conjunto de teste independente ($N=380$), quantificação do risco agronômico de Falso Negativo (`RUST` e `RED ROT`), impacto econômico de Falso Positivo (fungicida químico) e Matriz de Custo/Perda Agronômica $7 \times 7$ com Regra de Decisão de Risco Mínimo de Bayes.
-- **[`../entregas/Auditoria de Erros Críticos e Impacto Agronômico (FP vs FN)/README.md`](../entregas/Auditoria%20de%20Erros%20Cr%C3%ADticos%20e%20Impacto%20Agron%C3%B4mico%20(FP%20vs%20FN)/README.md)**: Dossiê completo da entrega de Auditoria de Erros da Sprint 4.
+- **[`../entregas/Auditoria de Erros Críticos e Impacto Agronômico (FP vs FN)/README.md`](../entregas/Auditoria%20de%20Erros%20Cr%C3%ADticos%20e%20Impacto%20Agron%C3%B4mico%20%28FP%20vs%20FN%29/README.md)**: Dossiê completo da entrega de Auditoria de Erros da Sprint 4.
 - **[`../src/svm_agronomic_error_audit.py`](../src/svm_agronomic_error_audit.py)**: Módulo Python de isolamento de instâncias incorretas, modelagem econômico-agronômica da cana-de-açúcar e geração automatizada de relatórios e gráficos.
 - **[`../models/svm_misclassified_test_instances.csv`](../models/svm_misclassified_test_instances.csv)**: Catálogo completo das 149 amostras classificadas incorretamente no conjunto de teste com metadados visuais e probabilidades preditas.
 - **[`../models/svm_agronomic_cost_matrix_7x7.csv`](../models/svm_agronomic_cost_matrix_7x7.csv)**: Matriz de Custo/Perda Agronômica $7 \times 7$ ($\mathbf{L}$) em R$/ha.
