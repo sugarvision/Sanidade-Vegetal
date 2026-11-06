@@ -1,0 +1,7 @@
+Particao,Grupo_Real,Suporte_Real,Pred_Saudavel_Abs,Pred_Ferrugem_Abs,Pred_Outras_Abs,Pred_Saudavel_Pct,Pred_Ferrugem_Pct,Pred_Outras_Pct,Sensibilidade_Grupo
+Validacao (N=617),SAUDÁVEL (HEALTHY),95,95,0,0,100.0,0.0,0.0,1.0
+Validacao (N=617),FERRUGEM (RUST),91,0,91,0,0.0,100.0,0.0,1.0
+Validacao (N=617),OUTRAS PATOLOGIAS,431,0,0,431,0.0,0.0,100.0,1.0
+Teste Cego (N=380),SAUDÁVEL (HEALTHY),46,46,0,0,100.0,0.0,0.0,1.0
+Teste Cego (N=380),FERRUGEM (RUST),51,0,51,0,0.0,100.0,0.0,1.0
+Teste Cego (N=380),OUTRAS PATOLOGIAS,283,0,0,283,0.0,0.0,100.0,1.0

@@ -1,6 +1,6 @@
 # 📓 Notebooks do Projeto Sanidade-Vegetal (SugarVision)
 
-**Sprint 1 — Framework SEMMA (Fases Ativas: Sample & Explore)**
+**Framework Metodológico SEMMA (Fases: Sample, Explore, Modify, Model & Assess)**
 
 ---
 
@@ -13,21 +13,22 @@
 | **[`02A_sprint1_master_pipeline_reprodutivel.ipynb`](./02A_sprint1_master_pipeline_reprodutivel.ipynb)** | **Master Pipeline Reprodutível da Sprint 1:** Execução unificada de ponta a ponta (Ingestão $\rightarrow$ Amostragem Estratificada $\rightarrow$ Auditoria de Qualidade $\rightarrow$ EDA Univariada/Multivariada $\rightarrow$ Consolidação da ABT). | Cesar / Equipe | `Sample` & `Explore` |
 | **[`03A_eda_univariada_sprint1.ipynb`](./03A_eda_univariada_sprint1.ipynb)** | Análise Exploratória Univariada de distribuições, assimetrias e dispersão. | Equipe de Análise | `Explore` |
 | **[`04A_eda_multivariada_sprint1.ipynb`](./04A_eda_multivariada_sprint1.ipynb)** | Análise Exploratória Multivariada, correlações e separabilidade inicial. | Equipe de Análise | `Explore` |
-| **[`05_estudo_teorico_e_aplicado_svm.ipynb`](./05_estudo_teorico_e_aplicado_svm.ipynb)** | Estudo teórico e experimental do Support Vector Machine e funções de Kernel. | Pesquisa IA | `Model` |
+| **[`03_sprint2_modify_pipeline.ipynb`](./03_sprint2_modify_pipeline.ipynb)** | **Master Pipeline da Sprint 2 (Fase Modify):** Extração de features visuais e validação automatizada de limites numéricos. | Squad 2 | `Modify` |
 | **[`06_pipeline_atomico_columntransformer.ipynb`](./06_pipeline_atomico_columntransformer.ipynb)** | **Pipeline Atômico de Pré-processamento e Anti-Leakage (Sprint 2):** Fluxo unificado no Scikit-Learn com `ColumnTransformer`, imputação por mediana, normalização z-score, codificação One-Hot, validação estrita anti-leakage e serialização MLOps com `joblib`. | Elisa (`EA`) | `Modify` |
-| **[`07_consolidacao_exportacao_abt_final.ipynb`](./07_consolidacao_exportacao_abt_final.ipynb)** | **Consolidação e Exportação da ABT Final (Sprint 2):** Validação de 0 NaNs, persistência em Apache Parquet colunar e CSV, benchmark de desempenho I/O, hashes SHA-256 e teste de prontidão com `GridSearchCV`.  `Modify` |
-=======
+| **[`07_consolidacao_exportacao_abt_final.ipynb`](./07_consolidacao_exportacao_abt_final.ipynb)** | **Consolidação e Exportação da ABT Final (Sprint 2):** Validação de 0 NaNs, persistência em Apache Parquet colunar e CSV, benchmark de desempenho I/O, hashes SHA-256 e teste de prontidão com `GridSearchCV`. | Elisa (`EA`) | `Modify` |
+| **[`04_sprint3_model_pipeline.ipynb`](./04_sprint3_model_pipeline.ipynb)** | **Master Notebook Oficial da Sprint 3 (Fase Model):** Pipeline unificado de treinamento, modelos baseline, estudo do Kernel Trick, otimização `GridSearchCV` e serialização MLOps. | Squad 2 | `Model` |
+| **[`05_estudo_teorico_e_aplicado_svm.ipynb`](./05_estudo_teorico_e_aplicado_svm.ipynb)** | Estudo teórico e experimental do Support Vector Machine e funções de Kernel. | Pesquisa IA | `Model` |
 | **[`08_pipeline_atomico_svm_anti_leakage.ipynb`](./08_pipeline_atomico_svm_anti_leakage.ipynb)** | **Pipeline Atômico SVM Anti-Leakage (Sprint 3):** Encapsulamento do pré-processador e estimador `SVC`, garantia de ausência de leakage com `StratifiedKFold`, validação dos métodos `.fit()`, `.predict()` e `.predict_proba()` com Platt Scaling. | Elisa (`EA`) | `Model` |
-| **[`09_grid_search_exaustivo_svm.ipynb`](./09_grid_search_exaustivo_svm.ipynb)** | **Otimização de Hiperparâmetros via Grid Search (Sprint 3):** Varredura exaustiva de hiperparâmetros para kernels Linear, RBF e Polinomial com `StratifiedKFold(cv=5)` orientada pelo F1-Score Macro.  | `Model` |
-| **[`10_concepcao_treinamento_benchmark_baselines.ipynb`](./10_concepcao_treinamento_benchmark_baselines.ipynb)** | **Concepção, Treinamento e Benchmark de Baselines (Sprint 3):** Construção e avaliação de modelos de referência (`DummyClassifier`, `LogisticRegression` Ridge L2 e `DecisionTreeClassifier` rasa `max_depth=4`), ponderação `class_weight='balanced'`, mitigação de desbalanceamento e comprovação estatística do ganho do SVM via teste t pareado. |`Model` |
-
+| **[`09_grid_search_exaustivo_svm.ipynb`](./09_grid_search_exaustivo_svm.ipynb)** | **Otimização de Hiperparâmetros via Grid Search (Sprint 3):** Varredura exaustiva de hiperparâmetros para kernels Linear, RBF e Polinomial com `StratifiedKFold(cv=5)` orientada pelo F1-Score Macro. | Elisa (`EA`) | `Model` |
+| **[`10_concepcao_treinamento_benchmark_baselines.ipynb`](./10_concepcao_treinamento_benchmark_baselines.ipynb)** | **Concepção, Treinamento e Benchmark de Baselines (Sprint 3):** Construção e avaliação de modelos de referência (`DummyClassifier`, `LogisticRegression` Ridge L2 e `DecisionTreeClassifier` rasa `max_depth=4`), ponderação `class_weight='balanced'`, mitigação de desbalanceamento e comprovação estatística do ganho do SVM via teste t pareado. | Luis | `Model` |
+| **[`05_sprint4_assess_validation.ipynb`](./05_sprint4_assess_validation.ipynb)** | **Master Notebook Oficial da Sprint 4 (Fase Assess):** Validação estatística de generalização (`AUC-ROC`, `AP`, Matrizes de Confusão 7 classes e 3 classes agronômicas, *Threshold Tuning*, `RepeatedStratifiedKFold`, testes de hipótese pareados, auditoria financeira FP vs. FN, *Permutation Feature Importance* e exportação automatizada de 14 relatórios tabulares CSV + Markdown em `docs/`). | Squad 2 | `Assess` |
 | **[`dossie_fase_modify_semma.ipynb`](./dossie_fase_modify_semma.ipynb)** | **Dossiê e Inventário Interativo da Fase Modify:** Notebook executável com todo o catálogo, documentação, inventário de scripts e smoke tests pronto para abrir no Google Colab. | Squad 2 | `Modify` |
 
 ---
 
-## 🚀 Como Executar o Master Pipeline Reprodutível
+## 🚀 Como Executar os Master Pipelines Reprodutíveis
 
-1. Certifique-se de que o arquivo `data/processed/metadata_raw_images.csv` está presente.
-2. Abra o notebook `02A_sprint1_master_pipeline_reprodutivel.ipynb` no VS Code ou Jupyter Lab.
+1. Certifique-se de que os arquivos consolidados em `data/processed/` estão presentes.
+2. Abra qualquer um dos Master Notebooks oficiais (`02A_sprint1_master_pipeline_reprodutivel.ipynb`, `04_sprint3_model_pipeline.ipynb` ou `05_sprint4_assess_validation.ipynb`) no VS Code ou Jupyter Lab.
 3. Clique em **Restart & Run All**.
-4. Os gráficos diagnósticos serão salvos automaticamente em `docs/figures/` e a Analytical Base Table será consolidada em `data/processed/abt_sanidade_vegetal.csv`.
+4. Os gráficos diagnósticos serão salvos automaticamente em `docs/figures/` e os relatórios tabulares da Sprint 4 serão exportados em pares `.csv` e `.md` diretamente em `docs/`.
