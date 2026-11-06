@@ -1,0 +1,1694 @@
+{
+  "report_title": "Relatório de Telemetria de Data/Concept Drift e Gatilhos de Retreinamento",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "timestamp": "2026-11-06 11:07:27",
+  "scenarios_evaluated": {
+    "nominal_operation_stable": {
+      "batch_name": "Cenario_01_Operacao_Nominal_Estavel",
+      "timestamp": "2026-11-06 11:07:27",
+      "n_reference_samples": 5574,
+      "n_current_samples": 500,
+      "decision": {
+        "alert_level": "NORMAL",
+        "retrain_required": false,
+        "rollback_required": false,
+        "recommended_action": "Distribuições ópticas e texturais estáveis. Manter operação padrão do modelo v1.0.0.",
+        "summary_metrics": {
+          "total_monitored_features": 17,
+          "n_critical_features": 0,
+          "n_warning_features": 0,
+          "n_critical_psi_features": 0,
+          "n_critical_ks_features": 0,
+          "critical_feature_fraction": 0.0,
+          "max_psi": 0.055256,
+          "mean_psi": 0.017351,
+          "max_ks_statistic": 0.056673,
+          "new_labeled_samples": 120,
+          "days_since_last_train": 18,
+          "current_f1_macro": 0.6048,
+          "quarantine_rate": 0.005
+        },
+        "critical_features_list": [],
+        "warning_features_list": [],
+        "triggered_rules": [],
+        "probable_field_causes": []
+      },
+      "feature_metrics": {
+        "mean_hue": {
+          "feature_name": "mean_hue",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.015944,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.056673,
+          "ks_p_value": 0.1006916,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 49.1091,
+          "current_mean": 49.9916,
+          "reference_std": 18.2481,
+          "current_std": 18.7528,
+          "relative_mean_shift_pct": 1.8,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "std_saturation": {
+          "feature_name": "std_saturation",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.01836,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.053147,
+          "ks_p_value": 0.14402743,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 0.197,
+          "current_mean": 0.1918,
+          "reference_std": 0.0645,
+          "current_std": 0.0644,
+          "relative_mean_shift_pct": -2.68,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar"
+          ]
+        },
+        "exg_index": {
+          "feature_name": "exg_index",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.019722,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.038521,
+          "ks_p_value": 0.49088412,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 22.0865,
+          "current_mean": 22.5931,
+          "reference_std": 12.7958,
+          "current_std": 12.5977,
+          "relative_mean_shift_pct": 2.29,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "exr_index": {
+          "feature_name": "exr_index",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.018825,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.052946,
+          "ks_p_value": 0.1468947,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 4.5866,
+          "current_mean": 3.1998,
+          "reference_std": 13.8064,
+          "current_std": 13.6199,
+          "relative_mean_shift_pct": -30.24,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "rg_ratio": {
+          "feature_name": "rg_ratio",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.020833,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.042487,
+          "ks_p_value": 0.367847,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 0.825,
+          "current_mean": 0.8061,
+          "reference_std": 0.2434,
+          "current_std": 0.2402,
+          "relative_mean_shift_pct": -2.29,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "indice_clorose_necrose": {
+          "feature_name": "indice_clorose_necrose",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.055256,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.05015,
+          "ks_p_value": 0.19169453,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 4.4121,
+          "current_mean": 4.4516,
+          "reference_std": 1.5607,
+          "current_std": 1.558,
+          "relative_mean_shift_pct": 0.89,
+          "associated_field_drift_sources": [
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "hue_dispersion": {
+          "feature_name": "hue_dispersion",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.017272,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.037838,
+          "ks_p_value": 0.51394071,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 8.9594,
+          "current_mean": 8.9208,
+          "reference_std": 3.1098,
+          "current_std": 3.3512,
+          "relative_mean_shift_pct": -0.43,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar"
+          ]
+        },
+        "glcm_contrast": {
+          "feature_name": "glcm_contrast",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.010923,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.036361,
+          "ks_p_value": 0.56525628,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 25.4214,
+          "current_mean": 24.9615,
+          "reference_std": 9.3968,
+          "current_std": 9.409,
+          "relative_mean_shift_pct": -1.81,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "glcm_homogeneity": {
+          "feature_name": "glcm_homogeneity",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.009869,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.044539,
+          "ks_p_value": 0.31254631,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 0.6945,
+          "current_mean": 0.7035,
+          "reference_std": 0.1166,
+          "current_std": 0.1169,
+          "relative_mean_shift_pct": 1.31,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "glcm_dissimilarity": {
+          "feature_name": "glcm_dissimilarity",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.014794,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.043781,
+          "ks_p_value": 0.33226799,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 2.0842,
+          "current_mean": 2.0211,
+          "reference_std": 0.8637,
+          "current_std": 0.8578,
+          "relative_mean_shift_pct": -3.03,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "glcm_energy": {
+          "feature_name": "glcm_energy",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.009869,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.044539,
+          "ks_p_value": 0.31254631,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 0.6945,
+          "current_mean": 0.7035,
+          "reference_std": 0.1166,
+          "current_std": 0.1169,
+          "relative_mean_shift_pct": 1.31,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "indice_rugosidade_pustula": {
+          "feature_name": "indice_rugosidade_pustula",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.016509,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.041973,
+          "ks_p_value": 0.38261188,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 97.4758,
+          "current_mean": 92.1373,
+          "reference_std": 83.8942,
+          "current_std": 79.7321,
+          "relative_mean_shift_pct": -5.48,
+          "associated_field_drift_sources": [
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "laplacian_var": {
+          "feature_name": "laplacian_var",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.017604,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.02888,
+          "ks_p_value": 0.8269428,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 153.9564,
+          "current_mean": 152.4257,
+          "reference_std": 51.7889,
+          "current_std": 51.4183,
+          "relative_mean_shift_pct": -0.99,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "size_kb": {
+          "feature_name": "size_kb",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.018713,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.045658,
+          "ks_p_value": 0.28493668,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 720.1345,
+          "current_mean": 601.5946,
+          "reference_std": 2117.0785,
+          "current_std": 1996.494,
+          "relative_mean_shift_pct": -16.46,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "total_pixels": {
+          "feature_name": "total_pixels",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.011742,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.034095,
+          "ks_p_value": 0.646476,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 2594547.9792,
+          "current_mean": 2116635.648,
+          "reference_std": 6745690.8891,
+          "current_std": 6062977.6473,
+          "relative_mean_shift_pct": -18.42,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "resolution_mp": {
+          "feature_name": "resolution_mp",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.011742,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.034095,
+          "ks_p_value": 0.646476,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 2.5949,
+          "current_mean": 2.117,
+          "reference_std": 6.7455,
+          "current_std": 6.0628,
+          "relative_mean_shift_pct": -18.42,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "aspect_ratio": {
+          "feature_name": "aspect_ratio",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.006988,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.020214,
+          "ks_p_value": 0.98998991,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 1.0375,
+          "current_mean": 1.0305,
+          "reference_std": 0.1581,
+          "current_std": 0.1359,
+          "relative_mean_shift_pct": -0.68,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        }
+      }
+    },
+    "seasonal_illumination_shift": {
+      "batch_name": "Cenario_02_Transicao_Sazonal_Iluminacao_Moderada",
+      "timestamp": "2026-11-06 11:07:27",
+      "n_reference_samples": 5574,
+      "n_current_samples": 500,
+      "decision": {
+        "alert_level": "WARNING_MONITORING",
+        "retrain_required": false,
+        "rollback_required": false,
+        "recommended_action": "Manter modelo v1.0.0 ativo, reduzir janela de amostragem de telemetria para 24h e priorizar rotulagem de amostras limítrofes (Active Learning).",
+        "summary_metrics": {
+          "total_monitored_features": 17,
+          "n_critical_features": 1,
+          "n_warning_features": 0,
+          "n_critical_psi_features": 0,
+          "n_critical_ks_features": 1,
+          "critical_feature_fraction": 0.0588,
+          "max_psi": 0.133138,
+          "mean_psi": 0.024245,
+          "max_ks_statistic": 0.141303,
+          "new_labeled_samples": 240,
+          "days_since_last_train": 45,
+          "current_f1_macro": 0.571,
+          "quarantine_rate": 0.018
+        },
+        "critical_features_list": [
+          "mean_hue"
+        ],
+        "warning_features_list": [],
+        "triggered_rules": [],
+        "probable_field_causes": [
+          {
+            "source_id": "DRIFT-SRC-01",
+            "source_key": "seasonal_illumination",
+            "name": "Mudança de Iluminação Sazonal e Geometria Solar",
+            "drift_taxonomy": "Data Drift (Covariate Shift)",
+            "matching_drifted_features": [
+              "mean_hue"
+            ],
+            "recommended_mitigation": "Normalização radiométrica via StandardScaler re-ajustado por estação climática, calibração de balanço de branco na borda e retreinamento sazonal com amostras estratificadas por iluminância."
+          },
+          {
+            "source_id": "DRIFT-SRC-03",
+            "source_key": "phenological_stages_and_cultivars",
+            "name": "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares",
+            "drift_taxonomy": "Concept Drift & Covariate Shift",
+            "matching_drifted_features": [
+              "mean_hue"
+            ],
+            "recommended_mitigation": "Retreinamento programado a cada ciclo fenológico trimestral (90 dias) com auditoria fitopatológica humana (Active Learning) e expansão da ABT para contemplar novas cultivares comerciais."
+          }
+        ]
+      },
+      "feature_metrics": {
+        "mean_hue": {
+          "feature_name": "mean_hue",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.133138,
+          "psi_severity": "WARNING",
+          "ks_statistic": 0.141303,
+          "ks_p_value": 2e-08,
+          "ks_drift_detected": true,
+          "ks_severity": "CRITICAL",
+          "combined_severity": "CRITICAL",
+          "reference_mean": 49.1091,
+          "current_mean": 54.7654,
+          "reference_std": 18.2481,
+          "current_std": 18.9342,
+          "relative_mean_shift_pct": 11.52,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "std_saturation": {
+          "feature_name": "std_saturation",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.01836,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.053147,
+          "ks_p_value": 0.14402743,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 0.197,
+          "current_mean": 0.1918,
+          "reference_std": 0.0645,
+          "current_std": 0.0644,
+          "relative_mean_shift_pct": -2.68,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar"
+          ]
+        },
+        "exg_index": {
+          "feature_name": "exg_index",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.019722,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.038521,
+          "ks_p_value": 0.49088412,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 22.0865,
+          "current_mean": 22.5931,
+          "reference_std": 12.7958,
+          "current_std": 12.5977,
+          "relative_mean_shift_pct": 2.29,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "exr_index": {
+          "feature_name": "exr_index",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.018825,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.052946,
+          "ks_p_value": 0.1468947,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 4.5866,
+          "current_mean": 3.1998,
+          "reference_std": 13.8064,
+          "current_std": 13.6199,
+          "relative_mean_shift_pct": -30.24,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "rg_ratio": {
+          "feature_name": "rg_ratio",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.020833,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.042487,
+          "ks_p_value": 0.367847,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 0.825,
+          "current_mean": 0.8061,
+          "reference_std": 0.2434,
+          "current_std": 0.2402,
+          "relative_mean_shift_pct": -2.29,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "indice_clorose_necrose": {
+          "feature_name": "indice_clorose_necrose",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.055256,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.05015,
+          "ks_p_value": 0.19169453,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 4.4121,
+          "current_mean": 4.4516,
+          "reference_std": 1.5607,
+          "current_std": 1.558,
+          "relative_mean_shift_pct": 0.89,
+          "associated_field_drift_sources": [
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "hue_dispersion": {
+          "feature_name": "hue_dispersion",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.017272,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.037838,
+          "ks_p_value": 0.51394071,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 8.9594,
+          "current_mean": 8.9208,
+          "reference_std": 3.1098,
+          "current_std": 3.3512,
+          "relative_mean_shift_pct": -0.43,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar"
+          ]
+        },
+        "glcm_contrast": {
+          "feature_name": "glcm_contrast",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.010923,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.036361,
+          "ks_p_value": 0.56525628,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 25.4214,
+          "current_mean": 24.9615,
+          "reference_std": 9.3968,
+          "current_std": 9.409,
+          "relative_mean_shift_pct": -1.81,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "glcm_homogeneity": {
+          "feature_name": "glcm_homogeneity",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.009869,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.044539,
+          "ks_p_value": 0.31254631,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 0.6945,
+          "current_mean": 0.7035,
+          "reference_std": 0.1166,
+          "current_std": 0.1169,
+          "relative_mean_shift_pct": 1.31,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "glcm_dissimilarity": {
+          "feature_name": "glcm_dissimilarity",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.014794,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.043781,
+          "ks_p_value": 0.33226799,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 2.0842,
+          "current_mean": 2.0211,
+          "reference_std": 0.8637,
+          "current_std": 0.8578,
+          "relative_mean_shift_pct": -3.03,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "glcm_energy": {
+          "feature_name": "glcm_energy",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.009869,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.044539,
+          "ks_p_value": 0.31254631,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 0.6945,
+          "current_mean": 0.7035,
+          "reference_std": 0.1166,
+          "current_std": 0.1169,
+          "relative_mean_shift_pct": 1.31,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "indice_rugosidade_pustula": {
+          "feature_name": "indice_rugosidade_pustula",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.016509,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.041973,
+          "ks_p_value": 0.38261188,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 97.4758,
+          "current_mean": 92.1373,
+          "reference_std": 83.8942,
+          "current_std": 79.7321,
+          "relative_mean_shift_pct": -5.48,
+          "associated_field_drift_sources": [
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "laplacian_var": {
+          "feature_name": "laplacian_var",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.017604,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.02888,
+          "ks_p_value": 0.8269428,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 153.9564,
+          "current_mean": 152.4257,
+          "reference_std": 51.7889,
+          "current_std": 51.4183,
+          "relative_mean_shift_pct": -0.99,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "size_kb": {
+          "feature_name": "size_kb",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.018713,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.045658,
+          "ks_p_value": 0.28493668,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 720.1345,
+          "current_mean": 601.5946,
+          "reference_std": 2117.0785,
+          "current_std": 1996.494,
+          "relative_mean_shift_pct": -16.46,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "total_pixels": {
+          "feature_name": "total_pixels",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.011742,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.034095,
+          "ks_p_value": 0.646476,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 2594547.9792,
+          "current_mean": 2116635.648,
+          "reference_std": 6745690.8891,
+          "current_std": 6062977.6473,
+          "relative_mean_shift_pct": -18.42,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "resolution_mp": {
+          "feature_name": "resolution_mp",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.011742,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.034095,
+          "ks_p_value": 0.646476,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 2.5949,
+          "current_mean": 2.117,
+          "reference_std": 6.7455,
+          "current_std": 6.0628,
+          "relative_mean_shift_pct": -18.42,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "aspect_ratio": {
+          "feature_name": "aspect_ratio",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.006988,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.020214,
+          "ks_p_value": 0.98998991,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 1.0375,
+          "current_mean": 1.0305,
+          "reference_std": 0.1581,
+          "current_std": 0.1359,
+          "relative_mean_shift_pct": -0.68,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        }
+      }
+    },
+    "severe_multivariate_field_drift": {
+      "batch_name": "Cenario_03_Drift_Severo_Novas_Cultivares_e_Sensores",
+      "timestamp": "2026-11-06 11:07:27",
+      "n_reference_samples": 5574,
+      "n_current_samples": 500,
+      "decision": {
+        "alert_level": "EMERGENCY_ROLLBACK_AND_RETRAIN",
+        "retrain_required": true,
+        "rollback_required": true,
+        "recommended_action": "Comutar imediatamente o tráfego de inferência para o modelo de backup v0.9.0 (svm_pipeline_optimal.joblib) e iniciar o pipeline de retreinamento com os lotes recentes.",
+        "summary_metrics": {
+          "total_monitored_features": 17,
+          "n_critical_features": 5,
+          "n_warning_features": 0,
+          "n_critical_psi_features": 5,
+          "n_critical_ks_features": 5,
+          "critical_feature_fraction": 0.2941,
+          "max_psi": 12.431273,
+          "mean_psi": 2.064039,
+          "max_ks_statistic": 0.985468,
+          "new_labeled_samples": 620,
+          "days_since_last_train": 95,
+          "current_f1_macro": 0.462,
+          "quarantine_rate": 0.068
+        },
+        "critical_features_list": [
+          "exg_index",
+          "exr_index",
+          "indice_clorose_necrose",
+          "glcm_contrast",
+          "laplacian_var"
+        ],
+        "warning_features_list": [],
+        "triggered_rules": [
+          {
+            "rule_id": "RULE-PSI-CRITICAL",
+            "metric": "Population Stability Index (PSI)",
+            "observed_value": 12.4313,
+            "threshold": 0.25,
+            "affected_features": [
+              "exg_index",
+              "exr_index",
+              "indice_clorose_necrose",
+              "glcm_contrast",
+              "laplacian_var"
+            ],
+            "action": "TRIGGER_RETRAINING_AND_EVALUATE_ROLLBACK",
+            "description": "PSI crítico (>= 0.25) detectado em 5 feature(s): ['exg_index', 'exr_index', 'indice_clorose_necrose', 'glcm_contrast', 'laplacian_var']."
+          },
+          {
+            "rule_id": "RULE-KS-CONCEPT-DATA-DRIFT",
+            "metric": "Kolmogorov-Smirnov Two-Sample Test",
+            "observed_value": 0.9855,
+            "threshold": "p < 0.01 & D >= 0.1",
+            "affected_features": [
+              "exg_index",
+              "exr_index",
+              "indice_clorose_necrose",
+              "glcm_contrast",
+              "laplacian_var"
+            ],
+            "action": "TRIGGER_RETRAINING_PIPELINE",
+            "description": "Rejeição da hipótese nula de estabilidade no teste KS (p < 0.01) em 5 features: ['exg_index', 'exr_index', 'indice_clorose_necrose', 'glcm_contrast', 'laplacian_var']."
+          },
+          {
+            "rule_id": "RULE-MULTIVARIATE-DRIFT-FRACTION",
+            "metric": "Drifted Features Ratio",
+            "observed_value": 0.2941,
+            "threshold": 0.2,
+            "affected_features": [
+              "exg_index",
+              "exr_index",
+              "indice_clorose_necrose",
+              "glcm_contrast",
+              "laplacian_var"
+            ],
+            "action": "TRIGGER_FULL_PIPELINE_RETRAINING",
+            "description": "29.4% das features visuais apresentam drift crítico (limite: 20.0%)."
+          },
+          {
+            "rule_id": "RULE-DATA-VOLUME-CADENCE",
+            "metric": "New Audited Labeled Images",
+            "observed_value": 620,
+            "threshold": 500,
+            "affected_features": [],
+            "action": "TRIGGER_INCREMENTAL_RETRAINING",
+            "description": "Volume de novas imagens laudadas por fitopatologistas (620) atingiu a meta de requalificação (>= 500)."
+          },
+          {
+            "rule_id": "RULE-PHENOLOGICAL-WINDOW-90D",
+            "metric": "Days Since Last Homologated Training",
+            "observed_value": 95,
+            "threshold": 90,
+            "affected_features": [],
+            "action": "TRIGGER_SEASONAL_RETRAINING",
+            "description": "Decurso de 95 dias desde o último treinamento (limite do ciclo fenológico: 90 dias)."
+          },
+          {
+            "rule_id": "RULE-PERFORMANCE-DEGRADATION-F1",
+            "metric": "Field Audited F1-Macro",
+            "observed_value": 0.462,
+            "threshold": 0.5,
+            "affected_features": [
+              "exg_index",
+              "exr_index",
+              "indice_clorose_necrose",
+              "glcm_contrast",
+              "laplacian_var"
+            ],
+            "action": "IMMEDIATE_ROLLBACK_TO_V0.9.0_AND_RETRAIN",
+            "description": "Queda severa de performance preditiva em campo (F1-Macro = 0.4620 < 0.5)."
+          },
+          {
+            "rule_id": "RULE-QUARANTINE-SPIKE",
+            "metric": "Schema Quarantine Rejection Rate",
+            "observed_value": 0.068,
+            "threshold": 0.05,
+            "affected_features": [],
+            "action": "IMMEDIATE_SENSOR_AUDIT_AND_ROLLBACK",
+            "description": "Taxa de rejeição de schema (6.80%) excedeu o limite operacional de 5.0%."
+          }
+        ],
+        "probable_field_causes": [
+          {
+            "source_id": "DRIFT-SRC-01",
+            "source_key": "seasonal_illumination",
+            "name": "Mudança de Iluminação Sazonal e Geometria Solar",
+            "drift_taxonomy": "Data Drift (Covariate Shift)",
+            "matching_drifted_features": [
+              "exg_index",
+              "exr_index"
+            ],
+            "recommended_mitigation": "Normalização radiométrica via StandardScaler re-ajustado por estação climática, calibração de balanço de branco na borda e retreinamento sazonal com amostras estratificadas por iluminância."
+          },
+          {
+            "source_id": "DRIFT-SRC-02",
+            "source_key": "new_cameras_sensors",
+            "name": "Introdução de Novas Câmeras, Lentes e Sensores Ópticos",
+            "drift_taxonomy": "Data Drift (Covariate Shift)",
+            "matching_drifted_features": [
+              "glcm_contrast",
+              "laplacian_var"
+            ],
+            "recommended_mitigation": "Padronização de reamostragem espacial pré-GLCM, bloqueio de imagens com laplacian_var < 20 no SchemaValidator e inclusão de lotes de calibração óptica sempre que novos modelos de câmeras forem homologados."
+          },
+          {
+            "source_id": "DRIFT-SRC-03",
+            "source_key": "phenological_stages_and_cultivars",
+            "name": "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares",
+            "drift_taxonomy": "Concept Drift & Covariate Shift",
+            "matching_drifted_features": [
+              "exg_index",
+              "exr_index",
+              "indice_clorose_necrose"
+            ],
+            "recommended_mitigation": "Retreinamento programado a cada ciclo fenológico trimestral (90 dias) com auditoria fitopatológica humana (Active Learning) e expansão da ABT para contemplar novas cultivares comerciais."
+          }
+        ]
+      },
+      "feature_metrics": {
+        "mean_hue": {
+          "feature_name": "mean_hue",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.015944,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.056673,
+          "ks_p_value": 0.1006916,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 49.1091,
+          "current_mean": 49.9916,
+          "reference_std": 18.2481,
+          "current_std": 18.7528,
+          "relative_mean_shift_pct": 1.8,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "std_saturation": {
+          "feature_name": "std_saturation",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.01836,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.053147,
+          "ks_p_value": 0.14402743,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 0.197,
+          "current_mean": 0.1918,
+          "reference_std": 0.0645,
+          "current_std": 0.0644,
+          "relative_mean_shift_pct": -2.68,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar"
+          ]
+        },
+        "exg_index": {
+          "feature_name": "exg_index",
+          "is_critical_agronomic_feature": true,
+          "psi": 2.766277,
+          "psi_severity": "CRITICAL",
+          "ks_statistic": 0.583234,
+          "ks_p_value": 0.0,
+          "ks_drift_detected": true,
+          "ks_severity": "CRITICAL",
+          "combined_severity": "CRITICAL",
+          "reference_mean": 22.0865,
+          "current_mean": 4.0931,
+          "reference_std": 12.7958,
+          "current_std": 12.5977,
+          "relative_mean_shift_pct": -81.47,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "exr_index": {
+          "feature_name": "exr_index",
+          "is_critical_agronomic_feature": true,
+          "psi": 2.090733,
+          "psi_severity": "CRITICAL",
+          "ks_statistic": 0.420495,
+          "ks_p_value": 0.0,
+          "ks_drift_detected": true,
+          "ks_severity": "CRITICAL",
+          "combined_severity": "CRITICAL",
+          "reference_mean": 4.5866,
+          "current_mean": 19.1998,
+          "reference_std": 13.8064,
+          "current_std": 13.6199,
+          "relative_mean_shift_pct": 318.61,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "rg_ratio": {
+          "feature_name": "rg_ratio",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.020833,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.042487,
+          "ks_p_value": 0.367847,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 0.825,
+          "current_mean": 0.8061,
+          "reference_std": 0.2434,
+          "current_std": 0.2402,
+          "relative_mean_shift_pct": -2.29,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "indice_clorose_necrose": {
+          "feature_name": "indice_clorose_necrose",
+          "is_critical_agronomic_feature": true,
+          "psi": 12.431273,
+          "psi_severity": "CRITICAL",
+          "ks_statistic": 0.985468,
+          "ks_p_value": 0.0,
+          "ks_drift_detected": true,
+          "ks_severity": "CRITICAL",
+          "combined_severity": "CRITICAL",
+          "reference_mean": 4.4121,
+          "current_mean": 14.2355,
+          "reference_std": 1.5607,
+          "current_std": 2.8822,
+          "relative_mean_shift_pct": 222.64,
+          "associated_field_drift_sources": [
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "hue_dispersion": {
+          "feature_name": "hue_dispersion",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.017272,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.037838,
+          "ks_p_value": 0.51394071,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 8.9594,
+          "current_mean": 8.9208,
+          "reference_std": 3.1098,
+          "current_std": 3.3512,
+          "relative_mean_shift_pct": -0.43,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar"
+          ]
+        },
+        "glcm_contrast": {
+          "feature_name": "glcm_contrast",
+          "is_critical_agronomic_feature": true,
+          "psi": 5.970221,
+          "psi_severity": "CRITICAL",
+          "ks_statistic": 0.729354,
+          "ks_p_value": 0.0,
+          "ks_drift_detected": true,
+          "ks_severity": "CRITICAL",
+          "combined_severity": "CRITICAL",
+          "reference_mean": 25.4214,
+          "current_mean": 55.6826,
+          "reference_std": 9.3968,
+          "current_std": 16.4657,
+          "relative_mean_shift_pct": 119.04,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "glcm_homogeneity": {
+          "feature_name": "glcm_homogeneity",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.009869,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.044539,
+          "ks_p_value": 0.31254631,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 0.6945,
+          "current_mean": 0.7035,
+          "reference_std": 0.1166,
+          "current_std": 0.1169,
+          "relative_mean_shift_pct": 1.31,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "glcm_dissimilarity": {
+          "feature_name": "glcm_dissimilarity",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.014794,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.043781,
+          "ks_p_value": 0.33226799,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 2.0842,
+          "current_mean": 2.0211,
+          "reference_std": 0.8637,
+          "current_std": 0.8578,
+          "relative_mean_shift_pct": -3.03,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "glcm_energy": {
+          "feature_name": "glcm_energy",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.009869,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.044539,
+          "ks_p_value": 0.31254631,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 0.6945,
+          "current_mean": 0.7035,
+          "reference_std": 0.1166,
+          "current_std": 0.1169,
+          "relative_mean_shift_pct": 1.31,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "indice_rugosidade_pustula": {
+          "feature_name": "indice_rugosidade_pustula",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.016509,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.041973,
+          "ks_p_value": 0.38261188,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 97.4758,
+          "current_mean": 92.1373,
+          "reference_std": 83.8942,
+          "current_std": 79.7321,
+          "relative_mean_shift_pct": -5.48,
+          "associated_field_drift_sources": [
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "laplacian_var": {
+          "feature_name": "laplacian_var",
+          "is_critical_agronomic_feature": true,
+          "psi": 11.657519,
+          "psi_severity": "CRITICAL",
+          "ks_statistic": 0.913787,
+          "ks_p_value": 0.0,
+          "ks_drift_detected": true,
+          "ks_severity": "CRITICAL",
+          "combined_severity": "CRITICAL",
+          "reference_mean": 153.9564,
+          "current_mean": 445.8218,
+          "reference_std": 51.7889,
+          "current_std": 123.4039,
+          "relative_mean_shift_pct": 189.58,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "size_kb": {
+          "feature_name": "size_kb",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.018713,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.045658,
+          "ks_p_value": 0.28493668,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 720.1345,
+          "current_mean": 601.5946,
+          "reference_std": 2117.0785,
+          "current_std": 1996.494,
+          "relative_mean_shift_pct": -16.46,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "total_pixels": {
+          "feature_name": "total_pixels",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.011742,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.034095,
+          "ks_p_value": 0.646476,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 2594547.9792,
+          "current_mean": 2116635.648,
+          "reference_std": 6745690.8891,
+          "current_std": 6062977.6473,
+          "relative_mean_shift_pct": -18.42,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "resolution_mp": {
+          "feature_name": "resolution_mp",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.011742,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.034095,
+          "ks_p_value": 0.646476,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 2.5949,
+          "current_mean": 2.117,
+          "reference_std": 6.7455,
+          "current_std": 6.0628,
+          "relative_mean_shift_pct": -18.42,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "aspect_ratio": {
+          "feature_name": "aspect_ratio",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.006988,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.020214,
+          "ks_p_value": 0.98998991,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 1.0375,
+          "current_mean": 1.0305,
+          "reference_std": 0.1581,
+          "current_std": 0.1359,
+          "relative_mean_shift_pct": -0.68,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        }
+      }
+    },
+    "real_blind_test_partition_audit": {
+      "batch_name": "Cenario_04_Auditoria_Real_Particao_Teste_vs_Treino",
+      "timestamp": "2026-11-06 11:07:27",
+      "n_reference_samples": 5574,
+      "n_current_samples": 380,
+      "decision": {
+        "alert_level": "EMERGENCY_ROLLBACK_AND_RETRAIN",
+        "retrain_required": true,
+        "rollback_required": true,
+        "recommended_action": "Comutar imediatamente o tráfego de inferência para o modelo de backup v0.9.0 (svm_pipeline_optimal.joblib) e iniciar o pipeline de retreinamento com os lotes recentes.",
+        "summary_metrics": {
+          "total_monitored_features": 17,
+          "n_critical_features": 5,
+          "n_warning_features": 3,
+          "n_critical_psi_features": 3,
+          "n_critical_ks_features": 5,
+          "critical_feature_fraction": 0.2941,
+          "max_psi": 0.821832,
+          "mean_psi": 0.146165,
+          "max_ks_statistic": 0.274716,
+          "new_labeled_samples": 0,
+          "days_since_last_train": 10,
+          "current_f1_macro": 0.6048,
+          "quarantine_rate": 0.0
+        },
+        "critical_features_list": [
+          "laplacian_var",
+          "size_kb",
+          "total_pixels",
+          "resolution_mp",
+          "aspect_ratio"
+        ],
+        "warning_features_list": [
+          "std_saturation",
+          "rg_ratio",
+          "hue_dispersion"
+        ],
+        "triggered_rules": [
+          {
+            "rule_id": "RULE-PSI-CRITICAL",
+            "metric": "Population Stability Index (PSI)",
+            "observed_value": 0.8218,
+            "threshold": 0.25,
+            "affected_features": [
+              "size_kb",
+              "total_pixels",
+              "resolution_mp"
+            ],
+            "action": "TRIGGER_RETRAINING_AND_EVALUATE_ROLLBACK",
+            "description": "PSI crítico (>= 0.25) detectado em 3 feature(s): ['size_kb', 'total_pixels', 'resolution_mp']."
+          },
+          {
+            "rule_id": "RULE-KS-CONCEPT-DATA-DRIFT",
+            "metric": "Kolmogorov-Smirnov Two-Sample Test",
+            "observed_value": 0.2747,
+            "threshold": "p < 0.01 & D >= 0.1",
+            "affected_features": [
+              "laplacian_var",
+              "size_kb",
+              "total_pixels",
+              "resolution_mp",
+              "aspect_ratio"
+            ],
+            "action": "TRIGGER_RETRAINING_PIPELINE",
+            "description": "Rejeição da hipótese nula de estabilidade no teste KS (p < 0.01) em 5 features: ['laplacian_var', 'size_kb', 'total_pixels', 'resolution_mp', 'aspect_ratio']."
+          },
+          {
+            "rule_id": "RULE-MULTIVARIATE-DRIFT-FRACTION",
+            "metric": "Drifted Features Ratio",
+            "observed_value": 0.2941,
+            "threshold": 0.2,
+            "affected_features": [
+              "laplacian_var",
+              "size_kb",
+              "total_pixels",
+              "resolution_mp",
+              "aspect_ratio"
+            ],
+            "action": "TRIGGER_FULL_PIPELINE_RETRAINING",
+            "description": "29.4% das features visuais apresentam drift crítico (limite: 20.0%)."
+          }
+        ],
+        "probable_field_causes": [
+          {
+            "source_id": "DRIFT-SRC-01",
+            "source_key": "seasonal_illumination",
+            "name": "Mudança de Iluminação Sazonal e Geometria Solar",
+            "drift_taxonomy": "Data Drift (Covariate Shift)",
+            "matching_drifted_features": [
+              "hue_dispersion",
+              "rg_ratio",
+              "std_saturation"
+            ],
+            "recommended_mitigation": "Normalização radiométrica via StandardScaler re-ajustado por estação climática, calibração de balanço de branco na borda e retreinamento sazonal com amostras estratificadas por iluminância."
+          },
+          {
+            "source_id": "DRIFT-SRC-02",
+            "source_key": "new_cameras_sensors",
+            "name": "Introdução de Novas Câmeras, Lentes e Sensores Ópticos",
+            "drift_taxonomy": "Data Drift (Covariate Shift)",
+            "matching_drifted_features": [
+              "aspect_ratio",
+              "laplacian_var",
+              "resolution_mp",
+              "size_kb",
+              "total_pixels"
+            ],
+            "recommended_mitigation": "Padronização de reamostragem espacial pré-GLCM, bloqueio de imagens com laplacian_var < 20 no SchemaValidator e inclusão de lotes de calibração óptica sempre que novos modelos de câmeras forem homologados."
+          },
+          {
+            "source_id": "DRIFT-SRC-03",
+            "source_key": "phenological_stages_and_cultivars",
+            "name": "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares",
+            "drift_taxonomy": "Concept Drift & Covariate Shift",
+            "matching_drifted_features": [
+              "rg_ratio"
+            ],
+            "recommended_mitigation": "Retreinamento programado a cada ciclo fenológico trimestral (90 dias) com auditoria fitopatológica humana (Active Learning) e expansão da ABT para contemplar novas cultivares comerciais."
+          }
+        ]
+      },
+      "feature_metrics": {
+        "mean_hue": {
+          "feature_name": "mean_hue",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.033267,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.048658,
+          "ks_p_value": 0.35649095,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 49.1091,
+          "current_mean": 48.3675,
+          "reference_std": 18.2481,
+          "current_std": 16.9699,
+          "relative_mean_shift_pct": -1.51,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "std_saturation": {
+          "feature_name": "std_saturation",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.040699,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.093067,
+          "ks_p_value": 0.00391422,
+          "ks_drift_detected": false,
+          "ks_severity": "WARNING",
+          "combined_severity": "WARNING",
+          "reference_mean": 0.197,
+          "current_mean": 0.2051,
+          "reference_std": 0.0645,
+          "current_std": 0.0619,
+          "relative_mean_shift_pct": 4.12,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar"
+          ]
+        },
+        "exg_index": {
+          "feature_name": "exg_index",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.043622,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.064094,
+          "ks_p_value": 0.10270284,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 22.0865,
+          "current_mean": 21.0608,
+          "reference_std": 12.7958,
+          "current_std": 11.4915,
+          "relative_mean_shift_pct": -4.64,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "exr_index": {
+          "feature_name": "exr_index",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.035823,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.067363,
+          "ks_p_value": 0.07545974,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 4.5866,
+          "current_mean": 5.4693,
+          "reference_std": 13.8064,
+          "current_std": 12.7234,
+          "relative_mean_shift_pct": 19.25,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "rg_ratio": {
+          "feature_name": "rg_ratio",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.045104,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.082491,
+          "ks_p_value": 0.01483215,
+          "ks_drift_detected": false,
+          "ks_severity": "WARNING",
+          "combined_severity": "WARNING",
+          "reference_mean": 0.825,
+          "current_mean": 0.8441,
+          "reference_std": 0.2434,
+          "current_std": 0.2146,
+          "relative_mean_shift_pct": 2.31,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "indice_clorose_necrose": {
+          "feature_name": "indice_clorose_necrose",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.037854,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.043187,
+          "ks_p_value": 0.50605532,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 4.4121,
+          "current_mean": 4.4078,
+          "reference_std": 1.5607,
+          "current_std": 2.0457,
+          "relative_mean_shift_pct": -0.1,
+          "associated_field_drift_sources": [
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "hue_dispersion": {
+          "feature_name": "hue_dispersion",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.046564,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.079043,
+          "ks_p_value": 0.02212773,
+          "ks_drift_detected": false,
+          "ks_severity": "WARNING",
+          "combined_severity": "WARNING",
+          "reference_mean": 8.9594,
+          "current_mean": 9.4255,
+          "reference_std": 3.1098,
+          "current_std": 3.5448,
+          "relative_mean_shift_pct": 5.2,
+          "associated_field_drift_sources": [
+            "Mudança de Iluminação Sazonal e Geometria Solar"
+          ]
+        },
+        "glcm_contrast": {
+          "feature_name": "glcm_contrast",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.047639,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.069531,
+          "ks_p_value": 0.06097855,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 25.4214,
+          "current_mean": 26.0966,
+          "reference_std": 9.3968,
+          "current_std": 8.7434,
+          "relative_mean_shift_pct": 2.66,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "glcm_homogeneity": {
+          "feature_name": "glcm_homogeneity",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.03917,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.067441,
+          "ks_p_value": 0.0748856,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 0.6945,
+          "current_mean": 0.686,
+          "reference_std": 0.1166,
+          "current_std": 0.109,
+          "relative_mean_shift_pct": -1.21,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "glcm_dissimilarity": {
+          "feature_name": "glcm_dissimilarity",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.030817,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.063196,
+          "ks_p_value": 0.11147945,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 2.0842,
+          "current_mean": 2.1454,
+          "reference_std": 0.8637,
+          "current_std": 0.8089,
+          "relative_mean_shift_pct": 2.94,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos",
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "glcm_energy": {
+          "feature_name": "glcm_energy",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.03917,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.067441,
+          "ks_p_value": 0.0748856,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 0.6945,
+          "current_mean": 0.686,
+          "reference_std": 0.1166,
+          "current_std": 0.109,
+          "relative_mean_shift_pct": -1.21,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "indice_rugosidade_pustula": {
+          "feature_name": "indice_rugosidade_pustula",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.023473,
+          "psi_severity": "STABLE",
+          "ks_statistic": 0.069921,
+          "ks_p_value": 0.05864347,
+          "ks_drift_detected": false,
+          "ks_severity": "STABLE",
+          "combined_severity": "STABLE",
+          "reference_mean": 97.4758,
+          "current_mean": 100.3503,
+          "reference_std": 83.8942,
+          "current_std": 80.1472,
+          "relative_mean_shift_pct": 2.95,
+          "associated_field_drift_sources": [
+            "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares"
+          ]
+        },
+        "laplacian_var": {
+          "feature_name": "laplacian_var",
+          "is_critical_agronomic_feature": true,
+          "psi": 0.209457,
+          "psi_severity": "WARNING",
+          "ks_statistic": 0.171423,
+          "ks_p_value": 0.0,
+          "ks_drift_detected": true,
+          "ks_severity": "CRITICAL",
+          "combined_severity": "CRITICAL",
+          "reference_mean": 153.9564,
+          "current_mean": 179.665,
+          "reference_std": 51.7889,
+          "current_std": 72.5785,
+          "relative_mean_shift_pct": 16.7,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "size_kb": {
+          "feature_name": "size_kb",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.821832,
+          "psi_severity": "CRITICAL",
+          "ks_statistic": 0.261259,
+          "ks_p_value": 0.0,
+          "ks_drift_detected": true,
+          "ks_severity": "CRITICAL",
+          "combined_severity": "CRITICAL",
+          "reference_mean": 720.1345,
+          "current_mean": 1961.5289,
+          "reference_std": 2117.0785,
+          "current_std": 3253.9093,
+          "relative_mean_shift_pct": 172.38,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "total_pixels": {
+          "feature_name": "total_pixels",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.418944,
+          "psi_severity": "CRITICAL",
+          "ks_statistic": 0.274716,
+          "ks_p_value": 0.0,
+          "ks_drift_detected": true,
+          "ks_severity": "CRITICAL",
+          "combined_severity": "CRITICAL",
+          "reference_mean": 2594547.9792,
+          "current_mean": 6612182.3868,
+          "reference_std": 6745690.8891,
+          "current_std": 10094508.0137,
+          "relative_mean_shift_pct": 154.85,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "resolution_mp": {
+          "feature_name": "resolution_mp",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.418944,
+          "psi_severity": "CRITICAL",
+          "ks_statistic": 0.274716,
+          "ks_p_value": 0.0,
+          "ks_drift_detected": true,
+          "ks_severity": "CRITICAL",
+          "combined_severity": "CRITICAL",
+          "reference_mean": 2.5949,
+          "current_mean": 6.6124,
+          "reference_std": 6.7455,
+          "current_std": 10.0943,
+          "relative_mean_shift_pct": 154.82,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        },
+        "aspect_ratio": {
+          "feature_name": "aspect_ratio",
+          "is_critical_agronomic_feature": false,
+          "psi": 0.15242,
+          "psi_severity": "WARNING",
+          "ks_statistic": 0.170944,
+          "ks_p_value": 0.0,
+          "ks_drift_detected": true,
+          "ks_severity": "CRITICAL",
+          "combined_severity": "CRITICAL",
+          "reference_mean": 1.0375,
+          "current_mean": 1.0963,
+          "reference_std": 0.1581,
+          "current_std": 0.2568,
+          "relative_mean_shift_pct": 5.66,
+          "associated_field_drift_sources": [
+            "Introdução de Novas Câmeras, Lentes e Sensores Ópticos"
+          ]
+        }
+      }
+    }
+  }
+}

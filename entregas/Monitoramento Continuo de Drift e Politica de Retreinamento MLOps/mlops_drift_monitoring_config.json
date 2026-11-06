@@ -1,0 +1,125 @@
+{
+  "config_name": "sugarvision_mlops_drift_monitoring_config",
+  "version": "1.0.0",
+  "project": "Sanidade-Vegetal (SugarVision)",
+  "sprint": "Sprint 5 — MLOps Continuous Monitoring & Drift Governance",
+  "timestamp": "2026-11-06 11:07:27",
+  "active_production_model": {
+    "version": "1.0.0",
+    "artifact_path": "models/sanidade_vegetal_pipeline_final.joblib",
+    "rollback_version": "0.9.0",
+    "rollback_artifact_path": "models/svm_pipeline_optimal.joblib"
+  },
+  "monitored_visual_features": [
+    "mean_hue",
+    "std_saturation",
+    "exg_index",
+    "exr_index",
+    "rg_ratio",
+    "indice_clorose_necrose",
+    "hue_dispersion",
+    "glcm_contrast",
+    "glcm_homogeneity",
+    "glcm_dissimilarity",
+    "glcm_energy",
+    "indice_rugosidade_pustula",
+    "laplacian_var",
+    "size_kb",
+    "total_pixels",
+    "resolution_mp",
+    "aspect_ratio"
+  ],
+  "critical_agronomic_features": [
+    "exg_index",
+    "exr_index",
+    "rg_ratio",
+    "indice_clorose_necrose",
+    "mean_hue",
+    "glcm_contrast",
+    "glcm_homogeneity",
+    "indice_rugosidade_pustula",
+    "laplacian_var"
+  ],
+  "thresholds": {
+    "psi_warning": 0.1,
+    "psi_critical": 0.25,
+    "ks_alpha_warning": 0.05,
+    "ks_alpha_critical": 0.01,
+    "ks_statistic_min_effect": 0.1,
+    "min_drifted_features_for_retrain": 2,
+    "critical_feature_fraction_threshold": 0.2,
+    "min_new_labeled_samples_trigger": 500,
+    "max_days_without_retrain": 90,
+    "min_acceptable_f1_macro": 0.5,
+    "max_quarantine_rejection_rate": 0.05
+  },
+  "field_drift_sources_catalog": {
+    "seasonal_illumination": {
+      "source_id": "DRIFT-SRC-01",
+      "name": "Mudança de Iluminação Sazonal e Geometria Solar",
+      "category": "Mudança de Iluminação Sazonal",
+      "drift_taxonomy": "Data Drift (Covariate Shift)",
+      "environmental_causes": [
+        "Transição entre safra de verão (alta irradiação zenital, especularidade intensa) e inverno seco (luz difusa, ângulo solar oblíquo).",
+        "Cobertura de nuvens intermitente, neblina matinal e poeira em suspensão durante colheita mecanizada.",
+        "Horários extremos de captura fotográfica no talhão (alvorada/crepúsculo) alterando a temperatura de cor (Kelvin)."
+      ],
+      "affected_features": [
+        "mean_hue",
+        "std_saturation",
+        "exg_index",
+        "exr_index",
+        "rg_ratio",
+        "hue_dispersion"
+      ],
+      "physical_mechanism": "Deslocamento sistemático nos canais cromáticos RGB/HSV: o excesso de reflexo especular satura o canal V e comprime a saturação (std_saturation), enquanto a iluminação oblíqua avermelhada inflaciona artificialmente a razão R/G (rg_ratio) e o índice ExR (exr_index).",
+      "mitigation_and_sustainment_action": "Normalização radiométrica via StandardScaler re-ajustado por estação climática, calibração de balanço de branco na borda e retreinamento sazonal com amostras estratificadas por iluminância."
+    },
+    "new_cameras_sensors": {
+      "source_id": "DRIFT-SRC-02",
+      "name": "Introdução de Novas Câmeras, Lentes e Sensores Ópticos",
+      "category": "Novas Câmeras e Sensores",
+      "drift_taxonomy": "Data Drift (Covariate Shift)",
+      "environmental_causes": [
+        "Substituição ou heterogeneidade de dispositivos móveis de campo (smartphones distintos, câmeras embarcadas em tratores/drones).",
+        "Mudança na resolução nativa do sensor CMOS, distância focal da lente e algoritmos internos de pós-processamento ISP (HDR, sharpening, compressão JPEG).",
+        "Degradação física de lentes por microabrasão de sílica, umidade ou resíduos de calda fitossanitária."
+      ],
+      "affected_features": [
+        "laplacian_var",
+        "glcm_contrast",
+        "glcm_homogeneity",
+        "glcm_dissimilarity",
+        "glcm_energy",
+        "resolution_mp",
+        "total_pixels",
+        "size_kb",
+        "aspect_ratio"
+      ],
+      "physical_mechanism": "Sensores de maior resolução ou com filtros de nitidez agressivos elevam abruptamente a variância laplaciana (laplacian_var) e o contraste GLCM (glcm_contrast), enquanto lentes embaçadas suavizam microtexturas, reduzindo o Índice de Rugosidade Foliar de Pústula (indice_rugosidade_pustula) e mascarando urédias incipientes de Puccinia melanocephala.",
+      "mitigation_and_sustainment_action": "Padronização de reamostragem espacial pré-GLCM, bloqueio de imagens com laplacian_var < 20 no SchemaValidator e inclusão de lotes de calibração óptica sempre que novos modelos de câmeras forem homologados."
+    },
+    "phenological_stages_and_cultivars": {
+      "source_id": "DRIFT-SRC-03",
+      "name": "Estádios Fenológicos da Cana-de-Açúcar e Novas Cultivares",
+      "category": "Estádios Fenológicos e Cultivares",
+      "drift_taxonomy": "Concept Drift & Covariate Shift",
+      "environmental_causes": [
+        "Evolução fisiológica da planta: brotação, perfilhamento, crescimento dos colmos e maturação/senescência natural.",
+        "Introdução de novas variedades genéticas (ex.: RB, CTC, IAC) com arquitetura foliar, cerosidade epicuticular e teor basal de clorofila distintos.",
+        "Estresse hídrico sazonal e deficiências nutricionais (N, K, Mg) que mimetizam sintomas visuais de clorose e escaldadura."
+      ],
+      "affected_features": [
+        "indice_clorose_necrose",
+        "indice_rugosidade_pustula",
+        "exg_index",
+        "exr_index",
+        "rg_ratio",
+        "mean_hue",
+        "glcm_dissimilarity"
+      ],
+      "physical_mechanism": "Na maturação e senescência fisiológica, a degradação natural da clorofila reduz o ExG (exg_index) e eleva o Índice de Clorose/Necrose (indice_clorose_necrose) em folhas sadias, alterando a fronteira de decisão P(Y|X) (Concept Drift) entre folhas senescentes sadias e patologias como Yellow Leaf (SCYLV) ou Red Rot.",
+      "mitigation_and_sustainment_action": "Retreinamento programado a cada ciclo fenológico trimestral (90 dias) com auditoria fitopatológica humana (Active Learning) e expansão da ABT para contemplar novas cultivares comerciais."
+    }
+  }
+}
