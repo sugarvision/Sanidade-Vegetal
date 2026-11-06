@@ -98,15 +98,18 @@ O tráfego de inferência é comutado instantaneamente para o modelo **v0.9.0** 
 ### 5.2 Gatilhos de Re-treinamento e Requalificação
 O pipeline de re-treinamento é disparado sob três condições:
 * Entrada de mais de **500 novas imagens rotuladas** por patologistas.
-* Identificação de *Concept Drift* estatístico via teste de Kolmogorov-Smirnov ($p < 0.01$).
+* Identificação de *Concept Drift* ou *Data Drift* estatístico via teste de Kolmogorov-Smirnov ($p < 0.01, D \ge 0.10$) e Population Stability Index ($\text{PSI} \ge 0.25$) implementados no motor [`src/mlops_drift_monitoring.py`](../src/mlops_drift_monitoring.py).
 * Vencimento do ciclo fenológico trimestral (**90 dias** de operação contínua).
+
+Consulte a especificação matemática completa de KS, PSI, mapeamento de fontes de drift em campo (iluminação sazonal, novas câmeras/sensores e estádios fenológicos) e política de sustentação em [`docs/politica_monitoramento_drift_sustentacao_mlops.md`](./politica_monitoramento_drift_sustentacao_mlops.md).
 
 ---
 
 ## 6. Validação e Homologação por Testes Automatizados
 
-A conformidade desta governança é assegurada pela suíte [`src/test_schema_validation_and_registry.py`](../src/test_schema_validation_and_registry.py), cobrindo:
+A conformidade desta governança é assegurada pelas suítes [`src/test_schema_validation_and_registry.py`](../src/test_schema_validation_and_registry.py) e [`src/test_mlops_drift_monitoring.py`](../src/test_mlops_drift_monitoring.py), cobrindo:
 * Validação de schema JSON contra a especificação formal.
 * Rejeição e isolamento de amostras corrompidas e nulas.
 * Homologação de lotes sadios sem falso-positivos de validação.
 * Rastreabilidade e alinhamento do modelo em produção com o Model Registry.
+* Exatidão matemática do cálculo de PSI, teste bicaudal de Kolmogorov-Smirnov (KS) e acionamento automático de gatilhos de retreinamento.
