@@ -11,6 +11,14 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import joblib
+
+# Compatibilidade reversa para ColumnTransformer deserializado
+import sklearn.compose._column_transformer as _ct
+if not hasattr(_ct, '_RemainderColsList'):
+    class _RemainderColsList(list):
+        pass
+    _ct._RemainderColsList = _RemainderColsList
+
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.svm import SVC

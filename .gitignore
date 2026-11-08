@@ -20,6 +20,7 @@ datasets/**
 *.onnx
 *.pkl
 *.parquet
+!data/processed/*.parquet
 
 # ==========================================
 # Python & Ambientes Virtuais

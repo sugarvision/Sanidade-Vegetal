@@ -22,3 +22,5 @@ matplotlib==3.10.9
 
 # --- Telemetria de Hardware, MLOps e Governança de Recursos ---
 psutil==7.2.2
+seaborn>=0.13.2
+pytest>=8.3.0
