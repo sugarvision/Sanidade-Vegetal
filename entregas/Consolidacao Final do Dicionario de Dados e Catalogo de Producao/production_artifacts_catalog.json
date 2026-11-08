@@ -2,7 +2,7 @@
   "catalog_title": "Catálogo Mestre de Produção e Matriz de Rastreabilidade SEMMA (Sprint 5)",
   "project": "Sanidade-Vegetal (SugarVision)",
   "responsible": "Heitor Vitti (Engenharia de Machine Learning & IA SVM)",
-  "timestamp": "2026-11-05 08:40:50",
+  "timestamp": "2026-11-08 17:29:14",
   "version": "3.0.0",
   "semma_lifecycle_audit": {
     "status": "APPROVED",
@@ -192,9 +192,9 @@
   },
   "documentation_links_integrity": {
     "status": "APPROVED",
-    "total_markdown_files": 69,
-    "total_links_checked": 470,
-    "valid_internal_links": 453,
+    "total_markdown_files": 94,
+    "total_links_checked": 591,
+    "valid_internal_links": 574,
     "external_links_or_anchors": 17,
     "broken_links_count": 0,
     "broken_links": []
